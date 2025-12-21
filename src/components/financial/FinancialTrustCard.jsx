@@ -1,0 +1,23 @@
+import { Shield } from 'lucide-react';
+
+const FinancialTrustCard = ({ trustItems }) => {
+  return (
+    <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+      <div className="flex items-center gap-2 mb-3">
+        <Shield className="w-5 h-5 text-emerald-400" />
+        <h3 className="font-semibold text-white">Security & Trust</h3>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2">
+        {trustItems.map((item, index) => (
+          <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-white/5">
+            <span>{item.icon}</span>
+            <span className="text-xs text-gray-300">{item.text}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default FinancialTrustCard;

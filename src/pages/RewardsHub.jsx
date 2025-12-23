@@ -68,7 +68,7 @@ const RewardsHub = () => {
       case 'locked':
         return 'from-gray-500/20 to-gray-600/10 border-gray-500/30';
       default:
-        return 'from-white/5 to-white/10 border-white/10';
+        return 'from-white/5 to-white/10 border-rez-gray-200 dark:border-white/10';
     }
   };
 
@@ -79,24 +79,24 @@ const RewardsHub = () => {
       case 'current':
         return <Zap className="w-5 h-5 text-amber-400" />;
       case 'locked':
-        return <Lock className="w-5 h-5 text-gray-500" />;
+        return <Lock className="w-5 h-5 text-rez-gray-600 dark:text-gray-500" />;
       default:
         return null;
     }
   };
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-50 glass border-b border-white/10">
+      <div className="sticky top-0 z-50 glass border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="flex items-center gap-3">
-            <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <div>
-              <h1 className="text-xl font-bold text-white">Rewards Hub</h1>
-              <p className="text-xs text-gray-400">Unlock rewards at every level</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Rewards Hub</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Unlock rewards at every level</p>
             </div>
           </div>
           <Gift className="w-6 h-6 text-amber-400" />
@@ -109,7 +109,7 @@ const RewardsHub = () => {
             className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${
               activeLevel === 'app'
                 ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white'
-                : 'bg-white/10 text-gray-400'
+                : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
             }`}
           >
             🏆 ReZ Master
@@ -119,7 +119,7 @@ const RewardsHub = () => {
             className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${
               activeLevel === 'category'
                 ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white'
-                : 'bg-white/10 text-gray-400'
+                : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
             }`}
           >
             🎯 Category Rewards
@@ -129,7 +129,7 @@ const RewardsHub = () => {
             className={`px-4 py-2 rounded-full text-sm font-semibold whitespace-nowrap transition-all ${
               activeLevel === 'brand'
                 ? 'bg-gradient-to-r from-emerald-500 to-teal-500 text-white'
-                : 'bg-white/10 text-gray-400'
+                : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
             }`}
           >
             ⭐ Brand Rewards
@@ -147,30 +147,30 @@ const RewardsHub = () => {
                 {appWideRewards.icon}
               </div>
               <div className="flex-1">
-                <h2 className="text-lg font-bold text-white mb-1">{appWideRewards.programName}</h2>
-                <p className="text-sm text-gray-400">{appWideRewards.description}</p>
+                <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-1">{appWideRewards.programName}</h2>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">{appWideRewards.description}</p>
               </div>
             </div>
 
             <div className="grid grid-cols-3 gap-3">
-              <div className="p-3 rounded-xl bg-white/5 text-center">
-                <p className="text-xl font-bold text-white">{totalVisits}</p>
-                <p className="text-xs text-gray-400">Total Purchases</p>
+              <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
+                <p className="text-xl font-bold text-rez-navy dark:text-white">{totalVisits}</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Total Purchases</p>
               </div>
-              <div className="p-3 rounded-xl bg-white/5 text-center">
+              <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
                 <p className="text-xl font-bold text-purple-400">{categoriesUsed}</p>
-                <p className="text-xs text-gray-400">Categories</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Categories</p>
               </div>
-              <div className="p-3 rounded-xl bg-white/5 text-center">
+              <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
                 <p className="text-xl font-bold text-amber-400">{brandedCoins.length}</p>
-                <p className="text-xs text-gray-400">Brands</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Brands</p>
               </div>
             </div>
           </div>
 
           {/* Main Journey Rewards */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-3">Your ReZ Journey</h3>
+            <h3 className="text-lg font-bold text-rez-navy dark:text-white mb-3">Your ReZ Journey</h3>
             <div className="space-y-3">
               {appWideRewards.rewards.map((reward, index) => {
                 const requirementMatch = reward.requirement.match(/(\d+)/);
@@ -192,22 +192,22 @@ const RewardsHub = () => {
 
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
-                          <p className="text-sm font-bold text-white">{reward.milestone}</p>
+                          <p className="text-sm font-bold text-rez-navy dark:text-white">{reward.milestone}</p>
                           {getStatusIcon(reward.status)}
                         </div>
-                        <p className="text-xs text-gray-400 mb-1">{reward.requirement}</p>
+                        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{reward.requirement}</p>
                         <p className="text-sm font-semibold text-emerald-400">{reward.reward}</p>
-                        <p className="text-xs text-gray-500 mt-1">{reward.description}</p>
+                        <p className="text-xs text-rez-gray-600 dark:text-gray-500 mt-1">{reward.description}</p>
                       </div>
                     </div>
 
                     {reward.status !== 'claimed' && (
                       <div>
                         <div className="flex items-center justify-between mb-1">
-                          <p className="text-xs text-gray-400">Progress</p>
-                          <p className="text-xs font-semibold text-white">{Math.round(progress)}%</p>
+                          <p className="text-xs text-rez-gray-600 dark:text-gray-400">Progress</p>
+                          <p className="text-xs font-semibold text-rez-navy dark:text-white">{Math.round(progress)}%</p>
                         </div>
-                        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                        <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-gradient-to-r from-amber-500 to-orange-400 rounded-full transition-all"
                             style={{ width: `${Math.min(progress, 100)}%` }}
@@ -223,7 +223,7 @@ const RewardsHub = () => {
 
           {/* Diversity Rewards */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-3">Category Explorer</h3>
+            <h3 className="text-lg font-bold text-rez-navy dark:text-white mb-3">Category Explorer</h3>
             <div className="grid grid-cols-2 gap-3">
               {appWideRewards.diversityRewards.map((reward, index) => (
                 <div
@@ -234,8 +234,8 @@ const RewardsHub = () => {
                     <span className="text-2xl">{reward.icon}</span>
                     {getStatusIcon(reward.status)}
                   </div>
-                  <p className="text-xs text-gray-400 mb-1">{reward.categories} Categories</p>
-                  <p className="text-sm font-semibold text-white">{reward.reward}</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{reward.categories} Categories</p>
+                  <p className="text-sm font-semibold text-rez-navy dark:text-white">{reward.reward}</p>
                 </div>
               ))}
             </div>
@@ -243,7 +243,7 @@ const RewardsHub = () => {
 
           {/* Spending Milestones */}
           <div>
-            <h3 className="text-lg font-bold text-white mb-3">Spending Milestones</h3>
+            <h3 className="text-lg font-bold text-rez-navy dark:text-white mb-3">Spending Milestones</h3>
             <div className="space-y-2">
               {appWideRewards.spendingMilestones.map((milestone, index) => (
                 <div
@@ -253,8 +253,8 @@ const RewardsHub = () => {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{milestone.icon}</span>
                     <div>
-                      <p className="text-sm font-semibold text-white">₹{milestone.spent.toLocaleString()} spent</p>
-                      <p className="text-xs text-gray-400">{milestone.reward}</p>
+                      <p className="text-sm font-semibold text-rez-navy dark:text-white">₹{milestone.spent.toLocaleString()} spent</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{milestone.reward}</p>
                     </div>
                   </div>
                   {getStatusIcon(milestone.status)}
@@ -267,7 +267,7 @@ const RewardsHub = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Flame className="w-5 h-5 text-orange-400" />
-              <h3 className="text-lg font-bold text-white">Streak Rewards</h3>
+              <h3 className="text-lg font-bold text-rez-navy dark:text-white">Streak Rewards</h3>
             </div>
             <div className="grid grid-cols-2 gap-3">
               {appWideRewards.streakRewards.map((streak, index) => (
@@ -279,8 +279,8 @@ const RewardsHub = () => {
                     <span className="text-2xl">{streak.icon}</span>
                     {getStatusIcon(streak.status)}
                   </div>
-                  <p className="text-xs text-gray-400 mb-1">{streak.days} Days</p>
-                  <p className="text-sm font-semibold text-white">{streak.reward}</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{streak.days} Days</p>
+                  <p className="text-sm font-semibold text-rez-navy dark:text-white">{streak.reward}</p>
                 </div>
               ))}
             </div>
@@ -290,7 +290,7 @@ const RewardsHub = () => {
           <div>
             <div className="flex items-center gap-2 mb-3">
               <Users className="w-5 h-5 text-blue-400" />
-              <h3 className="text-lg font-bold text-white">Referral Rewards</h3>
+              <h3 className="text-lg font-bold text-rez-navy dark:text-white">Referral Rewards</h3>
             </div>
             <div className="space-y-2">
               {appWideRewards.referralRewards.map((referral, index) => (
@@ -301,8 +301,8 @@ const RewardsHub = () => {
                   <div className="flex items-center gap-3">
                     <span className="text-2xl">{referral.icon}</span>
                     <div>
-                      <p className="text-sm font-semibold text-white">{referral.referrals} Friend{referral.referrals > 1 ? 's' : ''}</p>
-                      <p className="text-xs text-gray-400">{referral.reward}</p>
+                      <p className="text-sm font-semibold text-rez-navy dark:text-white">{referral.referrals} Friend{referral.referrals > 1 ? 's' : ''}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{referral.reward}</p>
                     </div>
                   </div>
                   {getStatusIcon(referral.status)}
@@ -326,19 +326,19 @@ const RewardsHub = () => {
                 {/* Category Header */}
                 <div className={`p-6 rounded-3xl bg-gradient-to-br ${category.color} border ${category.borderColor} mb-4`}>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center text-3xl">
+                    <div className="w-14 h-14 rounded-2xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center text-3xl">
                       {category.icon}
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-lg font-bold text-white mb-1">{category.categoryName}</h2>
-                      <p className="text-sm text-gray-400">{category.description}</p>
+                      <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-1">{category.categoryName}</h2>
+                      <p className="text-sm text-rez-gray-600 dark:text-gray-400">{category.description}</p>
                     </div>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-white/5">
+                  <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                     <div className="flex items-center justify-between mb-1">
-                      <p className="text-sm text-gray-400">Total Visits</p>
-                      <p className="text-lg font-bold text-white">{categoryVisits}</p>
+                      <p className="text-sm text-rez-gray-600 dark:text-gray-400">Total Visits</p>
+                      <p className="text-lg font-bold text-rez-navy dark:text-white">{categoryVisits}</p>
                     </div>
                   </div>
                 </div>
@@ -363,21 +363,21 @@ const RewardsHub = () => {
 
                           <div className="flex-1">
                             <div className="flex items-center gap-2 mb-1">
-                              <p className="text-xs text-gray-400">{reward.totalVisits} Visits</p>
+                              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{reward.totalVisits} Visits</p>
                               {getStatusIcon(reward.status)}
                             </div>
-                            <p className="text-sm font-bold text-white mb-1">{reward.reward}</p>
-                            <p className="text-xs text-gray-500">{reward.description}</p>
+                            <p className="text-sm font-bold text-rez-navy dark:text-white mb-1">{reward.reward}</p>
+                            <p className="text-xs text-rez-gray-600 dark:text-gray-500">{reward.description}</p>
                           </div>
                         </div>
 
                         {reward.status !== 'claimed' && (
                           <div>
                             <div className="flex items-center justify-between mb-1">
-                              <p className="text-xs text-gray-400">{categoryVisits}/{reward.totalVisits} visits</p>
-                              <p className="text-xs font-semibold text-white">{Math.round(progress)}%</p>
+                              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{categoryVisits}/{reward.totalVisits} visits</p>
+                              <p className="text-xs font-semibold text-rez-navy dark:text-white">{Math.round(progress)}%</p>
                             </div>
-                            <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+                            <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                               <div
                                 className="h-full bg-gradient-to-r from-purple-500 to-pink-400 rounded-full transition-all"
                                 style={{ width: `${Math.min(progress, 100)}%` }}
@@ -392,7 +392,7 @@ const RewardsHub = () => {
 
                 {/* Diversity Bonus */}
                 <div className="mb-8">
-                  <h4 className="text-sm font-bold text-white mb-3">Diversity Bonus</h4>
+                  <h4 className="text-sm font-bold text-rez-navy dark:text-white mb-3">Diversity Bonus</h4>
                   <div className="grid grid-cols-3 gap-2">
                     {category.diversityBonus.map((bonus, index) => (
                       <div
@@ -403,8 +403,8 @@ const RewardsHub = () => {
                           <span className="text-xl">{bonus.icon}</span>
                           {getStatusIcon(bonus.status)}
                         </div>
-                        <p className="text-xs text-gray-400 mb-1">{bonus.brandsVisited} Brands</p>
-                        <p className="text-xs font-semibold text-white">{bonus.reward}</p>
+                        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{bonus.brandsVisited} Brands</p>
+                        <p className="text-xs font-semibold text-rez-navy dark:text-white">{bonus.reward}</p>
                       </div>
                     ))}
                   </div>
@@ -418,7 +418,7 @@ const RewardsHub = () => {
       {/* BRAND REWARDS */}
       {activeLevel === 'brand' && (
         <div className="px-4 py-4 space-y-6">
-          <p className="text-sm text-gray-400 mb-4">
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-4">
             Click on a brand to view detailed reward timeline
           </p>
 
@@ -438,10 +438,10 @@ const RewardsHub = () => {
                       {brand.logo}
                     </div>
                     <div className="flex-1">
-                      <p className="text-base font-bold text-white mb-1">{brand.merchant}</p>
-                      <p className="text-xs text-gray-400">{currentVisits} total visits</p>
+                      <p className="text-base font-bold text-rez-navy dark:text-white mb-1">{brand.merchant}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{currentVisits} total visits</p>
                     </div>
-                    <ChevronRight className="w-5 h-5 text-gray-400" />
+                    <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
                   </div>
 
                   {/* Reward Progress */}
@@ -463,13 +463,13 @@ const RewardsHub = () => {
                         >
                           <div className="text-center">
                             <p className="text-2xl mb-1">{reward.icon}</p>
-                            <p className="text-xs text-gray-400 mb-1">{reward.visits}</p>
+                            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{reward.visits}</p>
                             {isUnlocked ? (
                               <CheckCircle className="w-4 h-4 text-emerald-400 mx-auto" />
                             ) : isCurrent ? (
                               <Zap className="w-4 h-4 text-amber-400 mx-auto" />
                             ) : (
-                              <Lock className="w-4 h-4 text-gray-500 mx-auto" />
+                              <Lock className="w-4 h-4 text-rez-gray-600 dark:text-gray-500 mx-auto" />
                             )}
                           </div>
                         </div>
@@ -493,11 +493,11 @@ const RewardsHub = () => {
             <div className="flex items-center gap-3">
               <Trophy className="w-5 h-5 text-amber-400" />
               <div>
-                <p className="text-sm font-semibold text-white">View Loyalty Hub</p>
-                <p className="text-xs text-gray-400">Track all your brand progress</p>
+                <p className="text-sm font-semibold text-rez-navy dark:text-white">View Loyalty Hub</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Track all your brand progress</p>
               </div>
             </div>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
+            <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
           </div>
         </Link>
       </div>

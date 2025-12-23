@@ -6,10 +6,10 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
     return (
       <Link
         to={`/grocery/store/${store.id}`}
-        className="min-w-[180px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+        className="min-w-[180px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
       >
         <div className="flex items-center gap-3 mb-2">
-          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
+          <div className="w-12 h-12 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
             {store.logo ? (
               <img
                 src={store.logo}
@@ -25,15 +25,15 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
             )}
           </div>
           <div className="flex-1 min-w-0">
-            <h3 className="font-medium text-white truncate">{store.name}</h3>
+            <h3 className="font-medium text-rez-navy dark:text-white truncate">{store.name}</h3>
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{store.rating}</span>
+              <span className="text-xs text-rez-navy dark:text-white">{store.rating}</span>
             </div>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 text-xs text-gray-400 mb-2">
+        <div className="flex items-center gap-2 text-xs text-rez-gray-600 dark:text-gray-400 mb-2">
           <MapPin className="w-3 h-3" />
           <span>{store.distance}</span>
           {store.walkTime && (
@@ -62,11 +62,11 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
   return (
     <Link
       to={`/grocery/store/${store.id}`}
-      className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform"
+      className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform"
     >
       <div className="flex gap-4">
         {/* Logo */}
-        <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
+        <div className="w-16 h-16 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
           {store.logo ? (
             <img
               src={store.logo}
@@ -85,7 +85,7 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-white truncate">{store.name}</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white truncate">{store.name}</h3>
             {store.isOpen && (
               <span className="flex items-center gap-1">
                 <span className="w-2 h-2 rounded-full bg-emerald-400" />
@@ -97,12 +97,12 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
           <div className="flex items-center gap-3 mt-1">
             <div className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              <span className="text-sm text-white">{store.rating}</span>
-              <span className="text-xs text-gray-500">({store.reviews})</span>
+              <span className="text-sm text-rez-navy dark:text-white">{store.rating}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">({store.reviews})</span>
             </div>
             <div className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-gray-400" />
-              <span className="text-sm text-gray-400">{store.distance}</span>
+              <MapPin className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">{store.distance}</span>
             </div>
           </div>
 
@@ -111,7 +111,7 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
             {store.tags?.slice(0, 3).map((tag, index) => (
               <span
                 key={index}
-                className="px-2 py-0.5 rounded-full bg-white/10 text-[10px] text-gray-400"
+                className="px-2 py-0.5 rounded-full bg-rez-gray-100 dark:bg-white/10 text-[10px] text-rez-gray-600 dark:text-gray-400"
               >
                 {tag}
               </span>
@@ -119,11 +119,11 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
           </div>
         </div>
 
-        <ChevronRight className="w-5 h-5 text-gray-500 shrink-0" />
+        <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500 shrink-0" />
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center gap-2">
           <Coins className="w-4 h-4 text-amber-400" />
           <span className="text-sm text-amber-400">{store.cashbackPercent}% ReZ Coins</span>
@@ -134,7 +134,7 @@ const GroceryStoreCard = ({ store, variant = 'default' }) => {
               Bill Upload
             </span>
           )}
-          <span className="px-3 py-1 rounded-lg bg-emerald-500 text-xs text-white font-medium">
+          <span className="px-3 py-1 rounded-lg bg-emerald-500 text-xs text-rez-navy dark:text-white font-medium">
             {store.type === 'online' ? 'Order Now' : 'Pay in Store'}
           </span>
         </div>

@@ -7,7 +7,7 @@ const AmusementCard = ({ park }) => {
   return (
     <Link
       to={`/event/park/${park.id}`}
-      className="block min-w-[280px] rounded-2xl overflow-hidden bg-[#1C1C1E] shrink-0 group"
+      className="block min-w-[280px] rounded-2xl overflow-hidden bg-rez-gray-100 dark:bg-[#1C1C1E] shrink-0 group"
     >
       {/* Image */}
       <div className="relative h-36">
@@ -24,9 +24,9 @@ const AmusementCard = ({ park }) => {
         </div>
 
         {/* Rating */}
-        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
           <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-          <span className="text-xs text-white">{park.rating}</span>
+          <span className="text-xs text-rez-navy dark:text-white">{park.rating}</span>
         </div>
 
         {/* Family badge */}
@@ -42,12 +42,12 @@ const AmusementCard = ({ park }) => {
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-semibold text-white">{park.name}</h3>
+        <h3 className="font-semibold text-rez-navy dark:text-white">{park.name}</h3>
 
-        <div className="flex items-center gap-1 text-gray-400 mt-1">
+        <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400 mt-1">
           <MapPin className="w-3.5 h-3.5" />
           <span className="text-xs">{park.location}</span>
-          <span className="text-gray-600">•</span>
+          <span className="text-rez-gray-700 dark:text-gray-600">•</span>
           <span className="text-xs">{park.distance}</span>
         </div>
 
@@ -56,7 +56,7 @@ const AmusementCard = ({ park }) => {
           {park.highlights.map((highlight) => (
             <span
               key={highlight}
-              className="px-2 py-0.5 rounded-full bg-white/5 text-[10px] text-gray-400"
+              className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
             >
               {highlight}
             </span>
@@ -71,11 +71,11 @@ const AmusementCard = ({ park }) => {
         )}
 
         {/* Price & CTA */}
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
           <div>
             <div className="flex items-center gap-2">
-              <span className="text-lg font-semibold text-white">₹{park.price.adult}</span>
-              <span className="text-xs text-gray-500">/ adult</span>
+              <span className="text-lg font-semibold text-rez-navy dark:text-white">₹{park.price.adult}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">/ adult</span>
             </div>
             <div className="flex items-center gap-1 text-emerald-400">
               <Coins className="w-3 h-3" />

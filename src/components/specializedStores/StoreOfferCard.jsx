@@ -31,10 +31,10 @@ const StoreOfferCard = ({ offer, theme }) => {
         </span>
       </div>
 
-      <h3 className="font-medium text-white mb-1">{offer.title}</h3>
-      <p className="text-xs text-gray-400 mb-2">{offer.description}</p>
+      <h3 className="font-medium text-rez-navy dark:text-white mb-1">{offer.title}</h3>
+      <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">{offer.description}</p>
 
-      <div className="flex items-center justify-between pt-2 border-t border-white/10">
+      <div className="flex items-center justify-between pt-2 border-t border-rez-gray-200 dark:border-white/10">
         <span className="text-xs" style={{ color: theme.primary }}>Claim Now</span>
         <ChevronRight className="w-4 h-4" style={{ color: theme.primary }} />
       </div>

@@ -1,12 +1,12 @@
 import { Coins, Camera, MessageSquare, Share2, Star, Gift } from 'lucide-react';
 
 const RewardItem = ({ icon: Icon, title, coins, color }) => (
-  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+  <div className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
     <div className={`p-2 rounded-lg ${color}`}>
-      <Icon className="w-4 h-4 text-white" />
+      <Icon className="w-4 h-4 text-rez-navy dark:text-white" />
     </div>
     <div className="flex-1">
-      <p className="text-sm text-white">{title}</p>
+      <p className="text-sm text-rez-navy dark:text-white">{title}</p>
     </div>
     <div className="flex items-center gap-1 text-amber-400">
       <Coins className="w-3.5 h-3.5" />
@@ -32,8 +32,8 @@ const FleaRewardsExplainer = ({ compact = false }) => {
             <Coins className="w-6 h-6 text-amber-400" />
           </div>
           <div className="flex-1">
-            <p className="font-semibold text-white">Earn ReZ Coins</p>
-            <p className="text-sm text-gray-300">Spend ₹500 · Earn ₹100 back</p>
+            <p className="font-semibold text-rez-navy dark:text-white">Earn ReZ Coins</p>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Spend ₹500 · Earn ₹100 back</p>
           </div>
           <Gift className="w-6 h-6 text-emerald-400" />
         </div>
@@ -50,22 +50,22 @@ const FleaRewardsExplainer = ({ compact = false }) => {
             <Coins className="w-6 h-6 text-amber-400" />
           </div>
           <div>
-            <h3 className="font-bold text-white">ReZ Coins at Flea Market</h3>
-            <p className="text-sm text-gray-300">Multiple ways to earn rewards</p>
+            <h3 className="font-bold text-rez-navy dark:text-white">ReZ Coins at Flea Market</h3>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Multiple ways to earn rewards</p>
           </div>
         </div>
       </div>
 
       {/* Reward items */}
-      <div className="p-4 bg-[#1C1C1E] space-y-2">
+      <div className="p-4 bg-rez-gray-100 dark:bg-[#1C1C1E] space-y-2">
         {rewards.map((reward, index) => (
           <RewardItem key={index} {...reward} />
         ))}
       </div>
 
       {/* Bottom note */}
-      <div className="p-4 bg-[#2C2C2E] border-t border-white/5">
-        <p className="text-xs text-gray-400 text-center">
+      <div className="p-4 bg-white dark:bg-[#2C2C2E] border-t border-rez-gray-200 dark:border-white/5">
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 text-center">
           Some booths accept <span className="text-amber-400">full coin payment</span> ·
           Coins expire in 30 days
         </p>

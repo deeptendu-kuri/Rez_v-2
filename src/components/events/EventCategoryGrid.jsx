@@ -3,16 +3,16 @@ import { ChevronRight } from 'lucide-react';
 const CategoryCard = ({ category, onClick }) => (
   <button
     onClick={() => onClick?.(category.id)}
-    className="flex flex-col items-center p-3 rounded-2xl bg-[#2C2C2E] hover:bg-[#3C3C3E] transition-colors"
+    className="flex flex-col items-center p-3 rounded-2xl bg-white dark:bg-[#2C2C2E] hover:bg-rez-gray-200 dark:bg-[#3C3C3E] transition-colors"
   >
     <span className="text-3xl mb-2">{category.icon}</span>
-    <span className="text-xs text-white text-center font-medium leading-tight">
+    <span className="text-xs text-rez-navy dark:text-white text-center font-medium leading-tight">
       {category.label}
     </span>
     <div className="flex items-center gap-1 mt-1.5">
       <span className="text-[10px] text-emerald-400">{category.cashback}%</span>
-      <span className="text-[10px] text-gray-500">•</span>
-      <span className="text-[10px] text-gray-400">{category.nearbyCount}</span>
+      <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">•</span>
+      <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">{category.nearbyCount}</span>
     </div>
   </button>
 );
@@ -35,7 +35,7 @@ const EventCategoryGrid = ({ categories, onCategoryClick }) => {
       </div>
 
       {hasMore && (
-        <button className="w-full mt-3 py-2.5 rounded-xl bg-white/5 flex items-center justify-center gap-1 text-sm text-gray-400 hover:bg-white/10 transition-colors">
+        <button className="w-full mt-3 py-2.5 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center justify-center gap-1 text-sm text-rez-gray-600 dark:text-gray-400 hover:bg-rez-gray-100 dark:bg-white/10 transition-colors">
           View All Categories
           <ChevronRight className="w-4 h-4" />
         </button>

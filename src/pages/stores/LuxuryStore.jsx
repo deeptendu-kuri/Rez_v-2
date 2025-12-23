@@ -58,20 +58,20 @@ const LuxuryStore = () => {
   const proof = proofs[proofIndex];
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">Luxury Store</h1>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Luxury Store</h1>
               <p className="text-xs" style={{ color: theme.primary }}>{luxuryStore.tagline}</p>
             </div>
-            <button className="p-2 rounded-full bg-white/10">
-              <Search className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <Search className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ backgroundColor: `${theme.primary}30` }}>
               <Coins className="w-4 h-4" style={{ color: theme.primary }} />
@@ -97,7 +97,7 @@ const LuxuryStore = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeFilters.includes(filter.id)
                     ? 'text-black'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
                 style={activeFilters.includes(filter.id) ? { backgroundColor: theme.primary } : {}}
               >
@@ -114,10 +114,10 @@ const LuxuryStore = () => {
 
       {/* Social Proof */}
       <div className="px-4 py-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 animate-fade-in">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 animate-fade-in">
           <span className="text-lg">{proof.avatar}</span>
-          <p className="text-sm text-gray-300 flex-1">
-            <span className="font-medium text-white">{proof.user}</span>{' '}
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300 flex-1">
+            <span className="font-medium text-rez-navy dark:text-white">{proof.user}</span>{' '}
             {proof.action}{' '}
             <span style={{ color: theme.primary }}>{proof.product}</span>
           </p>
@@ -130,7 +130,7 @@ const LuxuryStore = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Crown className="w-5 h-5" style={{ color: theme.primary }} />
-            <h2 className="font-semibold text-white">Premium Brands</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Premium Brands</h2>
           </div>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
@@ -141,7 +141,7 @@ const LuxuryStore = () => {
             <Link
               key={brand.id}
               to={`/store/luxury/brand/${brand.id}`}
-              className="p-4 rounded-2xl bg-[#2C2C2E] text-center active:scale-[0.98] transition-transform relative"
+              className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center active:scale-[0.98] transition-transform relative"
             >
               {brand.isPriveOnly && (
                 <span className="absolute top-2 right-2 text-xs px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${theme.primary}30`, color: theme.primary }}>
@@ -149,8 +149,8 @@ const LuxuryStore = () => {
                 </span>
               )}
               <span className="text-3xl block mb-2">{brand.logo}</span>
-              <h3 className="text-sm font-medium text-white">{brand.name}</h3>
-              <p className="text-xs text-gray-400">{brand.type}</p>
+              <h3 className="text-sm font-medium text-rez-navy dark:text-white">{brand.name}</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{brand.type}</p>
               <div className="flex items-center justify-center gap-1 mt-2">
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
                 <span className="text-xs" style={{ color: theme.primary }}>{brand.cashback}% back</span>
@@ -161,28 +161,28 @@ const LuxuryStore = () => {
       </div>
 
       {/* Why Shop Luxury on ReZ */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-3">Why Shop Luxury on ReZ?</h3>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Why Shop Luxury on ReZ?</h3>
         <div className="grid grid-cols-2 gap-3">
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">👑</span>
-            <h4 className="text-sm font-medium text-white mt-1">Privé Access</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Exclusive previews</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Privé Access</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Exclusive previews</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">💰</span>
-            <h4 className="text-sm font-medium text-white mt-1">Elite Cashback</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Up to 6% on luxury</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Elite Cashback</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Up to 6% on luxury</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🎁</span>
-            <h4 className="text-sm font-medium text-white mt-1">Concierge</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Personal shopping</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Concierge</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Personal shopping</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">✨</span>
-            <h4 className="text-sm font-medium text-white mt-1">Limited Edition</h4>
-            <p className="text-xs text-gray-400 mt-0.5">First access</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Limited Edition</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">First access</p>
           </div>
         </div>
       </div>
@@ -192,7 +192,7 @@ const LuxuryStore = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5" style={{ color: theme.primary }} />
-            <h2 className="font-semibold text-white">Featured Collection</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Featured Collection</h2>
           </div>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
@@ -203,7 +203,7 @@ const LuxuryStore = () => {
             <Link
               key={product.id}
               to={`/store/luxury/product/${product.id}`}
-              className="min-w-[200px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform relative"
+              className="min-w-[200px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform relative"
             >
               {product.isLimited && (
                 <span className="absolute top-3 right-3 text-xs px-2 py-0.5 rounded-full bg-red-500/20 text-red-400">
@@ -213,9 +213,9 @@ const LuxuryStore = () => {
               <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-3" style={{ backgroundColor: `${theme.primary}20` }}>
                 <span className="text-3xl">{product.image}</span>
               </div>
-              <h3 className="text-sm font-medium text-white">{product.name}</h3>
-              <p className="text-xs text-gray-400">{product.brand}</p>
-              <p className="text-lg font-bold text-white mt-2">₹{product.price.toLocaleString()}</p>
+              <h3 className="text-sm font-medium text-rez-navy dark:text-white">{product.name}</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+              <p className="text-lg font-bold text-rez-navy dark:text-white mt-2">₹{product.price.toLocaleString()}</p>
               <div className="flex items-center gap-1 mt-1">
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
                 <span className="text-xs" style={{ color: theme.primary }}>+{product.coins.toLocaleString()} coins</span>
@@ -229,7 +229,7 @@ const LuxuryStore = () => {
       <div className="mt-6 px-4">
         <div className="flex items-center gap-2 mb-3">
           <Star className="w-5 h-5" style={{ color: theme.primary }} />
-          <h2 className="font-semibold text-white">Stylist Picks</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Stylist Picks</h2>
         </div>
         <div className="space-y-3">
           {luxuryStore.stylistPicks.map((pick) => (
@@ -241,12 +241,12 @@ const LuxuryStore = () => {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-medium text-white">{pick.name}</h3>
-                  <p className="text-sm text-gray-400">{pick.items} curated items</p>
+                  <h3 className="font-medium text-rez-navy dark:text-white">{pick.name}</h3>
+                  <p className="text-sm text-rez-gray-600 dark:text-gray-400">{pick.items} curated items</p>
                 </div>
                 <div className="text-right">
                   <p className="text-sm" style={{ color: theme.primary }}>Save ₹{pick.savings.toLocaleString()}</p>
-                  <ChevronRight className="w-4 h-4 text-gray-400 ml-auto mt-1" />
+                  <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-400 ml-auto mt-1" />
                 </div>
               </div>
             </Link>
@@ -257,18 +257,18 @@ const LuxuryStore = () => {
       {/* Exclusive Offers */}
       <div className="mt-6 px-4">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Exclusive Offers</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Exclusive Offers</h2>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
           </button>
         </div>
         <div className="space-y-3">
           {luxuryStore.offers.map((offer) => (
-            <div key={offer.id} className="p-4 rounded-2xl bg-[#2C2C2E]">
+            <div key={offer.id} className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
               <div className="flex items-start justify-between">
                 <div>
-                  <h3 className="font-medium text-white">{offer.title}</h3>
-                  <p className="text-sm text-gray-400 mt-1">{offer.description}</p>
+                  <h3 className="font-medium text-rez-navy dark:text-white">{offer.title}</h3>
+                  <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-1">{offer.description}</p>
                 </div>
                 <span className="text-xs px-2 py-1 rounded-full" style={{ backgroundColor: `${theme.primary}20`, color: theme.primary }}>
                   {offer.validFor}
@@ -284,18 +284,18 @@ const LuxuryStore = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-blue-400" />
-            <h2 className="font-semibold text-white">Luxury Stores Nearby</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Luxury Stores Nearby</h2>
           </div>
-          <button className="text-xs text-gray-400 flex items-center gap-1">
+          <button className="text-xs text-rez-gray-600 dark:text-gray-400 flex items-center gap-1">
             Map View <ChevronRight className="w-3 h-3" />
           </button>
         </div>
         <div className="px-4 space-y-3">
           {['DLF Emporio', 'Palladium Mall', 'UB City'].map((store, idx) => (
-            <div key={idx} className="p-4 rounded-2xl bg-[#2C2C2E] flex items-center justify-between">
+            <div key={idx} className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] flex items-center justify-between">
               <div>
-                <h3 className="font-medium text-white">{store}</h3>
-                <p className="text-xs text-gray-400 mt-1">{5 + idx} luxury brands • {2 + idx * 0.5} km away</p>
+                <h3 className="font-medium text-rez-navy dark:text-white">{store}</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">{5 + idx} luxury brands • {2 + idx * 0.5} km away</p>
               </div>
               <div className="flex items-center gap-1 px-2 py-1 rounded-full" style={{ backgroundColor: `${theme.primary}20` }}>
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
@@ -311,26 +311,26 @@ const LuxuryStore = () => {
         <div className="flex items-center gap-3 mb-3">
           <Gift className="w-6 h-6" style={{ color: theme.primary }} />
           <div>
-            <h3 className="font-semibold text-white">Elite Status Progress</h3>
-            <p className="text-xs text-gray-400">2 more luxury purchases to unlock Elite tier</p>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Elite Status Progress</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">2 more luxury purchases to unlock Elite tier</p>
           </div>
         </div>
-        <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-2">
+        <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden mb-2">
           <div
             className="h-full rounded-full transition-all"
             style={{ width: '60%', backgroundColor: theme.primary }}
           />
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400">3/5 purchases</span>
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">3/5 purchases</span>
           <span className="text-xs" style={{ color: theme.primary }}>🎁 +2x Coins Unlocked</span>
         </div>
       </div>
 
       {/* Value Proposition */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E] text-center">
-        <h3 className="font-semibold text-white mb-2">Luxury. Reimagined.</h3>
-        <p className="text-sm text-gray-400">Same prestige. Same quality. With ReZ rewards.</p>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-2">Luxury. Reimagined.</h3>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">Same prestige. Same quality. With ReZ rewards.</p>
       </div>
 
       {/* AI Suggestions */}
@@ -350,8 +350,8 @@ const LuxuryStore = () => {
             <p className="text-xs text-black/70">on Luxury items today</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="secondary" size="sm" className="bg-black/20 text-black border-0">Concierge</Button>
-            <Button variant="primary" size="sm" className="bg-black text-white">
+            <Button variant="secondary" size="sm" className="bg-white dark:bg-black/20 text-black border-0">Concierge</Button>
+            <Button variant="primary" size="sm" className="bg-white dark:bg-black text-rez-navy dark:text-white">
               Shop Now
             </Button>
           </div>

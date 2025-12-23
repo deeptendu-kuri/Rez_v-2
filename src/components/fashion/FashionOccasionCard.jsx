@@ -14,7 +14,7 @@ const FashionOccasionCard = ({ occasion }) => {
       {/* Tag */}
       {occasion.tag && (
         <span
-          className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] text-white font-medium"
+          className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] text-rez-navy dark:text-white font-medium"
           style={{ backgroundColor: occasion.color }}
         >
           {occasion.tag}
@@ -25,7 +25,7 @@ const FashionOccasionCard = ({ occasion }) => {
       <div className="text-4xl mb-3">{occasion.icon}</div>
 
       {/* Content */}
-      <h3 className="text-sm font-semibold text-white">{occasion.name}</h3>
+      <h3 className="text-sm font-semibold text-rez-navy dark:text-white">{occasion.name}</h3>
       <p className="text-xs text-emerald-400 mt-1">Up to {occasion.discount}% Off</p>
 
       {/* Gradient overlay */}

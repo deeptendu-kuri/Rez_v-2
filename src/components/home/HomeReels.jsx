@@ -15,8 +15,8 @@ const HomeReels = () => {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-3">
         <div>
-          <h2 className="font-semibold text-white">🔥 Real people. Real savings.</h2>
-          <p className="text-xs text-gray-400">Watch how others save with ReZ</p>
+          <h2 className="font-semibold text-rez-navy dark:text-white">🔥 Real people. Real savings.</h2>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">Watch how others save with ReZ</p>
         </div>
         <Link to="/reels" className="flex items-center gap-1 text-xs text-emerald-400">
           View all <ChevronRight className="w-3 h-3" />
@@ -39,33 +39,33 @@ const HomeReels = () => {
             {/* Play Button */}
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-                <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                <Play className="w-5 h-5 text-rez-navy dark:text-white fill-white ml-0.5" />
               </div>
             </div>
 
             {/* User Info Top */}
             <div className="absolute top-2 left-2 right-2 flex items-center gap-2">
               <span className="text-lg">{reel.avatar}</span>
-              <span className="text-xs text-white font-medium truncate">{reel.user}</span>
+              <span className="text-xs text-rez-navy dark:text-white font-medium truncate">{reel.user}</span>
             </div>
 
             {/* Actions Right */}
             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex flex-col gap-3">
-              <button className="p-1.5 rounded-full bg-white/10">
-                <Heart className="w-4 h-4 text-white" />
+              <button className="p-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10">
+                <Heart className="w-4 h-4 text-rez-navy dark:text-white" />
               </button>
-              <button className="p-1.5 rounded-full bg-white/10">
-                <Bookmark className="w-4 h-4 text-white" />
+              <button className="p-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10">
+                <Bookmark className="w-4 h-4 text-rez-navy dark:text-white" />
               </button>
-              <button className="p-1.5 rounded-full bg-white/10">
-                <ShoppingBag className="w-4 h-4 text-white" />
+              <button className="p-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10">
+                <ShoppingBag className="w-4 h-4 text-rez-navy dark:text-white" />
               </button>
             </div>
 
             {/* Bottom Info */}
             <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80">
-              <p className="text-sm font-medium text-white">{reel.title}</p>
-              <p className="text-[10px] text-gray-400">@ {reel.store} • {reel.views} views</p>
+              <p className="text-sm font-medium text-rez-navy dark:text-white">{reel.title}</p>
+              <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">@ {reel.store} • {reel.views} views</p>
             </div>
           </Link>
         ))}

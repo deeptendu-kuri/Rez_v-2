@@ -10,7 +10,7 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
     return (
       <Link
         to={`/beauty/product/${product.id}`}
-        className="min-w-[150px] p-3 rounded-xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+        className="min-w-[150px] p-3 rounded-xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
       >
         <div className="relative">
           <img
@@ -19,7 +19,7 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
             className="w-full h-28 object-cover rounded-lg"
           />
           {product.tag && (
-            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] text-white">
+            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] text-rez-navy dark:text-white">
               {product.tag}
             </span>
           )}
@@ -30,10 +30,10 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
             </span>
           )}
         </div>
-        <p className="text-xs text-gray-400 mt-2">{product.brand}</p>
-        <h3 className="text-sm text-white line-clamp-2 mt-0.5">{product.name}</h3>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-2">{product.brand}</p>
+        <h3 className="text-sm text-rez-navy dark:text-white line-clamp-2 mt-0.5">{product.name}</h3>
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-bold text-white">₹{product.price.toLocaleString()}</span>
+          <span className="text-sm font-bold text-rez-navy dark:text-white">₹{product.price.toLocaleString()}</span>
           {discount > 0 && (
             <span className="text-xs text-emerald-400">{discount}% off</span>
           )}
@@ -49,7 +49,7 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
   return (
     <Link
       to={`/beauty/product/${product.id}`}
-      className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform"
+      className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform"
     >
       <div className="flex gap-4">
         {/* Image */}
@@ -60,7 +60,7 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
             className="w-full h-full object-cover rounded-xl"
           />
           {discount > 0 && (
-            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-white font-medium">
+            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-rez-navy dark:text-white font-medium">
               {discount}% OFF
             </span>
           )}
@@ -68,23 +68,23 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
 
         {/* Info */}
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-gray-400">{product.brand}</p>
-          <h3 className="text-sm font-medium text-white line-clamp-2 mt-0.5">{product.name}</h3>
-          <p className="text-xs text-gray-500 mt-0.5">{product.description}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+          <h3 className="text-sm font-medium text-rez-navy dark:text-white line-clamp-2 mt-0.5">{product.name}</h3>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500 mt-0.5">{product.description}</p>
 
           {/* Rating */}
           <div className="flex items-center gap-2 mt-1.5">
             <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-500/20">
               <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{product.rating}</span>
+              <span className="text-xs text-rez-navy dark:text-white">{product.rating}</span>
             </div>
-            <span className="text-xs text-gray-500">{product.reviews.toLocaleString()} reviews</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">{product.reviews.toLocaleString()} reviews</span>
           </div>
 
           {/* Price */}
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-lg font-bold text-white">₹{product.price.toLocaleString()}</span>
-            <span className="text-sm text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</span>
+            <span className="text-lg font-bold text-rez-navy dark:text-white">₹{product.price.toLocaleString()}</span>
+            <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">₹{product.originalPrice.toLocaleString()}</span>
           </div>
 
           {/* Cashback & Delivery */}
@@ -105,7 +105,7 @@ const BeautyProductCard = ({ product, variant = 'default' }) => {
 
       {/* Offers */}
       {product.offers && product.offers.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/10">
+        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
           {product.offers.map((offer, index) => (
             <span
               key={index}

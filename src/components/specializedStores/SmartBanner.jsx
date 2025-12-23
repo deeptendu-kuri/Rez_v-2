@@ -17,12 +17,12 @@ const SmartBanner = ({ theme, earnAmount, nearbyCount }) => {
           <Zap className="w-6 h-6" style={{ color: theme.primary }} />
         </div>
         <div className="flex-1">
-          <p className="text-sm font-medium text-white">
+          <p className="text-sm font-medium text-rez-navy dark:text-white">
             Earn up to <span style={{ color: theme.primary }}>₹{earnAmount.toLocaleString()}</span> back in ReZ Coins today
           </p>
           <div className="flex items-center gap-1 mt-1">
-            <Users className="w-3.5 h-3.5 text-gray-400" />
-            <span className="text-xs text-gray-400">{nearbyCount} people nearby earned rewards here today</span>
+            <Users className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+            <span className="text-xs text-rez-gray-600 dark:text-gray-400">{nearbyCount} people nearby earned rewards here today</span>
           </div>
         </div>
       </div>

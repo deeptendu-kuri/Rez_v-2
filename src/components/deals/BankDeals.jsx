@@ -9,8 +9,8 @@ const BankDeals = () => {
         <div className="flex items-center gap-2">
           <span className="text-xl">🏦</span>
           <div>
-            <h2 className="text-lg font-semibold text-white">Bank & Wallet Offers</h2>
-            <p className="text-sm text-gray-400">Extra rewards on select payment methods</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Bank & Wallet Offers</h2>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Extra rewards on select payment methods</p>
           </div>
         </div>
       </div>
@@ -33,17 +33,17 @@ const BankDeals = () => {
                 }}
               />
               <div>
-                <p className="font-medium text-white">{deal.bank}</p>
-                <p className="text-xs text-gray-400">{deal.cardType}</p>
+                <p className="font-medium text-rez-navy dark:text-white">{deal.bank}</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">{deal.cardType}</p>
               </div>
             </div>
 
             <p className="text-emerald-400 font-semibold">{deal.offer}</p>
             {deal.minSpend && (
-              <p className="text-xs text-gray-400 mt-1">Min. spend: {deal.minSpend}</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Min. spend: {deal.minSpend}</p>
             )}
             {deal.maxDiscount && (
-              <p className="text-xs text-gray-400 mt-1">Max: {deal.maxDiscount}</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Max: {deal.maxDiscount}</p>
             )}
           </Card>
         ))}

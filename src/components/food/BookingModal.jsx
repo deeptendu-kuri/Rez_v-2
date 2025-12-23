@@ -34,15 +34,15 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
   if (step === 'success') {
     return (
       <div className="fixed inset-0 z-50 flex items-end justify-center">
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleClose} />
-        <div className="relative w-full max-w-lg bg-[#1C1C1E] rounded-t-3xl p-6 animate-slide-up">
+        <div className="absolute inset-0 bg-white dark:bg-black/60 backdrop-blur-sm" onClick={handleClose} />
+        <div className="relative w-full max-w-lg bg-rez-gray-100 dark:bg-[#1C1C1E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-t-3xl p-6 animate-slide-up">
           <div className="text-center py-4">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-emerald-500/20 flex items-center justify-center">
               <CheckCircle className="w-8 h-8 text-emerald-400" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Booking Confirmed!</h3>
-            <p className="text-gray-400 mb-1">{restaurant.name}</p>
-            <p className="text-sm text-white">
+            <h3 className="text-xl font-bold text-rez-navy dark:text-white mb-2">Booking Confirmed!</h3>
+            <p className="text-rez-gray-600 dark:text-gray-400 mb-1">{restaurant.name}</p>
+            <p className="text-sm text-rez-navy dark:text-white">
               {date} at {time} for {guests} guests
             </p>
 
@@ -67,18 +67,18 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
   if (step === 'confirm') {
     return (
       <div className="fixed inset-0 z-50 flex items-end justify-center">
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleClose} />
-        <div className="relative w-full max-w-lg bg-[#1C1C1E] rounded-t-3xl p-6 animate-slide-up">
+        <div className="absolute inset-0 bg-white dark:bg-black/60 backdrop-blur-sm" onClick={handleClose} />
+        <div className="relative w-full max-w-lg bg-rez-gray-100 dark:bg-[#1C1C1E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-t-3xl p-6 animate-slide-up">
           <button
             onClick={handleClose}
-            className="absolute top-4 right-4 p-2 rounded-full bg-white/10"
+            className="absolute top-4 right-4 p-2 rounded-full bg-rez-gray-100 dark:bg-white/10"
           >
-            <X className="w-5 h-5 text-white" />
+            <X className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
 
-          <h3 className="text-lg font-semibold text-white mb-4">Confirm Booking</h3>
+          <h3 className="text-lg font-semibold text-rez-navy dark:text-white mb-4">Confirm Booking</h3>
 
-          <div className="p-4 rounded-xl bg-white/5 mb-4">
+          <div className="p-4 rounded-xl bg-rez-gray-50 dark:bg-white/5 mb-4">
             <div className="flex items-center gap-3 mb-3">
               <img
                 src={restaurant.image}
@@ -86,23 +86,23 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
                 className="w-12 h-12 rounded-xl object-cover"
               />
               <div>
-                <p className="font-medium text-white">{restaurant.name}</p>
-                <p className="text-xs text-gray-400">{restaurant.cuisine.join(' • ')}</p>
+                <p className="font-medium text-rez-navy dark:text-white">{restaurant.name}</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">{restaurant.cuisine.join(' • ')}</p>
               </div>
             </div>
 
             <div className="space-y-2 text-sm">
               <div className="flex items-center justify-between">
-                <span className="text-gray-400">Date</span>
-                <span className="text-white">{date}</span>
+                <span className="text-rez-gray-600 dark:text-gray-400">Date</span>
+                <span className="text-rez-navy dark:text-white">{date}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-400">Time</span>
-                <span className="text-white">{time}</span>
+                <span className="text-rez-gray-600 dark:text-gray-400">Time</span>
+                <span className="text-rez-navy dark:text-white">{time}</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-gray-400">Guests</span>
-                <span className="text-white">{guests} people</span>
+                <span className="text-rez-gray-600 dark:text-gray-400">Guests</span>
+                <span className="text-rez-navy dark:text-white">{guests} people</span>
               </div>
             </div>
           </div>
@@ -128,21 +128,21 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-end justify-center">
-      <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={handleClose} />
-      <div className="relative w-full max-w-lg bg-[#1C1C1E] rounded-t-3xl p-6 animate-slide-up max-h-[80vh] overflow-y-auto">
+      <div className="absolute inset-0 bg-white dark:bg-black/60 backdrop-blur-sm" onClick={handleClose} />
+      <div className="relative w-full max-w-lg bg-rez-gray-100 dark:bg-[#1C1C1E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-t-3xl p-6 animate-slide-up max-h-[80vh] overflow-y-auto">
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-white/10"
+          className="absolute top-4 right-4 p-2 rounded-full bg-rez-gray-100 dark:bg-white/10"
         >
-          <X className="w-5 h-5 text-white" />
+          <X className="w-5 h-5 text-rez-navy dark:text-white" />
         </button>
 
-        <h3 className="text-lg font-semibold text-white mb-1">Book a Table</h3>
-        <p className="text-sm text-gray-400 mb-6">{restaurant.name}</p>
+        <h3 className="text-lg font-semibold text-rez-navy dark:text-white mb-1">Book a Table</h3>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-6">{restaurant.name}</p>
 
         {/* Date */}
         <div className="mb-4">
-          <label className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+          <label className="flex items-center gap-2 text-sm text-rez-gray-600 dark:text-gray-400 mb-2">
             <Calendar className="w-4 h-4" />
             Select Date
           </label>
@@ -150,13 +150,13 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
+            className="w-full px-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white focus:outline-none focus:ring-2 focus:ring-emerald-500"
           />
         </div>
 
         {/* Time */}
         <div className="mb-4">
-          <label className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+          <label className="flex items-center gap-2 text-sm text-rez-gray-600 dark:text-gray-400 mb-2">
             <Clock className="w-4 h-4" />
             Select Time
           </label>
@@ -168,7 +168,7 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
                 className={`py-2 rounded-lg text-sm transition-colors ${
                   time === slot
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400 hover:bg-white/20'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400 hover:bg-white/20'
                 }`}
               >
                 {slot}
@@ -179,21 +179,21 @@ const BookingModal = ({ restaurant, isOpen, onClose }) => {
 
         {/* Guests */}
         <div className="mb-6">
-          <label className="flex items-center gap-2 text-sm text-gray-400 mb-2">
+          <label className="flex items-center gap-2 text-sm text-rez-gray-600 dark:text-gray-400 mb-2">
             <Users className="w-4 h-4" />
             Number of Guests
           </label>
           <div className="flex items-center gap-4">
             <button
               onClick={() => setGuests(Math.max(1, guests - 1))}
-              className="w-10 h-10 rounded-full bg-white/10 text-white text-xl"
+              className="w-10 h-10 rounded-full bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white text-xl"
             >
               -
             </button>
-            <span className="text-xl font-semibold text-white w-8 text-center">{guests}</span>
+            <span className="text-xl font-semibold text-rez-navy dark:text-white w-8 text-center">{guests}</span>
             <button
               onClick={() => setGuests(Math.min(10, guests + 1))}
-              className="w-10 h-10 rounded-full bg-white/10 text-white text-xl"
+              className="w-10 h-10 rounded-full bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white text-xl"
             >
               +
             </button>

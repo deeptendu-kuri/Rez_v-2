@@ -9,8 +9,8 @@ const StoreSection = ({ title, subtitle, stores, viewAllLink }) => {
     <section className="py-4">
       <div className="flex items-center justify-between px-4 mb-3">
         <div>
-          <h2 className="text-lg font-semibold text-white">{title}</h2>
-          {subtitle && <p className="text-sm text-gray-400">{subtitle}</p>}
+          <h2 className="text-lg font-semibold text-rez-navy dark:text-white">{title}</h2>
+          {subtitle && <p className="text-sm text-rez-gray-600 dark:text-gray-400">{subtitle}</p>}
         </div>
         {viewAllLink && (
           <Link

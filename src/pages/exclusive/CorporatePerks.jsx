@@ -29,12 +29,12 @@ const CorporatePerks = () => {
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="flex items-center gap-4 px-4 py-4">
-          <Link to="/deal-store" className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <Link to="/deal-store" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </Link>
           <div className="flex-1">
-            <h1 className="text-xl font-bold text-white">Corporate Perks</h1>
-            <p className="text-sm text-gray-400">Office hour specials & team deals</p>
+            <h1 className="text-xl font-bold text-rez-navy dark:text-white">Corporate Perks</h1>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Office hour specials & team deals</p>
           </div>
           <div className="text-4xl">🏢</div>
         </div>
@@ -47,17 +47,17 @@ const CorporatePerks = () => {
             <Building2 className="w-8 h-8 text-slate-300" />
           </div>
           <div className="flex-1">
-            <h2 className="text-lg font-semibold text-white">Work Smarter, Save Better</h2>
-            <p className="text-sm text-gray-300">Exclusive deals for working professionals</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Work Smarter, Save Better</h2>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Exclusive deals for working professionals</p>
           </div>
         </div>
 
         {/* Current Time Indicator */}
-        <div className="mt-4 p-3 rounded-xl bg-white/5 flex items-center gap-3">
+        <div className="mt-4 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center gap-3">
           <Clock className="w-5 h-5 text-emerald-400" />
           <div>
-            <p className="text-sm text-white">It's Lunch Time!</p>
-            <p className="text-xs text-gray-400">Best deals available now</p>
+            <p className="text-sm text-rez-navy dark:text-white">It's Lunch Time!</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Best deals available now</p>
           </div>
           <Badge variant="success" size="sm">Live</Badge>
         </div>
@@ -66,8 +66,8 @@ const CorporatePerks = () => {
       {/* Time-based Filter */}
       <div className="mt-6">
         <div className="px-4 mb-3">
-          <h3 className="text-lg font-semibold text-white">Deals by Time</h3>
-          <p className="text-sm text-gray-400">Find deals perfect for your schedule</p>
+          <h3 className="text-lg font-semibold text-rez-navy dark:text-white">Deals by Time</h3>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">Find deals perfect for your schedule</p>
         </div>
         <div className="flex gap-2 px-4 overflow-x-auto hide-scrollbar pb-2">
           {timeSlots.map((slot) => (
@@ -81,9 +81,9 @@ const CorporatePerks = () => {
               }`}
             >
               <span className="text-2xl mb-1">{slot.icon}</span>
-              <span className="text-sm font-medium text-white">{slot.label}</span>
+              <span className="text-sm font-medium text-rez-navy dark:text-white">{slot.label}</span>
               {slot.time && (
-                <span className="text-xs text-gray-400">{slot.time}</span>
+                <span className="text-xs text-rez-gray-600 dark:text-gray-400">{slot.time}</span>
               )}
             </button>
           ))}
@@ -103,14 +103,14 @@ const CorporatePerks = () => {
             className={`p-3 rounded-2xl bg-${cat.color}-500/10 flex flex-col items-center gap-1`}
           >
             <span className={`text-${cat.color}-400`}>{cat.icon}</span>
-            <span className="text-xs text-gray-300">{cat.label}</span>
+            <span className="text-xs text-rez-gray-700 dark:text-gray-300">{cat.label}</span>
           </button>
         ))}
       </div>
 
       {/* Deals List */}
       <div className="mt-6 px-4 space-y-3">
-        <h3 className="text-lg font-semibold text-white">Available Deals</h3>
+        <h3 className="text-lg font-semibold text-rez-navy dark:text-white">Available Deals</h3>
 
         {filteredDeals.map((deal) => (
           <Card key={deal.id} className="p-4 overflow-hidden" hover>
@@ -132,16 +132,16 @@ const CorporatePerks = () => {
                           className="w-6 h-6 rounded object-contain bg-white"
                         />
                       )}
-                      <p className="font-medium text-white">{deal.store}</p>
+                      <p className="font-medium text-rez-navy dark:text-white">{deal.store}</p>
                     </div>
-                    <p className="text-sm text-gray-300 mt-1">{deal.title}</p>
+                    <p className="text-sm text-rez-gray-700 dark:text-gray-300 mt-1">{deal.title}</p>
                   </div>
                   <div className="px-2.5 py-1 rounded-lg bg-slate-500/20">
                     <span className="text-sm font-bold text-slate-300">{deal.discount}</span>
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-400 mt-2">{deal.description}</p>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-2">{deal.description}</p>
 
                 <div className="flex items-center gap-2 mt-3">
                   {deal.validTime && (
@@ -163,8 +163,8 @@ const CorporatePerks = () => {
         <div className="flex items-center gap-3">
           <span className="text-3xl">👥</span>
           <div className="flex-1">
-            <p className="font-semibold text-white">Team Orders</p>
-            <p className="text-sm text-gray-300">Order for your team & get extra discounts</p>
+            <p className="font-semibold text-rez-navy dark:text-white">Team Orders</p>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Order for your team & get extra discounts</p>
           </div>
           <Button variant="secondary" size="sm">Explore</Button>
         </div>

@@ -14,7 +14,7 @@ const ActivityCard = ({ activity }) => {
   };
 
   return (
-    <div className="min-w-[240px] rounded-2xl overflow-hidden bg-[#1C1C1E] shrink-0 group">
+    <div className="min-w-[240px] rounded-2xl overflow-hidden bg-rez-gray-100 dark:bg-[#1C1C1E] shrink-0 group">
       {/* Image */}
       <div className="relative h-32">
         <img
@@ -32,24 +32,24 @@ const ActivityCard = ({ activity }) => {
         </div>
 
         {/* Rating */}
-        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
           <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-          <span className="text-xs text-white">{activity.rating}</span>
+          <span className="text-xs text-rez-navy dark:text-white">{activity.rating}</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-semibold text-white">{activity.name}</h3>
+        <h3 className="font-semibold text-rez-navy dark:text-white">{activity.name}</h3>
 
         <div className="flex items-center gap-2 mt-1">
-          <div className="flex items-center gap-1 text-gray-400">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
             <MapPin className="w-3.5 h-3.5" />
             <span className="text-xs">{activity.location}</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-1 text-gray-400 mt-1">
+        <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400 mt-1">
           <Clock className="w-3.5 h-3.5" />
           <span className="text-xs">{activity.duration}</span>
         </div>
@@ -59,15 +59,15 @@ const ActivityCard = ({ activity }) => {
           {activity.includes.slice(0, 2).map((item) => (
             <div key={item} className="flex items-center gap-1">
               <CheckCircle className="w-3 h-3 text-emerald-400" />
-              <span className="text-[10px] text-gray-400">{item}</span>
+              <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">{item}</span>
             </div>
           ))}
         </div>
 
         {/* Price */}
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
           <div>
-            <p className="text-lg font-bold text-white">₹{activity.price.toLocaleString()}</p>
+            <p className="text-lg font-bold text-rez-navy dark:text-white">₹{activity.price.toLocaleString()}</p>
             <div className="flex items-center gap-1 text-emerald-400">
               <Coins className="w-3 h-3" />
               <span className="text-xs">Earn ₹{activity.coinsEarned}</span>

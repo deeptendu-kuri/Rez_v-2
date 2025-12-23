@@ -34,28 +34,28 @@ const GamingCard = ({ venue }) => {
         </div>
 
         {/* Rating */}
-        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+        <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
           <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-          <span className="text-xs text-white">{venue.rating}</span>
+          <span className="text-xs text-rez-navy dark:text-white">{venue.rating}</span>
         </div>
 
         {/* Group friendly */}
         {venue.isGroupFriendly && (
           <div className="absolute bottom-3 left-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-purple-500/80">
-            <Users className="w-3 h-3 text-white" />
-            <span className="text-[10px] text-white">Group Fun</span>
+            <Users className="w-3 h-3 text-rez-navy dark:text-white" />
+            <span className="text-[10px] text-rez-navy dark:text-white">Group Fun</span>
           </div>
         )}
       </div>
 
       {/* Content */}
-      <div className="p-4 bg-[#1C1C1E]">
-        <h3 className="font-semibold text-white">{venue.name}</h3>
+      <div className="p-4 bg-rez-gray-100 dark:bg-[#1C1C1E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white">{venue.name}</h3>
 
-        <div className="flex items-center gap-1 text-gray-400 mt-1">
+        <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400 mt-1">
           <MapPin className="w-3.5 h-3.5" />
           <span className="text-xs">{venue.location}</span>
-          <span className="text-gray-600">•</span>
+          <span className="text-rez-gray-700 dark:text-gray-600">•</span>
           <span className="text-xs">{venue.distance}</span>
         </div>
 
@@ -64,13 +64,13 @@ const GamingCard = ({ venue }) => {
           {venue.activities.slice(0, 3).map((activity) => (
             <span
               key={activity}
-              className="px-2 py-0.5 rounded-full bg-white/5 text-[10px] text-gray-400"
+              className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
             >
               {activity}
             </span>
           ))}
           {venue.activities.length > 3 && (
-            <span className="text-[10px] text-gray-500">+{venue.activities.length - 3}</span>
+            <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">+{venue.activities.length - 3}</span>
           )}
         </div>
 
@@ -82,8 +82,8 @@ const GamingCard = ({ venue }) => {
         )}
 
         {/* Price & Cashback */}
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
-          <span className="text-sm text-gray-400">{venue.priceRange}</span>
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
+          <span className="text-sm text-rez-gray-600 dark:text-gray-400">{venue.priceRange}</span>
           <div className="flex items-center gap-1 text-emerald-400">
             <Coins className="w-3.5 h-3.5" />
             <span className="text-xs font-medium">{venue.cashback}% back</span>

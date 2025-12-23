@@ -11,7 +11,7 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
 
   return (
     <div
-      className={`rounded-2xl overflow-hidden bg-[#2C2C2E] group ${
+      className={`rounded-2xl overflow-hidden bg-white dark:bg-[#2C2C2E] group ${
         isCompact ? 'min-w-[200px] shrink-0' : ''
       }`}
     >
@@ -29,7 +29,7 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
             <Badge variant="danger" size="xs">{discount}% OFF</Badge>
           )}
           {product.tag && (
-            <span className="px-2 py-0.5 rounded-full bg-black/60 text-[10px] text-white">
+            <span className="px-2 py-0.5 rounded-full bg-white dark:bg-black/60 text-[10px] text-rez-navy dark:text-white">
               {product.tag}
             </span>
           )}
@@ -44,7 +44,7 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
             </span>
           )}
           {product.hasPickup && (
-            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/80 text-[10px] text-white">
+            <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-blue-500/80 text-[10px] text-rez-navy dark:text-white">
               <Store className="w-2.5 h-2.5" />
               Pickup
             </span>
@@ -55,10 +55,10 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
       {/* Content */}
       <div className="p-3">
         {/* Brand */}
-        <p className="text-xs text-gray-500 mb-1">{product.brand}</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-500 mb-1">{product.brand}</p>
 
         {/* Name */}
-        <h3 className={`font-medium text-white ${isCompact ? 'text-sm line-clamp-1' : 'line-clamp-2'}`}>
+        <h3 className={`font-medium text-rez-navy dark:text-white ${isCompact ? 'text-sm line-clamp-1' : 'line-clamp-2'}`}>
           {product.name}
         </h3>
 
@@ -68,7 +68,7 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
             {product.specs.slice(0, 3).map((spec, index) => (
               <span
                 key={index}
-                className="px-2 py-0.5 rounded-full bg-white/5 text-[10px] text-gray-400"
+                className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
               >
                 {spec}
               </span>
@@ -80,17 +80,17 @@ const ElectronicsProductCard = ({ product, variant = 'default' }) => {
         <div className="flex items-center gap-2 mt-2">
           <div className="flex items-center gap-1">
             <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-            <span className="text-xs text-white">{product.rating}</span>
+            <span className="text-xs text-rez-navy dark:text-white">{product.rating}</span>
           </div>
-          <span className="text-xs text-gray-500">({product.reviews})</span>
+          <span className="text-xs text-rez-gray-600 dark:text-gray-500">({product.reviews})</span>
         </div>
 
         {/* Price */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-lg font-bold text-white">
+          <span className="text-lg font-bold text-rez-navy dark:text-white">
             ₹{product.price.toLocaleString()}
           </span>
-          <span className="text-sm text-gray-500 line-through">
+          <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">
             ₹{product.originalPrice.toLocaleString()}
           </span>
         </div>

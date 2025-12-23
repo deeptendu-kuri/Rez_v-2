@@ -26,7 +26,7 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
   };
 
   return (
-    <div className="relative rounded-2xl overflow-hidden bg-[#2C2C2E] group">
+    <div className="relative rounded-2xl overflow-hidden bg-white dark:bg-[#2C2C2E] group">
       {/* Image */}
       <div className="relative aspect-square">
         <img
@@ -50,7 +50,7 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
             }`}
           >
             <Heart
-              className={`w-4 h-4 ${isSaved ? 'text-white fill-white' : 'text-white'}`}
+              className={`w-4 h-4 ${isSaved ? 'text-white dark:text-white fill-white' : 'text-white dark:text-white'}`}
             />
           </button>
         </div>
@@ -66,7 +66,7 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
 
         {/* Flea tag */}
         <div className="absolute bottom-2 right-2">
-          <span className="px-2 py-0.5 rounded-full bg-purple-500/80 text-[10px] text-white font-medium">
+          <span className="px-2 py-0.5 rounded-full bg-purple-500/80 text-[10px] text-rez-navy dark:text-white font-medium">
             Flea Find
           </span>
         </div>
@@ -74,14 +74,14 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
 
       {/* Content */}
       <div className="p-3">
-        <h4 className="font-medium text-white text-sm truncate">{product.name}</h4>
+        <h4 className="font-medium text-rez-navy dark:text-white text-sm truncate">{product.name}</h4>
 
         {/* Tags */}
         <div className="flex flex-wrap gap-1 mt-1.5">
           {product.tags.slice(0, 2).map((tag) => (
             <span
               key={tag}
-              className="px-1.5 py-0.5 rounded bg-white/5 text-[10px] text-gray-400"
+              className="px-1.5 py-0.5 rounded bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
             >
               {tag}
             </span>
@@ -90,8 +90,8 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
 
         {/* Price */}
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-lg font-bold text-white">₹{product.fleaPrice}</span>
-          <span className="text-sm text-gray-500 line-through">₹{product.originalPrice}</span>
+          <span className="text-lg font-bold text-rez-navy dark:text-white">₹{product.fleaPrice}</span>
+          <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">₹{product.originalPrice}</span>
         </div>
 
         {/* Coins + Distance */}
@@ -100,7 +100,7 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
             <Coins className="w-3.5 h-3.5" />
             <span className="text-xs">Earn ₹{product.coinsEarned}</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-500">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-500">
             <MapPin className="w-3 h-3" />
             <span className="text-xs">{product.sellerDistance}</span>
           </div>
@@ -119,7 +119,7 @@ const FleaProductTile = ({ product, onLock, onSave, onChat }) => {
           )}
           <button
             onClick={handleChat}
-            className="p-2 rounded-lg bg-white/10 text-white hover:bg-white/20 transition-colors"
+            className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white hover:bg-white/20 transition-colors"
           >
             <MessageCircle className="w-4 h-4" />
           </button>

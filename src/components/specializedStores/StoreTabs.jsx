@@ -9,7 +9,7 @@ const StoreTabs = ({ tabs, activeTab, onTabChange, theme }) => {
             className={`flex items-center gap-1.5 px-4 py-2 rounded-full shrink-0 text-sm transition-colors ${
               activeTab === tab.id
                 ? 'text-white'
-                : 'bg-white/10 text-gray-400'
+                : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
             }`}
             style={activeTab === tab.id ? { backgroundColor: theme.primary } : {}}
           >

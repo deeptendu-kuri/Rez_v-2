@@ -13,11 +13,11 @@ const GrocerySuggestionCard = ({ suggestion }) => {
             <Sparkles className="w-4 h-4 text-purple-400" />
             <span className="text-xs text-purple-400">Smart Suggestion</span>
           </div>
-          <h3 className="text-sm font-medium text-white">{suggestion.title}</h3>
-          <p className="text-xs text-gray-400 mt-0.5">{suggestion.description}</p>
+          <h3 className="text-sm font-medium text-rez-navy dark:text-white">{suggestion.title}</h3>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{suggestion.description}</p>
         </div>
 
-        <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/10 text-xs text-white shrink-0">
+        <button className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-rez-gray-100 dark:bg-white/10 text-xs text-rez-navy dark:text-white shrink-0">
           {suggestion.action}
           <ChevronRight className="w-3 h-3" />
         </button>

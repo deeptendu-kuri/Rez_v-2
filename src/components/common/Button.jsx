@@ -11,7 +11,7 @@ const Button = ({
   const variants = {
     primary: 'bg-emerald-500 text-white active:bg-emerald-600 disabled:bg-emerald-500/50',
     secondary: 'bg-white/10 text-white active:bg-white/20 disabled:bg-white/5',
-    outline: 'border border-white/20 text-white active:bg-white/10 disabled:border-white/10',
+    outline: 'border border-white/20 text-white active:bg-white/10 disabled:border-rez-gray-200 dark:border-white/10',
     ghost: 'text-white active:bg-white/10',
     danger: 'bg-red-500 text-white active:bg-red-600',
     amber: 'bg-amber-500 text-black active:bg-amber-600',

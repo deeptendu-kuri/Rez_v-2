@@ -25,12 +25,12 @@ const HomeQuickActions = () => {
               <div className={`relative w-14 h-14 rounded-2xl ${action.color} flex items-center justify-center`}>
                 <Icon className={`w-6 h-6 ${action.iconColor}`} />
                 {action.badge && (
-                  <span className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-red-500 text-[10px] text-white font-bold">
+                  <span className="absolute -top-1 -right-1 px-1.5 py-0.5 rounded-full bg-red-500 text-[10px] text-rez-navy dark:text-white font-bold">
                     {action.badge}
                   </span>
                 )}
               </div>
-              <span className="text-xs text-gray-400 text-center">{action.label}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400 text-center">{action.label}</span>
             </Link>
           );
         })}

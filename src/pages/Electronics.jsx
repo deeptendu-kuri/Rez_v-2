@@ -70,20 +70,20 @@ const Electronics = () => {
   const proof = socialProof[proofIndex];
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">Electronics</h1>
-              <p className="text-xs text-gray-400">Compare · Buy · Earn Rewards</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Electronics</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Compare · Buy · Earn Rewards</p>
             </div>
-            <button className="p-2 rounded-full bg-white/10">
-              <Search className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <Search className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <Coins className="w-4 h-4 text-amber-400" />
@@ -109,7 +109,7 @@ const Electronics = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeFilters.includes(filter.id)
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{filter.icon}</span>
@@ -122,10 +122,10 @@ const Electronics = () => {
 
       {/* Social Proof */}
       <div className="px-4 py-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 animate-fade-in">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 animate-fade-in">
           <span className="text-lg">{proof.avatar}</span>
-          <p className="text-sm text-gray-300 flex-1">
-            <span className="font-medium text-white">{proof.user}</span>{' '}
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300 flex-1">
+            <span className="font-medium text-rez-navy dark:text-white">{proof.user}</span>{' '}
             {proof.action}{' '}
             <span className="text-blue-400">{proof.product}</span>
           </p>
@@ -142,28 +142,28 @@ const Electronics = () => {
       </div>
 
       {/* Why Buy on ReZ */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-3">Why Buy Electronics on ReZ?</h3>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Why Buy Electronics on ReZ?</h3>
         <div className="grid grid-cols-2 gap-3">
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🔍</span>
-            <h4 className="text-sm font-medium text-white mt-1">Compare Anywhere</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Local + online prices</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Compare Anywhere</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Local + online prices</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🪙</span>
-            <h4 className="text-sm font-medium text-white mt-1">Earn on Every Buy</h4>
-            <p className="text-xs text-gray-400 mt-0.5">ReZ + Branded Coins</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Earn on Every Buy</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">ReZ + Branded Coins</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🏬</span>
-            <h4 className="text-sm font-medium text-white mt-1">Online + Offline</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Pay in-store via QR</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Online + Offline</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Pay in-store via QR</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">💳</span>
-            <h4 className="text-sm font-medium text-white mt-1">Smart Payments</h4>
-            <p className="text-xs text-gray-400 mt-0.5">EMI, BNPL, Bank offers</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Smart Payments</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">EMI, BNPL, Bank offers</p>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@ const Electronics = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <span className="text-xl">🔥</span>
-            <h2 className="font-semibold text-white">Today's Deals</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Today's Deals</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -198,7 +198,7 @@ const Electronics = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-amber-400" />
-            <h2 className="font-semibold text-white">Need It Fast?</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Need It Fast?</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -223,7 +223,7 @@ const Electronics = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <span className="text-xl">🏷️</span>
-            <h2 className="font-semibold text-white">Brand Stores</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Brand Stores</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -241,9 +241,9 @@ const Electronics = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-blue-400" />
-            <h2 className="font-semibold text-white">Stores Near You</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Stores Near You</h2>
           </div>
-          <button className="text-xs text-gray-400 flex items-center gap-1">
+          <button className="text-xs text-rez-gray-600 dark:text-gray-400 flex items-center gap-1">
             Map View <ChevronRight className="w-3 h-3" />
           </button>
         </div>
@@ -259,13 +259,13 @@ const Electronics = () => {
         <div className="flex items-center gap-3 mb-3">
           <Gift className="w-6 h-6 text-purple-400" />
           <div>
-            <h3 className="font-semibold text-white">Earn More Every Time</h3>
-            <p className="text-xs text-gray-400">
+            <h3 className="font-semibold text-rez-navy dark:text-white">Earn More Every Time</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">
               {loyaltyProgress.targetPurchases - loyaltyProgress.currentPurchases} more purchases to unlock reward
             </p>
           </div>
         </div>
-        <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-2">
+        <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden mb-2">
           <div
             className="h-full bg-purple-500 rounded-full transition-all"
             style={{
@@ -274,7 +274,7 @@ const Electronics = () => {
           />
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400">
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">
             {loyaltyProgress.currentPurchases}/{loyaltyProgress.targetPurchases} purchases
           </span>
           <span className="text-xs text-amber-400">
@@ -287,12 +287,12 @@ const Electronics = () => {
       {selectedCategory && (
         <div className="mt-6">
           <div className="flex items-center justify-between px-4 mb-3">
-            <h2 className="font-semibold text-white">
+            <h2 className="font-semibold text-rez-navy dark:text-white">
               {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1)}
             </h2>
             <button
               onClick={() => setSelectedCategory(null)}
-              className="text-xs text-gray-400"
+              className="text-xs text-rez-gray-600 dark:text-gray-400"
             >
               Clear filter
             </button>
@@ -306,11 +306,11 @@ const Electronics = () => {
       )}
 
       {/* Value Proposition */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E] text-center">
-        <h3 className="font-semibold text-white mb-2">
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-2">
           Your electronics. Smarter savings.
         </h3>
-        <p className="text-sm text-gray-400">
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">
           Same product. Better price. With ReZ rewards.
         </p>
       </div>
@@ -369,7 +369,7 @@ const Electronics = () => {
       <div className="fixed bottom-20 left-0 right-0 px-4 z-50">
         <div className="p-3 rounded-2xl bg-emerald-600 shadow-xl flex items-center justify-between">
           <div>
-            <p className="text-sm font-medium text-white">
+            <p className="text-sm font-medium text-rez-navy dark:text-white">
               🪙 You can save ₹3,200 today
             </p>
             <p className="text-xs text-emerald-200">on Electronics</p>

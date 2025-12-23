@@ -20,8 +20,8 @@ const HomeCategoryGrid = () => {
       {/* Section Header */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-lg font-bold text-white">🎉 Earn rewards in every category</h2>
-          <p className="text-xs text-gray-400 mt-0.5">Shop anywhere. Earn everywhere.</p>
+          <h2 className="text-lg font-bold text-rez-navy dark:text-white">🎉 Earn rewards in every category</h2>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Shop anywhere. Earn everywhere.</p>
         </div>
         <Link to="/categories" className="flex items-center gap-1 text-xs text-emerald-400">
           All <ChevronRight className="w-3 h-3" />
@@ -37,7 +37,7 @@ const HomeCategoryGrid = () => {
             className={`min-w-[100px] p-3 rounded-2xl bg-gradient-to-br ${category.color} border border-white/5 active:scale-[0.98] transition-transform`}
           >
             <span className="text-2xl block mb-1">{category.icon}</span>
-            <h3 className="text-sm font-medium text-white">{category.name}</h3>
+            <h3 className="text-sm font-medium text-rez-navy dark:text-white">{category.name}</h3>
             <div className="flex items-center gap-1 mt-1">
               <Coins className="w-3 h-3 text-amber-400" />
               <span className="text-[10px] text-amber-400">Up to {category.cashback}%</span>

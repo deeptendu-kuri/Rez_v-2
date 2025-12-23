@@ -46,7 +46,7 @@ const Healthcare = () => {
   const [selectedSpec, setSelectedSpec] = useState(null);
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
@@ -54,8 +54,8 @@ const Healthcare = () => {
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-emerald-400" />
               <div>
-                <p className="text-sm text-white font-medium">Your Location</p>
-                <p className="text-xs text-gray-400">123 Main Street, City</p>
+                <p className="text-sm text-rez-navy dark:text-white font-medium">Your Location</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">123 Main Street, City</p>
               </div>
             </div>
             <div className="flex items-center gap-2">
@@ -71,13 +71,13 @@ const Healthcare = () => {
 
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search doctors, clinics, tests, pharmacy..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -88,7 +88,7 @@ const Healthcare = () => {
         <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-emerald-500/20 border border-blue-500/20">
           <div className="flex items-center gap-2 mb-2">
             <Heart className="w-5 h-5 text-red-400" />
-            <p className="text-sm font-medium text-white">
+            <p className="text-sm font-medium text-rez-navy dark:text-white">
               Take care of health. ReZ takes care of savings.
             </p>
           </div>
@@ -96,7 +96,7 @@ const Healthcare = () => {
             {healthcareHighlights.map((item, index) => (
               <div key={index} className="flex items-center gap-2">
                 <span>{item.icon}</span>
-                <span className="text-xs text-gray-300">{item.text}</span>
+                <span className="text-xs text-rez-gray-700 dark:text-gray-300">{item.text}</span>
               </div>
             ))}
           </div>
@@ -121,7 +121,7 @@ const Healthcare = () => {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                 selectedSpec === spec.id
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-white/10 text-gray-400'
+                  : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               <span>{spec.icon}</span>
@@ -134,7 +134,7 @@ const Healthcare = () => {
       {/* Doctors Section */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Top Doctors Near You</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Top Doctors Near You</h2>
           <Link to="/healthcare/doctors" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="space-y-4">
@@ -148,8 +148,8 @@ const Healthcare = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Dental & Cosmetic</h2>
-            <p className="text-xs text-gray-400">High-value treatments, smarter savings</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Dental & Cosmetic</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">High-value treatments, smarter savings</p>
           </div>
           <Link to="/healthcare/dental" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -164,8 +164,8 @@ const Healthcare = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Lab Tests & Diagnostics</h2>
-            <p className="text-xs text-gray-400">Home collection available</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Lab Tests & Diagnostics</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Home collection available</p>
           </div>
           <Link to="/healthcare/diagnostics" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -179,7 +179,7 @@ const Healthcare = () => {
       {/* Pharmacy */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Pharmacy & Medicines</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Pharmacy & Medicines</h2>
           <Link to="/healthcare/pharmacy" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
@@ -192,7 +192,7 @@ const Healthcare = () => {
       {/* Offers */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Healthcare Offers</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Healthcare Offers</h2>
           <Link to="/healthcare/offers" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="grid grid-cols-2 gap-3">
@@ -204,7 +204,7 @@ const Healthcare = () => {
             >
               {offer.tag && (
                 <span
-                  className="px-2 py-0.5 rounded-full text-[10px] text-white mb-2 inline-block"
+                  className="px-2 py-0.5 rounded-full text-[10px] text-rez-navy dark:text-white mb-2 inline-block"
                   style={{ backgroundColor: offer.color }}
                 >
                   {offer.tag}
@@ -219,8 +219,8 @@ const Healthcare = () => {
                   {offer.discount}
                 </span>
               </div>
-              <p className="text-xs text-white font-medium">{offer.title}</p>
-              <p className="text-[10px] text-gray-400 mt-0.5">{offer.description}</p>
+              <p className="text-xs text-rez-navy dark:text-white font-medium">{offer.title}</p>
+              <p className="text-[10px] text-rez-gray-600 dark:text-gray-400 mt-0.5">{offer.description}</p>
             </div>
           ))}
         </div>
@@ -238,16 +238,16 @@ const Healthcare = () => {
 
       {/* Trust Section */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-2 mb-3">
             <Shield className="w-5 h-5 text-emerald-400" />
-            <h3 className="font-semibold text-white">Trust & Safety</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Trust & Safety</h3>
           </div>
           <div className="grid grid-cols-2 gap-2">
             {healthcareTrust.map((item, index) => (
-              <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-white/5">
+              <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-rez-gray-50 dark:bg-white/5">
                 <span>{item.icon}</span>
-                <span className="text-xs text-gray-300">{item.text}</span>
+                <span className="text-xs text-rez-gray-700 dark:text-gray-300">{item.text}</span>
               </div>
             ))}
           </div>
@@ -262,14 +262,14 @@ const Healthcare = () => {
             className="p-4 rounded-xl bg-red-500/20 border border-red-500/30 flex items-center gap-2"
           >
             <AlertCircle className="w-5 h-5 text-red-400" />
-            <span className="text-sm text-white">Emergency</span>
+            <span className="text-sm text-rez-navy dark:text-white">Emergency</span>
           </Link>
           <Link
             to="/healthcare/support"
-            className="p-4 rounded-xl bg-[#2C2C2E] flex items-center gap-2"
+            className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-2"
           >
             <MessageCircle className="w-5 h-5 text-blue-400" />
-            <span className="text-sm text-white">Support</span>
+            <span className="text-sm text-rez-navy dark:text-white">Support</span>
           </Link>
         </div>
         <Link
@@ -279,8 +279,8 @@ const Healthcare = () => {
           <div className="flex items-center gap-3">
             <Coins className="w-6 h-6 text-amber-400" />
             <div>
-              <p className="text-sm text-white">Health Wallet: <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
-              <p className="text-xs text-gray-400">Use at clinics & pharmacies</p>
+              <p className="text-sm text-rez-navy dark:text-white">Health Wallet: <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Use at clinics & pharmacies</p>
             </div>
           </div>
           <ArrowRight className="w-5 h-5 text-amber-400" />
@@ -289,7 +289,7 @@ const Healthcare = () => {
 
       {/* Social Proof */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               <div className="w-8 h-8 rounded-full bg-blue-500/30 border-2 border-[#2C2C2E] flex items-center justify-center">
@@ -303,8 +303,8 @@ const Healthcare = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm text-white">856 healthcare visits today</p>
-              <p className="text-xs text-gray-400">₹12,400 saved with ReZ</p>
+              <p className="text-sm text-rez-navy dark:text-white">856 healthcare visits today</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">₹12,400 saved with ReZ</p>
             </div>
           </div>
         </div>

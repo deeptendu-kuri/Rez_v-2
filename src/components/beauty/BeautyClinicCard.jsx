@@ -5,11 +5,11 @@ const BeautyClinicCard = ({ clinic }) => {
   return (
     <Link
       to={`/beauty/clinic/${clinic.id}`}
-      className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform"
+      className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform"
     >
       <div className="flex gap-4">
         {/* Logo/Image */}
-        <div className="w-16 h-16 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
+        <div className="w-16 h-16 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden shrink-0">
           {clinic.logo ? (
             <img
               src={clinic.logo}
@@ -28,33 +28,33 @@ const BeautyClinicCard = ({ clinic }) => {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h3 className="font-semibold text-white truncate">{clinic.name}</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white truncate">{clinic.name}</h3>
             {clinic.isVerified && (
               <Shield className="w-4 h-4 text-emerald-400" />
             )}
           </div>
 
-          <p className="text-xs text-gray-400 mt-0.5">{clinic.credentials}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{clinic.credentials}</p>
 
           {/* Rating & Distance */}
           <div className="flex items-center gap-3 mt-1.5">
             <div className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{clinic.rating}</span>
-              <span className="text-xs text-gray-500">({clinic.reviews})</span>
+              <span className="text-xs text-rez-navy dark:text-white">{clinic.rating}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">({clinic.reviews})</span>
             </div>
             <div className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-gray-400" />
-              <span className="text-xs text-gray-400">{clinic.distance}</span>
+              <MapPin className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">{clinic.distance}</span>
             </div>
             <div className="flex items-center gap-1">
-              <Users className="w-3.5 h-3.5 text-gray-400" />
-              <span className="text-xs text-gray-400">{clinic.doctorCount} doctors</span>
+              <Users className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">{clinic.doctorCount} doctors</span>
             </div>
           </div>
         </div>
 
-        <ChevronRight className="w-5 h-5 text-gray-500 shrink-0" />
+        <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500 shrink-0" />
       </div>
 
       {/* Specializations */}
@@ -68,23 +68,23 @@ const BeautyClinicCard = ({ clinic }) => {
           </span>
         ))}
         {clinic.specializations.length > 3 && (
-          <span className="px-2 py-1 rounded-full bg-white/10 text-xs text-gray-400">
+          <span className="px-2 py-1 rounded-full bg-rez-gray-100 dark:bg-white/10 text-xs text-rez-gray-600 dark:text-gray-400">
             +{clinic.specializations.length - 3} more
           </span>
         )}
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <div>
-          <p className="text-xs text-gray-400">Consultation Fee</p>
-          <p className="text-sm font-medium text-white">₹{clinic.consultationFee}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">Consultation Fee</p>
+          <p className="text-sm font-medium text-rez-navy dark:text-white">₹{clinic.consultationFee}</p>
         </div>
         <div className="text-right">
-          <p className="text-xs text-gray-400">Earn Cashback</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">Earn Cashback</p>
           <p className="text-sm font-medium text-emerald-400">{clinic.cashbackPercent}%</p>
         </div>
-        <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-white">
+        <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-rez-navy dark:text-white">
           Book Now
         </button>
       </div>

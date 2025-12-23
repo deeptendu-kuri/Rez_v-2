@@ -5,10 +5,10 @@ const PharmacyCard = ({ pharmacy }) => {
   return (
     <Link
       to={`/healthcare/pharmacy/${pharmacy.id}`}
-      className="min-w-[200px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+      className="min-w-[200px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
     >
       <div className="flex items-center gap-3 mb-3">
-        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
+        <div className="w-12 h-12 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
           {pharmacy.logo ? (
             <img
               src={pharmacy.logo}
@@ -24,10 +24,10 @@ const PharmacyCard = ({ pharmacy }) => {
           )}
         </div>
         <div className="flex-1 min-w-0">
-          <h3 className="font-medium text-white truncate">{pharmacy.name}</h3>
+          <h3 className="font-medium text-rez-navy dark:text-white truncate">{pharmacy.name}</h3>
           <div className="flex items-center gap-1">
             <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-            <span className="text-xs text-white">{pharmacy.rating}</span>
+            <span className="text-xs text-rez-navy dark:text-white">{pharmacy.rating}</span>
           </div>
         </div>
       </div>
@@ -46,8 +46,8 @@ const PharmacyCard = ({ pharmacy }) => {
       <div className="space-y-1.5">
         {pharmacy.distance !== 'Online' && (
           <div className="flex items-center gap-2">
-            <MapPin className="w-3.5 h-3.5 text-gray-400" />
-            <span className="text-xs text-gray-400">{pharmacy.distance}</span>
+            <MapPin className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+            <span className="text-xs text-rez-gray-600 dark:text-gray-400">{pharmacy.distance}</span>
           </div>
         )}
         {pharmacy.hasDelivery && (
@@ -64,7 +64,7 @@ const PharmacyCard = ({ pharmacy }) => {
         )}
       </div>
 
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center gap-1">
           <Coins className="w-4 h-4 text-amber-400" />
           <span className="text-sm text-amber-400">{pharmacy.cashbackPercent}% cashback</span>

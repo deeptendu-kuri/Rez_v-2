@@ -2,10 +2,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './contexts/AppContext';
 import { WalletProvider } from './contexts/WalletContext';
 import { UserProvider } from './contexts/UserContext';
+import { ThemeProvider } from './contexts/ThemeContext';
 
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
 import Explore from './pages/Explore';
+import ExploreNew from './pages/ExploreNew';
 import Categories from './pages/Categories';
 import Onboarding from './pages/Onboarding';
 import StorePage from './pages/StorePage';
@@ -42,6 +44,22 @@ import ServiceCheckout from './pages/ServiceCheckout';
 import SearchResults from './pages/SearchResults';
 import Earn from './pages/Earn';
 
+// Explore Subpages
+import CategoryDetail from './pages/explore/CategoryDetail';
+import ComparePage from './pages/explore/ComparePage';
+import CompareSmartFindPage from './pages/explore/CompareSmartFindPage';
+import TrendingPage from './pages/explore/TrendingPage';
+import FriendsActivityPage from './pages/explore/FriendsActivityPage';
+import ExploreProductDetail from './pages/explore/ExploreProductDetail';
+import SpinWinPage from './pages/explore/SpinWinPage';
+import DailyCheckInPage from './pages/explore/DailyCheckInPage';
+import ReviewEarnPage from './pages/explore/ReviewEarnPage';
+import MapViewPage from './pages/explore/MapViewPage';
+
+// Earn Subpages
+import UploadBillPage from './pages/earn/UploadBillPage';
+import ReferralPage from './pages/earn/ReferralPage';
+
 // Specialized Stores
 import LuxuryStore from './pages/stores/LuxuryStore';
 import OrganicStore from './pages/stores/OrganicStore';
@@ -68,14 +86,27 @@ import HowRezWorks from './pages/HowRezWorks';
 function App() {
   return (
     <BrowserRouter>
-      <UserProvider>
-        <WalletProvider>
-          <AppProvider>
+      <ThemeProvider>
+        <UserProvider>
+          <WalletProvider>
+            <AppProvider>
             <Routes>
               <Route path="/onboarding" element={<Onboarding />} />
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
-                <Route path="explore" element={<Explore />} />
+                <Route path="explore" element={<ExploreNew />} />
+                <Route path="explore-old" element={<Explore />} />
+                <Route path="explore/category/:categoryId" element={<CategoryDetail />} />
+                <Route path="explore/compare" element={<ComparePage />} />
+                <Route path="explore/compare-smart-find" element={<CompareSmartFindPage />} />
+                <Route path="explore/trending" element={<TrendingPage />} />
+                <Route path="explore/friends" element={<FriendsActivityPage />} />
+                <Route path="explore/product/:productId" element={<ExploreProductDetail />} />
+                <Route path="explore/spin-win" element={<SpinWinPage />} />
+                <Route path="explore/daily-checkin" element={<DailyCheckInPage />} />
+                <Route path="explore/review-earn" element={<ReviewEarnPage />} />
+                <Route path="explore/review-earn/:productId" element={<ReviewEarnPage />} />
+                <Route path="explore/map" element={<MapViewPage />} />
                 <Route path="categories" element={<Categories />} />
                 <Route path="store/:id" element={<StorePage />} />
                 <Route path="wallet" element={<Wallet />} />
@@ -111,6 +142,8 @@ function App() {
 
                 {/* Earn Page */}
                 <Route path="earn" element={<Earn />} />
+                <Route path="upload-bill" element={<UploadBillPage />} />
+                <Route path="refer" element={<ReferralPage />} />
 
                 {/* Pay in Store */}
                 <Route path="pay-in-store" element={<PayInStore />} />
@@ -160,6 +193,7 @@ function App() {
           </AppProvider>
         </WalletProvider>
       </UserProvider>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

@@ -16,7 +16,7 @@ const FashionTrendTag = ({ trend }) => {
       <span className="text-sm font-medium" style={{ color: trend.color }}>
         {trend.tag}
       </span>
-      <span className="text-xs text-gray-400">
+      <span className="text-xs text-rez-gray-600 dark:text-gray-400">
         {trend.products} items
       </span>
     </Link>

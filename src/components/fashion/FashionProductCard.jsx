@@ -11,7 +11,7 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
 
   if (variant === 'compact') {
     return (
-      <div className="min-w-[160px] p-3 rounded-xl bg-[#2C2C2E] shrink-0">
+      <div className="min-w-[160px] p-3 rounded-xl bg-white dark:bg-[#2C2C2E] shrink-0">
         <div className="relative">
           <img
             src={product.image}
@@ -19,18 +19,18 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
             className="w-full h-32 object-cover rounded-lg mb-2"
           />
           {discount > 0 && (
-            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-white font-medium">
+            <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-rez-navy dark:text-white font-medium">
               {discount}% OFF
             </span>
           )}
         </div>
-        <p className="text-xs text-gray-400">{product.brand}</p>
-        <p className="text-sm text-white line-clamp-2 mt-0.5">{product.name}</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+        <p className="text-sm text-rez-navy dark:text-white line-clamp-2 mt-0.5">{product.name}</p>
         <div className="flex items-center gap-2 mt-1">
-          <span className="text-sm font-bold text-white">
+          <span className="text-sm font-bold text-rez-navy dark:text-white">
             ₹{product.price.toLocaleString()}
           </span>
-          <span className="text-xs text-gray-500 line-through">
+          <span className="text-xs text-rez-gray-600 dark:text-gray-500 line-through">
             ₹{product.originalPrice.toLocaleString()}
           </span>
         </div>
@@ -42,7 +42,7 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
   }
 
   return (
-    <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+    <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
       <div className="flex gap-4">
         {/* Product Image */}
         <div className="relative w-28 h-36 shrink-0">
@@ -55,12 +55,12 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
           {/* Badges */}
           <div className="absolute top-2 left-2 flex flex-col gap-1">
             {discount > 0 && (
-              <span className="px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-white font-medium">
+              <span className="px-2 py-0.5 rounded-full bg-red-500 text-[10px] text-rez-navy dark:text-white font-medium">
                 {discount}% OFF
               </span>
             )}
             {product.tag && (
-              <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-white">
+              <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-rez-navy dark:text-white">
                 {product.tag}
               </span>
             )}
@@ -72,7 +72,7 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
               e.preventDefault();
               setLiked(!liked);
             }}
-            className="absolute top-2 right-2 w-7 h-7 rounded-full bg-black/50 flex items-center justify-center"
+            className="absolute top-2 right-2 w-7 h-7 rounded-full bg-white dark:bg-black/50 flex items-center justify-center"
           >
             <Heart
               className={`w-4 h-4 ${liked ? 'text-red-500 fill-red-500' : 'text-white'}`}
@@ -92,8 +92,8 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
 
         {/* Product Info */}
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-gray-400">{product.brand}</p>
-          <h3 className="text-sm font-medium text-white mt-0.5 line-clamp-2">
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+          <h3 className="text-sm font-medium text-rez-navy dark:text-white mt-0.5 line-clamp-2">
             {product.name}
           </h3>
 
@@ -101,19 +101,19 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
           <div className="flex items-center gap-2 mt-1.5">
             <div className="flex items-center gap-1 px-1.5 py-0.5 rounded bg-emerald-500/20">
               <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span className="text-xs font-medium text-white">{product.rating}</span>
+              <span className="text-xs font-medium text-rez-navy dark:text-white">{product.rating}</span>
             </div>
-            <span className="text-xs text-gray-500">
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">
               {product.reviews.toLocaleString()} reviews
             </span>
           </div>
 
           {/* Price */}
           <div className="flex items-center gap-2 mt-2">
-            <span className="text-lg font-bold text-white">
+            <span className="text-lg font-bold text-rez-navy dark:text-white">
               ₹{product.price.toLocaleString()}
             </span>
-            <span className="text-sm text-gray-500 line-through">
+            <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">
               ₹{product.originalPrice.toLocaleString()}
             </span>
           </div>
@@ -132,13 +132,13 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
               {product.sizes.slice(0, 5).map((size) => (
                 <span
                   key={size}
-                  className="px-2 py-0.5 rounded bg-white/10 text-[10px] text-gray-400"
+                  className="px-2 py-0.5 rounded bg-rez-gray-100 dark:bg-white/10 text-[10px] text-rez-gray-600 dark:text-gray-400"
                 >
                   {size}
                 </span>
               ))}
               {product.sizes.length > 5 && (
-                <span className="text-[10px] text-gray-500">
+                <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">
                   +{product.sizes.length - 5} more
                 </span>
               )}
@@ -149,7 +149,7 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
           {product.hasPickup && (
             <div className="flex items-center gap-1 mt-2">
               <Store className="w-3.5 h-3.5 text-blue-400" />
-              <span className="text-xs text-gray-400">
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">
                 {product.stores?.length || 0} stores nearby
               </span>
             </div>
@@ -159,7 +159,7 @@ const FashionProductCard = ({ product, variant = 'default' }) => {
 
       {/* Offers */}
       {product.offers && product.offers.length > 0 && (
-        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/10">
+        <div className="flex flex-wrap gap-2 mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
           {product.offers.map((offer, index) => (
             <span
               key={index}

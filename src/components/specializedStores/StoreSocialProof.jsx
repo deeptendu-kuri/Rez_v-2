@@ -1,6 +1,6 @@
 const StoreSocialProof = ({ theme, count, amount, label = 'purchases' }) => {
   return (
-    <div className="mx-4 mb-6 p-4 rounded-2xl bg-[#2C2C2E]">
+    <div className="mx-4 mb-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
       <div className="flex items-center gap-3">
         <div className="flex -space-x-2">
           <div
@@ -17,8 +17,8 @@ const StoreSocialProof = ({ theme, count, amount, label = 'purchases' }) => {
           </div>
         </div>
         <div className="flex-1">
-          <p className="text-sm text-white">{count} {label} this week</p>
-          <p className="text-xs text-gray-400">₹{amount.toLocaleString()} saved with ReZ</p>
+          <p className="text-sm text-rez-navy dark:text-white">{count} {label} this week</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">₹{amount.toLocaleString()} saved with ReZ</p>
         </div>
       </div>
     </div>

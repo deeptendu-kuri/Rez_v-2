@@ -9,8 +9,8 @@ const UploadBillCard = () => {
         <div className="flex items-center gap-2">
           <span className="text-xl">📄</span>
           <div>
-            <h2 className="text-lg font-semibold text-white">Upload Bill, Earn Coins</h2>
-            <p className="text-sm text-gray-400">Offline purchases = ReZ rewards</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Upload Bill, Earn Coins</h2>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Offline purchases = ReZ rewards</p>
           </div>
         </div>
       </div>
@@ -24,8 +24,8 @@ const UploadBillCard = () => {
               </div>
 
               <div className="flex-1">
-                <p className="font-medium text-white">{offer.store}</p>
-                <p className="text-sm text-gray-400">
+                <p className="font-medium text-rez-navy dark:text-white">{offer.store}</p>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">
                   Min. bill: {offer.minBillAmount} • {offer.maxBillsPerDay} bills/day
                 </p>
               </div>
@@ -35,13 +35,13 @@ const UploadBillCard = () => {
                   <span className="text-amber-400">🪙</span>
                   <span className="font-semibold text-amber-400">+{offer.coinsPerBill}</span>
                 </div>
-                <span className="text-xs text-gray-500">per bill</span>
+                <span className="text-xs text-rez-gray-600 dark:text-gray-500">per bill</span>
               </div>
             </div>
           </Card>
         ))}
 
-        <button className="w-full p-4 rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center gap-2 text-gray-400 active:bg-white/5">
+        <button className="w-full p-4 rounded-2xl border-2 border-dashed border-white/20 flex items-center justify-center gap-2 text-rez-gray-600 dark:text-gray-400 active:bg-rez-gray-50 dark:bg-white/5">
           <Upload className="w-5 h-5" />
           <span>Upload a bill now</span>
         </button>

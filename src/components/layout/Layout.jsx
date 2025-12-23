@@ -8,7 +8,7 @@ import VibePicker from '../modes/VibePicker';
 
 const Layout = () => {
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen bg-white dark:bg-black flex flex-col transition-colors">
       <Header />
 
       <main className="flex-1 pb-24 overflow-y-auto">

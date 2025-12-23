@@ -15,13 +15,13 @@ const HomeHeader = () => {
       <div className="px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Left - Location */}
-          <button className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 active:bg-white/10 transition-colors">
+          <button className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 active:bg-rez-gray-100 dark:active:bg-white/10 transition-colors">
             <MapPin className="w-4 h-4 text-emerald-400" />
             <div className="text-left">
-              <p className="text-sm font-medium text-white truncate max-w-[140px]">{location}</p>
-              <p className="text-[10px] text-gray-400">Within 3 km</p>
+              <p className="text-sm font-medium text-rez-navy dark:text-white truncate max-w-[140px]">{location}</p>
+              <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">Within 3 km</p>
             </div>
-            <ChevronDown className="w-4 h-4 text-gray-400" />
+            <ChevronDown className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
           </button>
 
           {/* Right - Icons */}
@@ -44,11 +44,11 @@ const HomeHeader = () => {
             {/* Profile */}
             <Link
               to="/profile"
-              className="relative p-2 rounded-full bg-white/5"
+              className="relative p-2 rounded-full bg-rez-gray-50 dark:bg-white/5"
             >
-              <User className="w-5 h-5 text-white" />
+              <User className="w-5 h-5 text-rez-navy dark:text-white" />
               {/* Streak indicator */}
-              <div className="absolute -top-1 -right-1 flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-orange-500 text-[10px] text-white font-bold">
+              <div className="absolute -top-1 -right-1 flex items-center gap-0.5 px-1.5 py-0.5 rounded-full bg-orange-500 text-[10px] text-rez-navy dark:text-white font-bold">
                 <Flame className="w-2.5 h-2.5" />
                 {streak}
               </div>

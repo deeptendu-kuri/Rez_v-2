@@ -11,8 +11,8 @@ const LoyaltyProgress = () => {
         <div className="flex items-center gap-2">
           <span className="text-xl">🎯</span>
           <div>
-            <h2 className="text-lg font-semibold text-white">Almost There!</h2>
-            <p className="text-sm text-gray-400">Complete to unlock rewards</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Almost There!</h2>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Complete to unlock rewards</p>
           </div>
         </div>
       </div>
@@ -31,21 +31,21 @@ const LoyaltyProgress = () => {
               />
 
               <div className="flex-1">
-                <p className="font-medium text-white">{deal.store}</p>
+                <p className="font-medium text-rez-navy dark:text-white">{deal.store}</p>
 
                 {deal.currentVisits !== undefined && (
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-rez-gray-600 dark:text-gray-400">
                     {deal.currentVisits} of {deal.requiredVisits} visits
                   </p>
                 )}
                 {deal.currentSpend !== undefined && (
-                  <p className="text-sm text-gray-400">
+                  <p className="text-sm text-rez-gray-600 dark:text-gray-400">
                     ₹{deal.currentSpend} of ₹{deal.requiredSpend} spent
                   </p>
                 )}
 
                 {/* Progress bar */}
-                <div className="mt-2 h-2 bg-white/10 rounded-full overflow-hidden">
+                <div className="mt-2 h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                   <div
                     className="h-full bg-gradient-to-r from-emerald-500 to-green-400 rounded-full transition-all"
                     style={{ width: `${deal.progress}%` }}
@@ -57,7 +57,7 @@ const LoyaltyProgress = () => {
                 <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center mb-1">
                   <Gift className="w-5 h-5 text-amber-400" />
                 </div>
-                <p className="text-xs text-gray-400 max-w-[80px]">{deal.reward}</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 max-w-[80px]">{deal.reward}</p>
               </div>
             </div>
           </Card>

@@ -14,8 +14,8 @@ const FashionVibeCard = ({ vibe }) => {
         <span className="text-3xl">{vibe.icon}</span>
       </div>
       <div className="text-center">
-        <p className="text-sm font-medium text-white">{vibe.name}</p>
-        <p className="text-[10px] text-gray-400 mt-0.5">{vibe.description}</p>
+        <p className="text-sm font-medium text-rez-navy dark:text-white">{vibe.name}</p>
+        <p className="text-[10px] text-rez-gray-600 dark:text-gray-400 mt-0.5">{vibe.description}</p>
       </div>
     </Link>
   );

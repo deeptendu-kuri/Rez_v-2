@@ -68,17 +68,17 @@ const Travel = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">Travel</h1>
-              <p className="text-xs text-gray-400">Flights · Hotels · Experiences · Savings</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Travel</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Flights · Hotels · Experiences · Savings</p>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <span className="text-sm">🪙</span>
@@ -87,21 +87,21 @@ const Travel = () => {
           </div>
 
           {/* Location */}
-          <button className="flex items-center gap-1.5 px-3 py-1.5 mt-2 rounded-full bg-white/10">
+          <button className="flex items-center gap-1.5 px-3 py-1.5 mt-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
             <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="text-sm text-white">Bangalore → Goa</span>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
+            <span className="text-sm text-rez-navy dark:text-white">Bangalore → Goa</span>
+            <ChevronRight className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-500" />
           </button>
         </div>
 
         {/* Search */}
         <div className="px-4 pb-3">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               placeholder={searchPlaceholders[placeholderIndex]}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -116,7 +116,7 @@ const Travel = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full shrink-0 transition-colors ${
                   activeTab === tab.id
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{tab.icon}</span>
@@ -135,7 +135,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <span className="text-xl">🔥</span>
-            <h2 className="font-semibold text-white">Travel Deals</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Travel Deals</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -153,7 +153,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Globe className="w-5 h-5 text-blue-400" />
-            <h2 className="font-semibold text-white">Explore Destinations</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Explore Destinations</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -171,7 +171,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Plane className="w-5 h-5 text-indigo-400" />
-            <h2 className="font-semibold text-white">Best Flight Deals</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Best Flight Deals</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             Compare All <ChevronRight className="w-3 h-3" />
@@ -194,7 +194,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Building2 className="w-5 h-5 text-purple-400" />
-            <h2 className="font-semibold text-white">Hotels & Stays</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Hotels & Stays</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -211,7 +211,7 @@ const Travel = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm ${
                   hotelCategory === cat.id
                     ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                    : 'bg-white/5 text-gray-400'
+                    : 'bg-white/5 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{cat.icon}</span>
@@ -233,7 +233,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Ticket className="w-5 h-5 text-pink-400" />
-            <h2 className="font-semibold text-white">Activities & Experiences</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Activities & Experiences</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -251,7 +251,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Car className="w-5 h-5 text-amber-400" />
-            <h2 className="font-semibold text-white">Taxis & Local Transport</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Taxis & Local Transport</h2>
           </div>
         </div>
         <div className="px-4 space-y-3">
@@ -266,7 +266,7 @@ const Travel = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <ArrowRightLeft className="w-5 h-5 text-teal-400" />
-            <h2 className="font-semibold text-white">Currency Exchange</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Currency Exchange</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             View All <ChevronRight className="w-3 h-3" />
@@ -286,32 +286,32 @@ const Travel = () => {
             <Coins className="w-7 h-7 text-emerald-400" />
           </div>
           <div className="flex-1">
-            <h3 className="font-semibold text-white">ReZ Travel Savings</h3>
-            <p className="text-sm text-gray-300">Use coins to reduce trip cost by up to 20%</p>
+            <h3 className="font-semibold text-rez-navy dark:text-white">ReZ Travel Savings</h3>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Use coins to reduce trip cost by up to 20%</p>
             <p className="text-xs text-emerald-400 mt-1">You have {rezCoins} coins available</p>
           </div>
         </div>
       </div>
 
       {/* Trust Banner */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-3">Why Book with ReZ Travel</h3>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Why Book with ReZ Travel</h3>
         <div className="grid grid-cols-2 gap-3">
           <div className="flex items-center gap-2">
             <span className="text-lg">✅</span>
-            <span className="text-sm text-gray-300">Verified Partners</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Verified Partners</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">💰</span>
-            <span className="text-sm text-gray-300">Best Price + Coins</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Best Price + Coins</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">🔒</span>
-            <span className="text-sm text-gray-300">Secure Payments</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Secure Payments</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">💬</span>
-            <span className="text-sm text-gray-300">24/7 Support</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">24/7 Support</span>
           </div>
         </div>
       </div>

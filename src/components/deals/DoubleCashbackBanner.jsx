@@ -14,9 +14,9 @@ const DoubleCashbackBanner = () => {
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <Sparkles className="w-4 h-4 text-amber-400" />
-            <span className="font-semibold text-white">{doubleCashbackDay.title}</span>
+            <span className="font-semibold text-rez-navy dark:text-white">{doubleCashbackDay.title}</span>
           </div>
-          <p className="text-sm text-gray-300 mt-0.5">{doubleCashbackDay.subtitle}</p>
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300 mt-0.5">{doubleCashbackDay.subtitle}</p>
         </div>
 
         <div className="text-right">
@@ -24,7 +24,7 @@ const DoubleCashbackBanner = () => {
             <Clock className="w-4 h-4" />
             <span className="text-sm font-medium">{doubleCashbackDay.endsIn}</span>
           </div>
-          <span className="text-xs text-gray-400">remaining</span>
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">remaining</span>
         </div>
       </div>
     </div>

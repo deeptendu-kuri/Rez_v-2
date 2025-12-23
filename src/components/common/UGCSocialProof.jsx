@@ -45,7 +45,7 @@ const UGCSocialProof = ({
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <Camera className="w-5 h-5 text-pink-400" />
-          <h2 className="font-semibold text-white">Community</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Community</h2>
         </div>
         <Link to={`/${category}/community`} className="text-xs text-emerald-400 flex items-center gap-1">
           View All <ChevronRight className="w-3 h-3" />
@@ -63,7 +63,7 @@ const UGCSocialProof = ({
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm transition-colors ${
                 activeTab === tab.id
                   ? 'bg-pink-500 text-white'
-                  : 'bg-white/10 text-gray-400'
+                  : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               <Icon className="w-4 h-4" />
@@ -81,16 +81,16 @@ const UGCSocialProof = ({
               key={reel.id}
               className="min-w-[120px] shrink-0 rounded-2xl bg-gradient-to-b from-pink-500/20 to-purple-500/20 border border-pink-500/20 overflow-hidden"
             >
-              <div className="h-40 bg-white/5 flex items-center justify-center relative">
+              <div className="h-40 bg-rez-gray-50 dark:bg-white/5 flex items-center justify-center relative">
                 <div className="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center">
-                  <Play className="w-6 h-6 text-white fill-white" />
+                  <Play className="w-6 h-6 text-rez-navy dark:text-white fill-white" />
                 </div>
                 <span className="absolute bottom-2 left-2 text-xs text-white/80">{reel.views}</span>
               </div>
               <div className="p-2">
                 <div className="flex items-center gap-1">
                   <span>{reel.avatar}</span>
-                  <span className="text-xs text-white truncate">{reel.user}</span>
+                  <span className="text-xs text-rez-navy dark:text-white truncate">{reel.user}</span>
                   {reel.verified && <BadgeCheck className="w-3 h-3 text-blue-400" />}
                 </div>
                 <div className="flex items-center gap-1 mt-1 text-amber-400">
@@ -109,17 +109,17 @@ const UGCSocialProof = ({
           {displayPhotos.map((photo) => (
             <div
               key={photo.id}
-              className="rounded-xl bg-[#2C2C2E] overflow-hidden"
+              className="rounded-xl bg-white dark:bg-[#2C2C2E] overflow-hidden"
             >
-              <div className="h-28 bg-white/5" />
+              <div className="h-28 bg-rez-gray-50 dark:bg-white/5" />
               <div className="p-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1">
                     <span>{photo.avatar}</span>
-                    <span className="text-xs text-white">{photo.user}</span>
+                    <span className="text-xs text-rez-navy dark:text-white">{photo.user}</span>
                     {photo.verified && <BadgeCheck className="w-3 h-3 text-blue-400" />}
                   </div>
-                  <span className="text-xs text-gray-400">❤️ {photo.likes}</span>
+                  <span className="text-xs text-rez-gray-600 dark:text-gray-400">❤️ {photo.likes}</span>
                 </div>
                 <div className="flex items-center gap-1 mt-1 text-amber-400">
                   <Coins className="w-3 h-3" />
@@ -137,14 +137,14 @@ const UGCSocialProof = ({
           {displayReviews.map((review) => (
             <div
               key={review.id}
-              className="p-4 rounded-xl bg-[#2C2C2E]"
+              className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E]"
             >
               <div className="flex items-start justify-between mb-2">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{review.avatar}</span>
                   <div>
                     <div className="flex items-center gap-1">
-                      <span className="text-sm font-medium text-white">{review.user}</span>
+                      <span className="text-sm font-medium text-rez-navy dark:text-white">{review.user}</span>
                       {review.verified && <BadgeCheck className="w-3 h-3 text-blue-400" />}
                     </div>
                     <div className="flex gap-0.5">
@@ -152,7 +152,7 @@ const UGCSocialProof = ({
                         <Star
                           key={i}
                           className={`w-3 h-3 ${
-                            i < review.rating ? 'text-amber-400 fill-amber-400' : 'text-gray-600'
+                            i < review.rating ? 'text-amber-400 fill-amber-400' : 'text-rez-gray-700 dark:text-gray-600'
                           }`}
                         />
                       ))}
@@ -164,7 +164,7 @@ const UGCSocialProof = ({
                   <span className="text-xs">+{review.coins}</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-300 mb-2">{review.text}</p>
+              <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-2">{review.text}</p>
               <div className="flex items-center justify-between">
                 <span className="text-xs text-emerald-400 px-2 py-0.5 rounded-full bg-emerald-500/20">
                   {review.deal}
@@ -181,11 +181,11 @@ const UGCSocialProof = ({
         <div className="flex items-center gap-2">
           <Camera className="w-5 h-5 text-pink-400" />
           <div>
-            <p className="text-sm font-medium text-white">Share your experience</p>
-            <p className="text-xs text-gray-400">Earn up to 150 coins per post</p>
+            <p className="text-sm font-medium text-rez-navy dark:text-white">Share your experience</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Earn up to 150 coins per post</p>
           </div>
         </div>
-        <button className="px-3 py-1.5 rounded-lg bg-pink-500 text-white text-sm font-medium">
+        <button className="px-3 py-1.5 rounded-lg bg-pink-500 text-rez-navy dark:text-white text-sm font-medium">
           Upload
         </button>
       </div>

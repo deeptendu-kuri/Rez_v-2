@@ -14,7 +14,7 @@ const VibePicker = () => {
       onClose={toggleVibePicker}
       title="Set the mood"
     >
-      <p className="text-gray-400 text-sm mb-6">
+      <p className="text-rez-gray-600 dark:text-gray-400 text-sm mb-6">
         Choose your vibe and we'll match your experience
       </p>
 
@@ -39,17 +39,17 @@ const VibePicker = () => {
               }}
             >
               <span className="text-4xl">{option.icon}</span>
-              <span className="text-sm font-medium text-white">{option.label}</span>
+              <span className="text-sm font-medium text-rez-navy dark:text-white">{option.label}</span>
             </button>
           );
         })}
       </div>
 
       {vibe && (
-        <div className="mt-6 p-4 rounded-2xl bg-white/5 text-center">
-          <p className="text-sm text-gray-300">
+        <div className="mt-6 p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 text-center">
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300">
             {vibeOptions.find(v => v.id === vibe)?.icon} Feeling{' '}
-            <span className="font-medium text-white">
+            <span className="font-medium text-rez-navy dark:text-white">
               {vibeOptions.find(v => v.id === vibe)?.label}
             </span>
             ? Here's what matches your vibe.

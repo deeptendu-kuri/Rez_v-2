@@ -65,35 +65,35 @@ const FleaMarket = () => {
   const liveMarket = fleaMarkets.find((m) => m.isLive);
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">🏷️</span>
-                <h1 className="text-xl font-bold text-white">Flea Market</h1>
+                <h1 className="text-xl font-bold text-rez-navy dark:text-white">Flea Market</h1>
               </div>
-              <p className="text-xs text-gray-400">Unique finds · Crazy deals · Limited time</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Unique finds · Crazy deals · Limited time</p>
             </div>
             <button
               onClick={() => setShowMap(!showMap)}
               className={`p-2 rounded-full ${showMap ? 'bg-emerald-500' : 'bg-white/10'}`}
             >
-              <Map className="w-5 h-5 text-white" />
+              <Map className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
           </div>
 
           {/* Location + Date */}
           <div className="flex items-center gap-3 mt-3">
-            <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10">
+            <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10">
               <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-              <span className="text-sm text-white">Indiranagar</span>
-              <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
+              <span className="text-sm text-rez-navy dark:text-white">Indiranagar</span>
+              <ChevronRight className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-500" />
             </button>
             <div className="flex gap-2">
               {['today', 'weekend', 'custom'].map((d) => (
@@ -103,7 +103,7 @@ const FleaMarket = () => {
                   className={`px-3 py-1.5 rounded-full text-sm capitalize ${
                     dateFilter === d
                       ? 'bg-emerald-500 text-white'
-                      : 'bg-white/10 text-gray-400'
+                      : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                   }`}
                 >
                   {d === 'custom' ? (
@@ -127,7 +127,7 @@ const FleaMarket = () => {
                   {activeMode} Mode ON
                 </span>
               </div>
-              <span className="text-sm text-gray-400">
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">
                 Showing {activeModeCount} stalls
               </span>
             </div>
@@ -135,7 +135,7 @@ const FleaMarket = () => {
         )}
 
         {/* Quick Filters */}
-        <div className="px-4 py-3 border-t border-white/5">
+        <div className="px-4 py-3 border-t border-rez-gray-200 dark:border-white/5">
           <div className="flex gap-2 overflow-x-auto hide-scrollbar">
             {fleaFilters.map((filter) => (
               <button
@@ -144,7 +144,7 @@ const FleaMarket = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm ${
                   selectedFilters.includes(filter.id)
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{filter.icon}</span>
@@ -156,7 +156,7 @@ const FleaMarket = () => {
       </div>
 
       {/* Live Activity Banner */}
-      <div className="border-b border-white/5">
+      <div className="border-b border-rez-gray-200 dark:border-white/5">
         <LiveActivityFeed activities={liveActivity} compact />
       </div>
 
@@ -165,7 +165,7 @@ const FleaMarket = () => {
         <div className="p-4">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-            <h2 className="font-semibold text-white">Happening Now</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Happening Now</h2>
           </div>
           <MarketCard market={liveMarket} variant="featured" />
         </div>
@@ -176,7 +176,7 @@ const FleaMarket = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-amber-400" />
-            <h2 className="font-semibold text-white">Featured Markets</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Featured Markets</h2>
           </div>
           <button className="text-sm text-emerald-400">View All</button>
         </div>
@@ -197,7 +197,7 @@ const FleaMarket = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-purple-400" />
-            <h2 className="font-semibold text-white">Explore Booths</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Explore Booths</h2>
           </div>
           <button className="text-sm text-emerald-400">See All</button>
         </div>
@@ -218,11 +218,11 @@ const FleaMarket = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-emerald-400" />
-            <h2 className="font-semibold text-white">Discover Finds</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Discover Finds</h2>
           </div>
           <div className="flex items-center gap-2">
-            <button className="p-1.5 rounded-lg bg-white/10">
-              <Filter className="w-4 h-4 text-gray-400" />
+            <button className="p-1.5 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <Filter className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
             </button>
           </div>
         </div>
@@ -242,7 +242,7 @@ const FleaMarket = () => {
       <div className="mt-6 px-4">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xl">✨</span>
-          <h2 className="font-semibold text-white">Seller Spotlight</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Seller Spotlight</h2>
         </div>
         <SellerSpotlight seller={sellerSpotlight} />
       </div>
@@ -253,7 +253,7 @@ const FleaMarket = () => {
           <div className="flex items-center justify-between px-4 mb-3">
             <div className="flex items-center gap-2">
               <span className="text-xl">🎭</span>
-              <h2 className="font-semibold text-white">Events & Experiences</h2>
+              <h2 className="font-semibold text-rez-navy dark:text-white">Events & Experiences</h2>
             </div>
             <button className="text-sm text-emerald-400">View All</button>
           </div>
@@ -275,7 +275,7 @@ const FleaMarket = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-blue-400" />
-            <h2 className="font-semibold text-white">Coming Soon</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Coming Soon</h2>
           </div>
         </div>
         <div className="px-4 space-y-3">
@@ -288,8 +288,8 @@ const FleaMarket = () => {
       {/* All Booths List */}
       <div className="mt-6">
         <div className="flex items-center justify-between px-4 mb-3">
-          <h2 className="font-semibold text-white">All Booths</h2>
-          <span className="text-sm text-gray-400">{booths.length} stalls</span>
+          <h2 className="font-semibold text-rez-navy dark:text-white">All Booths</h2>
+          <span className="text-sm text-rez-gray-600 dark:text-gray-400">{booths.length} stalls</span>
         </div>
         <div className="px-4 space-y-2">
           {booths.map((booth) => (
@@ -302,15 +302,15 @@ const FleaMarket = () => {
       <div className="mt-6 px-4">
         <div className="flex items-center gap-2 mb-3">
           <span className="text-xl">💰</span>
-          <h2 className="font-semibold text-white">Earn Coins Here</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Earn Coins Here</h2>
         </div>
         <FleaRewardsExplainer />
       </div>
 
       {/* Safety Tips */}
-      <div className="mt-6 mx-4 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-2">Flea Market Tips</h3>
-        <ul className="space-y-2 text-sm text-gray-400">
+      <div className="mt-6 mx-4 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-2">Flea Market Tips</h3>
+        <ul className="space-y-2 text-sm text-rez-gray-600 dark:text-gray-400">
           <li className="flex items-start gap-2">
             <span className="text-emerald-400">•</span>
             Lock items at 10% to reserve for 2 hours

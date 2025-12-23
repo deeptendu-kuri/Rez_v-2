@@ -26,8 +26,8 @@ const CategoryCarousel = () => {
   return (
     <section className="py-4">
       <div className="px-4 mb-3">
-        <h2 className="text-lg font-semibold text-white">Explore Categories</h2>
-        <p className="text-sm text-gray-400">Earn rewards in every category</p>
+        <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Explore Categories</h2>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">Earn rewards in every category</p>
       </div>
 
       <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -52,7 +52,7 @@ const CategoryCarousel = () => {
                   />
                 )}
               </div>
-              <span className="text-xs text-gray-300 text-center leading-tight">
+              <span className="text-xs text-rez-gray-700 dark:text-gray-300 text-center leading-tight">
                 {category.name.split(' ')[0]}
               </span>
             </Link>

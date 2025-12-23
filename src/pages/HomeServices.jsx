@@ -46,14 +46,14 @@ const HomeServices = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h1 className="text-xl font-bold text-white">Home Services</h1>
-              <p className="text-xs text-gray-400">Trusted help. Smart savings.</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Home Services</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Trusted help. Smart savings.</p>
             </div>
             <Link to="/wallet" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <Coins className="w-4 h-4 text-amber-400" />
@@ -63,13 +63,13 @@ const HomeServices = () => {
 
           {/* Search */}
           <div className="relative mb-3">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search services, providers..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
 
@@ -82,7 +82,7 @@ const HomeServices = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeFilters.includes(filter.id)
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{filter.icon}</span>
@@ -99,7 +99,7 @@ const HomeServices = () => {
       {/* Categories */}
       <div className="my-4">
         <div className="px-4 mb-3">
-          <h2 className="font-semibold text-white">Services</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Services</h2>
         </div>
         <HomeServiceCategoryGrid categories={homeServiceCategories} />
       </div>
@@ -109,7 +109,7 @@ const HomeServices = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Zap className="w-5 h-5 text-amber-400" />
-            <h2 className="font-semibold text-white">Most Booked</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Most Booked</h2>
           </div>
           <Link to="/home-services/popular" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -124,8 +124,8 @@ const HomeServices = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Top Providers</h2>
-            <p className="text-xs text-gray-400">Verified & trusted</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Top Providers</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Verified & trusted</p>
           </div>
           <Link to="/home-services/providers" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -145,8 +145,8 @@ const HomeServices = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Repeat & Subscribe</h2>
-            <p className="text-xs text-gray-400">Extra coins & locked prices</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Repeat & Subscribe</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Extra coins & locked prices</p>
           </div>
         </div>
         <div className="space-y-4">
@@ -162,7 +162,7 @@ const HomeServices = () => {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <Calendar className="w-5 h-5 text-blue-400" />
-              <h2 className="font-semibold text-white">Recent Bookings</h2>
+              <h2 className="font-semibold text-rez-navy dark:text-white">Recent Bookings</h2>
             </div>
             <Link to="/home-services/bookings" className="text-sm text-emerald-400">See All</Link>
           </div>
@@ -176,7 +176,7 @@ const HomeServices = () => {
 
       {/* Social Proof */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               <div className="w-8 h-8 rounded-full bg-blue-500/30 border-2 border-[#2C2C2E] flex items-center justify-center">
@@ -190,8 +190,8 @@ const HomeServices = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm text-white">4,230 services completed this week</p>
-              <p className="text-xs text-gray-400">₹89,500 earned in ReZ Coins</p>
+              <p className="text-sm text-rez-navy dark:text-white">4,230 services completed this week</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">₹89,500 earned in ReZ Coins</p>
             </div>
           </div>
         </div>
@@ -202,17 +202,17 @@ const HomeServices = () => {
         <div className="grid grid-cols-2 gap-3">
           <Link
             to="/home-services/providers"
-            className="p-4 rounded-xl bg-[#2C2C2E] flex items-center gap-2"
+            className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-2"
           >
             <Star className="w-5 h-5 text-amber-400" />
-            <span className="text-sm text-white">Top Rated</span>
+            <span className="text-sm text-rez-navy dark:text-white">Top Rated</span>
           </Link>
           <Link
             to="/home-services/available-today"
-            className="p-4 rounded-xl bg-[#2C2C2E] flex items-center gap-2"
+            className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-2"
           >
             <Zap className="w-5 h-5 text-emerald-400" />
-            <span className="text-sm text-white">Available Today</span>
+            <span className="text-sm text-rez-navy dark:text-white">Available Today</span>
           </Link>
         </div>
         <Link
@@ -222,8 +222,8 @@ const HomeServices = () => {
           <div className="flex items-center gap-3">
             <Coins className="w-6 h-6 text-amber-400" />
             <div>
-              <p className="text-sm text-white">You have <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
-              <p className="text-xs text-gray-400">Use on any home service</p>
+              <p className="text-sm text-rez-navy dark:text-white">You have <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Use on any home service</p>
             </div>
           </div>
           <ArrowRight className="w-5 h-5 text-amber-400" />

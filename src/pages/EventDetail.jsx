@@ -71,7 +71,7 @@ const EventDetail = () => {
   const earnableCoins = Math.round((selectedTierData?.price || 0) * (event.cashback / 100));
 
   return (
-    <div className="min-h-screen bg-black pb-32">
+    <div className="min-h-screen bg-white dark:bg-black pb-32">
       {/* Hero Image */}
       <div className="relative h-64">
         <img
@@ -83,18 +83,18 @@ const EventDetail = () => {
 
         {/* Header */}
         <div className="absolute top-0 left-0 right-0 p-4 flex items-center justify-between">
-          <Link to="/events" className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <Link to="/events" className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur-sm">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </Link>
           <div className="flex items-center gap-2">
-            <button className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
-              <Share2 className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur-sm">
+              <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <button
               onClick={() => setIsSaved(!isSaved)}
               className={`p-2 rounded-full backdrop-blur-sm ${isSaved ? 'bg-red-500' : 'bg-black/50'}`}
             >
-              <Heart className={`w-5 h-5 ${isSaved ? 'text-white fill-white' : 'text-white'}`} />
+              <Heart className={`w-5 h-5 ${isSaved ? 'text-white dark:text-white fill-white' : 'text-white dark:text-white'}`} />
             </button>
           </div>
         </div>
@@ -104,25 +104,25 @@ const EventDetail = () => {
           <Badge variant={event.isTrending ? 'danger' : 'secondary'} size="sm">
             {event.type || 'Event'}
           </Badge>
-          <h1 className="text-2xl font-bold text-white mt-2">{event.title}</h1>
+          <h1 className="text-2xl font-bold text-rez-navy dark:text-white mt-2">{event.title}</h1>
           {event.artist && (
-            <p className="text-gray-300 mt-1">{event.artist}</p>
+            <p className="text-rez-gray-700 dark:text-gray-300 mt-1">{event.artist}</p>
           )}
         </div>
       </div>
 
       {/* Quick Info */}
-      <div className="px-4 py-4 border-b border-white/5">
+      <div className="px-4 py-4 border-b border-rez-gray-200 dark:border-white/5">
         <div className="flex flex-wrap gap-4">
-          <div className="flex items-center gap-2 text-gray-300">
+          <div className="flex items-center gap-2 text-rez-gray-700 dark:text-gray-300">
             <Calendar className="w-4 h-4 text-emerald-400" />
             <span className="text-sm">{event.date}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
+          <div className="flex items-center gap-2 text-rez-gray-700 dark:text-gray-300">
             <Clock className="w-4 h-4 text-emerald-400" />
             <span className="text-sm">{event.time}</span>
           </div>
-          <div className="flex items-center gap-2 text-gray-300">
+          <div className="flex items-center gap-2 text-rez-gray-700 dark:text-gray-300">
             <MapPin className="w-4 h-4 text-emerald-400" />
             <span className="text-sm">{event.venue || 'Venue'} • {event.distance}</span>
           </div>
@@ -142,7 +142,7 @@ const EventDetail = () => {
       <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border border-emerald-500/20">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-300">Earn with this booking</p>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Earn with this booking</p>
             <div className="flex items-center gap-3 mt-1">
               <div className="flex items-center gap-1 text-emerald-400">
                 <Coins className="w-4 h-4" />
@@ -161,15 +161,15 @@ const EventDetail = () => {
 
       {/* Description */}
       <div className="px-4 mt-6">
-        <h2 className="font-semibold text-white mb-2">About</h2>
-        <p className="text-sm text-gray-400 leading-relaxed">
+        <h2 className="font-semibold text-rez-navy dark:text-white mb-2">About</h2>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400 leading-relaxed">
           {event.description || 'Experience an unforgettable event with amazing performances, great atmosphere, and exclusive rewards for ReZ members.'}
         </p>
       </div>
 
       {/* Ticket Selection */}
       <div className="px-4 mt-6">
-        <h2 className="font-semibold text-white mb-3">Select Tickets</h2>
+        <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Select Tickets</h2>
         <div className="space-y-3">
           {ticketTiers.map((tier) => (
             <button
@@ -178,23 +178,23 @@ const EventDetail = () => {
               className={`w-full p-4 rounded-xl text-left transition-all ${
                 selectedTicket === tier.id
                   ? 'bg-emerald-500/20 border-2 border-emerald-500'
-                  : 'bg-[#2C2C2E] border-2 border-transparent'
+                  : 'bg-white dark:bg-[#2C2C2E] border-2 border-transparent'
               }`}
             >
               <div className="flex items-start justify-between">
                 <div>
-                  <h4 className="font-medium text-white">{tier.name}</h4>
+                  <h4 className="font-medium text-rez-navy dark:text-white">{tier.name}</h4>
                   <div className="flex flex-wrap gap-2 mt-2">
                     {tier.perks.map((perk) => (
                       <div key={perk} className="flex items-center gap-1">
                         <CheckCircle className="w-3 h-3 text-emerald-400" />
-                        <span className="text-xs text-gray-400">{perk}</span>
+                        <span className="text-xs text-rez-gray-600 dark:text-gray-400">{perk}</span>
                       </div>
                     ))}
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-lg font-semibold text-white">₹{tier.price.toLocaleString()}</p>
+                  <p className="text-lg font-semibold text-rez-navy dark:text-white">₹{tier.price.toLocaleString()}</p>
                   <p className="text-xs text-emerald-400">Earn ₹{Math.round(tier.price * event.cashback / 100)}</p>
                 </div>
               </div>
@@ -205,18 +205,18 @@ const EventDetail = () => {
 
       {/* Venue Map Placeholder */}
       <div className="px-4 mt-6">
-        <h2 className="font-semibold text-white mb-3">Venue</h2>
-        <div className="p-4 rounded-xl bg-[#2C2C2E]">
+        <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Venue</h2>
+        <div className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-start gap-3">
-            <div className="p-3 rounded-xl bg-white/10">
+            <div className="p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
               <MapPin className="w-5 h-5 text-emerald-400" />
             </div>
             <div className="flex-1">
-              <p className="font-medium text-white">{event.venue}</p>
-              <p className="text-sm text-gray-400">{event.city || 'Bangalore'}</p>
+              <p className="font-medium text-rez-navy dark:text-white">{event.venue}</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">{event.city || 'Bangalore'}</p>
               <p className="text-xs text-emerald-400 mt-1">{event.distance} away</p>
             </div>
-            <button className="px-3 py-1.5 rounded-lg bg-white/10 text-sm text-white">
+            <button className="px-3 py-1.5 rounded-lg bg-rez-gray-100 dark:bg-white/10 text-sm text-rez-navy dark:text-white">
               Directions
             </button>
           </div>
@@ -225,12 +225,12 @@ const EventDetail = () => {
 
       {/* Cancellation Policy */}
       <div className="px-4 mt-6">
-        <div className="p-4 rounded-xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-start gap-3">
-            <Info className="w-5 h-5 text-gray-400 shrink-0" />
+            <Info className="w-5 h-5 text-rez-gray-600 dark:text-gray-400 shrink-0" />
             <div>
-              <p className="text-sm text-white">Cancellation Policy</p>
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-sm text-rez-navy dark:text-white">Cancellation Policy</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">
                 Full refund if cancelled 48 hours before event. 50% refund within 48 hours. No refund on event day.
               </p>
             </div>
@@ -241,23 +241,23 @@ const EventDetail = () => {
       {/* Payment Section (if ticket selected) */}
       {selectedTicket && showPayment && (
         <div className="px-4 mt-6">
-          <h2 className="font-semibold text-white mb-3">Payment</h2>
-          <div className="p-4 rounded-xl bg-[#1C1C1E] space-y-4">
+          <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Payment</h2>
+          <div className="p-4 rounded-xl bg-rez-gray-100 dark:bg-[#1C1C1E] space-y-4">
             {/* Price breakdown */}
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-400">Ticket Price</span>
-                <span className="text-white">₹{selectedTierData.price.toLocaleString()}</span>
+                <span className="text-rez-gray-600 dark:text-gray-400">Ticket Price</span>
+                <span className="text-rez-navy dark:text-white">₹{selectedTierData.price.toLocaleString()}</span>
               </div>
               {coinDeduction > 0 && (
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-400">ReZ Coins Applied</span>
+                  <span className="text-rez-gray-600 dark:text-gray-400">ReZ Coins Applied</span>
                   <span className="text-emerald-400">-₹{Math.round(coinDeduction)}</span>
                 </div>
               )}
-              <div className="pt-2 border-t border-white/10 flex items-center justify-between">
-                <span className="font-medium text-white">Total</span>
-                <span className="text-lg font-semibold text-white">₹{Math.round(finalPrice).toLocaleString()}</span>
+              <div className="pt-2 border-t border-rez-gray-200 dark:border-white/10 flex items-center justify-between">
+                <span className="font-medium text-rez-navy dark:text-white">Total</span>
+                <span className="text-lg font-semibold text-rez-navy dark:text-white">₹{Math.round(finalPrice).toLocaleString()}</span>
               </div>
             </div>
 
@@ -266,7 +266,7 @@ const EventDetail = () => {
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <Coins className="w-4 h-4 text-amber-400" />
-                  <span className="text-sm text-white">Use {rezCoins} coins</span>
+                  <span className="text-sm text-rez-navy dark:text-white">Use {rezCoins} coins</span>
                 </div>
                 <span className="text-sm text-amber-400">-₹{Math.round(coinDeduction)}</span>
               </div>
@@ -274,15 +274,15 @@ const EventDetail = () => {
 
             {/* Payment methods */}
             <div className="space-y-2">
-              <p className="text-sm text-gray-400">Pay remaining with</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">Pay remaining with</p>
               <div className="grid grid-cols-2 gap-2">
-                <button className="p-3 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center gap-2">
+                <button className="p-3 rounded-lg bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center justify-center gap-2">
                   <Smartphone className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm text-white">UPI</span>
+                  <span className="text-sm text-rez-navy dark:text-white">UPI</span>
                 </button>
-                <button className="p-3 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center gap-2">
+                <button className="p-3 rounded-lg bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center justify-center gap-2">
                   <CreditCard className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm text-white">Card</span>
+                  <span className="text-sm text-rez-navy dark:text-white">Card</span>
                 </button>
               </div>
             </div>
@@ -298,13 +298,13 @@ const EventDetail = () => {
       )}
 
       {/* Fixed Bottom CTA */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 glass border-t border-white/5">
+      <div className="fixed bottom-0 left-0 right-0 p-4 glass border-t border-rez-gray-200 dark:border-white/5">
         {selectedTicket ? (
           <div className="flex items-center gap-3">
             <div className="flex-1">
-              <p className="text-sm text-gray-400">{selectedTierData?.name} Ticket</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">{selectedTierData?.name} Ticket</p>
               <div className="flex items-center gap-2">
-                <p className="text-xl font-bold text-white">₹{selectedTierData?.price.toLocaleString()}</p>
+                <p className="text-xl font-bold text-rez-navy dark:text-white">₹{selectedTierData?.price.toLocaleString()}</p>
                 <span className="text-xs text-emerald-400">+₹{earnableCoins} back</span>
               </div>
             </div>
@@ -322,8 +322,8 @@ const EventDetail = () => {
         ) : (
           <div className="flex items-center gap-3">
             <div className="flex-1">
-              <p className="text-sm text-gray-400">Starting from</p>
-              <p className="text-xl font-bold text-white">₹{(event.price?.min || 500).toLocaleString()}</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">Starting from</p>
+              <p className="text-xl font-bold text-rez-navy dark:text-white">₹{(event.price?.min || 500).toLocaleString()}</p>
             </div>
             <Button variant="secondary" disabled>
               Select a ticket

@@ -44,8 +44,8 @@ const DealDetail = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
         <span className="text-4xl mb-4">🔍</span>
-        <h2 className="text-xl font-semibold text-white mb-2">Deal not found</h2>
-        <p className="text-gray-400 text-center mb-4">
+        <h2 className="text-xl font-semibold text-rez-navy dark:text-white mb-2">Deal not found</h2>
+        <p className="text-rez-gray-600 dark:text-gray-400 text-center mb-4">
           This deal might have expired or been removed.
         </p>
         <Link to="/deal-store" className="text-emerald-400">Browse more deals</Link>
@@ -96,37 +96,37 @@ const DealDetail = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate(-1)}
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 backdrop-blur"
+          className="absolute top-4 left-4 p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur"
         >
-          <ArrowLeft className="w-5 h-5 text-white" />
+          <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
         </button>
 
         {/* Actions */}
         <div className="absolute top-4 right-4 flex gap-2">
           <button
             onClick={() => setSaved(!saved)}
-            className="p-2 rounded-full bg-black/50 backdrop-blur"
+            className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur"
           >
             <Heart className={`w-5 h-5 ${saved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
           </button>
-          <button className="p-2 rounded-full bg-black/50 backdrop-blur">
-            <Share2 className="w-5 h-5 text-white" />
+          <button className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur">
+            <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
         </div>
 
         {/* Discount Badge */}
         <div className="absolute bottom-4 left-4">
           <div className={`px-4 py-2 rounded-xl bg-gradient-to-r ${getDiscountColor()}`}>
-            <span className="text-xl font-bold text-white">{deal.discount || deal.cashback}</span>
-            {deal.type === 'cashback' && <span className="text-white ml-1">Cashback</span>}
+            <span className="text-xl font-bold text-rez-navy dark:text-white">{deal.discount || deal.cashback}</span>
+            {deal.type === 'cashback' && <span className="text-rez-navy dark:text-white ml-1">Cashback</span>}
           </div>
         </div>
 
         {/* Timer if expiring */}
         {deal.expiresIn && (
           <div className="absolute bottom-4 right-4 px-3 py-1.5 rounded-lg bg-red-500/90 flex items-center gap-1">
-            <Clock className="w-4 h-4 text-white" />
-            <span className="text-sm font-medium text-white">{deal.expiresIn}</span>
+            <Clock className="w-4 h-4 text-rez-navy dark:text-white" />
+            <span className="text-sm font-medium text-rez-navy dark:text-white">{deal.expiresIn}</span>
           </div>
         )}
       </div>
@@ -144,13 +144,13 @@ const DealDetail = () => {
             />
           )}
           <div>
-            <h1 className="text-xl font-bold text-white">{deal.store}</h1>
-            <p className="text-sm text-gray-400">{deal.category}</p>
+            <h1 className="text-xl font-bold text-rez-navy dark:text-white">{deal.store}</h1>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">{deal.category}</p>
           </div>
         </div>
 
         {/* Deal Title */}
-        <h2 className="text-lg font-semibold text-white mb-2">{deal.title}</h2>
+        <h2 className="text-lg font-semibold text-rez-navy dark:text-white mb-2">{deal.title}</h2>
 
         {/* Badges */}
         <div className="flex flex-wrap gap-2 mb-4">
@@ -166,7 +166,7 @@ const DealDetail = () => {
 
         {/* Quick Info */}
         {deal.distance && (
-          <div className="flex flex-wrap gap-4 mb-4 text-sm text-gray-400">
+          <div className="flex flex-wrap gap-4 mb-4 text-sm text-rez-gray-600 dark:text-gray-400">
             <span className="flex items-center gap-1">
               <MapPin className="w-4 h-4" />
               {deal.distance}
@@ -187,12 +187,12 @@ const DealDetail = () => {
           <Card className="p-4 mb-4">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-400 mb-1">Use code at checkout</p>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">Use code at checkout</p>
                 <p className="text-xl font-mono font-bold text-amber-400">{deal.code}</p>
               </div>
               <button
                 onClick={handleCopyCode}
-                className="px-4 py-2 bg-white/10 rounded-xl flex items-center gap-2 active:bg-white/20"
+                className="px-4 py-2 bg-rez-gray-100 dark:bg-white/10 rounded-xl flex items-center gap-2 active:bg-white/20"
               >
                 {copiedCode ? (
                   <>
@@ -201,8 +201,8 @@ const DealDetail = () => {
                   </>
                 ) : (
                   <>
-                    <Copy className="w-4 h-4 text-white" />
-                    <span className="text-sm text-white">Copy</span>
+                    <Copy className="w-4 h-4 text-rez-navy dark:text-white" />
+                    <span className="text-sm text-rez-navy dark:text-white">Copy</span>
                   </>
                 )}
               </button>
@@ -218,21 +218,21 @@ const DealDetail = () => {
                 <span className="text-2xl">🪙</span>
               </div>
               <div>
-                <p className="text-sm text-gray-400">Estimated earnings</p>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Estimated earnings</p>
                 <p className="text-lg font-semibold text-amber-400">
                   Up to {deal.coinsEarned || 500} ReZ Coins
                 </p>
               </div>
             </div>
             {deal.maxCashback && (
-              <p className="text-xs text-gray-400 mt-2">Max cashback: {deal.maxCashback}</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-2">Max cashback: {deal.maxCashback}</p>
             )}
           </Card>
         )}
 
         {/* How to Redeem */}
         <Card className="p-4 mb-4">
-          <h3 className="font-semibold text-white mb-3 flex items-center gap-2">
+          <h3 className="font-semibold text-rez-navy dark:text-white mb-3 flex items-center gap-2">
             <Info className="w-5 h-5 text-emerald-400" />
             How to Redeem
           </h3>
@@ -257,7 +257,7 @@ const DealDetail = () => {
 
         {/* Eligible Payment Methods */}
         <Card className="p-4 mb-4">
-          <h3 className="font-semibold text-white mb-3">Eligible Payment Methods</h3>
+          <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Eligible Payment Methods</h3>
           <div className="flex flex-wrap gap-2">
             <PaymentBadge icon={<Smartphone className="w-4 h-4" />} label="UPI" />
             <PaymentBadge icon={<CreditCard className="w-4 h-4" />} label="Cards" />
@@ -268,34 +268,34 @@ const DealDetail = () => {
 
         {/* Terms & Conditions */}
         <Card className="p-4 mb-4">
-          <h3 className="font-semibold text-white mb-3">Terms & Conditions</h3>
+          <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Terms & Conditions</h3>
           <ul className="space-y-2">
             {deal.terms ? (
               deal.terms.map((term, i) => (
-                <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
-                  <span className="text-gray-600">•</span>
+                <li key={i} className="text-sm text-rez-gray-600 dark:text-gray-400 flex items-start gap-2">
+                  <span className="text-rez-gray-700 dark:text-gray-600">•</span>
                   {term}
                 </li>
               ))
             ) : (
               <>
-                <li className="text-sm text-gray-400 flex items-start gap-2">
-                  <span className="text-gray-600">•</span>
+                <li className="text-sm text-rez-gray-600 dark:text-gray-400 flex items-start gap-2">
+                  <span className="text-rez-gray-700 dark:text-gray-600">•</span>
                   Valid for limited time only
                 </li>
-                <li className="text-sm text-gray-400 flex items-start gap-2">
-                  <span className="text-gray-600">•</span>
+                <li className="text-sm text-rez-gray-600 dark:text-gray-400 flex items-start gap-2">
+                  <span className="text-rez-gray-700 dark:text-gray-600">•</span>
                   Cannot be combined with other offers
                 </li>
-                <li className="text-sm text-gray-400 flex items-start gap-2">
-                  <span className="text-gray-600">•</span>
+                <li className="text-sm text-rez-gray-600 dark:text-gray-400 flex items-start gap-2">
+                  <span className="text-rez-gray-700 dark:text-gray-600">•</span>
                   Store reserves the right to modify or cancel
                 </li>
               </>
             )}
             {deal.eligibility && (
-              <li className="text-sm text-gray-400 flex items-start gap-2">
-                <span className="text-gray-600">•</span>
+              <li className="text-sm text-rez-gray-600 dark:text-gray-400 flex items-start gap-2">
+                <span className="text-rez-gray-700 dark:text-gray-600">•</span>
                 {deal.eligibility}
               </li>
             )}
@@ -308,7 +308,7 @@ const DealDetail = () => {
         <Button variant="primary" fullWidth>
           {deal.type === 'cashback' ? 'Visit Store & Earn' : 'Get This Deal'}
         </Button>
-        <p className="text-center text-xs text-gray-400 mt-2">
+        <p className="text-center text-xs text-rez-gray-600 dark:text-gray-400 mt-2">
           {deal.type === 'cashback'
             ? 'Pay with ReZ Wallet for automatic tracking'
             : 'Show at store or apply online'
@@ -325,14 +325,14 @@ const RedeemStep = ({ number, text }) => (
     <span className="w-6 h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
       <span className="text-xs font-bold text-emerald-400">{number}</span>
     </span>
-    <span className="text-sm text-gray-300">{text}</span>
+    <span className="text-sm text-rez-gray-700 dark:text-gray-300">{text}</span>
   </li>
 );
 
 const PaymentBadge = ({ icon, label }) => (
-  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5">
-    <span className="text-gray-400">{icon}</span>
-    <span className="text-sm text-gray-300">{label}</span>
+  <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-rez-gray-50 dark:bg-white/5">
+    <span className="text-rez-gray-600 dark:text-gray-400">{icon}</span>
+    <span className="text-sm text-rez-gray-700 dark:text-gray-300">{label}</span>
   </div>
 );
 

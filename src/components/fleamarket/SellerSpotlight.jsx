@@ -4,7 +4,7 @@ import Button from '../common/Button';
 
 const SellerSpotlight = ({ seller, showProducts = true }) => {
   return (
-    <div className="rounded-2xl overflow-hidden bg-[#1C1C1E]">
+    <div className="rounded-2xl overflow-hidden bg-rez-gray-100 dark:bg-[#1C1C1E]">
       {/* Cover + Avatar */}
       <div className="relative h-32">
         <img
@@ -24,7 +24,7 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
             />
             {seller.badges.includes('Verified') && (
               <div className="absolute -bottom-1 -right-1 p-1 rounded-full bg-blue-500">
-                <BadgeCheck className="w-4 h-4 text-white" />
+                <BadgeCheck className="w-4 h-4 text-rez-navy dark:text-white" />
               </div>
             )}
           </div>
@@ -36,8 +36,8 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
         {/* Name + Social */}
         <div className="flex items-start justify-between">
           <div>
-            <h3 className="text-xl font-bold text-white">{seller.name}</h3>
-            <p className="text-sm text-gray-400">{seller.tagline}</p>
+            <h3 className="text-xl font-bold text-rez-navy dark:text-white">{seller.name}</h3>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">{seller.tagline}</p>
           </div>
           <div className="flex items-center gap-2">
             {seller.socialHandles.instagram && (
@@ -45,7 +45,7 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
                 href={`https://instagram.com/${seller.socialHandles.instagram.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 hover:bg-white/20 transition-colors"
               >
                 <Instagram className="w-4 h-4 text-pink-400" />
               </a>
@@ -55,7 +55,7 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
                 href={`https://twitter.com/${seller.socialHandles.twitter.replace('@', '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors"
+                className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 hover:bg-white/20 transition-colors"
               >
                 <Twitter className="w-4 h-4 text-blue-400" />
               </a>
@@ -77,30 +77,30 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
         </div>
 
         {/* Story */}
-        <p className="text-sm text-gray-300 mt-4 leading-relaxed">
+        <p className="text-sm text-rez-gray-700 dark:text-gray-300 mt-4 leading-relaxed">
           "{seller.story}"
         </p>
 
         {/* Stats */}
         <div className="grid grid-cols-4 gap-2 mt-4">
-          <div className="p-2 rounded-xl bg-white/5 text-center">
+          <div className="p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <div className="flex items-center justify-center gap-1 text-amber-400">
               <Star className="w-3.5 h-3.5 fill-amber-400" />
               <span className="font-bold">{seller.stats.rating}</span>
             </div>
-            <p className="text-[10px] text-gray-500 mt-0.5">Rating</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-500 mt-0.5">Rating</p>
           </div>
-          <div className="p-2 rounded-xl bg-white/5 text-center">
-            <p className="font-bold text-white">{seller.stats.reviews}</p>
-            <p className="text-[10px] text-gray-500">Reviews</p>
+          <div className="p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
+            <p className="font-bold text-rez-navy dark:text-white">{seller.stats.reviews}</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">Reviews</p>
           </div>
-          <div className="p-2 rounded-xl bg-white/5 text-center">
+          <div className="p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <p className="font-bold text-emerald-400">{seller.stats.totalSold}</p>
-            <p className="text-[10px] text-gray-500">Sold</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">Sold</p>
           </div>
-          <div className="p-2 rounded-xl bg-white/5 text-center">
+          <div className="p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <p className="font-bold text-purple-400">{seller.stats.fleaMarkets}</p>
-            <p className="text-[10px] text-gray-500">Markets</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">Markets</p>
           </div>
         </div>
 
@@ -108,7 +108,7 @@ const SellerSpotlight = ({ seller, showProducts = true }) => {
         {showProducts && seller.recentProducts && seller.recentProducts.length > 0 && (
           <div className="mt-4">
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm font-medium text-gray-400">Recent Products</p>
+              <p className="text-sm font-medium text-rez-gray-600 dark:text-gray-400">Recent Products</p>
               <button className="text-xs text-emerald-400">View All</button>
             </div>
             <div className="flex gap-2 overflow-x-auto hide-scrollbar">

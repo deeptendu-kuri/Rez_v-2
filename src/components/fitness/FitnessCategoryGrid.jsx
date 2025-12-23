@@ -17,7 +17,7 @@ const FitnessCategoryGrid = ({ categories }) => {
             >
               <span className="text-2xl">{category.icon}</span>
             </div>
-            <span className="text-[10px] text-gray-300 text-center leading-tight line-clamp-2">
+            <span className="text-[10px] text-rez-gray-700 dark:text-gray-300 text-center leading-tight line-clamp-2">
               {category.name}
             </span>
             <div className="flex items-center gap-0.5">

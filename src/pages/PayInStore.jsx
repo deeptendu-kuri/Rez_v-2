@@ -83,16 +83,16 @@ const PayInStore = () => {
 
   // QR Scanner Screen
   const ScanQRScreen = () => (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3 flex items-center gap-3">
-          <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
           <div>
-            <h1 className="text-lg font-bold text-white">Scan & Pay with ReZ</h1>
-            <p className="text-xs text-gray-400">Instant rewards on every payment</p>
+            <h1 className="text-lg font-bold text-rez-navy dark:text-white">Scan & Pay with ReZ</h1>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Instant rewards on every payment</p>
           </div>
         </div>
       </div>
@@ -129,15 +129,15 @@ const PayInStore = () => {
             <Flashlight className={`w-6 h-6 ${torchOn ? 'text-white' : 'text-gray-300'}`} />
           </button>
           <button className="p-4 rounded-full bg-white/20 backdrop-blur-sm">
-            <Upload className="w-6 h-6 text-gray-300" />
+            <Upload className="w-6 h-6 text-rez-gray-700 dark:text-gray-300" />
           </button>
         </div>
       </div>
 
       {/* Helper Text */}
       <div className="px-4 py-6 text-center">
-        <p className="text-white font-medium mb-2">Scan the ReZ QR at the store counter</p>
-        <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
+        <p className="text-rez-navy dark:text-white font-medium mb-2">Scan the ReZ QR at the store counter</p>
+        <div className="flex items-center justify-center gap-2 text-sm text-rez-gray-600 dark:text-gray-400">
           <Lock className="w-4 h-4 text-emerald-400" />
           <span>Secure payment · Instant rewards</span>
         </div>
@@ -150,7 +150,7 @@ const PayInStore = () => {
             setSelectedMerchant(mockMerchant);
             setCurrentStep('merchant');
           }}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold"
         >
           Demo: Scan QR (Click to Continue)
         </button>
@@ -158,7 +158,7 @@ const PayInStore = () => {
 
       {/* Recent Stores */}
       <div className="px-4 py-6">
-        <h3 className="text-sm font-semibold text-gray-400 mb-3">Recent Stores</h3>
+        <h3 className="text-sm font-semibold text-rez-gray-600 dark:text-gray-400 mb-3">Recent Stores</h3>
         <div className="space-y-2">
           {[1, 2, 3].map((i) => (
             <button
@@ -167,16 +167,16 @@ const PayInStore = () => {
                 setSelectedMerchant(mockMerchant);
                 setCurrentStep('merchant');
               }}
-              className="w-full p-3 rounded-xl bg-[#2C2C2E] flex items-center gap-3"
+              className="w-full p-3 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-3"
             >
               <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center text-xl">
                 ☕
               </div>
               <div className="flex-1 text-left">
-                <p className="text-sm font-medium text-white">Cafe Coffee Day</p>
-                <p className="text-xs text-gray-500">Last visit: 2 days ago</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">Cafe Coffee Day</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-500">Last visit: 2 days ago</p>
               </div>
-              <ChevronRight className="w-5 h-5 text-gray-500" />
+              <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             </button>
           ))}
         </div>
@@ -186,14 +186,14 @@ const PayInStore = () => {
 
   // Merchant Detected Screen
   const MerchantDetectedScreen = () => (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3 flex items-center gap-3">
-          <button onClick={() => setCurrentStep('scan')} className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <button onClick={() => setCurrentStep('scan')} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
-          <h1 className="text-lg font-bold text-white">Merchant Detected</h1>
+          <h1 className="text-lg font-bold text-rez-navy dark:text-white">Merchant Detected</h1>
         </div>
       </div>
 
@@ -202,19 +202,19 @@ const PayInStore = () => {
         <div className="w-20 h-20 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-4 animate-pulse">
           <CheckCircle className="w-12 h-12 text-emerald-400" />
         </div>
-        <p className="text-white font-semibold">QR Scanned Successfully!</p>
+        <p className="text-rez-navy dark:text-white font-semibold">QR Scanned Successfully!</p>
       </div>
 
       {/* Merchant Card */}
       <div className="px-4 pb-6">
-        <div className="p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+        <div className="p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
           <div className="flex items-start gap-4 mb-4">
             <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-teal-500/30 flex items-center justify-center text-3xl">
               {selectedMerchant?.logo}
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-2 mb-1">
-                <h2 className="text-xl font-bold text-white">{selectedMerchant?.name}</h2>
+                <h2 className="text-xl font-bold text-rez-navy dark:text-white">{selectedMerchant?.name}</h2>
                 {selectedMerchant?.verified && (
                   <div className="px-2 py-0.5 rounded-full bg-emerald-500/20 flex items-center gap-1">
                     <CheckCircle className="w-3 h-3 text-emerald-400" />
@@ -222,15 +222,15 @@ const PayInStore = () => {
                   </div>
                 )}
               </div>
-              <p className="text-sm text-gray-400 mb-2">{selectedMerchant?.category}</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-2">{selectedMerchant?.category}</p>
               <div className="flex items-center gap-3">
                 <div className="flex items-center gap-1">
                   <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-                  <span className="text-sm text-white">{selectedMerchant?.rating}</span>
+                  <span className="text-sm text-rez-navy dark:text-white">{selectedMerchant?.rating}</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4 text-gray-500" />
-                  <span className="text-sm text-gray-400">{selectedMerchant?.distance}</span>
+                  <MapPin className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
+                  <span className="text-sm text-rez-gray-600 dark:text-gray-400">{selectedMerchant?.distance}</span>
                 </div>
               </div>
             </div>
@@ -244,26 +244,26 @@ const PayInStore = () => {
                 className="p-3 rounded-xl bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 flex items-center gap-2"
               >
                 <Zap className="w-4 h-4 text-emerald-400" />
-                <span className="text-sm text-white">{offer.text}</span>
+                <span className="text-sm text-rez-navy dark:text-white">{offer.text}</span>
               </div>
             ))}
           </div>
 
           {/* Loyalty Progress */}
-          <div className="p-4 rounded-xl bg-white/5 border border-white/10">
+          <div className="p-4 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
             <div className="flex items-center justify-between mb-2">
-              <span className="text-sm text-gray-400">Loyalty Progress</span>
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">Loyalty Progress</span>
               <span className="text-sm font-semibold text-amber-400">
                 {selectedMerchant?.currentVisits}/{selectedMerchant?.requiredVisits} visits
               </span>
             </div>
-            <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden mb-2">
+            <div className="w-full h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden mb-2">
               <div
                 className="h-full bg-gradient-to-r from-emerald-500 to-amber-500 rounded-full transition-all"
                 style={{ width: `${(selectedMerchant?.currentVisits / selectedMerchant?.requiredVisits) * 100}%` }}
               />
             </div>
-            <p className="text-xs text-gray-500">
+            <p className="text-xs text-rez-gray-600 dark:text-gray-500">
               1 more visit to unlock: {selectedMerchant?.nextReward} 🎁
             </p>
           </div>
@@ -274,7 +274,7 @@ const PayInStore = () => {
       <div className="fixed bottom-0 left-0 right-0 p-4 glass">
         <button
           onClick={() => setCurrentStep('amount')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold flex items-center justify-center gap-2"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold flex items-center justify-center gap-2"
         >
           <span>Continue to Pay</span>
           <ChevronRight className="w-5 h-5" />
@@ -285,14 +285,14 @@ const PayInStore = () => {
 
   // Enter Bill Amount Screen
   const EnterAmountScreen = () => (
-    <div className="min-h-screen bg-black">
+    <div className="min-h-screen bg-white dark:bg-black">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3 flex items-center gap-3">
-          <button onClick={() => setCurrentStep('merchant')} className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <button onClick={() => setCurrentStep('merchant')} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
-          <h1 className="text-lg font-bold text-white">Enter Bill Amount</h1>
+          <h1 className="text-lg font-bold text-rez-navy dark:text-white">Enter Bill Amount</h1>
         </div>
       </div>
 
@@ -300,17 +300,17 @@ const PayInStore = () => {
       <div className="px-4 py-12">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <span className="text-4xl text-gray-500">₹</span>
+            <span className="text-4xl text-rez-gray-600 dark:text-gray-500">₹</span>
             <input
               type="number"
               value={billAmount}
               onChange={(e) => setBillAmount(e.target.value)}
               placeholder="0"
-              className="text-6xl font-bold text-white bg-transparent border-none outline-none w-full text-center"
+              className="text-6xl font-bold text-rez-navy dark:text-white bg-transparent border-none outline-none w-full text-center"
               autoFocus
             />
           </div>
-          <p className="text-sm text-gray-400">Enter total bill before discounts</p>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">Enter total bill before discounts</p>
         </div>
 
         {/* Quick Amount Buttons */}
@@ -319,7 +319,7 @@ const PayInStore = () => {
             <button
               key={amount}
               onClick={() => setBillAmount(amount.toString())}
-              className="py-3 rounded-xl bg-white/10 text-white font-medium hover:bg-white/20 transition-colors"
+              className="py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white font-medium hover:bg-white/20 transition-colors"
             >
               ₹{amount}
             </button>
@@ -329,11 +329,11 @@ const PayInStore = () => {
         {/* Preview Savings */}
         {billAmount && parseFloat(billAmount) > 0 && (
           <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 animate-slideDown">
-            <p className="text-sm text-gray-400 mb-2">Estimated Rewards</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-2">Estimated Rewards</p>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <Zap className="w-5 h-5 text-emerald-400" />
-                <span className="text-white font-medium">Cashback</span>
+                <span className="text-rez-navy dark:text-white font-medium">Cashback</span>
               </div>
               <span className="text-emerald-400 font-bold">
                 ₹{Math.floor(parseFloat(billAmount) * 0.1)}
@@ -342,7 +342,7 @@ const PayInStore = () => {
             <div className="flex items-center justify-between mt-2">
               <div className="flex items-center gap-2">
                 <Coins className="w-5 h-5 text-amber-400" />
-                <span className="text-white font-medium">Coins</span>
+                <span className="text-rez-navy dark:text-white font-medium">Coins</span>
               </div>
               <span className="text-amber-400 font-bold">
                 {Math.floor(parseFloat(billAmount) / 20)} coins
@@ -357,7 +357,7 @@ const PayInStore = () => {
         <button
           onClick={() => billAmount && parseFloat(billAmount) > 0 && setCurrentStep('rewards')}
           disabled={!billAmount || parseFloat(billAmount) <= 0}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Next
         </button>
@@ -371,36 +371,36 @@ const PayInStore = () => {
     const maxBrandCoins = Math.min(selectedMerchant?.brandCoinsAvailable || 0, savings.originalAmount * 0.3);
 
     return (
-      <div className="min-h-screen bg-black pb-24">
+      <div className="min-h-screen bg-white dark:bg-black pb-24">
         {/* Header */}
         <div className="sticky top-0 z-40 glass">
           <div className="px-4 py-3 flex items-center gap-3">
-            <button onClick={() => setCurrentStep('amount')} className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <button onClick={() => setCurrentStep('amount')} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
-            <h1 className="text-lg font-bold text-white">Apply Rewards</h1>
+            <h1 className="text-lg font-bold text-rez-navy dark:text-white">Apply Rewards</h1>
           </div>
         </div>
 
         {/* Bill Breakdown */}
         <div className="px-4 py-6">
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10 mb-4">
+          <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10 mb-4">
             <div className="flex items-center justify-between mb-4">
-              <span className="text-gray-400">Bill Amount</span>
-              <span className="text-2xl font-bold text-white">₹{savings.originalAmount}</span>
+              <span className="text-rez-gray-600 dark:text-gray-400">Bill Amount</span>
+              <span className="text-2xl font-bold text-rez-navy dark:text-white">₹{savings.originalAmount}</span>
             </div>
-            <div className="pt-4 border-t border-white/10">
+            <div className="pt-4 border-t border-rez-gray-200 dark:border-white/10">
               <div className="flex items-center gap-2 mb-2">
                 <Coins className="w-5 h-5 text-amber-400" />
-                <span className="text-sm text-gray-400">Available Coins</span>
+                <span className="text-sm text-rez-gray-600 dark:text-gray-400">Available Coins</span>
               </div>
               <div className="flex items-center justify-between">
-                <span className="text-white font-medium">ReZ Coins</span>
+                <span className="text-rez-navy dark:text-white font-medium">ReZ Coins</span>
                 <span className="text-amber-400 font-bold">{rezCoins}</span>
               </div>
               {selectedMerchant?.brandCoinsAvailable > 0 && (
                 <div className="flex items-center justify-between mt-2">
-                  <span className="text-white font-medium">Brand Coins</span>
+                  <span className="text-rez-navy dark:text-white font-medium">Brand Coins</span>
                   <span className="text-purple-400 font-bold">{selectedMerchant.brandCoinsAvailable}</span>
                 </div>
               )}
@@ -409,7 +409,7 @@ const PayInStore = () => {
 
           {/* Apply Coins Section */}
           <div className="space-y-4 mb-6">
-            <h3 className="text-sm font-semibold text-gray-400">Apply Coins</h3>
+            <h3 className="text-sm font-semibold text-rez-gray-600 dark:text-gray-400">Apply Coins</h3>
 
             {/* ReZ Coins */}
             <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
@@ -419,8 +419,8 @@ const PayInStore = () => {
                     <Coins className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">Use ReZ Coins</p>
-                    <p className="text-xs text-gray-400">Max ₹{Math.floor(maxRezCoins)}</p>
+                    <p className="text-rez-navy dark:text-white font-medium">Use ReZ Coins</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">Max ₹{Math.floor(maxRezCoins)}</p>
                   </div>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
@@ -437,7 +437,7 @@ const PayInStore = () => {
                 </label>
               </div>
               {coinsToUse.rezCoins > 0 && (
-                <div className="pt-3 border-t border-white/10">
+                <div className="pt-3 border-t border-rez-gray-200 dark:border-white/10">
                   <input
                     type="range"
                     min="0"
@@ -447,7 +447,7 @@ const PayInStore = () => {
                     className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-emerald-500"
                   />
                   <div className="flex items-center justify-between mt-2">
-                    <span className="text-xs text-gray-400">Using</span>
+                    <span className="text-xs text-rez-gray-600 dark:text-gray-400">Using</span>
                     <span className="text-emerald-400 font-bold">₹{coinsToUse.rezCoins}</span>
                   </div>
                 </div>
@@ -463,8 +463,8 @@ const PayInStore = () => {
                       {selectedMerchant.logo}
                     </div>
                     <div>
-                      <p className="text-white font-medium">Use Brand Coins</p>
-                      <p className="text-xs text-gray-400">Max ₹{Math.floor(maxBrandCoins)}</p>
+                      <p className="text-rez-navy dark:text-white font-medium">Use Brand Coins</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">Max ₹{Math.floor(maxBrandCoins)}</p>
                     </div>
                   </div>
                   <label className="relative inline-flex items-center cursor-pointer">
@@ -481,7 +481,7 @@ const PayInStore = () => {
                   </label>
                 </div>
                 {coinsToUse.brandCoins > 0 && (
-                  <div className="pt-3 border-t border-white/10">
+                  <div className="pt-3 border-t border-rez-gray-200 dark:border-white/10">
                     <input
                       type="range"
                       min="0"
@@ -491,7 +491,7 @@ const PayInStore = () => {
                       className="w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer accent-purple-500"
                     />
                     <div className="flex items-center justify-between mt-2">
-                      <span className="text-xs text-gray-400">Using</span>
+                      <span className="text-xs text-rez-gray-600 dark:text-gray-400">Using</span>
                       <span className="text-purple-400 font-bold">₹{coinsToUse.brandCoins}</span>
                     </div>
                   </div>
@@ -502,33 +502,33 @@ const PayInStore = () => {
             {/* Auto-apply hint */}
             <div className="flex items-center gap-2 px-3">
               <Zap className="w-4 h-4 text-amber-400" />
-              <p className="text-xs text-gray-400">Coins auto-applied for maximum savings</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Coins auto-applied for maximum savings</p>
             </div>
           </div>
 
           {/* Final Payable */}
           <div className="p-6 rounded-3xl bg-gradient-to-r from-emerald-500/20 to-amber-500/20 border-2 border-emerald-500/30 mb-4">
             <div className="text-center mb-4">
-              <p className="text-sm text-gray-400 mb-1">You Pay</p>
-              <p className="text-5xl font-bold text-white">₹{savings.finalAmount}</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">You Pay</p>
+              <p className="text-5xl font-bold text-rez-navy dark:text-white">₹{savings.finalAmount}</p>
             </div>
-            <div className="flex items-center justify-center gap-2 pt-4 border-t border-white/20">
+            <div className="flex items-center justify-center gap-2 pt-4 border-t border-rez-gray-300 dark:border-white/20">
               <Gift className="w-5 h-5 text-emerald-400" />
               <span className="text-emerald-400 font-semibold">You Save ₹{savings.totalCoinsUsed}</span>
             </div>
           </div>
 
           {/* Earnings Preview */}
-          <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
-            <p className="text-sm text-gray-400 mb-3">You'll Earn</p>
+          <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-3">You'll Earn</p>
             <div className="grid grid-cols-2 gap-3">
               <div className="p-3 rounded-xl bg-emerald-500/10 text-center">
                 <p className="text-2xl font-bold text-emerald-400">₹{savings.cashbackEarned}</p>
-                <p className="text-xs text-gray-400 mt-1">Cashback</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Cashback</p>
               </div>
               <div className="p-3 rounded-xl bg-amber-500/10 text-center">
                 <p className="text-2xl font-bold text-amber-400">{savings.coinsEarned}</p>
-                <p className="text-xs text-gray-400 mt-1">Coins</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Coins</p>
               </div>
             </div>
           </div>
@@ -538,7 +538,7 @@ const PayInStore = () => {
         <div className="fixed bottom-0 left-0 right-0 p-4 glass">
           <button
             onClick={() => setCurrentStep('payment')}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold text-lg"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold text-lg"
           >
             Pay ₹{savings.finalAmount}
           </button>
@@ -556,22 +556,22 @@ const PayInStore = () => {
     ];
 
     return (
-      <div className="min-h-screen bg-black">
+      <div className="min-h-screen bg-white dark:bg-black">
         {/* Header */}
         <div className="sticky top-0 z-40 glass">
           <div className="px-4 py-3 flex items-center gap-3">
-            <button onClick={() => setCurrentStep('rewards')} className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <button onClick={() => setCurrentStep('rewards')} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
-            <h1 className="text-lg font-bold text-white">Choose Payment Method</h1>
+            <h1 className="text-lg font-bold text-rez-navy dark:text-white">Choose Payment Method</h1>
           </div>
         </div>
 
         {/* Amount Summary */}
         <div className="px-4 py-6">
           <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-amber-500/10 border border-emerald-500/20 text-center mb-6">
-            <p className="text-sm text-gray-400 mb-1">Amount to Pay</p>
-            <p className="text-4xl font-bold text-white">₹{savings.finalAmount}</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">Amount to Pay</p>
+            <p className="text-4xl font-bold text-rez-navy dark:text-white">₹{savings.finalAmount}</p>
           </div>
 
           {/* Payment Methods */}
@@ -583,21 +583,21 @@ const PayInStore = () => {
                 className={`w-full p-4 rounded-2xl border-2 transition-all ${
                   selectedPaymentMethod === method.id
                     ? 'bg-emerald-500/20 border-emerald-500'
-                    : 'bg-[#2C2C2E] border-white/10'
+                    : 'bg-white dark:bg-[#2C2C2E] border-rez-gray-200 dark:border-white/10'
                 }`}
               >
                 <div className="flex items-center gap-4">
                   <div className="text-3xl">{method.icon}</div>
                   <div className="flex-1 text-left">
-                    <p className="text-white font-semibold">{method.name}</p>
+                    <p className="text-rez-navy dark:text-white font-semibold">{method.name}</p>
                     {method.apps && (
-                      <p className="text-xs text-gray-400">{method.apps.join(' · ')}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{method.apps.join(' · ')}</p>
                     )}
                     {method.balance && (
                       <p className="text-xs text-emerald-400">Balance: ₹{method.balance}</p>
                     )}
                     {method.note && (
-                      <p className="text-xs text-gray-400">{method.note}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{method.note}</p>
                     )}
                   </div>
                   {selectedPaymentMethod === method.id && (
@@ -613,7 +613,7 @@ const PayInStore = () => {
         <div className="fixed bottom-0 left-0 right-0 p-4 glass">
           <button
             onClick={() => setCurrentStep('processing')}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold"
           >
             Proceed to Pay
           </button>
@@ -632,23 +632,23 @@ const PayInStore = () => {
     }, []);
 
     return (
-      <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4">
+      <div className="min-h-screen bg-white dark:bg-black flex flex-col items-center justify-center px-4">
         <div className="w-32 h-32 rounded-full bg-gradient-to-br from-emerald-500/20 to-amber-500/20 flex items-center justify-center mb-6 animate-spin-slow">
           <Coins className="w-16 h-16 text-amber-400 animate-pulse" />
         </div>
-        <h2 className="text-2xl font-bold text-white mb-2">Processing Payment...</h2>
-        <p className="text-gray-400 text-center">Securing rewards</p>
+        <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Processing Payment...</h2>
+        <p className="text-rez-gray-600 dark:text-gray-400 text-center">Securing rewards</p>
 
         <div className="mt-8 space-y-2 w-full max-w-xs">
-          <div className="flex items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-3 text-sm text-rez-gray-600 dark:text-gray-400">
             <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>Verifying payment</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-3 text-sm text-rez-gray-600 dark:text-gray-400">
             <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse animation-delay-200" />
             <span>Applying rewards</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-gray-400">
+          <div className="flex items-center gap-3 text-sm text-rez-gray-600 dark:text-gray-400">
             <div className="w-2 h-2 rounded-full bg-purple-400 animate-pulse animation-delay-400" />
             <span>Updating loyalty progress</span>
           </div>
@@ -660,7 +660,7 @@ const PayInStore = () => {
   // Success Screen
   const SuccessScreen = () => {
     return (
-      <div className="min-h-screen bg-black pb-24">
+      <div className="min-h-screen bg-white dark:bg-black pb-24">
         {/* Confetti Background */}
         <div className="fixed inset-0 pointer-events-none">
           <div className="confetti"></div>
@@ -671,25 +671,25 @@ const PayInStore = () => {
           <div className="w-24 h-24 rounded-full bg-emerald-500/20 flex items-center justify-center mx-auto mb-6 animate-scale-in">
             <CheckCircle className="w-16 h-16 text-emerald-400" />
           </div>
-          <h2 className="text-3xl font-bold text-white mb-2">Payment Successful!</h2>
-          <p className="text-gray-400">Thank you for using ReZ</p>
+          <h2 className="text-3xl font-bold text-rez-navy dark:text-white mb-2">Payment Successful!</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">Thank you for using ReZ</p>
         </div>
 
         {/* Savings Summary */}
         <div className="px-4 mb-6">
           <div className="p-6 rounded-3xl bg-gradient-to-br from-emerald-500/20 to-amber-500/20 border-2 border-emerald-500/30">
-            <h3 className="text-center text-lg font-semibold text-white mb-4">Transaction Summary</h3>
+            <h3 className="text-center text-lg font-semibold text-rez-navy dark:text-white mb-4">Transaction Summary</h3>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/10">
-                <span className="text-gray-400">You Paid</span>
-                <span className="text-xl font-bold text-white">₹{savings.finalAmount}</span>
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
+                <span className="text-rez-gray-600 dark:text-gray-400">You Paid</span>
+                <span className="text-xl font-bold text-rez-navy dark:text-white">₹{savings.finalAmount}</span>
               </div>
 
               <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10">
                 <div className="flex items-center gap-2">
                   <Coins className="w-5 h-5 text-emerald-400" />
-                  <span className="text-white">Coins Used</span>
+                  <span className="text-rez-navy dark:text-white">Coins Used</span>
                 </div>
                 <span className="text-emerald-400 font-bold">₹{savings.totalCoinsUsed}</span>
               </div>
@@ -697,7 +697,7 @@ const PayInStore = () => {
               <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10">
                 <div className="flex items-center gap-2">
                   <Zap className="w-5 h-5 text-emerald-400" />
-                  <span className="text-white">Cashback Earned</span>
+                  <span className="text-rez-navy dark:text-white">Cashback Earned</span>
                 </div>
                 <span className="text-emerald-400 font-bold">₹{savings.cashbackEarned}</span>
               </div>
@@ -705,16 +705,16 @@ const PayInStore = () => {
               <div className="flex items-center justify-between p-3 rounded-xl bg-amber-500/10">
                 <div className="flex items-center gap-2">
                   <Coins className="w-5 h-5 text-amber-400" />
-                  <span className="text-white">Coins Earned</span>
+                  <span className="text-rez-navy dark:text-white">Coins Earned</span>
                 </div>
                 <span className="text-amber-400 font-bold">{savings.coinsEarned} coins</span>
               </div>
             </div>
 
-            <div className="mt-4 pt-4 border-t border-white/20">
+            <div className="mt-4 pt-4 border-t border-rez-gray-300 dark:border-white/20">
               <div className="flex items-center justify-center gap-2">
                 <Gift className="w-6 h-6 text-amber-400" />
-                <span className="text-lg font-semibold text-white">
+                <span className="text-lg font-semibold text-rez-navy dark:text-white">
                   Total Saved: ₹{savings.totalSaved}
                 </span>
               </div>
@@ -730,19 +730,19 @@ const PayInStore = () => {
                 <TrendingUp className="w-6 h-6 text-purple-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Loyalty Progress</h3>
-                <p className="text-xs text-gray-400">Keep earning rewards!</p>
+                <h3 className="font-semibold text-rez-navy dark:text-white">Loyalty Progress</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Keep earning rewards!</p>
               </div>
             </div>
 
             <div className="mb-2">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-sm text-gray-400">Visits</span>
+                <span className="text-sm text-rez-gray-600 dark:text-gray-400">Visits</span>
                 <span className="text-sm font-semibold text-purple-400">
                   {(selectedMerchant?.currentVisits || 0) + 1}/{selectedMerchant?.requiredVisits}
                 </span>
               </div>
-              <div className="w-full h-3 bg-white/10 rounded-full overflow-hidden">
+              <div className="w-full h-3 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-purple-500 to-blue-500 rounded-full transition-all"
                   style={{ width: `${(((selectedMerchant?.currentVisits || 0) + 1) / (selectedMerchant?.requiredVisits || 5)) * 100}%` }}
@@ -750,8 +750,8 @@ const PayInStore = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-white/5 mt-3">
-              <p className="text-sm text-white">
+            <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 mt-3">
+              <p className="text-sm text-rez-navy dark:text-white">
                 🎁 Just {(selectedMerchant?.requiredVisits || 5) - (selectedMerchant?.currentVisits || 0) - 1} more visit(s) to unlock:
                 <span className="font-semibold text-amber-400"> {selectedMerchant?.nextReward}</span>
               </p>
@@ -763,17 +763,17 @@ const PayInStore = () => {
         <div className="px-4 space-y-3">
           <button
             onClick={() => navigate('/')}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold"
           >
             Done
           </button>
 
           <div className="grid grid-cols-2 gap-3">
-            <button className="py-3 rounded-xl bg-white/10 text-white font-medium flex items-center justify-center gap-2">
+            <button className="py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white font-medium flex items-center justify-center gap-2">
               <Share2 className="w-5 h-5" />
               <span>Share</span>
             </button>
-            <button className="py-3 rounded-xl bg-white/10 text-white font-medium flex items-center justify-center gap-2">
+            <button className="py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white font-medium flex items-center justify-center gap-2">
               <Star className="w-5 h-5" />
               <span>Rate Store</span>
             </button>
@@ -785,8 +785,8 @@ const PayInStore = () => {
           <div className="p-4 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-start gap-3">
             <AlertCircle className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Cashback Status</p>
-              <p className="text-xs text-gray-400">
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Cashback Status</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">
                 Cashback will be credited within 24 hours after merchant confirmation
               </p>
             </div>

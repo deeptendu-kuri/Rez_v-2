@@ -81,17 +81,17 @@ const FoodDining = () => {
   const featuredRestaurants = filteredRestaurants.filter((r) => r.featured);
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">Food & Dining</h1>
-              <p className="text-xs text-gray-400">Order · Dine-In · Pay · Save</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Food & Dining</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Order · Dine-In · Pay · Save</p>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <Coins className="w-4 h-4 text-amber-400" />
@@ -100,10 +100,10 @@ const FoodDining = () => {
           </div>
 
           {/* Location */}
-          <button className="flex items-center gap-1.5 px-3 py-1.5 mt-2 rounded-full bg-white/10">
+          <button className="flex items-center gap-1.5 px-3 py-1.5 mt-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
             <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-            <span className="text-sm text-white">HSR Layout, Bangalore</span>
-            <ChevronRight className="w-3.5 h-3.5 text-gray-500" />
+            <span className="text-sm text-rez-navy dark:text-white">HSR Layout, Bangalore</span>
+            <ChevronRight className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-500" />
           </button>
         </div>
 
@@ -126,13 +126,13 @@ const FoodDining = () => {
         {/* Search */}
         <div className="px-4 pb-3">
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={searchSuggestions[placeholderIndex]}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -147,7 +147,7 @@ const FoodDining = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-full shrink-0 transition-colors ${
                   activeTab === tab.id
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{tab.icon}</span>
@@ -173,23 +173,23 @@ const FoodDining = () => {
                 <Trophy className="w-6 h-6 text-emerald-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Food Loyalty Hub</h3>
-                <p className="text-xs text-gray-400">Track streaks, unlock rewards</p>
+                <h3 className="font-semibold text-rez-navy dark:text-white">Food Loyalty Hub</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Track streaks, unlock rewards</p>
               </div>
             </div>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
+            <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Total Visits</p>
-              <p className="text-lg font-bold text-white">42</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Total Visits</p>
+              <p className="text-lg font-bold text-rez-navy dark:text-white">42</p>
             </div>
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Active Brands</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Active Brands</p>
               <p className="text-lg font-bold text-amber-400">7</p>
             </div>
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Next Reward</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Next Reward</p>
               <p className="text-lg font-bold text-emerald-400">
                 <Gift className="w-5 h-5 inline" />
               </p>
@@ -224,7 +224,7 @@ const FoodDining = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm ${
                     activeCuisine === cuisine.id
                       ? 'bg-white/20 text-white'
-                      : 'bg-white/5 text-gray-400'
+                      : 'bg-white/5 text-rez-gray-600 dark:text-gray-400'
                   }`}
                 >
                   <span>{cuisine.icon}</span>
@@ -240,7 +240,7 @@ const FoodDining = () => {
               <div className="flex items-center justify-between px-4 mb-3">
                 <div className="flex items-center gap-2">
                   <TrendingUp className="w-5 h-5 text-purple-400" />
-                  <h2 className="font-semibold text-white">Order Again</h2>
+                  <h2 className="font-semibold text-rez-navy dark:text-white">Order Again</h2>
                 </div>
               </div>
               <div className="flex gap-3 px-4 overflow-x-auto hide-scrollbar">
@@ -248,15 +248,15 @@ const FoodDining = () => {
                   <Link
                     key={visit.id}
                     to={`/food/restaurant/${visit.restaurantId}`}
-                    className="min-w-[140px] p-3 rounded-xl bg-[#2C2C2E] shrink-0"
+                    className="min-w-[140px] p-3 rounded-xl bg-white dark:bg-[#2C2C2E] shrink-0"
                   >
                     <img
                       src={visit.image}
                       alt={visit.name}
                       className="w-full h-20 rounded-lg object-cover mb-2"
                     />
-                    <p className="font-medium text-white text-sm truncate">{visit.name}</p>
-                    <p className="text-xs text-gray-400">{visit.lastVisit}</p>
+                    <p className="font-medium text-rez-navy dark:text-white text-sm truncate">{visit.name}</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">{visit.lastVisit}</p>
                     <p className="text-xs text-emerald-400 mt-1">
                       Saved ₹{visit.totalSaved} total
                     </p>
@@ -272,7 +272,7 @@ const FoodDining = () => {
               <div className="flex items-center justify-between px-4 mb-3">
                 <div className="flex items-center gap-2">
                   <Zap className="w-5 h-5 text-amber-400" />
-                  <h2 className="font-semibold text-white">60-Min Delivery</h2>
+                  <h2 className="font-semibold text-rez-navy dark:text-white">60-Min Delivery</h2>
                 </div>
                 <button className="text-xs text-emerald-400 flex items-center gap-1">
                   View All <ChevronRight className="w-3 h-3" />
@@ -291,7 +291,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🔥</span>
-                <h2 className="font-semibold text-white">Top Rated Near You</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Top Rated Near You</h2>
               </div>
               <button className="text-xs text-emerald-400 flex items-center gap-1">
                 View All <ChevronRight className="w-3 h-3" />
@@ -308,10 +308,10 @@ const FoodDining = () => {
           <div className="mt-6">
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
-                <Utensils className="w-5 h-5 text-gray-400" />
-                <h2 className="font-semibold text-white">All Restaurants</h2>
+                <Utensils className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
+                <h2 className="font-semibold text-rez-navy dark:text-white">All Restaurants</h2>
               </div>
-              <span className="text-xs text-gray-500">{deliveryRestaurants.length} places</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">{deliveryRestaurants.length} places</span>
             </div>
             <div className="px-4 space-y-4">
               {deliveryRestaurants.map((restaurant) => (
@@ -337,7 +337,7 @@ const FoodDining = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm ${
                     activeCuisine === cuisine.id
                       ? 'bg-white/20 text-white'
-                      : 'bg-white/5 text-gray-400'
+                      : 'bg-white/5 text-rez-gray-600 dark:text-gray-400'
                   }`}
                 >
                   <span>{cuisine.icon}</span>
@@ -349,8 +349,8 @@ const FoodDining = () => {
 
           {/* Book a Table Banner */}
           <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/20">
-            <h3 className="font-semibold text-white mb-1">Book a Table</h3>
-            <p className="text-sm text-gray-300 mb-3">
+            <h3 className="font-semibold text-rez-navy dark:text-white mb-1">Book a Table</h3>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-3">
               Reserve now, pay at restaurant & earn cashback
             </p>
             <div className="flex items-center gap-2 text-amber-400 text-sm">
@@ -362,8 +362,8 @@ const FoodDining = () => {
           {/* Dine-In Restaurants */}
           <div className="mt-6">
             <div className="flex items-center justify-between px-4 mb-3">
-              <h2 className="font-semibold text-white">Dine-In Nearby</h2>
-              <span className="text-xs text-gray-500">{dineInRestaurants.length} places</span>
+              <h2 className="font-semibold text-rez-navy dark:text-white">Dine-In Nearby</h2>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">{dineInRestaurants.length} places</span>
             </div>
             <div className="px-4 space-y-4">
               {dineInRestaurants.map((restaurant) => (
@@ -382,7 +382,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🏷️</span>
-                <h2 className="font-semibold text-white">Today's Deals</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Today's Deals</h2>
               </div>
               <button className="text-xs text-emerald-400 flex items-center gap-1">
                 View All <ChevronRight className="w-3 h-3" />
@@ -400,7 +400,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🎁</span>
-                <h2 className="font-semibold text-white">Buy 1 Get 1</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Buy 1 Get 1</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -415,7 +415,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">⏰</span>
-                <h2 className="font-semibold text-white">Happy Hour Deals</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Happy Hour Deals</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -430,7 +430,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🎓</span>
-                <h2 className="font-semibold text-white">Student Specials</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Student Specials</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -447,8 +447,8 @@ const FoodDining = () => {
         <>
           {/* Banner */}
           <div className="mx-4 mt-4 p-4 rounded-2xl bg-gradient-to-r from-amber-500/20 to-orange-500/20 border border-amber-500/20">
-            <h3 className="font-semibold text-white mb-1">Not just food. Experiences.</h3>
-            <p className="text-sm text-gray-300">Worth remembering.</p>
+            <h3 className="font-semibold text-rez-navy dark:text-white mb-1">Not just food. Experiences.</h3>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Worth remembering.</p>
           </div>
 
           {/* All Experiences */}
@@ -456,7 +456,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">✨</span>
-                <h2 className="font-semibold text-white">Curated Experiences</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Curated Experiences</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -471,7 +471,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">👨‍🍳</span>
-                <h2 className="font-semibold text-white">Chef's Table</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Chef's Table</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -486,7 +486,7 @@ const FoodDining = () => {
             <div className="flex items-center justify-between px-4 mb-3">
               <div className="flex items-center gap-2">
                 <span className="text-xl">💑</span>
-                <h2 className="font-semibold text-white">Romantic Dinners</h2>
+                <h2 className="font-semibold text-rez-navy dark:text-white">Romantic Dinners</h2>
               </div>
             </div>
             <div className="flex gap-4 px-4 overflow-x-auto hide-scrollbar pb-2">
@@ -499,26 +499,26 @@ const FoodDining = () => {
       )}
 
       {/* Value Proposition */}
-      <div className="mx-4 mt-8 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-3 text-center">
+      <div className="mx-4 mt-8 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-3 text-center">
           Eat out or order in — ReZ makes every meal rewarding.
         </h3>
         <div className="grid grid-cols-2 gap-3">
           <div className="flex items-center gap-2">
             <span className="text-lg">💰</span>
-            <span className="text-sm text-gray-300">Cashback on every order</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Cashback on every order</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">🪙</span>
-            <span className="text-sm text-gray-300">Earn coins to reuse</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Earn coins to reuse</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">📱</span>
-            <span className="text-sm text-gray-300">Pay at restaurant</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Pay at restaurant</span>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg">🎁</span>
-            <span className="text-sm text-gray-300">Loyalty rewards</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">Loyalty rewards</span>
           </div>
         </div>
       </div>
@@ -527,7 +527,7 @@ const FoodDining = () => {
       <div className="mx-4 mt-4 p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20">
         <div className="flex items-center justify-between">
           <div>
-            <p className="text-sm text-gray-400">Total saved on food this month</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Total saved on food this month</p>
             <p className="text-2xl font-bold text-emerald-400">₹1,245</p>
           </div>
           <Button variant="secondary" size="sm">View Details</Button>

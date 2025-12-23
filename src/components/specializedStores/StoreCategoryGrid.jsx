@@ -9,7 +9,7 @@ const StoreCategoryGrid = ({ categories, theme, storeType }) => {
           <Link
             key={category.id}
             to={`/store/${storeType}/${category.id}`}
-            className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-[#2C2C2E] active:scale-95 transition-transform"
+            className="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-white dark:bg-[#2C2C2E] active:scale-95 transition-transform"
           >
             <div
               className="w-12 h-12 rounded-xl flex items-center justify-center"
@@ -17,7 +17,7 @@ const StoreCategoryGrid = ({ categories, theme, storeType }) => {
             >
               <span className="text-2xl">{category.icon}</span>
             </div>
-            <span className="text-[10px] text-white text-center leading-tight">
+            <span className="text-[10px] text-rez-navy dark:text-white text-center leading-tight">
               {category.name}
             </span>
             <div className="flex items-center gap-0.5">

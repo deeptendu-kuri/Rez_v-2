@@ -16,7 +16,7 @@ const ModeSwitcher = () => {
   return (
     <div className="px-4 py-3">
       {/* Mode Pills */}
-      <div className="flex gap-1 p-1 rounded-2xl bg-[#1C1C1E]">
+      <div className="flex gap-1 p-1 rounded-2xl bg-rez-gray-100 dark:bg-[#1C1C1E]">
         {modes.map((mode) => {
           const Icon = mode.icon;
           const isActive = globalMode === mode.id;
@@ -28,7 +28,7 @@ const ModeSwitcher = () => {
                 isActive
                   ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-500/30'
                   : mode.locked
-                  ? 'text-gray-600'
+                  ? 'text-rez-gray-700 dark:text-gray-600'
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
               }`}
             >
@@ -42,7 +42,7 @@ const ModeSwitcher = () => {
       </div>
 
       {/* Mode Description */}
-      <p className="text-center text-xs text-gray-500 mt-2">
+      <p className="text-center text-xs text-rez-gray-600 dark:text-gray-500 mt-2">
         {activeMode.description}
       </p>
     </div>

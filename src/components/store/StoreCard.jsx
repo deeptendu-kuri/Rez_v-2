@@ -17,7 +17,7 @@ const StoreCard = ({ store, variant = 'default' }) => {
     return (
       <Link
         to={`/store/${store.id}`}
-        className="flex gap-4 p-4 bg-[#2C2C2E] rounded-2xl active:bg-[#3A3A3C] transition-colors"
+        className="flex gap-4 p-4 bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl active:bg-[#3A3A3C] transition-colors"
       >
         {/* Image */}
         <div className="w-24 h-24 rounded-xl overflow-hidden shrink-0">
@@ -31,10 +31,10 @@ const StoreCard = ({ store, variant = 'default' }) => {
         {/* Content */}
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
-            <h3 className="font-semibold text-white truncate">{store.name}</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white truncate">{store.name}</h3>
             <button onClick={handleSave} className="shrink-0 p-1">
               <Heart
-                className={`w-5 h-5 ${isSaved ? 'fill-red-500 text-red-500' : 'text-gray-400'}`}
+                className={`w-5 h-5 ${isSaved ? 'fill-red-500 text-red-500' : 'text-rez-gray-600 dark:text-gray-400'}`}
               />
             </button>
           </div>
@@ -48,7 +48,7 @@ const StoreCard = ({ store, variant = 'default' }) => {
           </div>
 
           {/* Info Row */}
-          <div className="flex items-center gap-3 mt-2 text-sm text-gray-400">
+          <div className="flex items-center gap-3 mt-2 text-sm text-rez-gray-600 dark:text-gray-400">
             <span className="flex items-center gap-1">
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
               {store.rating}
@@ -80,7 +80,7 @@ const StoreCard = ({ store, variant = 'default' }) => {
   return (
     <Link
       to={`/store/${store.id}`}
-      className="min-w-[200px] w-[200px] bg-[#2C2C2E] rounded-2xl overflow-hidden active:bg-[#3A3A3C] transition-colors shrink-0"
+      className="min-w-[200px] w-[200px] bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl overflow-hidden active:bg-[#3A3A3C] transition-colors shrink-0"
     >
       {/* Image */}
       <div className="relative h-28">
@@ -93,7 +93,7 @@ const StoreCard = ({ store, variant = 'default' }) => {
         {/* Save button */}
         <button
           onClick={handleSave}
-          className="absolute top-2 right-2 p-2 rounded-full bg-black/50 backdrop-blur"
+          className="absolute top-2 right-2 p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur"
         >
           <Heart
             className={`w-4 h-4 ${isSaved ? 'fill-red-500 text-red-500' : 'text-white'}`}
@@ -102,13 +102,13 @@ const StoreCard = ({ store, variant = 'default' }) => {
 
         {/* Cashback badge */}
         <div className="absolute bottom-2 left-2 px-2 py-1 rounded-full bg-emerald-500/90 backdrop-blur">
-          <span className="text-xs font-medium text-white">{store.cashback}% back</span>
+          <span className="text-xs font-medium text-rez-navy dark:text-white">{store.cashback}% back</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-3">
-        <h3 className="font-semibold text-white truncate">{store.name}</h3>
+        <h3 className="font-semibold text-rez-navy dark:text-white truncate">{store.name}</h3>
 
         {/* Badges */}
         <div className="flex gap-1 mt-1 overflow-hidden">
@@ -118,7 +118,7 @@ const StoreCard = ({ store, variant = 'default' }) => {
         </div>
 
         {/* Rating & Distance */}
-        <div className="flex items-center gap-2 mt-2 text-xs text-gray-400">
+        <div className="flex items-center gap-2 mt-2 text-xs text-rez-gray-600 dark:text-gray-400">
           <span className="flex items-center gap-0.5">
             <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
             {store.rating}

@@ -18,7 +18,7 @@ const LiveEventCard = ({ event, variant = 'default' }) => {
     return (
       <Link
         to={`/event/${event.id}`}
-        className="block min-w-[280px] rounded-2xl overflow-hidden bg-[#1C1C1E] shrink-0 group"
+        className="block min-w-[280px] rounded-2xl overflow-hidden bg-rez-gray-100 dark:bg-[#1C1C1E] shrink-0 group"
       >
         {/* Image */}
         <div className="relative h-36">
@@ -43,35 +43,35 @@ const LiveEventCard = ({ event, variant = 'default' }) => {
 
           {/* Bottom - Artist */}
           <div className="absolute bottom-3 left-3">
-            <p className="text-xs text-gray-300">{event.artist}</p>
+            <p className="text-xs text-rez-gray-700 dark:text-gray-300">{event.artist}</p>
           </div>
         </div>
 
         {/* Content */}
         <div className="p-4">
-          <h3 className="font-semibold text-white">{event.title}</h3>
+          <h3 className="font-semibold text-rez-navy dark:text-white">{event.title}</h3>
 
           <div className="flex flex-wrap gap-2 mt-2">
-            <div className="flex items-center gap-1 text-gray-400">
+            <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
               <Calendar className="w-3.5 h-3.5" />
               <span className="text-xs">{event.date}</span>
             </div>
-            <div className="flex items-center gap-1 text-gray-400">
+            <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
               <Clock className="w-3.5 h-3.5" />
               <span className="text-xs">{event.time}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-1 text-gray-400 mt-1">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400 mt-1">
             <MapPin className="w-3.5 h-3.5" />
             <span className="text-xs truncate">{event.venue}</span>
-            <span className="text-xs text-gray-500">• {event.distance}</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">• {event.distance}</span>
           </div>
 
           {/* Price & Rewards */}
-          <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
+          <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
             <div>
-              <p className="text-sm text-white">
+              <p className="text-sm text-rez-navy dark:text-white">
                 ₹{event.price.min.toLocaleString()} - ₹{event.price.max.toLocaleString()}
               </p>
               <div className="flex items-center gap-1 text-amber-400 mt-0.5">
@@ -93,7 +93,7 @@ const LiveEventCard = ({ event, variant = 'default' }) => {
   return (
     <Link
       to={`/event/${event.id}`}
-      className="flex gap-4 p-3 rounded-xl bg-[#2C2C2E] hover:bg-[#3C3C3E] transition-colors"
+      className="flex gap-4 p-3 rounded-xl bg-white dark:bg-[#2C2C2E] hover:bg-rez-gray-200 dark:bg-[#3C3C3E] transition-colors"
     >
       <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0">
         <img
@@ -108,19 +108,19 @@ const LiveEventCard = ({ event, variant = 'default' }) => {
           <span className={`text-xs font-medium ${getTypeColor()}`}>{event.type}</span>
           {event.isTrending && <Badge variant="danger" size="xs">Hot</Badge>}
         </div>
-        <h4 className="font-medium text-white truncate mt-0.5">{event.title}</h4>
-        <p className="text-xs text-gray-400 truncate">{event.artist}</p>
+        <h4 className="font-medium text-rez-navy dark:text-white truncate mt-0.5">{event.title}</h4>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 truncate">{event.artist}</p>
 
         <div className="flex items-center gap-2 mt-1.5">
-          <span className="text-xs text-gray-300">{event.date}</span>
-          <span className="text-gray-600">•</span>
+          <span className="text-xs text-rez-gray-700 dark:text-gray-300">{event.date}</span>
+          <span className="text-rez-gray-700 dark:text-gray-600">•</span>
           <span className="text-xs text-emerald-400">{event.cashback}% back</span>
         </div>
       </div>
 
       <div className="flex flex-col items-end justify-between">
-        <span className="text-sm font-medium text-white">₹{event.price.min}</span>
-        <span className="text-[10px] text-gray-500">{event.seatsLeft} left</span>
+        <span className="text-sm font-medium text-rez-navy dark:text-white">₹{event.price.min}</span>
+        <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">{event.seatsLeft} left</span>
       </div>
     </Link>
   );

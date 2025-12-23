@@ -20,7 +20,7 @@ const WalletPreview = () => {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <Wallet className="w-5 h-5 text-emerald-400" />
-            <h2 className="text-sm font-semibold text-white">ReZ Wallet</h2>
+            <h2 className="text-sm font-semibold text-rez-navy dark:text-white">ReZ Wallet</h2>
           </div>
           <Link to="/wallet" className="flex items-center gap-1 text-xs text-emerald-400">
             View all <ChevronRight className="w-3 h-3" />
@@ -29,20 +29,20 @@ const WalletPreview = () => {
 
         {/* Coin Balances */}
         <div className="grid grid-cols-3 gap-3 mb-4">
-          <div className="p-3 rounded-xl bg-white/5 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <Coins className="w-5 h-5 text-amber-400 mx-auto mb-1" />
-            <p className="text-lg font-bold text-white">{rezCoins?.balance || 0}</p>
-            <p className="text-[10px] text-gray-400">ReZ Coins</p>
+            <p className="text-lg font-bold text-rez-navy dark:text-white">{rezCoins?.balance || 0}</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">ReZ Coins</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <Coins className="w-5 h-5 text-purple-400 mx-auto mb-1" />
-            <p className="text-lg font-bold text-white">{totalBrandedCoins}</p>
-            <p className="text-[10px] text-gray-400">Branded</p>
+            <p className="text-lg font-bold text-rez-navy dark:text-white">{totalBrandedCoins}</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">Branded</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
             <Coins className="w-5 h-5 text-pink-400 mx-auto mb-1" />
-            <p className="text-lg font-bold text-white">{promoCoins?.balance || 0}</p>
-            <p className="text-[10px] text-gray-400">Promo</p>
+            <p className="text-lg font-bold text-rez-navy dark:text-white">{promoCoins?.balance || 0}</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">Promo</p>
           </div>
         </div>
 
@@ -63,14 +63,14 @@ const WalletPreview = () => {
         <div className="flex gap-2">
           <Link
             to="/wallet/use"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-500 text-sm font-medium text-white"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-emerald-500 text-sm font-medium text-rez-navy dark:text-white"
           >
             <ArrowRight className="w-4 h-4" />
             Use Coins
           </Link>
           <Link
             to="/wallet"
-            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/10 text-sm font-medium text-white"
+            className="flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-sm font-medium text-rez-navy dark:text-white"
           >
             View Wallet
           </Link>

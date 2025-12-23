@@ -31,18 +31,27 @@
 }
 
 html {
+  background-color: #ffffff;
+}
+
+html.dark {
   background-color: #000000;
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #ffffff;
+  color: #0B2240;
   margin: 0;
   padding: 0;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.dark body {
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 #root {
@@ -53,9 +62,13 @@ body {
 
 /* iOS-like blur effect utility */
 .glass {
-  background: rgba(44, 44, 46, 0.72);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .glass {
+  background: rgba(44, 44, 46, 0.72);
 }
 
 .glass-light {

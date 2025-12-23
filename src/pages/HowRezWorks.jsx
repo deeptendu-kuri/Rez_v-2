@@ -60,17 +60,17 @@ const HowRezWorks = () => {
 
   // Screen Components
   const IntentSelectorScreen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
           <button
             onClick={() => navigate(-1)}
-            className="p-2 hover:bg-white/10 rounded-xl transition-colors"
+            className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors"
           >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
-          <h1 className="text-lg font-bold text-white">How ReZ Works</h1>
+          <h1 className="text-lg font-bold text-rez-navy dark:text-white">How ReZ Works</h1>
           <div className="w-10" />
         </div>
       </div>
@@ -81,18 +81,18 @@ const HowRezWorks = () => {
           <div className="w-20 h-20 mx-auto mb-4 rounded-3xl bg-gradient-to-br from-emerald-500 to-amber-500 flex items-center justify-center">
             <span className="text-4xl">💡</span>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-3">Welcome to ReZ</h2>
-          <p className="text-gray-400 text-lg">
+          <h2 className="text-3xl font-bold text-rez-navy dark:text-white mb-3">Welcome to ReZ</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400 text-lg">
             Save money on things you already buy — online & offline
           </p>
         </div>
 
         {/* Intent Question */}
         <div className="mb-6">
-          <h3 className="text-xl font-semibold text-white text-center mb-2">
+          <h3 className="text-xl font-semibold text-rez-navy dark:text-white text-center mb-2">
             What would you like to do today?
           </h3>
-          <p className="text-sm text-gray-400 text-center">
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 text-center">
             Choose your journey to see how ReZ helps you save
           </p>
         </div>
@@ -109,8 +109,8 @@ const HowRezWorks = () => {
                 <Store className="w-7 h-7 text-emerald-400" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white mb-1">Visit a Store Offline</h4>
-                <p className="text-sm text-gray-400">Pay with QR & earn instant cashback</p>
+                <h4 className="text-lg font-semibold text-rez-navy dark:text-white mb-1">Visit a Store Offline</h4>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Pay with QR & earn instant cashback</p>
               </div>
               <span className="text-emerald-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
             </div>
@@ -126,8 +126,8 @@ const HowRezWorks = () => {
                 <ShoppingBag className="w-7 h-7 text-blue-400" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white mb-1">Order Online/Delivery</h4>
-                <p className="text-sm text-gray-400">Shop from ReZ Mall or external stores</p>
+                <h4 className="text-lg font-semibold text-rez-navy dark:text-white mb-1">Order Online/Delivery</h4>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Shop from ReZ Mall or external stores</p>
               </div>
               <span className="text-blue-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
             </div>
@@ -143,8 +143,8 @@ const HowRezWorks = () => {
                 <Tag className="w-7 h-7 text-amber-400" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white mb-1">Just Browse Offers & Deals</h4>
-                <p className="text-sm text-gray-400">Discover exclusive deals near you</p>
+                <h4 className="text-lg font-semibold text-rez-navy dark:text-white mb-1">Just Browse Offers & Deals</h4>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Discover exclusive deals near you</p>
               </div>
               <span className="text-amber-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
             </div>
@@ -160,8 +160,8 @@ const HowRezWorks = () => {
                 <Wallet className="w-7 h-7 text-purple-400" />
               </div>
               <div className="flex-1">
-                <h4 className="text-lg font-semibold text-white mb-1">Understand ReZ Wallet</h4>
-                <p className="text-sm text-gray-400">Learn how your money & coins work</p>
+                <h4 className="text-lg font-semibold text-rez-navy dark:text-white mb-1">Understand ReZ Wallet</h4>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Learn how your money & coins work</p>
               </div>
               <span className="text-purple-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
             </div>
@@ -172,7 +172,7 @@ const HowRezWorks = () => {
         <div className="mt-8 text-center">
           <button
             onClick={() => navigate(-1)}
-            className="text-gray-500 text-sm hover:text-gray-400 transition-colors"
+            className="text-gray-500 text-sm hover:text-rez-gray-600 dark:text-gray-400 transition-colors"
           >
             Skip for now
           </button>
@@ -183,12 +183,12 @@ const HowRezWorks = () => {
 
   // PATH A: OFFLINE STORE FLOW
   const OfflineA1Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
@@ -196,8 +196,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-white/20" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -211,62 +211,62 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
             Step 1 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Discover Nearby Stores</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Discover Nearby Stores</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             See all stores near you offering cashback & deals
           </p>
         </div>
 
         {/* Visual Demo */}
-        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
           <div className="space-y-3">
             {/* Store Card 1 */}
-            <div className="p-4 rounded-2xl bg-white/5 border border-emerald-500/30">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-emerald-500/30">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center">
                   <span className="text-xl">🍕</span>
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white">Pizza Corner</h4>
-                  <p className="text-xs text-gray-400">0.3 km away</p>
+                  <h4 className="font-semibold text-rez-navy dark:text-white">Pizza Corner</h4>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">0.3 km away</p>
                 </div>
                 <div className="text-right">
                   <p className="text-emerald-400 font-bold">15%</p>
-                  <p className="text-xs text-gray-400">Cashback</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Cashback</p>
                 </div>
               </div>
             </div>
 
             {/* Store Card 2 */}
-            <div className="p-4 rounded-2xl bg-white/5 border border-blue-500/30">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-blue-500/30">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center">
                   <span className="text-xl">👕</span>
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white">Fashion Hub</h4>
-                  <p className="text-xs text-gray-400">0.5 km away</p>
+                  <h4 className="font-semibold text-rez-navy dark:text-white">Fashion Hub</h4>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">0.5 km away</p>
                 </div>
                 <div className="text-right">
                   <p className="text-emerald-400 font-bold">20%</p>
-                  <p className="text-xs text-gray-400">Cashback</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Cashback</p>
                 </div>
               </div>
             </div>
 
             {/* Store Card 3 */}
-            <div className="p-4 rounded-2xl bg-white/5 border border-amber-500/30">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-amber-500/30">
               <div className="flex items-center gap-3 mb-2">
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center">
                   <span className="text-xl">☕</span>
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-white">Coffee Bean</h4>
-                  <p className="text-xs text-gray-400">0.8 km away</p>
+                  <h4 className="font-semibold text-rez-navy dark:text-white">Coffee Bean</h4>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">0.8 km away</p>
                 </div>
                 <div className="text-right">
                   <p className="text-emerald-400 font-bold">10%</p>
-                  <p className="text-xs text-gray-400">Cashback</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Cashback</p>
                 </div>
               </div>
             </div>
@@ -278,8 +278,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Every purchase = savings</p>
-              <p className="text-xs text-gray-400">Browse by location, category, or cashback %</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Every purchase = savings</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Browse by location, category, or cashback %</p>
             </div>
           </div>
         </div>
@@ -287,7 +287,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-A2')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
         >
           Next: Pay in Store
         </button>
@@ -296,12 +296,12 @@ const HowRezWorks = () => {
   );
 
   const OfflineA2Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
@@ -309,8 +309,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-white/20" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -324,43 +324,43 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
             Step 2 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Pay at the Counter</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Pay at the Counter</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Scan store QR code before paying
           </p>
         </div>
 
         {/* Visual Demo */}
-        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
           {/* QR Code Mock */}
           <div className="w-40 h-40 mx-auto mb-4 rounded-2xl bg-white flex items-center justify-center">
             <div className="w-32 h-32 bg-gradient-to-br from-black via-gray-800 to-black rounded-xl" />
           </div>
 
           <div className="text-center mb-4">
-            <p className="text-white font-semibold mb-1">Scan this QR at checkout</p>
-            <p className="text-xs text-gray-400">Then pay with UPI, card, or cash</p>
+            <p className="text-rez-navy dark:text-white font-semibold mb-1">Scan this QR at checkout</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Then pay with UPI, card, or cash</p>
           </div>
 
           {/* Payment Flow */}
           <div className="space-y-2">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
                 <span className="text-emerald-400 text-sm font-bold">1</span>
               </div>
-              <p className="text-sm text-white">Scan QR code</p>
+              <p className="text-sm text-rez-navy dark:text-white">Scan QR code</p>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
                 <span className="text-emerald-400 text-sm font-bold">2</span>
               </div>
-              <p className="text-sm text-white">Enter bill amount</p>
+              <p className="text-sm text-rez-navy dark:text-white">Enter bill amount</p>
             </div>
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <div className="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center">
                 <span className="text-emerald-400 text-sm font-bold">3</span>
               </div>
-              <p className="text-sm text-white">Pay with UPI/Card/Cash</p>
+              <p className="text-sm text-rez-navy dark:text-white">Pay with UPI/Card/Cash</p>
             </div>
           </div>
         </div>
@@ -370,8 +370,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">No special hardware needed</p>
-              <p className="text-xs text-gray-400">Works with your normal UPI or card payment</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">No special hardware needed</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Works with your normal UPI or card payment</p>
             </div>
           </div>
         </div>
@@ -379,7 +379,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-A3')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
         >
           Next: Earn Rewards
         </button>
@@ -388,12 +388,12 @@ const HowRezWorks = () => {
   );
 
   const OfflineA3Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
@@ -401,8 +401,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -416,8 +416,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold mb-3">
             Step 3 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Earn Instant Rewards</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Earn Instant Rewards</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Get cashback + coins immediately
           </p>
         </div>
@@ -426,8 +426,8 @@ const HowRezWorks = () => {
         <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-amber-500/20 to-yellow-500/10 border border-amber-500/30">
           {/* Transaction Summary */}
           <div className="text-center mb-6">
-            <p className="text-sm text-gray-400 mb-1">You paid</p>
-            <p className="text-4xl font-bold text-white mb-4">₹500</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">You paid</p>
+            <p className="text-4xl font-bold text-rez-navy dark:text-white mb-4">₹500</p>
 
             <div className="space-y-3">
               {/* Cashback */}
@@ -435,7 +435,7 @@ const HowRezWorks = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Gift className="w-5 h-5 text-emerald-400" />
-                    <span className="text-white font-medium">Cashback Earned</span>
+                    <span className="text-rez-navy dark:text-white font-medium">Cashback Earned</span>
                   </div>
                   <span className="text-emerald-400 font-bold text-xl">₹50</span>
                 </div>
@@ -446,7 +446,7 @@ const HowRezWorks = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <span className="text-xl">🪙</span>
-                    <span className="text-white font-medium">ReZ Coins</span>
+                    <span className="text-rez-navy dark:text-white font-medium">ReZ Coins</span>
                   </div>
                   <span className="text-amber-400 font-bold text-xl">+25</span>
                 </div>
@@ -455,12 +455,12 @@ const HowRezWorks = () => {
           </div>
 
           {/* Breakdown */}
-          <div className="pt-4 border-t border-white/10">
+          <div className="pt-4 border-t border-rez-gray-200 dark:border-white/10">
             <div className="flex items-center justify-between text-sm mb-2">
-              <span className="text-gray-400">Total Saved</span>
-              <span className="text-white font-semibold">₹62.50</span>
+              <span className="text-rez-gray-600 dark:text-gray-400">Total Saved</span>
+              <span className="text-rez-navy dark:text-white font-semibold">₹62.50</span>
             </div>
-            <p className="text-xs text-gray-500 text-center">Coins = ₹12.50 (1 coin = ₹0.50)</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-500 text-center">Coins = ₹12.50 (1 coin = ₹0.50)</p>
           </div>
         </div>
 
@@ -469,8 +469,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <TrendingUp className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Rewards credited instantly</p>
-              <p className="text-xs text-gray-400">Use coins on your next purchase anywhere</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Rewards credited instantly</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Use coins on your next purchase anywhere</p>
             </div>
           </div>
         </div>
@@ -478,7 +478,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-A4')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
         >
           Next: Use Your Rewards
         </button>
@@ -487,12 +487,12 @@ const HowRezWorks = () => {
   );
 
   const OfflineA4Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
@@ -500,8 +500,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
             <div className="w-8 h-1 rounded-full bg-emerald-500" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -515,26 +515,26 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold mb-3">
             Step 4 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Use Coins on Next Bill</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Use Coins on Next Bill</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Pay less using your earned coins
           </p>
         </div>
 
         {/* Visual Demo */}
-        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
           {/* Next Purchase */}
           <div className="mb-4">
-            <div className="flex items-center justify-between p-4 rounded-2xl bg-white/5 mb-3">
-              <span className="text-gray-400">Next Bill Amount</span>
-              <span className="text-2xl font-bold text-white">₹800</span>
+            <div className="flex items-center justify-between p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 mb-3">
+              <span className="text-rez-gray-600 dark:text-gray-400">Next Bill Amount</span>
+              <span className="text-2xl font-bold text-rez-navy dark:text-white">₹800</span>
             </div>
 
             <div className="p-4 rounded-2xl bg-purple-500/20 border border-purple-500/30">
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
                   <span className="text-2xl">🪙</span>
-                  <span className="text-white font-medium">Use 50 Coins</span>
+                  <span className="text-rez-navy dark:text-white font-medium">Use 50 Coins</span>
                 </div>
                 <span className="text-purple-400 font-bold">-₹25</span>
               </div>
@@ -543,15 +543,15 @@ const HowRezWorks = () => {
               <div className="w-full h-2 bg-white/20 rounded-full mb-2">
                 <div className="w-1/2 h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full" />
               </div>
-              <p className="text-xs text-gray-400 text-center">50 of 100 coins available</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 text-center">50 of 100 coins available</p>
             </div>
           </div>
 
           {/* Final Amount */}
           <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-2 border-emerald-500/30">
             <div className="text-center">
-              <p className="text-sm text-gray-400 mb-1">You Pay</p>
-              <p className="text-4xl font-bold text-white">₹775</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">You Pay</p>
+              <p className="text-4xl font-bold text-rez-navy dark:text-white">₹775</p>
               <p className="text-emerald-400 text-sm mt-2">+ Earn ₹80 cashback + 40 coins more!</p>
             </div>
           </div>
@@ -562,8 +562,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Check className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">The cycle continues</p>
-              <p className="text-xs text-gray-400">Every purchase saves money & earns for the next</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">The cycle continues</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Every purchase saves money & earns for the next</p>
             </div>
           </div>
         </div>
@@ -571,7 +571,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-F1')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
         >
           See What Else ReZ Offers
         </button>
@@ -581,12 +581,12 @@ const HowRezWorks = () => {
 
   // PATH B: ONLINE DELIVERY FLOW
   const OnlineB1Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-blue-500" />
@@ -594,8 +594,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-white/20" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -609,8 +609,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 text-xs font-semibold mb-3">
             Step 1 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Two Ways to Shop Online</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Two Ways to Shop Online</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             ReZ Mall or link external orders
           </p>
         </div>
@@ -624,20 +624,20 @@ const HowRezWorks = () => {
                 <Store className="w-7 h-7 text-blue-400" />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white mb-1">ReZ Mall</h3>
-                <p className="text-sm text-gray-400">Shop directly from our marketplace</p>
+                <h3 className="text-lg font-bold text-rez-navy dark:text-white mb-1">ReZ Mall</h3>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Shop directly from our marketplace</p>
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-emerald-400" />
                 <span>Guaranteed cashback</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-emerald-400" />
                 <span>Instant coin rewards</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-emerald-400" />
                 <span>Exclusive deals</span>
               </li>
@@ -651,20 +651,20 @@ const HowRezWorks = () => {
                 <span className="text-3xl">🔗</span>
               </div>
               <div>
-                <h3 className="text-lg font-bold text-white mb-1">Cash Store (Link Orders)</h3>
-                <p className="text-sm text-gray-400">Connect Amazon, Flipkart, Zomato orders</p>
+                <h3 className="text-lg font-bold text-rez-navy dark:text-white mb-1">Cash Store (Link Orders)</h3>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Connect Amazon, Flipkart, Zomato orders</p>
               </div>
             </div>
             <ul className="space-y-2">
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-amber-400" />
                 <span>Track all purchases in one place</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-amber-400" />
                 <span>Get ReZ coins retroactively</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-gray-300">
+              <li className="flex items-center gap-2 text-sm text-rez-gray-700 dark:text-gray-300">
                 <Check className="w-4 h-4 text-amber-400" />
                 <span>Unlock special offers</span>
               </li>
@@ -677,8 +677,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Either way, you earn rewards</p>
-              <p className="text-xs text-gray-400">ReZ makes every online purchase count</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Either way, you earn rewards</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">ReZ makes every online purchase count</p>
             </div>
           </div>
         </div>
@@ -686,7 +686,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-B2')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-blue-500/25 transition-all"
         >
           Next: Browse & Select
         </button>
@@ -695,12 +695,12 @@ const HowRezWorks = () => {
   );
 
   const OnlineB2Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-blue-500" />
@@ -708,8 +708,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-white/20" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -723,43 +723,43 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold mb-3">
             Step 2 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Browse & Select Products</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Browse & Select Products</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             See savings before you buy
           </p>
         </div>
 
         {/* Product Card Example */}
-        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+        <div className="mb-6 p-6 rounded-3xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
           <div className="flex gap-4 mb-4">
             <div className="w-24 h-24 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
               <span className="text-4xl">🎧</span>
             </div>
             <div className="flex-1">
-              <h3 className="font-semibold text-white mb-1">Sony WH-1000XM5</h3>
-              <p className="text-xs text-gray-400 mb-2">Premium Noise Cancelling</p>
+              <h3 className="font-semibold text-rez-navy dark:text-white mb-1">Sony WH-1000XM5</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Premium Noise Cancelling</p>
               <div className="flex items-center gap-2">
-                <span className="text-white font-bold">₹24,990</span>
-                <span className="text-xs text-gray-500 line-through">₹29,990</span>
+                <span className="text-rez-navy dark:text-white font-bold">₹24,990</span>
+                <span className="text-xs text-rez-gray-600 dark:text-gray-500 line-through">₹29,990</span>
               </div>
             </div>
           </div>
 
           {/* Rewards Preview */}
-          <div className="space-y-2 pt-4 border-t border-white/10">
+          <div className="space-y-2 pt-4 border-t border-rez-gray-200 dark:border-white/10">
             <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10">
-              <span className="text-sm text-white">Cashback</span>
+              <span className="text-sm text-rez-navy dark:text-white">Cashback</span>
               <span className="text-emerald-400 font-bold">₹2,499</span>
             </div>
             <div className="flex items-center justify-between p-3 rounded-xl bg-amber-500/10">
-              <span className="text-sm text-white">ReZ Coins</span>
+              <span className="text-sm text-rez-navy dark:text-white">ReZ Coins</span>
               <span className="text-amber-400 font-bold">+1,249 🪙</span>
             </div>
           </div>
 
           <div className="mt-4 p-3 rounded-xl bg-purple-500/20 border border-purple-500/30 text-center">
-            <p className="text-white font-semibold">Total Savings: ₹6,123</p>
-            <p className="text-xs text-gray-400 mt-1">Discount + Cashback + Coins value</p>
+            <p className="text-rez-navy dark:text-white font-semibold">Total Savings: ₹6,123</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Discount + Cashback + Coins value</p>
           </div>
         </div>
 
@@ -768,8 +768,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Know your savings upfront</p>
-              <p className="text-xs text-gray-400">Every product shows exact cashback & coins</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Know your savings upfront</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Every product shows exact cashback & coins</p>
             </div>
           </div>
         </div>
@@ -777,7 +777,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-B3')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
         >
           Next: Lock & Order
         </button>
@@ -786,12 +786,12 @@ const HowRezWorks = () => {
   );
 
   const OnlineB3Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-blue-500" />
@@ -799,8 +799,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-blue-500" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -814,8 +814,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
             Step 3 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Lock Price & Choose Mode</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Lock Price & Choose Mode</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Visit store or get home delivery
           </p>
         </div>
@@ -827,37 +827,37 @@ const HowRezWorks = () => {
               <span className="text-xl">🔒</span>
               <span className="text-emerald-400 font-semibold">Price Locked for 24h</span>
             </div>
-            <p className="text-xs text-gray-400">Your savings are guaranteed</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Your savings are guaranteed</p>
           </div>
 
           {/* Choose Mode */}
           <div className="space-y-3">
-            <div className="p-4 rounded-2xl bg-white/5 border-2 border-emerald-500/50">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border-2 border-emerald-500/50">
               <div className="flex items-center justify-between mb-2">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
                     <Store className="w-5 h-5 text-emerald-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">Visit Store</p>
-                    <p className="text-xs text-gray-400">Pick up today</p>
+                    <p className="text-rez-navy dark:text-white font-semibold">Visit Store</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">Pick up today</p>
                   </div>
                 </div>
                 <div className="w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center">
-                  <Check className="w-3 h-3 text-white" />
+                  <Check className="w-3 h-3 text-rez-navy dark:text-white" />
                 </div>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
                     <ShoppingBag className="w-5 h-5 text-blue-400" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold">Home Delivery</p>
-                    <p className="text-xs text-gray-400">Arrives in 2-3 days</p>
+                    <p className="text-rez-navy dark:text-white font-semibold">Home Delivery</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">Arrives in 2-3 days</p>
                   </div>
                 </div>
                 <div className="w-5 h-5 rounded-full bg-white/20" />
@@ -867,20 +867,20 @@ const HowRezWorks = () => {
         </div>
 
         {/* Payment Summary */}
-        <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10 mb-6">
+        <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10 mb-6">
           <div className="space-y-3">
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Product Price</span>
-              <span className="text-white">₹24,990</span>
+              <span className="text-rez-gray-600 dark:text-gray-400">Product Price</span>
+              <span className="text-rez-navy dark:text-white">₹24,990</span>
             </div>
             <div className="flex items-center justify-between text-sm">
-              <span className="text-gray-400">Using Coins (500 🪙)</span>
+              <span className="text-rez-gray-600 dark:text-gray-400">Using Coins (500 🪙)</span>
               <span className="text-emerald-400">-₹250</span>
             </div>
-            <div className="pt-3 border-t border-white/10">
+            <div className="pt-3 border-t border-rez-gray-200 dark:border-white/10">
               <div className="flex items-center justify-between">
-                <span className="text-white font-semibold">You Pay</span>
-                <span className="text-2xl font-bold text-white">₹24,740</span>
+                <span className="text-rez-navy dark:text-white font-semibold">You Pay</span>
+                <span className="text-2xl font-bold text-rez-navy dark:text-white">₹24,740</span>
               </div>
               <p className="text-xs text-emerald-400 text-right mt-1">+ Earn ₹2,499 back + 1,249 coins</p>
             </div>
@@ -892,8 +892,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Flexible fulfillment</p>
-              <p className="text-xs text-gray-400">Choose how you want to receive your order</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Flexible fulfillment</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Choose how you want to receive your order</p>
             </div>
           </div>
         </div>
@@ -901,7 +901,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-B4')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
         >
           Next: Earn Rewards
         </button>
@@ -910,12 +910,12 @@ const HowRezWorks = () => {
   );
 
   const OnlineB4Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-blue-500" />
@@ -923,8 +923,8 @@ const HowRezWorks = () => {
             <div className="w-8 h-1 rounded-full bg-blue-500" />
             <div className="w-8 h-1 rounded-full bg-blue-500" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -938,8 +938,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold mb-3">
             Step 4 of 4
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Earn Big on Every Order</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Earn Big on Every Order</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Your rewards are on the way
           </p>
         </div>
@@ -959,11 +959,11 @@ const HowRezWorks = () => {
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
                   <Gift className="w-5 h-5 text-emerald-400" />
-                  <span className="text-white font-medium">Cashback</span>
+                  <span className="text-rez-navy dark:text-white font-medium">Cashback</span>
                 </div>
                 <span className="text-emerald-400 font-bold text-xl">₹2,499</span>
               </div>
-              <p className="text-xs text-gray-400">Credits in 2-3 days</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Credits in 2-3 days</p>
             </div>
 
             {/* Coins */}
@@ -971,11 +971,11 @@ const HowRezWorks = () => {
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">🪙</span>
-                  <span className="text-white font-medium">ReZ Coins</span>
+                  <span className="text-rez-navy dark:text-white font-medium">ReZ Coins</span>
                 </div>
                 <span className="text-amber-400 font-bold text-xl">+1,249</span>
               </div>
-              <p className="text-xs text-gray-400">Credited instantly (₹624.50 value)</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Credited instantly (₹624.50 value)</p>
             </div>
 
             {/* Brand Loyalty */}
@@ -983,17 +983,17 @@ const HowRezWorks = () => {
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
                   <span className="text-xl">⭐</span>
-                  <span className="text-white font-medium">Sony Loyalty Points</span>
+                  <span className="text-rez-navy dark:text-white font-medium">Sony Loyalty Points</span>
                 </div>
                 <span className="text-purple-400 font-bold text-xl">+500</span>
               </div>
-              <p className="text-xs text-gray-400">Tier upgrade: Gold → Platinum</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Tier upgrade: Gold → Platinum</p>
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/10 text-center">
-            <p className="text-white font-semibold text-lg mb-1">Total Value Earned: ₹3,123.50</p>
-            <p className="text-xs text-gray-400">Use on your next purchase anywhere!</p>
+          <div className="pt-4 border-t border-rez-gray-200 dark:border-white/10 text-center">
+            <p className="text-rez-navy dark:text-white font-semibold text-lg mb-1">Total Value Earned: ₹3,123.50</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Use on your next purchase anywhere!</p>
           </div>
         </div>
 
@@ -1002,8 +1002,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <TrendingUp className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Multi-layer rewards</p>
-              <p className="text-xs text-gray-400">Get cashback, coins, and brand loyalty - all at once</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Multi-layer rewards</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Get cashback, coins, and brand loyalty - all at once</p>
             </div>
           </div>
         </div>
@@ -1011,7 +1011,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-F1')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-yellow-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
         >
           See What Else ReZ Offers
         </button>
@@ -1021,19 +1021,19 @@ const HowRezWorks = () => {
 
   // PATH C: OFFERS & DEALS FLOW
   const OffersC1Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-amber-500" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -1047,8 +1047,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-amber-500/20 text-amber-400 text-xs font-semibold mb-3">
             Step 1 of 2
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Discover Exclusive Deals</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Discover Exclusive Deals</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Curated offers from 1000+ brands
           </p>
         </div>
@@ -1060,18 +1060,18 @@ const HowRezWorks = () => {
             <div className="flex items-center gap-3 mb-3">
               <span className="text-3xl">🔥</span>
               <div>
-                <h3 className="text-lg font-bold text-white">Super Deals</h3>
-                <p className="text-xs text-gray-400">Up to 70% off + extra cashback</p>
+                <h3 className="text-lg font-bold text-rez-navy dark:text-white">Super Deals</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Up to 70% off + extra cashback</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
-                <p className="text-sm font-bold text-white">23</p>
-                <p className="text-xs text-gray-400">Deals</p>
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
+                <p className="text-sm font-bold text-rez-navy dark:text-white">23</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Deals</p>
               </div>
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
                 <p className="text-sm font-bold text-red-400">Live</p>
-                <p className="text-xs text-gray-400">Status</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Status</p>
               </div>
             </div>
           </div>
@@ -1081,18 +1081,18 @@ const HowRezWorks = () => {
             <div className="flex items-center gap-3 mb-3">
               <span className="text-3xl">📍</span>
               <div>
-                <h3 className="text-lg font-bold text-white">Near You</h3>
-                <p className="text-xs text-gray-400">Restaurants, cafes, salons nearby</p>
+                <h3 className="text-lg font-bold text-rez-navy dark:text-white">Near You</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Restaurants, cafes, salons nearby</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
-                <p className="text-sm font-bold text-white">47</p>
-                <p className="text-xs text-gray-400">Stores</p>
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
+                <p className="text-sm font-bold text-rez-navy dark:text-white">47</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Stores</p>
               </div>
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
                 <p className="text-sm font-bold text-blue-400">&lt; 2km</p>
-                <p className="text-xs text-gray-400">Radius</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Radius</p>
               </div>
             </div>
           </div>
@@ -1102,18 +1102,18 @@ const HowRezWorks = () => {
             <div className="flex items-center gap-3 mb-3">
               <span className="text-3xl">🎯</span>
               <div>
-                <h3 className="text-lg font-bold text-white">By Category</h3>
-                <p className="text-xs text-gray-400">Fashion, electronics, food, wellness</p>
+                <h3 className="text-lg font-bold text-rez-navy dark:text-white">By Category</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Fashion, electronics, food, wellness</p>
               </div>
             </div>
             <div className="flex gap-2">
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
-                <p className="text-sm font-bold text-white">12</p>
-                <p className="text-xs text-gray-400">Categories</p>
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
+                <p className="text-sm font-bold text-rez-navy dark:text-white">12</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Categories</p>
               </div>
-              <div className="flex-1 p-2 rounded-xl bg-white/5 text-center">
+              <div className="flex-1 p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center">
                 <p className="text-sm font-bold text-purple-400">All</p>
-                <p className="text-xs text-gray-400">Filter</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Filter</p>
               </div>
             </div>
           </div>
@@ -1124,8 +1124,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Smart recommendations</p>
-              <p className="text-xs text-gray-400">Based on your spending habits & location</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Smart recommendations</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Based on your spending habits & location</p>
             </div>
           </div>
         </div>
@@ -1133,7 +1133,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-C2')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-amber-500/25 transition-all"
         >
           Next: Save on Repeat Purchases
         </button>
@@ -1142,19 +1142,19 @@ const HowRezWorks = () => {
   );
 
   const OffersC2Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-amber-500" />
             <div className="w-8 h-1 rounded-full bg-amber-500" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -1168,8 +1168,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
             Step 2 of 2
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Save on Repeat Purchases</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Save on Repeat Purchases</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             Get rewarded for being a regular customer
           </p>
         </div>
@@ -1183,23 +1183,23 @@ const HowRezWorks = () => {
                 <span className="text-3xl">☕</span>
               </div>
               <div>
-                <h3 className="font-bold text-white">Your Daily Coffee</h3>
-                <p className="text-xs text-gray-400">Coffee Bean - Visited 12 times</p>
+                <h3 className="font-bold text-rez-navy dark:text-white">Your Daily Coffee</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Coffee Bean - Visited 12 times</p>
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
-                <span className="text-sm text-white">Regular Price</span>
-                <span className="text-white">₹150/visit</span>
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
+                <span className="text-sm text-rez-navy dark:text-white">Regular Price</span>
+                <span className="text-rez-navy dark:text-white">₹150/visit</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10">
-                <span className="text-sm text-white">With ReZ</span>
+                <span className="text-sm text-rez-navy dark:text-white">With ReZ</span>
                 <span className="text-emerald-400 font-bold">₹135/visit</span>
               </div>
               <div className="p-3 rounded-xl bg-amber-500/20 border border-amber-500/30 text-center">
-                <p className="text-white font-semibold">Saved ₹180 this month!</p>
-                <p className="text-xs text-gray-400 mt-1">+ Earned 90 coins</p>
+                <p className="text-rez-navy dark:text-white font-semibold">Saved ₹180 this month!</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">+ Earned 90 coins</p>
               </div>
             </div>
           </div>
@@ -1211,23 +1211,23 @@ const HowRezWorks = () => {
                 <span className="text-3xl">🛒</span>
               </div>
               <div>
-                <h3 className="font-bold text-white">Monthly Groceries</h3>
-                <p className="text-xs text-gray-400">BigBasket - Monthly order</p>
+                <h3 className="font-bold text-rez-navy dark:text-white">Monthly Groceries</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">BigBasket - Monthly order</p>
               </div>
             </div>
 
             <div className="space-y-2">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
-                <span className="text-sm text-white">Avg. Monthly Bill</span>
-                <span className="text-white">₹5,000</span>
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
+                <span className="text-sm text-rez-navy dark:text-white">Avg. Monthly Bill</span>
+                <span className="text-rez-navy dark:text-white">₹5,000</span>
               </div>
               <div className="flex items-center justify-between p-3 rounded-xl bg-emerald-500/10">
-                <span className="text-sm text-white">ReZ Cashback</span>
+                <span className="text-sm text-rez-navy dark:text-white">ReZ Cashback</span>
                 <span className="text-emerald-400 font-bold">₹500</span>
               </div>
               <div className="p-3 rounded-xl bg-green-500/20 border border-green-500/30 text-center">
-                <p className="text-white font-semibold">₹6,000 saved yearly!</p>
-                <p className="text-xs text-gray-400 mt-1">+ 3,000 coins</p>
+                <p className="text-rez-navy dark:text-white font-semibold">₹6,000 saved yearly!</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">+ 3,000 coins</p>
               </div>
             </div>
           </div>
@@ -1238,8 +1238,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <TrendingUp className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">The more you use, the more you save</p>
-              <p className="text-xs text-gray-400">Build streaks & unlock bonus rewards</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">The more you use, the more you save</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Build streaks & unlock bonus rewards</p>
             </div>
           </div>
         </div>
@@ -1247,7 +1247,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-F1')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
         >
           See What Else ReZ Offers
         </button>
@@ -1257,19 +1257,19 @@ const HowRezWorks = () => {
 
   // PATH D: WALLET FIRST FLOW
   const WalletD1Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-purple-500" />
             <div className="w-8 h-1 rounded-full bg-white/20" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -1283,8 +1283,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-purple-500/20 text-purple-400 text-xs font-semibold mb-3">
             Step 1 of 2
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">Your ReZ Wallet</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">Your ReZ Wallet</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             One wallet, multiple types of value
           </p>
         </div>
@@ -1299,13 +1299,13 @@ const HowRezWorks = () => {
                   <span className="text-2xl">💰</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">Real Money</h3>
-                  <p className="text-xs text-gray-400">Cashback & refunds</p>
+                  <h3 className="font-bold text-rez-navy dark:text-white">Real Money</h3>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Cashback & refunds</p>
                 </div>
               </div>
               <p className="text-2xl font-bold text-emerald-400">₹2,450</p>
             </div>
-            <ul className="space-y-1 text-xs text-gray-300">
+            <ul className="space-y-1 text-xs text-rez-gray-700 dark:text-gray-300">
               <li className="flex items-center gap-2">
                 <Check className="w-3 h-3 text-emerald-400" />
                 <span>Withdraw to bank anytime</span>
@@ -1329,16 +1329,16 @@ const HowRezWorks = () => {
                   <span className="text-2xl">🪙</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">ReZ Coins</h3>
-                  <p className="text-xs text-gray-400">Universal rewards</p>
+                  <h3 className="font-bold text-rez-navy dark:text-white">ReZ Coins</h3>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Universal rewards</p>
                 </div>
               </div>
               <div className="text-right">
                 <p className="text-2xl font-bold text-amber-400">1,250</p>
-                <p className="text-xs text-gray-400">= ₹625</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">= ₹625</p>
               </div>
             </div>
-            <ul className="space-y-1 text-xs text-gray-300">
+            <ul className="space-y-1 text-xs text-rez-gray-700 dark:text-gray-300">
               <li className="flex items-center gap-2">
                 <Check className="w-3 h-3 text-amber-400" />
                 <span>Earned on every purchase</span>
@@ -1362,13 +1362,13 @@ const HowRezWorks = () => {
                   <span className="text-2xl">⭐</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-white">Brand Coins</h3>
-                  <p className="text-xs text-gray-400">Store-specific rewards</p>
+                  <h3 className="font-bold text-rez-navy dark:text-white">Brand Coins</h3>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Store-specific rewards</p>
                 </div>
               </div>
               <p className="text-lg font-bold text-blue-400">7 Brands</p>
             </div>
-            <ul className="space-y-1 text-xs text-gray-300">
+            <ul className="space-y-1 text-xs text-rez-gray-700 dark:text-gray-300">
               <li className="flex items-center gap-2">
                 <Check className="w-3 h-3 text-blue-400" />
                 <span>Starbucks: 450 stars</span>
@@ -1390,8 +1390,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Everything in one place</p>
-              <p className="text-xs text-gray-400">Track all your rewards across all brands</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Everything in one place</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Track all your rewards across all brands</p>
             </div>
           </div>
         </div>
@@ -1399,7 +1399,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-D2')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-purple-500 to-pink-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all"
         >
           Next: Full Transparency
         </button>
@@ -1408,19 +1408,19 @@ const HowRezWorks = () => {
   );
 
   const WalletD2Screen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
-          <button onClick={handleBack} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <ArrowLeft className="w-6 h-6 text-white" />
+          <button onClick={handleBack} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
           <div className="flex gap-1">
             <div className="w-8 h-1 rounded-full bg-purple-500" />
             <div className="w-8 h-1 rounded-full bg-purple-500" />
           </div>
-          <button onClick={() => navigate(-1)} className="p-2 hover:bg-white/10 rounded-xl transition-colors">
-            <X className="w-6 h-6 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors">
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -1434,8 +1434,8 @@ const HowRezWorks = () => {
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-semibold mb-3">
             Step 2 of 2
           </span>
-          <h2 className="text-2xl font-bold text-white mb-2">100% Transparent</h2>
-          <p className="text-gray-400">
+          <h2 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">100% Transparent</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400">
             See exactly where every rupee comes from
           </p>
         </div>
@@ -1449,22 +1449,22 @@ const HowRezWorks = () => {
                 <span className="text-2xl">📊</span>
               </div>
               <div>
-                <h3 className="font-bold text-white">Complete Transaction History</h3>
-                <p className="text-xs text-gray-400">Every earn & spend, timestamped</p>
+                <h3 className="font-bold text-rez-navy dark:text-white">Complete Transaction History</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Every earn & spend, timestamped</p>
               </div>
             </div>
             <div className="space-y-2">
-              <div className="p-3 rounded-xl bg-white/5 flex items-center justify-between text-sm">
+              <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center justify-between text-sm">
                 <div>
-                  <p className="text-white">Pizza Corner</p>
-                  <p className="text-xs text-gray-400">Today, 2:30 PM</p>
+                  <p className="text-rez-navy dark:text-white">Pizza Corner</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Today, 2:30 PM</p>
                 </div>
                 <span className="text-emerald-400 font-semibold">+₹50</span>
               </div>
-              <div className="p-3 rounded-xl bg-white/5 flex items-center justify-between text-sm">
+              <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center justify-between text-sm">
                 <div>
-                  <p className="text-white">Fashion Hub</p>
-                  <p className="text-xs text-gray-400">Yesterday, 6:15 PM</p>
+                  <p className="text-rez-navy dark:text-white">Fashion Hub</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Yesterday, 6:15 PM</p>
                 </div>
                 <span className="text-emerald-400 font-semibold">+₹250</span>
               </div>
@@ -1478,26 +1478,26 @@ const HowRezWorks = () => {
                 <span className="text-2xl">🔍</span>
               </div>
               <div>
-                <h3 className="font-bold text-white">Detailed Breakdowns</h3>
-                <p className="text-xs text-gray-400">Know exactly what you earned</p>
+                <h3 className="font-bold text-rez-navy dark:text-white">Detailed Breakdowns</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Know exactly what you earned</p>
               </div>
             </div>
-            <div className="p-4 rounded-xl bg-white/5">
-              <p className="text-sm text-white font-semibold mb-2">Last Purchase Breakdown:</p>
+            <div className="p-4 rounded-xl bg-rez-gray-50 dark:bg-white/5">
+              <p className="text-sm text-rez-navy dark:text-white font-semibold mb-2">Last Purchase Breakdown:</p>
               <div className="space-y-1 text-xs">
-                <div className="flex justify-between text-gray-300">
+                <div className="flex justify-between text-rez-gray-700 dark:text-gray-300">
                   <span>Base Cashback (10%)</span>
                   <span>₹50</span>
                 </div>
-                <div className="flex justify-between text-gray-300">
+                <div className="flex justify-between text-rez-gray-700 dark:text-gray-300">
                   <span>Bonus Streak Reward</span>
                   <span>₹10</span>
                 </div>
-                <div className="flex justify-between text-gray-300">
+                <div className="flex justify-between text-rez-gray-700 dark:text-gray-300">
                   <span>ReZ Coins Earned</span>
                   <span>25 (₹12.50)</span>
                 </div>
-                <div className="pt-2 mt-2 border-t border-white/10 flex justify-between font-semibold text-emerald-400">
+                <div className="pt-2 mt-2 border-t border-rez-gray-200 dark:border-white/10 flex justify-between font-semibold text-emerald-400">
                   <span>Total Value</span>
                   <span>₹72.50</span>
                 </div>
@@ -1512,11 +1512,11 @@ const HowRezWorks = () => {
                 <span className="text-2xl">🚫</span>
               </div>
               <div>
-                <h3 className="font-bold text-white">No Hidden Fees</h3>
-                <p className="text-xs text-gray-400">What you see is what you get</p>
+                <h3 className="font-bold text-rez-navy dark:text-white">No Hidden Fees</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">What you see is what you get</p>
               </div>
             </div>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2 text-sm text-rez-gray-700 dark:text-gray-300">
               <li className="flex items-center gap-2">
                 <Check className="w-4 h-4 text-emerald-400" />
                 <span>Zero subscription fees</span>
@@ -1538,8 +1538,8 @@ const HowRezWorks = () => {
           <div className="flex gap-3">
             <Check className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm text-white font-medium mb-1">Your money, your control</p>
-              <p className="text-xs text-gray-400">Full visibility into every transaction</p>
+              <p className="text-sm text-rez-navy dark:text-white font-medium mb-1">Your money, your control</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Full visibility into every transaction</p>
             </div>
           </div>
         </div>
@@ -1547,7 +1547,7 @@ const HowRezWorks = () => {
         {/* CTA */}
         <button
           onClick={() => handleNext('HRW-F1')}
-          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+          className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
         >
           See What Else ReZ Offers
         </button>
@@ -1557,17 +1557,17 @@ const HowRezWorks = () => {
 
   // FINAL MERGE SCREEN
   const FinalMergeScreen = () => (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
-      <div className="sticky top-0 z-20 bg-black/80 backdrop-blur-xl border-b border-white/10">
+      <div className="sticky top-0 z-20 bg-white dark:bg-black/80 backdrop-blur-xl border-b border-rez-gray-200 dark:border-white/10">
         <div className="flex items-center justify-between px-4 py-4">
           <div className="w-10" />
-          <h1 className="text-lg font-bold text-white">You're All Set!</h1>
+          <h1 className="text-lg font-bold text-rez-navy dark:text-white">You're All Set!</h1>
           <button
             onClick={() => navigate(-1)}
-            className="p-2 hover:bg-white/10 rounded-xl transition-colors"
+            className="p-2 hover:bg-rez-gray-100 dark:bg-white/10 rounded-xl transition-colors"
           >
-            <X className="w-6 h-6 text-white" />
+            <X className="w-6 h-6 text-rez-navy dark:text-white" />
           </button>
         </div>
       </div>
@@ -1578,8 +1578,8 @@ const HowRezWorks = () => {
           <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center animate-scale-in">
             <span className="text-6xl">🎉</span>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-3">You're Ready to Save!</h2>
-          <p className="text-gray-400 text-lg">
+          <h2 className="text-3xl font-bold text-rez-navy dark:text-white mb-3">You're Ready to Save!</h2>
+          <p className="text-rez-gray-600 dark:text-gray-400 text-lg">
             Start using ReZ and watch your savings grow
           </p>
         </div>
@@ -1587,60 +1587,60 @@ const HowRezWorks = () => {
         {/* Quick Stats */}
         <div className="grid grid-cols-3 gap-3 mb-8">
           <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/10 border border-emerald-500/30 text-center">
-            <p className="text-2xl font-bold text-white mb-1">1000+</p>
-            <p className="text-xs text-gray-400">Partner Stores</p>
+            <p className="text-2xl font-bold text-rez-navy dark:text-white mb-1">1000+</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Partner Stores</p>
           </div>
           <div className="p-4 rounded-2xl bg-gradient-to-br from-amber-500/20 to-yellow-500/10 border border-amber-500/30 text-center">
-            <p className="text-2xl font-bold text-white mb-1">30%</p>
-            <p className="text-xs text-gray-400">Avg Savings</p>
+            <p className="text-2xl font-bold text-rez-navy dark:text-white mb-1">30%</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Avg Savings</p>
           </div>
           <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/30 text-center">
-            <p className="text-2xl font-bold text-white mb-1">24/7</p>
-            <p className="text-xs text-gray-400">Support</p>
+            <p className="text-2xl font-bold text-rez-navy dark:text-white mb-1">24/7</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Support</p>
           </div>
         </div>
 
         {/* What You Can Do */}
         <div className="mb-8">
-          <h3 className="text-xl font-bold text-white mb-4">What You Can Do Now:</h3>
+          <h3 className="text-xl font-bold text-rez-navy dark:text-white mb-4">What You Can Do Now:</h3>
           <div className="space-y-3">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-500/20 flex items-center justify-center">
                 <Store className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
-                <p className="text-white font-medium">Find stores near you</p>
-                <p className="text-xs text-gray-400">Start saving on offline purchases</p>
+                <p className="text-rez-navy dark:text-white font-medium">Find stores near you</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Start saving on offline purchases</p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-blue-500/20 flex items-center justify-center">
                 <ShoppingBag className="w-5 h-5 text-blue-400" />
               </div>
               <div>
-                <p className="text-white font-medium">Browse ReZ Mall</p>
-                <p className="text-xs text-gray-400">Shop online with guaranteed rewards</p>
+                <p className="text-rez-navy dark:text-white font-medium">Browse ReZ Mall</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Shop online with guaranteed rewards</p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center">
                 <Tag className="w-5 h-5 text-amber-400" />
               </div>
               <div>
-                <p className="text-white font-medium">Explore deals</p>
-                <p className="text-xs text-gray-400">Discover exclusive offers</p>
+                <p className="text-rez-navy dark:text-white font-medium">Explore deals</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Discover exclusive offers</p>
               </div>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center gap-3">
               <div className="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center">
                 <Wallet className="w-5 h-5 text-purple-400" />
               </div>
               <div>
-                <p className="text-white font-medium">Check your wallet</p>
-                <p className="text-xs text-gray-400">Track earnings and rewards</p>
+                <p className="text-rez-navy dark:text-white font-medium">Check your wallet</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Track earnings and rewards</p>
               </div>
             </div>
           </div>
@@ -1648,8 +1648,8 @@ const HowRezWorks = () => {
 
         {/* Trust Elements */}
         <div className="p-5 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 mb-6">
-          <h3 className="text-white font-semibold mb-3 text-center">Why Users Love ReZ</h3>
-          <div className="space-y-2 text-sm text-gray-300">
+          <h3 className="text-rez-navy dark:text-white font-semibold mb-3 text-center">Why Users Love ReZ</h3>
+          <div className="space-y-2 text-sm text-rez-gray-700 dark:text-gray-300">
             <div className="flex items-center gap-2">
               <Check className="w-4 h-4 text-emerald-400 flex-shrink-0" />
               <span>Save on every purchase, online & offline</span>
@@ -1673,14 +1673,14 @@ const HowRezWorks = () => {
         <div className="space-y-3">
           <button
             onClick={() => navigate('/')}
-            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
+            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-rez-navy dark:text-white font-semibold hover:shadow-lg hover:shadow-emerald-500/25 transition-all"
           >
             Start Saving Now
           </button>
 
           <button
             onClick={() => setCurrentScreen('HRW-01')}
-            className="w-full py-3 rounded-2xl bg-white/5 border border-white/10 text-white font-medium hover:bg-white/10 transition-colors"
+            className="w-full py-3 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 text-rez-navy dark:text-white font-medium hover:bg-rez-gray-100 dark:bg-white/10 transition-colors"
           >
             Take Tour Again
           </button>

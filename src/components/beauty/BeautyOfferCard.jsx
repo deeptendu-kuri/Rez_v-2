@@ -29,7 +29,7 @@ const BeautyOfferCard = ({ offer }) => {
       {/* Tag */}
       {offer.tag && (
         <span
-          className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] text-white font-medium"
+          className="absolute top-3 right-3 px-2 py-0.5 rounded-full text-[10px] text-rez-navy dark:text-white font-medium"
           style={{ backgroundColor: offer.color }}
         >
           {offer.tag}
@@ -45,12 +45,12 @@ const BeautyOfferCard = ({ offer }) => {
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-white">{offer.title}</h3>
-          <p className="text-sm text-gray-400 mt-0.5">{offer.description}</p>
+          <h3 className="font-semibold text-rez-navy dark:text-white">{offer.title}</h3>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-0.5">{offer.description}</p>
 
           <div className="flex items-center gap-2 mt-2">
-            <Clock className="w-4 h-4 text-gray-500" />
-            <span className="text-xs text-gray-400">
+            <Clock className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
+            <span className="text-xs text-rez-gray-600 dark:text-gray-400">
               {getTimeRemaining(offer.validTill)}
             </span>
           </div>
@@ -60,7 +60,7 @@ const BeautyOfferCard = ({ offer }) => {
       {/* Discount Badge */}
       <div className="flex items-center justify-between mt-3">
         <span
-          className="px-3 py-1.5 rounded-lg font-bold text-white"
+          className="px-3 py-1.5 rounded-lg font-bold text-rez-navy dark:text-white"
           style={{ backgroundColor: offer.color }}
         >
           {offer.discount} OFF

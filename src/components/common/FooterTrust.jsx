@@ -13,12 +13,12 @@ const FooterTrust = ({
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Coins className="w-5 h-5 text-amber-400" />
-            <span className="font-medium text-white">Coins Summary</span>
+            <span className="font-medium text-rez-navy dark:text-white">Coins Summary</span>
           </div>
         </div>
 
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-gray-400">Earnable today</span>
+          <span className="text-sm text-rez-gray-600 dark:text-gray-400">Earnable today</span>
           <span className="font-bold text-amber-400">+{coinsEarnable} coins</span>
         </div>
 
@@ -38,8 +38,8 @@ const FooterTrust = ({
       </div>
 
       {/* Trust & Transparency */}
-      <div className="p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-medium text-white mb-3 flex items-center gap-2">
+      <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-medium text-rez-navy dark:text-white mb-3 flex items-center gap-2">
           <Shield className="w-4 h-4 text-emerald-400" />
           Trust & Transparency
         </h3>
@@ -47,28 +47,28 @@ const FooterTrust = ({
         <div className="space-y-2">
           <Link
             to="/terms"
-            className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="flex items-center justify-between p-2 rounded-lg hover:bg-rez-gray-50 dark:bg-white/5 transition-colors"
           >
             <div className="flex items-center gap-2">
-              <FileText className="w-4 h-4 text-gray-500" />
-              <span className="text-sm text-gray-400">Terms & Conditions</span>
+              <FileText className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">Terms & Conditions</span>
             </div>
           </Link>
 
           <Link
             to="/help"
-            className="flex items-center justify-between p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="flex items-center justify-between p-2 rounded-lg hover:bg-rez-gray-50 dark:bg-white/5 transition-colors"
           >
             <div className="flex items-center gap-2">
-              <HelpCircle className="w-4 h-4 text-gray-500" />
-              <span className="text-sm text-gray-400">Help & Support</span>
+              <HelpCircle className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">Help & Support</span>
             </div>
           </Link>
 
-          <button className="flex items-center justify-between w-full p-2 rounded-lg hover:bg-white/5 transition-colors">
+          <button className="flex items-center justify-between w-full p-2 rounded-lg hover:bg-rez-gray-50 dark:bg-white/5 transition-colors">
             <div className="flex items-center gap-2">
-              <AlertCircle className="w-4 h-4 text-gray-500" />
-              <span className="text-sm text-gray-400">Report an Issue</span>
+              <AlertCircle className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">Report an Issue</span>
             </div>
           </button>
         </div>
@@ -76,7 +76,7 @@ const FooterTrust = ({
 
       {/* Made with ReZ */}
       <div className="text-center mt-4">
-        <p className="text-xs text-gray-600">
+        <p className="text-xs text-rez-gray-700 dark:text-gray-600">
           Made with 💚 by ReZ • Save smarter, live better
         </p>
       </div>

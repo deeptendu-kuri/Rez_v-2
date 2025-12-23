@@ -25,12 +25,12 @@ const SpecialProfiles = () => {
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="flex items-center gap-4 px-4 py-4">
-          <Link to="/deal-store" className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <Link to="/deal-store" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </Link>
           <div className="flex-1">
-            <h1 className="text-xl font-bold text-white">Special Profiles</h1>
-            <p className="text-sm text-gray-400">Exclusive access for verified members</p>
+            <h1 className="text-xl font-bold text-rez-navy dark:text-white">Special Profiles</h1>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Exclusive access for verified members</p>
           </div>
           <div className="text-4xl">🎖️</div>
         </div>
@@ -43,8 +43,8 @@ const SpecialProfiles = () => {
             <Shield className="w-8 h-8 text-indigo-400" />
           </div>
           <div className="flex-1">
-            <h2 className="text-lg font-semibold text-white">Honoring Our Heroes</h2>
-            <p className="text-sm text-gray-300">Exclusive deals for special community members</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Honoring Our Heroes</h2>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Exclusive deals for special community members</p>
           </div>
         </div>
 
@@ -52,10 +52,10 @@ const SpecialProfiles = () => {
           {profiles.map((profile) => (
             <div
               key={profile.id}
-              className="p-2 rounded-xl bg-white/5 text-center"
+              className="p-2 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-center"
             >
               <span className="text-2xl">{profile.icon}</span>
-              <p className="text-xs text-gray-300 mt-1">{profile.title.split(' ')[0]}</p>
+              <p className="text-xs text-rez-gray-700 dark:text-gray-300 mt-1">{profile.title.split(' ')[0]}</p>
             </div>
           ))}
         </div>
@@ -82,7 +82,7 @@ const SpecialProfiles = () => {
                 <span className="text-4xl">{profile.icon}</span>
                 <div className="flex-1 text-left">
                   <div className="flex items-center gap-2">
-                    <h3 className="font-semibold text-white">{profile.title}</h3>
+                    <h3 className="font-semibold text-rez-navy dark:text-white">{profile.title}</h3>
                     {isVerified && (
                       <CheckCircle className="w-4 h-4 text-green-400" />
                     )}
@@ -98,15 +98,15 @@ const SpecialProfiles = () => {
 
               {/* Expanded Content */}
               {isExpanded && (
-                <div className="p-4 bg-[#1C1C1E]">
+                <div className="p-4 bg-rez-gray-100 dark:bg-[#1C1C1E]">
                   {/* Verification Status */}
                   {!isVerified ? (
-                    <div className="p-4 rounded-xl bg-white/5 mb-4">
+                    <div className="p-4 rounded-xl bg-rez-gray-50 dark:bg-white/5 mb-4">
                       <div className="flex items-start gap-3">
                         <Upload className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                         <div className="flex-1">
-                          <p className="text-sm text-white mb-1">Verification Required</p>
-                          <p className="text-xs text-gray-400">{profile.eligibility}</p>
+                          <p className="text-sm text-rez-navy dark:text-white mb-1">Verification Required</p>
+                          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{profile.eligibility}</p>
                         </div>
                         <Button
                           variant="amber"
@@ -125,12 +125,12 @@ const SpecialProfiles = () => {
                   )}
 
                   {/* Deals List */}
-                  <h4 className="text-sm font-medium text-gray-400 mb-3">Available Deals</h4>
+                  <h4 className="text-sm font-medium text-rez-gray-600 dark:text-gray-400 mb-3">Available Deals</h4>
                   <div className="space-y-2">
                     {profile.deals.map((deal) => (
                       <div
                         key={deal.id}
-                        className={`p-3 rounded-xl bg-white/5 flex items-center gap-3 ${
+                        className={`p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center gap-3 ${
                           !isVerified ? 'opacity-50' : ''
                         }`}
                       >
@@ -142,8 +142,8 @@ const SpecialProfiles = () => {
                           />
                         )}
                         <div className="flex-1">
-                          <p className="font-medium text-white text-sm">{deal.store}</p>
-                          <p className="text-xs text-gray-400">{deal.title}</p>
+                          <p className="font-medium text-rez-navy dark:text-white text-sm">{deal.store}</p>
+                          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{deal.title}</p>
                         </div>
                         <div className="px-2 py-1 rounded-lg bg-indigo-500/20">
                           <span className="text-sm font-bold text-indigo-400">{deal.discount}</span>
@@ -153,7 +153,7 @@ const SpecialProfiles = () => {
                   </div>
 
                   {!isVerified && (
-                    <p className="text-xs text-gray-500 text-center mt-4">
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-500 text-center mt-4">
                       Verify your profile to unlock these exclusive deals
                     </p>
                   )}
@@ -165,8 +165,8 @@ const SpecialProfiles = () => {
       </div>
 
       {/* Support Message */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white/5 text-center">
-        <p className="text-sm text-gray-400">
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 text-center">
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">
           Don't see your category? <span className="text-indigo-400">Contact us</span> to request special profile verification.
         </p>
       </div>

@@ -54,7 +54,7 @@ const DealCategoryCard = ({ deal, onClick }) => {
 
       <div className="relative">
         {getIcon()}
-        <h4 className="font-semibold text-white mt-2 text-sm">{deal.title}</h4>
+        <h4 className="font-semibold text-rez-navy dark:text-white mt-2 text-sm">{deal.title}</h4>
         <p className="text-xs text-white/70 mt-0.5">{deal.products.length} items</p>
 
         {deal.endsIn && (
@@ -83,8 +83,8 @@ const FleaDealsSection = ({ deals }) => {
       <div className="flex items-center gap-2 mb-4 px-4">
         <span className="text-2xl">💥</span>
         <div>
-          <h2 className="text-lg font-bold text-white">Deals & Steals</h2>
-          <p className="text-sm text-gray-400">Flea-only crazy prices</p>
+          <h2 className="text-lg font-bold text-rez-navy dark:text-white">Deals & Steals</h2>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">Flea-only crazy prices</p>
         </div>
       </div>
 
@@ -105,11 +105,11 @@ const FleaDealsSection = ({ deals }) => {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <span>{deals[selectedCategory].icon}</span>
-              <h3 className="font-semibold text-white">{deals[selectedCategory].title}</h3>
+              <h3 className="font-semibold text-rez-navy dark:text-white">{deals[selectedCategory].title}</h3>
             </div>
             <button
               onClick={() => setSelectedCategory(null)}
-              className="text-xs text-gray-400"
+              className="text-xs text-rez-gray-600 dark:text-gray-400"
             >
               Close
             </button>
@@ -122,7 +122,7 @@ const FleaDealsSection = ({ deals }) => {
           </div>
 
           {deals[selectedCategory].products.length > 4 && (
-            <button className="w-full mt-3 py-2.5 rounded-xl bg-white/5 text-sm text-emerald-400 font-medium">
+            <button className="w-full mt-3 py-2.5 rounded-xl bg-rez-gray-50 dark:bg-white/5 text-sm text-emerald-400 font-medium">
               View All {deals[selectedCategory].products.length} Items
             </button>
           )}
@@ -135,17 +135,17 @@ const FleaDealsSection = ({ deals }) => {
           <p className="text-lg font-bold text-emerald-400">
             {dealCategories.reduce((sum, [_, d]) => sum + d.products.length, 0)}
           </p>
-          <p className="text-xs text-gray-500">Total Deals</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500">Total Deals</p>
         </div>
         <div className="w-px bg-gray-700" />
         <div className="text-center">
           <p className="text-lg font-bold text-amber-400">60%</p>
-          <p className="text-xs text-gray-500">Max Discount</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500">Max Discount</p>
         </div>
         <div className="w-px bg-gray-700" />
         <div className="text-center">
           <p className="text-lg font-bold text-purple-400">₹99</p>
-          <p className="text-xs text-gray-500">Starting</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500">Starting</p>
         </div>
       </div>
     </div>

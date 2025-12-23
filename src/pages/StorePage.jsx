@@ -52,8 +52,8 @@ const StorePage = () => {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] px-4">
         <span className="text-4xl mb-4">🔍</span>
-        <h2 className="text-xl font-semibold text-white mb-2">Store not found</h2>
-        <p className="text-gray-400 text-center mb-4">
+        <h2 className="text-xl font-semibold text-rez-navy dark:text-white mb-2">Store not found</h2>
+        <p className="text-rez-gray-600 dark:text-gray-400 text-center mb-4">
           This store might have been removed or is temporarily unavailable.
         </p>
         <Link to="/" className="text-emerald-400">Go back home</Link>
@@ -98,28 +98,28 @@ const StorePage = () => {
         {/* Back Button */}
         <Link
           to="/"
-          className="absolute top-4 left-4 p-2 rounded-full bg-black/50 backdrop-blur"
+          className="absolute top-4 left-4 p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur"
         >
-          <ArrowLeft className="w-5 h-5 text-white" />
+          <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
         </Link>
 
         {/* Actions */}
         <div className="absolute top-4 right-4 flex gap-2">
           <button
             onClick={() => toggleSavedStore(store.id)}
-            className="p-2 rounded-full bg-black/50 backdrop-blur"
+            className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur"
           >
             <Heart className={`w-5 h-5 ${isSaved ? 'fill-red-500 text-red-500' : 'text-white'}`} />
           </button>
-          <button className="p-2 rounded-full bg-black/50 backdrop-blur">
-            <Share2 className="w-5 h-5 text-white" />
+          <button className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur">
+            <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
         </div>
 
         {/* Cashback Badge */}
         <div className="absolute bottom-4 left-4">
           <div className="px-3 py-1.5 rounded-full bg-emerald-500/90 backdrop-blur">
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-semibold text-rez-navy dark:text-white">
               Earn {store.cashback}% cashback
             </span>
           </div>
@@ -130,13 +130,13 @@ const StorePage = () => {
       <div className="px-4 pt-4">
         <div className="flex items-start justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-white">{store.name}</h1>
-            <p className="text-gray-400">{store.category}</p>
+            <h1 className="text-2xl font-bold text-rez-navy dark:text-white">{store.name}</h1>
+            <p className="text-rez-gray-600 dark:text-gray-400">{store.category}</p>
           </div>
-          <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-white/10">
+          <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-rez-gray-100 dark:bg-white/10">
             <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-            <span className="font-medium text-white">{store.rating}</span>
-            <span className="text-gray-400 text-sm">({store.reviews})</span>
+            <span className="font-medium text-rez-navy dark:text-white">{store.rating}</span>
+            <span className="text-rez-gray-600 dark:text-gray-400 text-sm">({store.reviews})</span>
           </div>
         </div>
 
@@ -150,7 +150,7 @@ const StorePage = () => {
         </div>
 
         {/* Quick Info */}
-        <div className="flex flex-wrap gap-4 mt-4 text-sm text-gray-400">
+        <div className="flex flex-wrap gap-4 mt-4 text-sm text-rez-gray-600 dark:text-gray-400">
           <span className="flex items-center gap-1">
             <MapPin className="w-4 h-4" />
             {store.distance}
@@ -177,7 +177,7 @@ const StorePage = () => {
             <h3 className="font-medium text-amber-400 mb-2">Available Offers</h3>
             <ul className="space-y-1">
               {store.offers.map((offer, i) => (
-                <li key={i} className="text-sm text-gray-300 flex items-center gap-2">
+                <li key={i} className="text-sm text-rez-gray-700 dark:text-gray-300 flex items-center gap-2">
                   <span className="text-amber-400">•</span>
                   {offer}
                 </li>
@@ -191,7 +191,7 @@ const StorePage = () => {
           {store.tags.map((tag, i) => (
             <span
               key={i}
-              className="px-3 py-1 rounded-full bg-white/5 text-sm text-gray-400"
+              className="px-3 py-1 rounded-full bg-rez-gray-50 dark:bg-white/5 text-sm text-rez-gray-600 dark:text-gray-400"
             >
               {tag}
             </span>
@@ -202,8 +202,8 @@ const StorePage = () => {
       {/* Menu / Products */}
       <div className="mt-6">
         <div className="px-4 mb-3">
-          <h2 className="text-lg font-semibold text-white">Menu</h2>
-          <p className="text-sm text-gray-400">Tap to add items</p>
+          <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Menu</h2>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">Tap to add items</p>
         </div>
 
         <div className="space-y-3 px-4">
@@ -223,7 +223,7 @@ const StorePage = () => {
         <Button variant="primary" fullWidth>
           Pay with ReZ Wallet
         </Button>
-        <p className="text-center text-xs text-gray-400 mt-2">
+        <p className="text-center text-xs text-rez-gray-600 dark:text-gray-400 mt-2">
           Best savings auto-applied for you
         </p>
       </div>

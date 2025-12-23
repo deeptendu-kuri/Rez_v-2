@@ -40,14 +40,14 @@ const EventHeroCarousel = ({ items }) => {
                         {item.tag}
                       </Badge>
                     )}
-                    <h2 className="text-2xl font-bold text-white">{item.title}</h2>
+                    <h2 className="text-2xl font-bold text-rez-navy dark:text-white">{item.title}</h2>
                     <p className="text-white/80 text-sm mt-1">{item.subtitle}</p>
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-black/30 backdrop-blur-sm">
+                    <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-black/30 backdrop-blur-sm">
                       <Coins className="w-4 h-4 text-amber-400" />
-                      <span className="text-sm text-white">Earn ₹{item.coins}</span>
+                      <span className="text-sm text-rez-navy dark:text-white">Earn ₹{item.coins}</span>
                     </div>
                     <Button variant="secondary" size="sm">
                       {item.cta}

@@ -7,7 +7,7 @@ const MovieCard = ({ movie, variant = 'default' }) => {
     return (
       <Link
         to={`/event/movie/${movie.id}`}
-        className="flex gap-3 p-3 rounded-xl bg-[#2C2C2E] hover:bg-[#3C3C3E] transition-colors"
+        className="flex gap-3 p-3 rounded-xl bg-white dark:bg-[#2C2C2E] hover:bg-rez-gray-200 dark:bg-[#3C3C3E] transition-colors"
       >
         <img
           src={movie.poster}
@@ -16,19 +16,19 @@ const MovieCard = ({ movie, variant = 'default' }) => {
         />
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2">
-            <h4 className="font-medium text-white truncate">{movie.title}</h4>
+            <h4 className="font-medium text-rez-navy dark:text-white truncate">{movie.title}</h4>
             {movie.isNew && <Badge variant="success" size="xs">NEW</Badge>}
           </div>
-          <p className="text-xs text-gray-400 mt-0.5">{movie.genre}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{movie.genre}</p>
           <div className="flex items-center gap-1 mt-1">
             <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-            <span className="text-xs text-white">{movie.rating}</span>
+            <span className="text-xs text-rez-navy dark:text-white">{movie.rating}</span>
           </div>
           <div className="flex flex-wrap gap-1 mt-2">
             {movie.showtimes.slice(0, 3).map((time) => (
               <span
                 key={time}
-                className="px-2 py-0.5 rounded bg-white/10 text-[10px] text-gray-300"
+                className="px-2 py-0.5 rounded bg-rez-gray-100 dark:bg-white/10 text-[10px] text-rez-gray-700 dark:text-gray-300"
               >
                 {time}
               </span>
@@ -40,7 +40,7 @@ const MovieCard = ({ movie, variant = 'default' }) => {
             <Coins className="w-3 h-3" />
             <span className="text-xs">{movie.cashback}%</span>
           </div>
-          <span className="text-xs text-gray-500">
+          <span className="text-xs text-rez-gray-600 dark:text-gray-500">
             ₹{movie.theaters[0]?.price}
           </span>
         </div>
@@ -64,39 +64,39 @@ const MovieCard = ({ movie, variant = 'default' }) => {
         {/* Badges */}
         <div className="absolute top-2 left-2 right-2 flex items-start justify-between">
           {movie.isNew && <Badge variant="success" size="xs">NEW</Badge>}
-          <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-black/60 backdrop-blur-sm">
+          <div className="flex items-center gap-1 px-1.5 py-0.5 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
             <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-            <span className="text-xs text-white">{movie.rating}</span>
+            <span className="text-xs text-rez-navy dark:text-white">{movie.rating}</span>
           </div>
         </div>
 
         {/* Cashback badge */}
         <div className="absolute bottom-2 left-2">
           <div className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/80">
-            <Coins className="w-3 h-3 text-white" />
-            <span className="text-[10px] text-white font-medium">{movie.cashback}%</span>
+            <Coins className="w-3 h-3 text-rez-navy dark:text-white" />
+            <span className="text-[10px] text-rez-navy dark:text-white font-medium">{movie.cashback}%</span>
           </div>
         </div>
       </div>
 
       <div className="mt-2 px-1">
-        <h4 className="font-medium text-white text-sm truncate">{movie.title}</h4>
-        <p className="text-xs text-gray-400 truncate">{movie.genre}</p>
+        <h4 className="font-medium text-rez-navy dark:text-white text-sm truncate">{movie.title}</h4>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 truncate">{movie.genre}</p>
 
         {/* Showtimes */}
         <div className="flex items-center gap-1 mt-1.5 overflow-hidden">
-          <Clock className="w-3 h-3 text-gray-500 shrink-0" />
+          <Clock className="w-3 h-3 text-rez-gray-600 dark:text-gray-500 shrink-0" />
           <div className="flex gap-1 overflow-hidden">
             {movie.showtimes.slice(0, 2).map((time) => (
               <span
                 key={time}
-                className="px-1.5 py-0.5 rounded bg-white/10 text-[10px] text-gray-300 shrink-0"
+                className="px-1.5 py-0.5 rounded bg-rez-gray-100 dark:bg-white/10 text-[10px] text-rez-gray-700 dark:text-gray-300 shrink-0"
               >
                 {time}
               </span>
             ))}
             {movie.showtimes.length > 2 && (
-              <span className="text-[10px] text-gray-500">+{movie.showtimes.length - 2}</span>
+              <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">+{movie.showtimes.length - 2}</span>
             )}
           </div>
         </div>

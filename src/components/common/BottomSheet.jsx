@@ -19,13 +19,13 @@ const BottomSheet = ({ isOpen, onClose, title, children, height = 'auto' }) => {
     <div className="fixed inset-0 z-[100]">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-white dark:bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Sheet */}
       <div
-        className={`absolute bottom-0 left-0 right-0 bg-[#1C1C1E] rounded-t-3xl transform transition-transform duration-300 ${
+        className={`absolute bottom-0 left-0 right-0 bg-rez-gray-100 dark:bg-[#1C1C1E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-t-3xl transform transition-transform duration-300 ${
           isOpen ? 'translate-y-0' : 'translate-y-full'
         }`}
         style={{ maxHeight: height === 'auto' ? '90vh' : height }}
@@ -38,12 +38,12 @@ const BottomSheet = ({ isOpen, onClose, title, children, height = 'auto' }) => {
         {/* Header */}
         {title && (
           <div className="flex items-center justify-between px-5 pb-4">
-            <h2 className="text-xl font-semibold text-white">{title}</h2>
+            <h2 className="text-xl font-semibold text-rez-navy dark:text-white">{title}</h2>
             <button
               onClick={onClose}
-              className="p-2 rounded-full bg-white/10 active:bg-white/20"
+              className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 active:bg-white/20"
             >
-              <X className="w-5 h-5 text-white" />
+              <X className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
           </div>
         )}

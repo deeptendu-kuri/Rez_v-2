@@ -50,14 +50,14 @@ const Fitness = () => {
   );
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-3">
             <div>
-              <h1 className="text-xl font-bold text-white">Fitness & Sports</h1>
-              <p className="text-xs text-gray-400">Train smarter. Earn rewards every time.</p>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Fitness & Sports</h1>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Train smarter. Earn rewards every time.</p>
             </div>
             <Link to="/wallet" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <Coins className="w-4 h-4 text-amber-400" />
@@ -67,13 +67,13 @@ const Fitness = () => {
 
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search gyms, trainers, products..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -90,7 +90,7 @@ const Fitness = () => {
         >
           <div className="flex items-center gap-2 mb-3">
             <span className="text-2xl">{fitnessHeroSlides[currentSlide].icon}</span>
-            <p className="text-lg font-semibold text-white">
+            <p className="text-lg font-semibold text-rez-navy dark:text-white">
               {fitnessHeroSlides[currentSlide].text}
             </p>
           </div>
@@ -125,7 +125,7 @@ const Fitness = () => {
       {/* Categories */}
       <div className="mb-6">
         <div className="px-4 mb-3">
-          <h2 className="font-semibold text-white">Quick Actions</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Quick Actions</h2>
         </div>
         <FitnessCategoryGrid categories={fitnessCategories} />
       </div>
@@ -134,8 +134,8 @@ const Fitness = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Book & Earn</h2>
-            <p className="text-xs text-gray-400">Gyms, Studios, Trainers & Classes</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Book & Earn</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Gyms, Studios, Trainers & Classes</p>
           </div>
           <Link to="/fitness/gyms" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -149,7 +149,7 @@ const Fitness = () => {
       {/* Studios Section */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Studios & Classes</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Studios & Classes</h2>
           <Link to="/fitness/studios" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
@@ -162,7 +162,7 @@ const Fitness = () => {
       {/* Trainers Section */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Personal Trainers</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Personal Trainers</h2>
           <Link to="/fitness/trainers" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
@@ -176,8 +176,8 @@ const Fitness = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Fitness Store</h2>
-            <p className="text-xs text-gray-400">Equipment & Supplements</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Fitness Store</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Equipment & Supplements</p>
           </div>
           <Link to="/fitness/store" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -191,7 +191,7 @@ const Fitness = () => {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                 activeProductTab === tab.id
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-white/10 text-gray-400'
+                  : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               <span>{tab.icon}</span>
@@ -217,7 +217,7 @@ const Fitness = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="text-lg">🏆</span>
-            <h2 className="font-semibold text-white">Challenges & Community</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Challenges & Community</h2>
           </div>
           <Link to="/fitness/challenges" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -233,7 +233,7 @@ const Fitness = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <span className="text-lg">📸</span>
-            <h2 className="font-semibold text-white">Community Feed</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Community Feed</h2>
           </div>
           <Link to="/fitness/feed" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -246,16 +246,16 @@ const Fitness = () => {
 
       {/* Trust Section */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-2 mb-3">
             <Shield className="w-5 h-5 text-emerald-400" />
-            <h3 className="font-semibold text-white">Why Choose ReZ Fitness?</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Why Choose ReZ Fitness?</h3>
           </div>
           <div className="grid grid-cols-2 gap-2">
             {fitnessTrust.map((item, index) => (
-              <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-white/5">
+              <div key={index} className="flex items-center gap-2 p-2 rounded-lg bg-rez-gray-50 dark:bg-white/5">
                 <span>{item.icon}</span>
-                <span className="text-xs text-gray-300">{item.text}</span>
+                <span className="text-xs text-rez-gray-700 dark:text-gray-300">{item.text}</span>
               </div>
             ))}
           </div>
@@ -264,7 +264,7 @@ const Fitness = () => {
 
       {/* Social Proof */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               <div className="w-8 h-8 rounded-full bg-red-500/30 border-2 border-[#2C2C2E] flex items-center justify-center">
@@ -278,8 +278,8 @@ const Fitness = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm text-white">3,450 fitness sessions booked this week</p>
-              <p className="text-xs text-gray-400">₹45,000 saved with ReZ</p>
+              <p className="text-sm text-rez-navy dark:text-white">3,450 fitness sessions booked this week</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">₹45,000 saved with ReZ</p>
             </div>
           </div>
         </div>
@@ -294,8 +294,8 @@ const Fitness = () => {
           <div className="flex items-center gap-3">
             <Coins className="w-6 h-6 text-amber-400" />
             <div>
-              <p className="text-sm text-white">Fitness Wallet: <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
-              <p className="text-xs text-gray-400">Use at gyms & fitness stores</p>
+              <p className="text-sm text-rez-navy dark:text-white">Fitness Wallet: <span className="font-bold text-amber-400">{rezCoins}</span> coins</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Use at gyms & fitness stores</p>
             </div>
           </div>
           <ArrowRight className="w-5 h-5 text-amber-400" />

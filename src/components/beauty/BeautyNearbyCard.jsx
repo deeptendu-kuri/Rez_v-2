@@ -5,11 +5,11 @@ const BeautyNearbyCard = ({ store }) => {
   return (
     <Link
       to={`/store/${store.id}`}
-      className="min-w-[200px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+      className="min-w-[200px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
     >
       <div className="flex items-center gap-3">
         {/* Logo */}
-        <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
+        <div className="w-12 h-12 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
           {store.logo ? (
             <img
               src={store.logo}
@@ -26,8 +26,8 @@ const BeautyNearbyCard = ({ store }) => {
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-medium text-white truncate">{store.name}</h3>
-          <p className="text-xs text-gray-400">{store.type}</p>
+          <h3 className="font-medium text-rez-navy dark:text-white truncate">{store.name}</h3>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{store.type}</p>
         </div>
       </div>
 
@@ -35,20 +35,20 @@ const BeautyNearbyCard = ({ store }) => {
       <div className="flex items-center gap-3 mt-3">
         <div className="flex items-center gap-1">
           <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-          <span className="text-xs text-white">{store.rating}</span>
+          <span className="text-xs text-rez-navy dark:text-white">{store.rating}</span>
         </div>
         <div className="flex items-center gap-1">
-          <MapPin className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-xs text-gray-400">{store.distance}</span>
+          <MapPin className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">{store.distance}</span>
         </div>
         <div className="flex items-center gap-1">
-          <Clock className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-xs text-gray-400">{store.walkTime}</span>
+          <Clock className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">{store.walkTime}</span>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <div>
           <span className="px-2 py-1 rounded-full bg-emerald-500/20 text-xs text-emerald-400">
             {store.cashback}% Cashback
@@ -65,8 +65,8 @@ const BeautyNearbyCard = ({ store }) => {
       {/* Next Slot */}
       {store.nextSlot && (
         <div className="flex items-center justify-between mt-2">
-          <span className="text-xs text-gray-400">Next slot: {store.nextSlot}</span>
-          <ChevronRight className="w-4 h-4 text-gray-500" />
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">Next slot: {store.nextSlot}</span>
+          <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
         </div>
       )}
     </Link>

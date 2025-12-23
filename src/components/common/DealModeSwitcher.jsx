@@ -63,7 +63,7 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
     <div className="mt-4">
       {/* Tab Switcher */}
       <div className="px-4 mb-4">
-        <div className="flex gap-2 p-1 rounded-xl bg-white/5">
+        <div className="flex gap-2 p-1 rounded-xl bg-rez-gray-50 dark:bg-white/5">
           {tabs.map((tab) => {
             const Icon = tab.icon;
             return (
@@ -73,7 +73,7 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
                 className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-medium transition-colors ${
                   activeTab === tab.id
                     ? `${tab.color} text-white`
-                    : 'text-gray-400'
+                    : 'text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -94,7 +94,7 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
               return (
                 <button
                   key={filter.id}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 text-gray-400 text-sm shrink-0 hover:bg-white/20 transition-colors"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10 text-rez-gray-600 dark:text-gray-400 text-sm shrink-0 hover:bg-white/20 transition-colors"
                 >
                   <Icon className="w-3.5 h-3.5" />
                   <span>{filter.label}</span>
@@ -107,19 +107,19 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
           {offers.length > 0 ? (
             <div className="space-y-3 mt-3">
               {offers.slice(0, 5).map((offer, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform">
+                <div key={idx} className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform">
                   <div className="flex items-start justify-between">
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
                         <span className="text-2xl">{offer.icon || '🏷️'}</span>
                         <div>
-                          <h3 className="font-medium text-white">{offer.title || offer.name}</h3>
-                          <p className="text-xs text-gray-400">{offer.store || offer.brand}</p>
+                          <h3 className="font-medium text-rez-navy dark:text-white">{offer.title || offer.name}</h3>
+                          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{offer.store || offer.brand}</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-3 mt-2">
                         {offer.distance && (
-                          <span className="text-xs text-gray-500">{offer.distance}</span>
+                          <span className="text-xs text-rez-gray-600 dark:text-gray-500">{offer.distance}</span>
                         )}
                         {offer.validity && (
                           <span className="text-xs text-orange-400">{offer.validity}</span>
@@ -131,7 +131,7 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
                         {offer.discount || offer.cashback}
                       </span>
                       {offer.savings && (
-                        <p className="text-xs text-gray-400">Save ₹{offer.savings}</p>
+                        <p className="text-xs text-rez-gray-600 dark:text-gray-400">Save ₹{offer.savings}</p>
                       )}
                     </div>
                   </div>
@@ -141,8 +141,8 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
           ) : (
             <div className="text-center py-8">
               <span className="text-4xl">🏷️</span>
-              <p className="text-gray-400 mt-2">No offers available right now</p>
-              <p className="text-xs text-gray-500">Check back soon for amazing deals!</p>
+              <p className="text-rez-gray-600 dark:text-gray-400 mt-2">No offers available right now</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-500">Check back soon for amazing deals!</p>
             </div>
           )}
 
@@ -168,8 +168,8 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
                   className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-left active:scale-[0.98] transition-transform"
                 >
                   <Icon className="w-6 h-6 text-amber-400 mb-2" />
-                  <h3 className="font-medium text-white text-sm">{section.label}</h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{section.desc}</p>
+                  <h3 className="font-medium text-rez-navy dark:text-white text-sm">{section.label}</h3>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{section.desc}</p>
                 </button>
               );
             })}
@@ -178,21 +178,21 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
           {/* Cashback Stores */}
           {cashbackStores.length > 0 && (
             <div className="mt-4 space-y-3">
-              <h3 className="font-semibold text-white">High Cashback Stores</h3>
+              <h3 className="font-semibold text-rez-navy dark:text-white">High Cashback Stores</h3>
               {cashbackStores.slice(0, 4).map((store, idx) => (
-                <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-[#2C2C2E]">
+                <div key={idx} className="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-[#2C2C2E]">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-lg bg-white/10 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center">
                       <span className="text-lg">{store.icon || '🏪'}</span>
                     </div>
                     <div>
-                      <p className="font-medium text-white text-sm">{store.name}</p>
-                      <p className="text-xs text-gray-400">{store.category}</p>
+                      <p className="font-medium text-rez-navy dark:text-white text-sm">{store.name}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{store.category}</p>
                     </div>
                   </div>
                   <div className="text-right">
                     <span className="text-sm font-bold text-amber-400">{store.cashback}%</span>
-                    <p className="text-[10px] text-gray-500">cashback</p>
+                    <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">cashback</p>
                   </div>
                 </div>
               ))}
@@ -230,20 +230,20 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
                   to={linkMap[section.id]}
                   className={`p-4 rounded-2xl border text-left active:scale-[0.98] transition-transform relative ${
                     section.locked
-                      ? 'bg-white/5 border-white/10'
+                      ? 'bg-white/5 border-rez-gray-200 dark:border-white/10'
                       : 'bg-purple-500/10 border-purple-500/20'
                   }`}
                 >
                   {section.locked && (
                     <div className="absolute top-2 right-2">
-                      <Lock className="w-4 h-4 text-gray-500" />
+                      <Lock className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
                     </div>
                   )}
-                  <Icon className={`w-6 h-6 mb-2 ${section.locked ? 'text-gray-500' : 'text-purple-400'}`} />
-                  <h3 className={`font-medium text-sm ${section.locked ? 'text-gray-400' : 'text-white'}`}>
+                  <Icon className={`w-6 h-6 mb-2 ${section.locked ? 'text-rez-gray-600 dark:text-gray-500' : 'text-purple-400'}`} />
+                  <h3 className={`font-medium text-sm ${section.locked ? 'text-rez-gray-600 dark:text-gray-400' : 'text-white'}`}>
                     {section.label}
                   </h3>
-                  <p className="text-xs text-gray-400 mt-0.5">{section.desc}</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{section.desc}</p>
                 </Link>
               );
             })}
@@ -252,13 +252,13 @@ const DealModeSwitcher = ({ category = '', offers = [], cashbackStores = [], exc
           {/* Exclusive Offers */}
           {exclusiveOffers.length > 0 && (
             <div className="mt-4 space-y-3">
-              <h3 className="font-semibold text-white">Your Exclusive Offers</h3>
+              <h3 className="font-semibold text-rez-navy dark:text-white">Your Exclusive Offers</h3>
               {exclusiveOffers.slice(0, 3).map((offer, idx) => (
                 <div key={idx} className="p-4 rounded-2xl bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/20">
                   <div className="flex items-center justify-between">
                     <div>
-                      <p className="font-medium text-white">{offer.title}</p>
-                      <p className="text-xs text-gray-400">{offer.description}</p>
+                      <p className="font-medium text-rez-navy dark:text-white">{offer.title}</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">{offer.description}</p>
                     </div>
                     <span className="text-lg font-bold text-purple-400">{offer.discount}</span>
                   </div>

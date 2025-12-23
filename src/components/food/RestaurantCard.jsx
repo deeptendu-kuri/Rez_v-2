@@ -8,7 +8,7 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
   return (
     <Link
       to={`/food/restaurant/${restaurant.id}`}
-      className={`block rounded-2xl overflow-hidden bg-[#2C2C2E] group ${
+      className={`block rounded-2xl overflow-hidden bg-white dark:bg-[#2C2C2E] group ${
         isCompact ? 'min-w-[200px] shrink-0' : ''
       }`}
     >
@@ -30,12 +30,12 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
             </span>
           )}
           {restaurant.isHalal && (
-            <span className="px-2 py-0.5 rounded-full bg-emerald-500/90 text-[10px] text-white font-medium">
+            <span className="px-2 py-0.5 rounded-full bg-emerald-500/90 text-[10px] text-rez-navy dark:text-white font-medium">
               Halal
             </span>
           )}
           {restaurant.isVeg && (
-            <span className="px-2 py-0.5 rounded-full bg-green-500/90 text-[10px] text-white font-medium">
+            <span className="px-2 py-0.5 rounded-full bg-green-500/90 text-[10px] text-rez-navy dark:text-white font-medium">
               Pure Veg
             </span>
           )}
@@ -43,16 +43,16 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
 
         {/* Cashback Badge */}
         <div className="absolute top-2 right-2">
-          <span className="px-2 py-1 rounded-full bg-black/60 backdrop-blur-sm text-[10px] text-emerald-400 font-medium">
+          <span className="px-2 py-1 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm text-[10px] text-emerald-400 font-medium">
             {restaurant.cashbackPercent}% cashback
           </span>
         </div>
 
         {/* Rating */}
-        <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-1 rounded-full bg-black/60 backdrop-blur-sm">
+        <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-1 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
           <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-          <span className="text-xs text-white font-medium">{restaurant.rating}</span>
-          <span className="text-[10px] text-gray-400">({restaurant.reviews})</span>
+          <span className="text-xs text-rez-navy dark:text-white font-medium">{restaurant.rating}</span>
+          <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">({restaurant.reviews})</span>
         </div>
       </div>
 
@@ -60,8 +60,8 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
       <div className="p-3">
         <div className="flex items-start justify-between gap-2">
           <div className="flex-1 min-w-0">
-            <h3 className="font-semibold text-white truncate">{restaurant.name}</h3>
-            <p className="text-xs text-gray-400 truncate">
+            <h3 className="font-semibold text-rez-navy dark:text-white truncate">{restaurant.name}</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 truncate">
               {restaurant.cuisine.join(' • ')}
             </p>
           </div>
@@ -71,7 +71,7 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
         </div>
 
         {/* Meta */}
-        <div className="flex items-center gap-3 mt-2 text-gray-400">
+        <div className="flex items-center gap-3 mt-2 text-rez-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-1">
             <MapPin className="w-3 h-3" />
             <span className="text-xs">{restaurant.distance}</span>
@@ -84,13 +84,13 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
         </div>
 
         {/* Coins earned */}
-        <div className="flex items-center justify-between mt-3 pt-2 border-t border-white/5">
+        <div className="flex items-center justify-between mt-3 pt-2 border-t border-rez-gray-200 dark:border-white/5">
           <div className="flex items-center gap-1 text-amber-400">
             <Coins className="w-3.5 h-3.5" />
             <span className="text-xs font-medium">Earn ₹{restaurant.coinsEarned} coins</span>
           </div>
           {restaurant.reviewBonus > 0 && (
-            <span className="text-[10px] text-gray-500">
+            <span className="text-[10px] text-rez-gray-600 dark:text-gray-500">
               +₹{restaurant.reviewBonus} for review
             </span>
           )}
@@ -100,12 +100,12 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
         {restaurant.loyaltyVisits > 0 && (
           <div className="mt-2">
             <div className="flex items-center justify-between mb-1">
-              <span className="text-[10px] text-gray-400">
+              <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">
                 {restaurant.loyaltyVisits}/{restaurant.loyaltyTarget} visits
               </span>
               <span className="text-[10px] text-purple-400">Unlock reward</span>
             </div>
-            <div className="h-1 bg-white/10 rounded-full overflow-hidden">
+            <div className="h-1 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
               <div
                 className="h-full bg-purple-500 rounded-full transition-all"
                 style={{
@@ -122,7 +122,7 @@ const RestaurantCard = ({ restaurant, variant = 'default' }) => {
             {restaurant.tags.map((tag, index) => (
               <span
                 key={index}
-                className="px-2 py-0.5 rounded-full bg-white/5 text-[10px] text-gray-400"
+                className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
               >
                 {tag}
               </span>

@@ -15,14 +15,14 @@ const FoodSocialProof = () => {
 
   return (
     <div className="px-4 py-2">
-      <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 animate-fade-in">
+      <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 animate-fade-in">
         <span className="text-lg">{proof.avatar}</span>
-        <p className="text-sm text-gray-300">
-          <span className="font-medium text-white">{proof.user}</span>{' '}
+        <p className="text-sm text-rez-gray-700 dark:text-gray-300">
+          <span className="font-medium text-rez-navy dark:text-white">{proof.user}</span>{' '}
           {proof.action}{' '}
           <span className="text-emerald-400">{proof.restaurant}</span>
         </p>
-        <span className="text-xs text-gray-500 ml-auto">{proof.time}</span>
+        <span className="text-xs text-rez-gray-600 dark:text-gray-500 ml-auto">{proof.time}</span>
       </div>
     </div>
   );

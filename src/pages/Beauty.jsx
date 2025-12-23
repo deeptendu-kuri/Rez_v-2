@@ -65,14 +65,14 @@ const Beauty = () => {
   const featuredProducts = beautyProducts.filter((p) => p.is60Min).slice(0, 6);
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center justify-between mb-1">
             <div>
-              <h1 className="text-2xl font-bold text-white">Beauty & Wellness</h1>
-              <p className="text-sm text-gray-400">Book services. Buy products. Earn ReZ Coins every time.</p>
+              <h1 className="text-2xl font-bold text-rez-navy dark:text-white">Beauty & Wellness</h1>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">Book services. Buy products. Earn ReZ Coins every time.</p>
             </div>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
               <Coins className="w-4 h-4 text-amber-400" />
@@ -85,23 +85,23 @@ const Beauty = () => {
             <div className="flex items-center gap-2">
               <div className="flex items-center gap-1">
                 <Coins className="w-5 h-5 text-amber-400 animate-bounce" />
-                <span className="text-sm text-white font-medium">
+                <span className="text-sm text-rez-navy dark:text-white font-medium">
                   Earn up to 20% Cashback + ReZ Coins on every beauty visit
                 </span>
               </div>
             </div>
-            <p className="text-xs text-gray-400 mt-1">Works at salons, clinics & stores</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">Works at salons, clinics & stores</p>
           </div>
 
           {/* Search */}
           <div className="relative mt-3">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search services, products, clinics..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -113,10 +113,10 @@ const Beauty = () => {
               <Link
                 key={filter.id}
                 to={`/beauty/${filter.id}`}
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/10 shrink-0"
+                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-rez-gray-100 dark:bg-white/10 shrink-0"
               >
                 <span>{filter.icon}</span>
-                <span className="text-sm text-white">{filter.label}</span>
+                <span className="text-sm text-rez-navy dark:text-white">{filter.label}</span>
               </Link>
             ))}
           </div>
@@ -124,7 +124,7 @@ const Beauty = () => {
 
         {/* Mode Chips */}
         <div className="px-4 pb-3">
-          <p className="text-xs text-gray-500 mb-2">Results adapt to your lifestyle & preferences</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500 mb-2">Results adapt to your lifestyle & preferences</p>
           <div className="flex gap-2 overflow-x-auto hide-scrollbar">
             {beautyModes.map((mode) => (
               <button
@@ -133,7 +133,7 @@ const Beauty = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeModes.includes(mode.id)
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{mode.icon}</span>
@@ -159,23 +159,23 @@ const Beauty = () => {
                 <Trophy className="w-6 h-6 text-pink-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Beauty Loyalty Hub</h3>
-                <p className="text-xs text-gray-400">Track visits, unlock beauty rewards</p>
+                <h3 className="font-semibold text-rez-navy dark:text-white">Beauty Loyalty Hub</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Track visits, unlock beauty rewards</p>
               </div>
             </div>
-            <ChevronRight className="w-5 h-5 text-gray-400" />
+            <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
           </div>
           <div className="grid grid-cols-3 gap-2">
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Total Visits</p>
-              <p className="text-lg font-bold text-white">28</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Total Visits</p>
+              <p className="text-lg font-bold text-rez-navy dark:text-white">28</p>
             </div>
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Active Salons</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Active Salons</p>
               <p className="text-lg font-bold text-pink-400">5</p>
             </div>
-            <div className="p-2 rounded-lg bg-white/10">
-              <p className="text-xs text-gray-400">Next Reward</p>
+            <div className="p-2 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Next Reward</p>
               <p className="text-lg font-bold text-purple-400">
                 <Gift className="w-5 h-5 inline" />
               </p>
@@ -208,7 +208,7 @@ const Beauty = () => {
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
               <MapPin className="w-5 h-5 text-blue-400" />
-              <h2 className="font-semibold text-white">Beauty near you right now</h2>
+              <h2 className="font-semibold text-rez-navy dark:text-white">Beauty near you right now</h2>
             </div>
             <Link to="/beauty/nearby" className="text-sm text-emerald-400">See All</Link>
           </div>
@@ -217,10 +217,10 @@ const Beauty = () => {
               <BeautyNearbyCard key={store.id} store={store} />
             ))}
           </div>
-          <div className="mt-3 flex items-center justify-center gap-2 p-3 rounded-xl bg-white/10">
+          <div className="mt-3 flex items-center justify-center gap-2 p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
             <QrCode className="w-5 h-5 text-emerald-400" />
-            <span className="text-sm text-white">Scan & Pay at Store</span>
-            <ChevronRight className="w-4 h-4 text-gray-500" />
+            <span className="text-sm text-rez-navy dark:text-white">Scan & Pay at Store</span>
+            <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
           </div>
         </div>
       </div>
@@ -228,7 +228,7 @@ const Beauty = () => {
       {/* Today's Top Deals */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Today's Top Beauty Deals</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Today's Top Beauty Deals</h2>
           <Link to="/beauty/deals" className="text-sm text-emerald-400">See All</Link>
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
@@ -243,7 +243,7 @@ const Beauty = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Calendar className="w-5 h-5 text-pink-400" />
-            <h2 className="font-semibold text-white">Book & Earn</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Book & Earn</h2>
           </div>
           <Link to="/beauty/services" className="text-sm text-emerald-400">See All</Link>
         </div>
@@ -259,11 +259,11 @@ const Beauty = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <ShoppingBag className="w-5 h-5 text-purple-400" />
-            <h2 className="font-semibold text-white">Buy Products</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Buy Products</h2>
           </div>
           <Link to="/beauty/products" className="text-sm text-emerald-400">See All</Link>
         </div>
-        <p className="text-xs text-gray-400 mb-3">Share UGC → Get delivery fee back in ReZ Coins</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-3">Share UGC → Get delivery fee back in ReZ Coins</p>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
           {featuredProducts.map((product) => (
             <BeautyProductCard key={product.id} product={product} variant="compact" />
@@ -276,11 +276,11 @@ const Beauty = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Shield className="w-5 h-5 text-emerald-400" />
-            <h2 className="font-semibold text-white">Verified Clinics</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Verified Clinics</h2>
           </div>
           <Link to="/beauty/clinics" className="text-sm text-emerald-400">See All</Link>
         </div>
-        <p className="text-xs text-gray-400 mb-3">Verified clinics • Transparent pricing • Earn rewards</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-3">Verified clinics • Transparent pricing • Earn rewards</p>
         <div className="space-y-4">
           {beautyClinics.slice(0, 2).map((clinic) => (
             <BeautyClinicCard key={clinic.id} clinic={clinic} />
@@ -290,7 +290,7 @@ const Beauty = () => {
 
       {/* Offers Tabs */}
       <div className="px-4 mb-6">
-        <h2 className="font-semibold text-white mb-3">Offers & Rewards</h2>
+        <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Offers & Rewards</h2>
         <div className="flex gap-2 mb-4">
           {['offers', 'cashback', 'exclusive'].map((tab) => (
             <button
@@ -299,7 +299,7 @@ const Beauty = () => {
               className={`px-4 py-2 rounded-full text-sm capitalize ${
                 activeTab === tab
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-white/10 text-gray-400'
+                  : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               {tab}
@@ -312,15 +312,15 @@ const Beauty = () => {
             {beautyOffers.filter((o) => o.category === 'services').slice(0, 2).map((offer) => (
               <div
                 key={offer.id}
-                className="p-3 rounded-xl bg-[#2C2C2E] flex items-center gap-3"
+                className="p-3 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-3"
               >
                 <span className="text-2xl">{offer.icon}</span>
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-white">{offer.title}</p>
-                  <p className="text-xs text-gray-400">{offer.description}</p>
+                  <p className="text-sm font-medium text-rez-navy dark:text-white">{offer.title}</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">{offer.description}</p>
                 </div>
                 <span
-                  className="px-2 py-1 rounded-lg text-xs font-bold text-white"
+                  className="px-2 py-1 rounded-lg text-xs font-bold text-rez-navy dark:text-white"
                   style={{ backgroundColor: offer.color }}
                 >
                   {offer.discount}
@@ -335,8 +335,8 @@ const Beauty = () => {
             <div className="flex items-center gap-3 mb-3">
               <Coins className="w-8 h-8 text-amber-400" />
               <div>
-                <p className="text-sm font-medium text-white">Super Cashback Salons</p>
-                <p className="text-xs text-gray-400">Double Coin Days • Upload Bill → Get Bonus</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">Super Cashback Salons</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Double Coin Days • Upload Bill → Get Bonus</p>
               </div>
             </div>
             <Button variant="primary" fullWidth>
@@ -358,8 +358,8 @@ const Beauty = () => {
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
           <div>
-            <h2 className="font-semibold text-white">Real Results, Real People</h2>
-            <p className="text-xs text-gray-400">Post your result → Earn extra ReZ Coins</p>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Real Results, Real People</h2>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Post your result → Earn extra ReZ Coins</p>
           </div>
           <button className="flex items-center gap-1 text-sm text-emerald-400">
             <Camera className="w-4 h-4" />
@@ -380,18 +380,18 @@ const Beauty = () => {
             <div className="flex items-center gap-3">
               <Coins className="w-8 h-8 text-amber-400" />
               <div>
-                <p className="text-sm text-white">
+                <p className="text-sm text-rez-navy dark:text-white">
                   You have <span className="font-bold text-amber-400">{rezCoins}</span> coins
                 </p>
-                <p className="text-xs text-gray-400">Beauty savings this month: ₹1,240</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Beauty savings this month: ₹1,240</p>
               </div>
             </div>
             <Link to="/wallet" className="flex items-center gap-1 text-sm text-amber-400">
               View <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
-          <div className="mt-3 p-3 rounded-xl bg-white/10">
-            <p className="text-xs text-white">
+          <div className="mt-3 p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
+            <p className="text-xs text-rez-navy dark:text-white">
               💡 Use Coins on your next salon visit — save up to 20%
             </p>
           </div>
@@ -408,17 +408,17 @@ const Beauty = () => {
         <div className="grid grid-cols-2 gap-3">
           <Link
             to="/beauty/all"
-            className="p-4 rounded-xl bg-[#2C2C2E] flex items-center gap-2"
+            className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-2"
           >
             <Search className="w-5 h-5 text-emerald-400" />
-            <span className="text-sm text-white">Explore All</span>
+            <span className="text-sm text-rez-navy dark:text-white">Explore All</span>
           </Link>
           <Link
             to="/beauty/concierge"
-            className="p-4 rounded-xl bg-[#2C2C2E] flex items-center gap-2"
+            className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center gap-2"
           >
             <MessageCircle className="w-5 h-5 text-blue-400" />
-            <span className="text-sm text-white">Talk to Concierge</span>
+            <span className="text-sm text-rez-navy dark:text-white">Talk to Concierge</span>
           </Link>
         </div>
         <Link
@@ -426,13 +426,13 @@ const Beauty = () => {
           className="mt-3 p-4 rounded-xl bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/20 flex items-center justify-center gap-2"
         >
           <Gift className="w-5 h-5 text-pink-400" />
-          <span className="text-sm text-white font-medium">Gift a Beauty Experience</span>
+          <span className="text-sm text-rez-navy dark:text-white font-medium">Gift a Beauty Experience</span>
         </Link>
       </div>
 
       {/* Social Proof */}
       <div className="px-4 mb-6">
-        <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+        <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
           <div className="flex items-center gap-3 mb-2">
             <div className="flex -space-x-2">
               <div className="w-8 h-8 rounded-full bg-pink-500/30 border-2 border-[#2C2C2E] flex items-center justify-center">
@@ -446,8 +446,8 @@ const Beauty = () => {
               </div>
             </div>
             <div className="flex-1">
-              <p className="text-sm text-white">1,890 beauty bookings today</p>
-              <p className="text-xs text-gray-400">₹32,400 earned in cashback</p>
+              <p className="text-sm text-rez-navy dark:text-white">1,890 beauty bookings today</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">₹32,400 earned in cashback</p>
             </div>
           </div>
         </div>

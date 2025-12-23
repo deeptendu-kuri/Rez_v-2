@@ -18,7 +18,7 @@ const Home = () => {
   const { globalMode, filters, vibe } = useApp();
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24 transition-colors">
       {/* 1️⃣ HEADER (Sticky) */}
       <HomeHeader />
 
@@ -35,33 +35,33 @@ const Home = () => {
       <div className="px-4 mb-6">
         <Link
           to="/pay-in-store"
-          className="block p-6 rounded-3xl bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 relative overflow-hidden"
+          className="block p-6 rounded-rez-2xl bg-gradient-to-r from-rez-green-500 via-rez-teal-500 to-rez-gold relative overflow-hidden shadow-rez-green"
         >
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-3">
-                <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                <div className="w-14 h-14 rounded-rez-lg bg-white/20 backdrop-blur-sm flex items-center justify-center">
                   <span className="text-3xl">💳</span>
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white">Pay in Store</h3>
-                  <p className="text-sm text-white/90">Scan QR & earn instant rewards</p>
+                  <h3 className="text-h3 font-poppins text-rez-navy dark:text-white">Pay in Store</h3>
+                  <p className="text-body-sm text-white/90">Scan QR & earn instant rewards</p>
                 </div>
               </div>
-              <span className="text-white text-2xl">→</span>
+              <span className="text-rez-navy dark:text-white text-2xl">→</span>
             </div>
 
             <div className="grid grid-cols-3 gap-2">
               <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm text-center">
-                <p className="text-xl font-bold text-white">10%</p>
+                <p className="text-xl font-bold text-rez-navy dark:text-white">10%</p>
                 <p className="text-[10px] text-white/80">Cashback</p>
               </div>
               <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm text-center">
-                <p className="text-xl font-bold text-white">🪙</p>
+                <p className="text-xl font-bold text-rez-navy dark:text-white">🪙</p>
                 <p className="text-[10px] text-white/80">Earn Coins</p>
               </div>
               <div className="p-2 rounded-lg bg-white/20 backdrop-blur-sm text-center">
-                <p className="text-xl font-bold text-white">⚡</p>
+                <p className="text-xl font-bold text-rez-navy dark:text-white">⚡</p>
                 <p className="text-[10px] text-white/80">Instant</p>
               </div>
             </div>
@@ -79,17 +79,17 @@ const Home = () => {
       <div className="px-4 mb-6">
         <Link
           to="/how-rez-works"
-          className="block p-5 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 hover:border-blue-500/50 transition-all group"
+          className="block p-5 rounded-rez-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/20 dark:to-purple-500/20 border border-blue-500/30 dark:border-blue-500/30 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all group"
         >
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <div className="w-14 h-14 rounded-rez-lg bg-blue-500/30 dark:bg-blue-500/30 flex items-center justify-center group-hover:scale-110 transition-transform">
               <span className="text-3xl">💡</span>
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-white mb-1">New to ReZ? See how it works</h3>
-              <p className="text-xs text-gray-400">Save money on things you already buy — online & offline</p>
+              <h3 className="text-h4 font-poppins text-rez-navy dark:text-white mb-1">New to ReZ? See how it works</h3>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">Save money on things you already buy — online & offline</p>
             </div>
-            <span className="text-blue-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
+            <span className="text-blue-400 dark:text-blue-400 text-xl group-hover:translate-x-1 transition-transform">→</span>
           </div>
         </Link>
       </div>
@@ -101,19 +101,19 @@ const Home = () => {
       <div className="px-4 mb-6">
         <Link
           to="/categories"
-          className="block p-4 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30"
+          className="block p-4 rounded-rez-lg bg-gradient-to-r from-blue-500/20 to-purple-500/20 dark:from-blue-500/20 dark:to-purple-500/20 border border-blue-500/30 dark:border-blue-500/30"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-blue-500/30 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-rez-md bg-blue-500/30 dark:bg-blue-500/30 flex items-center justify-center">
                 <span className="text-2xl">🗂️</span>
               </div>
               <div>
-                <h3 className="font-semibold text-white">View All Categories</h3>
-                <p className="text-xs text-gray-400">Explore everything ReZ offers</p>
+                <h3 className="text-h4 font-poppins text-rez-navy dark:text-white">View All Categories</h3>
+                <p className="text-caption text-rez-gray-600 dark:text-gray-400">Explore everything ReZ offers</p>
               </div>
             </div>
-            <span className="text-blue-400 text-sm font-semibold">Browse →</span>
+            <span className="text-blue-400 dark:text-blue-400 text-button font-poppins">Browse →</span>
           </div>
         </Link>
       </div>
@@ -131,35 +131,35 @@ const Home = () => {
       <div className="px-4 mb-6">
         <Link
           to="/loyalty-rewards"
-          className="block p-6 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-amber-500/20 to-purple-500/20 border border-emerald-500/30"
+          className="block p-6 rounded-rez-2xl bg-gradient-to-r from-rez-green-500/20 via-rez-gold/20 to-purple-500/20 dark:from-emerald-500/20 dark:via-amber-500/20 dark:to-purple-500/20 border border-rez-green-500/30 dark:border-emerald-500/30"
         >
           <div className="flex items-center gap-3 mb-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500/30 to-amber-500/30 flex items-center justify-center">
+            <div className="w-14 h-14 rounded-rez-lg bg-gradient-to-br from-rez-green-500/30 to-rez-gold/30 dark:from-emerald-500/30 dark:to-amber-500/30 flex items-center justify-center">
               <span className="text-3xl">🏆</span>
             </div>
             <div className="flex-1">
-              <h3 className="text-lg font-bold text-white">Loyalty & Rewards Hub</h3>
-              <p className="text-sm text-gray-400">Your progress with every brand</p>
+              <h3 className="text-h4 font-poppins text-rez-navy dark:text-white">Loyalty & Rewards Hub</h3>
+              <p className="text-body-sm text-rez-gray-600 dark:text-gray-400">Your progress with every brand</p>
             </div>
-            <span className="text-emerald-400 text-sm font-semibold">View →</span>
+            <span className="text-rez-green-500 dark:text-emerald-400 text-button font-poppins">View →</span>
           </div>
 
           <div className="grid grid-cols-4 gap-2">
-            <div className="p-3 rounded-xl bg-white/10 text-center">
-              <p className="text-xl font-bold text-white">7</p>
-              <p className="text-xs text-gray-400 mt-1">Active Brands</p>
+            <div className="p-3 rounded-rez-md bg-rez-gray-100 dark:bg-white/10 text-center">
+              <p className="text-h3 font-poppins text-rez-navy dark:text-white">7</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-1">Active Brands</p>
             </div>
-            <div className="p-3 rounded-xl bg-white/10 text-center">
-              <p className="text-xl font-bold text-orange-400">4</p>
-              <p className="text-xs text-gray-400 mt-1">Streaks</p>
+            <div className="p-3 rounded-rez-md bg-rez-gray-100 dark:bg-white/10 text-center">
+              <p className="text-h3 font-poppins text-rez-warning dark:text-orange-400">4</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-1">Streaks</p>
             </div>
-            <div className="p-3 rounded-xl bg-white/10 text-center">
-              <p className="text-xl font-bold text-amber-400">12</p>
-              <p className="text-xs text-gray-400 mt-1">Unlocked</p>
+            <div className="p-3 rounded-rez-md bg-rez-gray-100 dark:bg-white/10 text-center">
+              <p className="text-h3 font-poppins text-rez-gold dark:text-amber-400">12</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-1">Unlocked</p>
             </div>
-            <div className="p-3 rounded-xl bg-white/10 text-center">
-              <p className="text-xl font-bold text-purple-400">3</p>
-              <p className="text-xs text-gray-400 mt-1">Tiers</p>
+            <div className="p-3 rounded-rez-md bg-rez-gray-100 dark:bg-white/10 text-center">
+              <p className="text-h3 font-poppins text-purple-500 dark:text-purple-400">3</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-1">Tiers</p>
             </div>
           </div>
         </Link>
@@ -169,41 +169,41 @@ const Home = () => {
       <div className="px-4 mb-6 space-y-3">
         <Link
           to="/product/sony-headphones"
-          className="block p-6 rounded-3xl bg-gradient-to-br from-purple-500/20 to-blue-600/10 border border-purple-500/30"
+          className="block p-6 rounded-rez-2xl bg-gradient-to-br from-purple-500/20 to-blue-600/10 dark:from-purple-500/20 dark:to-blue-600/10 border border-purple-500/30 dark:border-purple-500/30"
         >
           <div className="flex items-center gap-3 mb-3">
             <span className="text-3xl">🎧</span>
             <div>
-              <p className="text-lg font-bold text-white">🔥 Try Lock Product Feature</p>
-              <p className="text-sm text-gray-300">Lock price, visit store or get delivered</p>
+              <p className="text-h4 font-poppins text-rez-navy dark:text-white">🔥 Try Lock Product Feature</p>
+              <p className="text-body-sm text-rez-gray-700 dark:text-gray-300">Lock price, visit store or get delivered</p>
             </div>
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-400 mb-1">Sony WH-1000XM5</p>
-              <p className="text-emerald-400 font-semibold">Save ₹5,000 + Earn 2,499 coins</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mb-1">Sony WH-1000XM5</p>
+              <p className="text-rez-green-500 dark:text-emerald-400 text-button font-poppins">Save ₹5,000 + Earn 2,499 coins</p>
             </div>
-            <span className="text-sm text-purple-400">Try Now →</span>
+            <span className="text-button text-purple-500 dark:text-purple-400 font-poppins">Try Now →</span>
           </div>
         </Link>
 
         <Link
           to="/booking/hair-spa"
-          className="block p-6 rounded-3xl bg-gradient-to-br from-pink-500/20 to-purple-600/10 border border-pink-500/30"
+          className="block p-6 rounded-rez-2xl bg-gradient-to-br from-pink-500/20 to-purple-600/10 dark:from-pink-500/20 dark:to-purple-600/10 border border-pink-500/30 dark:border-pink-500/30"
         >
           <div className="flex items-center gap-3 mb-3">
             <span className="text-3xl">💇‍♀️</span>
             <div>
-              <p className="text-lg font-bold text-white">✨ Try Service Booking</p>
-              <p className="text-sm text-gray-300">Choose date, time & professional</p>
+              <p className="text-h4 font-poppins text-rez-navy dark:text-white">✨ Try Service Booking</p>
+              <p className="text-body-sm text-rez-gray-700 dark:text-gray-300">Choose date, time & professional</p>
             </div>
           </div>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-xs text-gray-400 mb-1">Hair Spa (Keratin Treatment)</p>
-              <p className="text-emerald-400 font-semibold">Save ₹1,000 + Earn 250 coins</p>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400 mb-1">Hair Spa (Keratin Treatment)</p>
+              <p className="text-rez-green-500 dark:text-emerald-400 text-button font-poppins">Save ₹1,000 + Earn 250 coins</p>
             </div>
-            <span className="text-sm text-pink-400">Book Now →</span>
+            <span className="text-button text-pink-500 dark:text-pink-400 font-poppins">Book Now →</span>
           </div>
         </Link>
       </div>
@@ -222,8 +222,8 @@ const Home = () => {
 
       {/* Vibe-based indicator */}
       {vibe && (
-        <div className="mx-4 mb-4 p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
-          <p className="text-sm text-purple-300">
+        <div className="mx-4 mb-4 p-4 rounded-rez-lg bg-purple-500/10 dark:bg-purple-500/10 border border-purple-500/20 dark:border-purple-500/20">
+          <p className="text-body-sm text-purple-600 dark:text-purple-300">
             ✨ Showing picks that match your <strong>{vibe}</strong> vibe
           </p>
         </div>
@@ -231,8 +231,8 @@ const Home = () => {
 
       {/* Mode-specific filters indicator */}
       {(filters.halal || filters.vegan || filters.vegetarian) && (
-        <div className="mx-4 mb-4 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
-          <p className="text-xs text-emerald-300">
+        <div className="mx-4 mb-4 p-3 rounded-rez-md bg-rez-green-500/10 dark:bg-emerald-500/10 border border-rez-green-500/20 dark:border-emerald-500/20">
+          <p className="text-caption text-rez-green-700 dark:text-emerald-300">
             🌿 Filtering for:
             {filters.halal && ' Halal'}
             {filters.vegan && ' Vegan'}

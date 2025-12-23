@@ -18,14 +18,14 @@ const FinancialOfferCard = ({ offer }) => {
         </span>
       </div>
 
-      <p className="text-sm text-gray-300 mb-2">{offer.description}</p>
+      <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-2">{offer.description}</p>
 
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-1 text-xs text-gray-400">
+        <div className="flex items-center gap-1 text-xs text-rez-gray-600 dark:text-gray-400">
           <Clock className="w-3 h-3" />
           <span>{offer.validTill}</span>
         </div>
-        <ChevronRight className="w-4 h-4 text-gray-500" />
+        <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
       </div>
     </Link>
   );

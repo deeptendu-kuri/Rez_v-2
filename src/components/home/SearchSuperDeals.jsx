@@ -27,11 +27,11 @@ const SearchSuperDeals = () => {
         {/* Search Bar - 70% */}
         <Link
           to="/search"
-          className="flex-[7] flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#2C2C2E] border border-white/5"
+          className="flex-[7] flex items-center gap-3 px-4 py-3 rounded-2xl bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-white/5"
         >
-          <Search className="w-5 h-5 text-gray-400" />
+          <Search className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
           <div className="flex-1 overflow-hidden">
-            <p className="text-sm text-gray-500 truncate animate-fade-in" key={placeholderIndex}>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-500 truncate animate-fade-in" key={placeholderIndex}>
               <Sparkles className="w-3 h-3 inline mr-1 text-purple-400" />
               {placeholders[placeholderIndex]}
             </p>
@@ -43,8 +43,8 @@ const SearchSuperDeals = () => {
           to="/super-deals"
           className="flex-[3] flex items-center justify-center gap-1.5 px-3 py-3 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg shadow-orange-500/30 animate-pulse-subtle"
         >
-          <Zap className="w-4 h-4 text-white fill-white" />
-          <span className="text-sm font-bold text-white">Deals</span>
+          <Zap className="w-4 h-4 text-rez-navy dark:text-white fill-white" />
+          <span className="text-sm font-bold text-rez-navy dark:text-white">Deals</span>
         </Link>
       </div>
     </div>

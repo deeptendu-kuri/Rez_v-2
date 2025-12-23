@@ -117,9 +117,9 @@ const BeautyCategory = () => {
 
   if (!categoryInfo) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-400 mb-4">Category not found</p>
+          <p className="text-rez-gray-600 dark:text-gray-400 mb-4">Category not found</p>
           <Link to="/beauty" className="text-emerald-400">
             ← Back to Beauty & Wellness
           </Link>
@@ -129,20 +129,20 @@ const BeautyCategory = () => {
   }
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/beauty" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/beauty" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <span className="text-2xl">{categoryInfo.icon}</span>
-                <h1 className="text-xl font-bold text-white">{categoryInfo.name}</h1>
+                <h1 className="text-xl font-bold text-rez-navy dark:text-white">{categoryInfo.name}</h1>
               </div>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">
                 {items.length} {isServices ? 'services' : 'products'} • Up to {categoryInfo.cashback}% cashback
               </p>
             </div>
@@ -154,13 +154,13 @@ const BeautyCategory = () => {
 
           {/* Search */}
           <div className="relative mt-3">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder={`Search ${categoryInfo.name.toLowerCase()}...`}
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
           </div>
         </div>
@@ -175,7 +175,7 @@ const BeautyCategory = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeModes.includes(mode.id)
                     ? 'bg-emerald-500 text-white'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
               >
                 <span>{mode.icon}</span>
@@ -189,21 +189,21 @@ const BeautyCategory = () => {
         <div className="px-4 pb-3 flex gap-2">
           <button
             onClick={() => setShowSort(!showSort)}
-            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-white/10"
+            className="flex-1 flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-rez-gray-100 dark:bg-white/10"
           >
-            <span className="text-sm text-white">
+            <span className="text-sm text-rez-navy dark:text-white">
               {sortOptions.find((s) => s.id === sortBy)?.label}
             </span>
-            <ChevronDown className="w-4 h-4 text-gray-400" />
+            <ChevronDown className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
           </button>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-rez-gray-100 dark:bg-white/10"
           >
-            <SlidersHorizontal className="w-4 h-4 text-white" />
-            <span className="text-sm text-white">Filters</span>
+            <SlidersHorizontal className="w-4 h-4 text-rez-navy dark:text-white" />
+            <span className="text-sm text-rez-navy dark:text-white">Filters</span>
             {(activeModes.length > 0 || priceRange !== 'all') && (
-              <span className="px-1.5 py-0.5 rounded-full bg-emerald-500 text-[10px] text-white">
+              <span className="px-1.5 py-0.5 rounded-full bg-emerald-500 text-[10px] text-rez-navy dark:text-white">
                 {activeModes.length + (priceRange !== 'all' ? 1 : 0)}
               </span>
             )}
@@ -214,7 +214,7 @@ const BeautyCategory = () => {
       {/* Sort Dropdown */}
       {showSort && (
         <div className="px-4 mb-4">
-          <div className="p-3 rounded-xl bg-[#2C2C2E]">
+          <div className="p-3 rounded-xl bg-white dark:bg-[#2C2C2E]">
             {sortOptions.map((option) => (
               <button
                 key={option.id}
@@ -238,9 +238,9 @@ const BeautyCategory = () => {
       {/* Filters Panel */}
       {showFilters && (
         <div className="px-4 mb-4">
-          <div className="p-4 rounded-xl bg-[#2C2C2E]">
+          <div className="p-4 rounded-xl bg-white dark:bg-[#2C2C2E]">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="font-semibold text-white">Filters</h3>
+              <h3 className="font-semibold text-rez-navy dark:text-white">Filters</h3>
               <button
                 onClick={() => {
                   setActiveModes([]);
@@ -254,7 +254,7 @@ const BeautyCategory = () => {
 
             {/* Price Range */}
             <div className="mb-4">
-              <p className="text-sm text-gray-400 mb-2">Price Range</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-2">Price Range</p>
               <div className="flex flex-wrap gap-2">
                 {priceRanges.map((range) => (
                   <button
@@ -263,7 +263,7 @@ const BeautyCategory = () => {
                     className={`px-3 py-1.5 rounded-full text-xs ${
                       priceRange === range.id
                         ? 'bg-emerald-500 text-white'
-                        : 'bg-white/10 text-gray-400'
+                        : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                     }`}
                   >
                     {range.label}
@@ -274,7 +274,7 @@ const BeautyCategory = () => {
 
             {/* Mode Filters */}
             <div>
-              <p className="text-sm text-gray-400 mb-2">Preferences</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-2">Preferences</p>
               <div className="flex flex-wrap gap-2">
                 {beautyModes.map((mode) => (
                   <button
@@ -283,7 +283,7 @@ const BeautyCategory = () => {
                     className={`flex items-center gap-1 px-3 py-1.5 rounded-full text-xs ${
                       activeModes.includes(mode.id)
                         ? 'bg-emerald-500 text-white'
-                        : 'bg-white/10 text-gray-400'
+                        : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                     }`}
                   >
                     <span>{mode.icon}</span>
@@ -349,8 +349,8 @@ const BeautyCategory = () => {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-400 mb-2">No {isServices ? 'services' : 'products'} found</p>
-            <p className="text-sm text-gray-500">Try adjusting your filters</p>
+            <p className="text-rez-gray-600 dark:text-gray-400 mb-2">No {isServices ? 'services' : 'products'} found</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-500">Try adjusting your filters</p>
             <Button
               variant="secondary"
               className="mt-4"
@@ -369,7 +369,7 @@ const BeautyCategory = () => {
       {/* Results Count */}
       {items.length > 0 && (
         <div className="px-4 mt-6 text-center">
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-rez-gray-600 dark:text-gray-500">
             Showing {items.length} {isServices ? 'services' : 'products'}
           </p>
         </div>

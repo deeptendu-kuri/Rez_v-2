@@ -29,7 +29,7 @@ const StoreDiscovery = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <TrendingUp className="w-5 h-5 text-orange-400" />
-            <h2 className="font-semibold text-white">Today's Top Stores</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Today's Top Stores</h2>
           </div>
           <Link to="/explore" className="flex items-center gap-1 text-xs text-emerald-400">
             View all <ChevronRight className="w-3 h-3" />
@@ -40,7 +40,7 @@ const StoreDiscovery = () => {
             <Link
               key={store.id}
               to={`/store/${store.id}`}
-              className="min-w-[140px] p-3 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+              className="min-w-[140px] p-3 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
             >
               <div className="flex items-start justify-between mb-2">
                 <span className="text-3xl">{store.image}</span>
@@ -51,13 +51,13 @@ const StoreDiscovery = () => {
                   </span>
                 )}
               </div>
-              <h3 className="text-sm font-medium text-white">{store.name}</h3>
+              <h3 className="text-sm font-medium text-rez-navy dark:text-white">{store.name}</h3>
               <div className="flex items-center gap-1 mt-1">
                 <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                <span className="text-xs text-gray-400">{store.rating}</span>
-                <span className="text-gray-600">•</span>
-                <MapPin className="w-3 h-3 text-gray-500" />
-                <span className="text-xs text-gray-400">{store.distance}</span>
+                <span className="text-xs text-rez-gray-600 dark:text-gray-400">{store.rating}</span>
+                <span className="text-rez-gray-700 dark:text-gray-600">•</span>
+                <MapPin className="w-3 h-3 text-rez-gray-600 dark:text-gray-500" />
+                <span className="text-xs text-rez-gray-600 dark:text-gray-400">{store.distance}</span>
               </div>
               <div className="flex items-center gap-1 mt-2">
                 <Coins className="w-3 h-3 text-emerald-400" />
@@ -73,7 +73,7 @@ const StoreDiscovery = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-purple-400" />
-            <h2 className="font-semibold text-white">New Arrivals</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">New Arrivals</h2>
           </div>
           <Link to="/new" className="flex items-center gap-1 text-xs text-emerald-400">
             View all <ChevronRight className="w-3 h-3" />
@@ -86,12 +86,12 @@ const StoreDiscovery = () => {
               to={`/store/${store.id}`}
               className="min-w-[160px] p-3 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/10 border border-purple-500/20 shrink-0 active:scale-[0.98] transition-transform relative"
             >
-              <span className="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-purple-500 text-[10px] text-white font-bold">
+              <span className="absolute top-2 right-2 px-1.5 py-0.5 rounded-full bg-purple-500 text-[10px] text-rez-navy dark:text-white font-bold">
                 {store.badge}
               </span>
               <span className="text-3xl block mb-2">{store.image}</span>
-              <h3 className="text-sm font-medium text-white">{store.name}</h3>
-              <p className="text-xs text-gray-400">{store.type}</p>
+              <h3 className="text-sm font-medium text-rez-navy dark:text-white">{store.name}</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{store.type}</p>
               <div className="flex items-center gap-1 mt-2">
                 <Coins className="w-3 h-3 text-emerald-400" />
                 <span className="text-xs text-emerald-400">{store.cashback}% cashback</span>
@@ -106,7 +106,7 @@ const StoreDiscovery = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-red-400" />
-            <h2 className="font-semibold text-white">Popular Near You</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Popular Near You</h2>
           </div>
           <Link to="/popular" className="flex items-center gap-1 text-xs text-emerald-400">
             View all <ChevronRight className="w-3 h-3" />
@@ -117,14 +117,14 @@ const StoreDiscovery = () => {
             <Link
               key={store.id}
               to={`/store/${store.id}`}
-              className="flex items-center gap-3 p-3 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform"
+              className="flex items-center gap-3 p-3 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform"
             >
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-rez-gray-50 dark:bg-white/5 flex items-center justify-center shrink-0">
                 <span className="text-2xl">{store.image}</span>
               </div>
               <div className="flex-1">
-                <h3 className="text-sm font-medium text-white">{store.name}</h3>
-                <p className="text-xs text-gray-400">{store.type} • {store.orders} orders</p>
+                <h3 className="text-sm font-medium text-rez-navy dark:text-white">{store.name}</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">{store.type} • {store.orders} orders</p>
               </div>
               <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-emerald-500/20">
                 <Coins className="w-3 h-3 text-emerald-400" />

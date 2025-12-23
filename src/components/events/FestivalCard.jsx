@@ -6,7 +6,7 @@ const FestivalCard = ({ festival }) => {
   return (
     <Link
       to={`/event/festival/${festival.id}`}
-      className="block min-w-[260px] rounded-2xl overflow-hidden bg-[#1C1C1E] shrink-0 group"
+      className="block min-w-[260px] rounded-2xl overflow-hidden bg-rez-gray-100 dark:bg-[#1C1C1E] shrink-0 group"
     >
       {/* Image */}
       <div className="relative h-32">
@@ -32,14 +32,14 @@ const FestivalCard = ({ festival }) => {
 
       {/* Content */}
       <div className="p-4">
-        <h3 className="font-semibold text-white">{festival.name}</h3>
+        <h3 className="font-semibold text-rez-navy dark:text-white">{festival.name}</h3>
 
         <div className="flex flex-wrap gap-2 mt-2">
-          <div className="flex items-center gap-1 text-gray-400">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
             <Calendar className="w-3.5 h-3.5" />
             <span className="text-xs">{festival.date}</span>
           </div>
-          <div className="flex items-center gap-1 text-gray-400">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
             <MapPin className="w-3.5 h-3.5" />
             <span className="text-xs">{festival.distance}</span>
           </div>
@@ -51,7 +51,7 @@ const FestivalCard = ({ festival }) => {
             <Coins className="w-4 h-4 text-emerald-400" />
             <span className="text-xs text-emerald-400">{festival.specialTag}</span>
           </div>
-          <p className="text-xs text-gray-400 mt-0.5">
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">
             Earn up to {festival.cashbackAtStalls}% at {festival.vendors}+ vendors
           </p>
         </div>
@@ -61,7 +61,7 @@ const FestivalCard = ({ festival }) => {
           {festival.highlights.map((highlight) => (
             <span
               key={highlight}
-              className="px-2 py-0.5 rounded-full bg-white/5 text-[10px] text-gray-400"
+              className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-400"
             >
               {highlight}
             </span>
@@ -69,8 +69,8 @@ const FestivalCard = ({ festival }) => {
         </div>
 
         {/* CTA */}
-        <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/5">
-          <div className="flex items-center gap-1 text-gray-400">
+        <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
+          <div className="flex items-center gap-1 text-rez-gray-600 dark:text-gray-400">
             <Store className="w-3.5 h-3.5" />
             <span className="text-xs">{festival.vendors} vendors</span>
           </div>

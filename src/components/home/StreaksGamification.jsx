@@ -19,21 +19,21 @@ const StreaksGamification = () => {
     <div className="px-4 py-4">
       <div className="p-4 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/10 border border-orange-500/20">
         {/* Streak Card */}
-        <div className="flex items-center gap-4 mb-4 pb-4 border-b border-white/10">
+        <div className="flex items-center gap-4 mb-4 pb-4 border-b border-rez-gray-200 dark:border-white/10">
           <div className="relative">
             <div className="w-16 h-16 rounded-full bg-orange-500/20 flex items-center justify-center">
               <Flame className="w-8 h-8 text-orange-400" />
             </div>
-            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-orange-500 text-xs font-bold text-white">
+            <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-orange-500 text-xs font-bold text-rez-navy dark:text-white">
               {streak.current}
             </span>
           </div>
           <div className="flex-1">
-            <h3 className="font-semibold text-white">🔥 {streak.current}-day saving streak!</h3>
-            <p className="text-xs text-gray-400 mt-1">
+            <h3 className="font-semibold text-rez-navy dark:text-white">🔥 {streak.current}-day saving streak!</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">
               {streak.target - streak.current} more days to unlock +{streak.nextReward} bonus coins
             </p>
-            <div className="h-1.5 bg-white/10 rounded-full overflow-hidden mt-2">
+            <div className="h-1.5 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden mt-2">
               <div
                 className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full transition-all"
                 style={{ width: `${(streak.current / streak.target) * 100}%` }}
@@ -46,7 +46,7 @@ const StreaksGamification = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Target className="w-4 h-4 text-purple-400" />
-            <h4 className="text-sm font-medium text-white">Weekly Missions</h4>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white">Weekly Missions</h4>
           </div>
           <Link to="/missions" className="flex items-center gap-1 text-xs text-emerald-400">
             View all <ChevronRight className="w-3 h-3" />
@@ -67,7 +67,7 @@ const StreaksGamification = () => {
                     {mission.completed ? (
                       <Check className="w-4 h-4 text-emerald-400" />
                     ) : (
-                      <Icon className="w-4 h-4 text-gray-400" />
+                      <Icon className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
                     )}
                   </div>
                   <div className="flex-1">
@@ -82,13 +82,13 @@ const StreaksGamification = () => {
                     </div>
                     {!mission.completed && (
                       <div className="flex items-center gap-2 mt-1">
-                        <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
+                        <div className="flex-1 h-1 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                           <div
                             className="h-full bg-purple-500 rounded-full"
                             style={{ width: `${progressPercent}%` }}
                           />
                         </div>
-                        <span className="text-[10px] text-gray-400">
+                        <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">
                           {mission.progress}/{mission.target}
                         </span>
                       </div>

@@ -2,22 +2,22 @@ import { Coins, Share2, MessageSquare, Clock } from 'lucide-react';
 
 const RewardStrip = ({ theme, payAmount, cashbackAmount, shareBonus, reviewBonus, expiryDays }) => {
   return (
-    <div className="mx-4 mb-4 p-3 rounded-xl bg-[#2C2C2E]">
+    <div className="mx-4 mb-4 p-3 rounded-xl bg-white dark:bg-[#2C2C2E]">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <Coins className="w-4 h-4" style={{ color: theme.primary }} />
-            <span className="text-xs text-white">
+            <span className="text-xs text-rez-navy dark:text-white">
               Pay ₹{payAmount} → Get <span style={{ color: theme.primary }}>₹{cashbackAmount}</span> back
             </span>
           </div>
           <div className="flex items-center gap-1.5">
             <Share2 className="w-3.5 h-3.5 text-blue-400" />
-            <span className="text-[10px] text-gray-400">+{shareBonus}</span>
+            <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">+{shareBonus}</span>
           </div>
           <div className="flex items-center gap-1.5">
             <MessageSquare className="w-3.5 h-3.5 text-purple-400" />
-            <span className="text-[10px] text-gray-400">+{reviewBonus}</span>
+            <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">+{reviewBonus}</span>
           </div>
         </div>
         {expiryDays && (

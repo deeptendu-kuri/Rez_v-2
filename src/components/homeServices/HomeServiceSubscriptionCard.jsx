@@ -6,7 +6,7 @@ const HomeServiceSubscriptionCard = ({ subscription }) => {
     <div className={`p-4 rounded-2xl border ${
       subscription.popular
         ? 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 border-emerald-500/30'
-        : 'bg-[#2C2C2E] border-white/10'
+        : 'bg-white dark:bg-[#2C2C2E] border-rez-gray-200 dark:border-white/10'
     }`}>
       {subscription.popular && (
         <div className="flex items-center gap-1 mb-2">
@@ -15,12 +15,12 @@ const HomeServiceSubscriptionCard = ({ subscription }) => {
         </div>
       )}
 
-      <h3 className="font-semibold text-white mb-1">{subscription.name}</h3>
-      <p className="text-sm text-gray-400 mb-3">{subscription.description}</p>
+      <h3 className="font-semibold text-rez-navy dark:text-white mb-1">{subscription.name}</h3>
+      <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-3">{subscription.description}</p>
 
       <div className="flex items-baseline gap-2 mb-3">
-        <span className="text-2xl font-bold text-white">₹{subscription.price}</span>
-        <span className="text-sm text-gray-500 line-through">₹{subscription.originalPrice}</span>
+        <span className="text-2xl font-bold text-rez-navy dark:text-white">₹{subscription.price}</span>
+        <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">₹{subscription.originalPrice}</span>
         <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-xs text-emerald-400">
           Save ₹{subscription.savings}
         </span>
@@ -30,7 +30,7 @@ const HomeServiceSubscriptionCard = ({ subscription }) => {
         {subscription.benefits.map((benefit, index) => (
           <div key={index} className="flex items-center gap-2">
             <Check className="w-4 h-4 text-emerald-400" />
-            <span className="text-sm text-gray-300">{benefit}</span>
+            <span className="text-sm text-rez-gray-700 dark:text-gray-300">{benefit}</span>
           </div>
         ))}
       </div>

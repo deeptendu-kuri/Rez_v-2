@@ -35,9 +35,9 @@ const RestaurantDetail = () => {
 
   if (!restaurant) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
+      <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center">
         <div className="text-center">
-          <p className="text-gray-400 mb-4">Restaurant not found</p>
+          <p className="text-rez-gray-600 dark:text-gray-400 mb-4">Restaurant not found</p>
           <Link to="/food" className="text-emerald-400">
             ← Back to Food & Dining
           </Link>
@@ -81,7 +81,7 @@ const RestaurantDetail = () => {
   const coinsEarned = Math.floor(cartTotal / 10);
 
   return (
-    <div className="min-h-screen bg-black pb-32">
+    <div className="min-h-screen bg-white dark:bg-black pb-32">
       {/* Hero Image */}
       <div className="relative h-56">
         <img
@@ -93,20 +93,20 @@ const RestaurantDetail = () => {
 
         {/* Back button */}
         <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
-          <Link to="/food" className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <Link to="/food" className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur-sm">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </Link>
           <div className="flex items-center gap-2">
             <button
               onClick={() => setLiked(!liked)}
-              className="p-2 rounded-full bg-black/50 backdrop-blur-sm"
+              className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur-sm"
             >
               <Heart
                 className={`w-5 h-5 ${liked ? 'text-red-500 fill-red-500' : 'text-white'}`}
               />
             </button>
-            <button className="p-2 rounded-full bg-black/50 backdrop-blur-sm">
-              <Share2 className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-white dark:bg-black/50 backdrop-blur-sm">
+              <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
           </div>
         </div>
@@ -130,27 +130,27 @@ const RestaurantDetail = () => {
 
       {/* Restaurant Info */}
       <div className="px-4 -mt-2 relative z-10">
-        <div className="p-4 rounded-2xl bg-[#1C1C1E]">
+        <div className="p-4 rounded-2xl bg-rez-gray-100 dark:bg-[#1C1C1E]">
           <div className="flex items-start justify-between">
             <div className="flex-1">
               <div className="flex items-center gap-2">
-                <h1 className="text-xl font-bold text-white">{restaurant.name}</h1>
+                <h1 className="text-xl font-bold text-rez-navy dark:text-white">{restaurant.name}</h1>
                 {restaurant.featured && (
                   <BadgeCheck className="w-5 h-5 text-blue-400" />
                 )}
               </div>
-              <p className="text-sm text-gray-400 mt-1">
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-1">
                 {restaurant.cuisine.join(' • ')}
               </p>
             </div>
             <div className="flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-500/20">
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-              <span className="text-sm font-medium text-white">{restaurant.rating}</span>
+              <span className="text-sm font-medium text-rez-navy dark:text-white">{restaurant.rating}</span>
             </div>
           </div>
 
           {/* Meta */}
-          <div className="flex items-center gap-4 mt-3 text-gray-400">
+          <div className="flex items-center gap-4 mt-3 text-rez-gray-600 dark:text-gray-400">
             <div className="flex items-center gap-1">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">{restaurant.distance}</span>
@@ -163,7 +163,7 @@ const RestaurantDetail = () => {
           </div>
 
           {/* Rewards */}
-          <div className="flex items-center gap-4 mt-3 pt-3 border-t border-white/10">
+          <div className="flex items-center gap-4 mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
             <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10">
               <span className="text-sm text-emerald-400">
                 {restaurant.cashbackPercent}% cashback
@@ -182,11 +182,11 @@ const RestaurantDetail = () => {
                 <span className="text-sm text-purple-400">
                   Loyalty Progress
                 </span>
-                <span className="text-xs text-gray-400">
+                <span className="text-xs text-rez-gray-600 dark:text-gray-400">
                   {restaurant.loyaltyVisits}/{restaurant.loyaltyTarget} visits
                 </span>
               </div>
-              <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+              <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
                 <div
                   className="h-full bg-purple-500 rounded-full transition-all"
                   style={{
@@ -194,7 +194,7 @@ const RestaurantDetail = () => {
                   }}
                 />
               </div>
-              <p className="text-xs text-gray-400 mt-1">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">
                 {restaurant.loyaltyTarget - restaurant.loyaltyVisits} more visits to unlock special reward!
               </p>
             </div>
@@ -227,7 +227,7 @@ const RestaurantDetail = () => {
       {/* Offers */}
       {restaurant.offers && restaurant.offers.length > 0 && (
         <div className="px-4 mt-6">
-          <h2 className="font-semibold text-white mb-3">Available Offers</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Available Offers</h2>
           <div className="space-y-2">
             {restaurant.offers.map((offer, index) => (
               <div
@@ -235,8 +235,8 @@ const RestaurantDetail = () => {
                 className="flex items-center gap-3 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20"
               >
                 <span className="text-xl">🎁</span>
-                <span className="text-sm text-white flex-1">{offer}</span>
-                <ChevronRight className="w-4 h-4 text-gray-500" />
+                <span className="text-sm text-rez-navy dark:text-white flex-1">{offer}</span>
+                <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
               </div>
             ))}
           </div>
@@ -253,7 +253,7 @@ const RestaurantDetail = () => {
               className={`px-4 py-2 rounded-full text-sm capitalize ${
                 activeSection === section
                   ? 'bg-emerald-500 text-white'
-                  : 'bg-white/10 text-gray-400'
+                  : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               {section}
@@ -265,13 +265,13 @@ const RestaurantDetail = () => {
       {/* Menu Section */}
       {activeSection === 'menu' && (
         <div className="px-4 mt-4">
-          <h2 className="font-semibold text-white mb-3">Menu</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Menu</h2>
           {restaurantMenu.length > 0 ? (
             <div className="space-y-3">
               {restaurantMenu.map((item) => (
                 <div
                   key={item.id}
-                  className="flex gap-3 p-3 rounded-xl bg-[#2C2C2E]"
+                  className="flex gap-3 p-3 rounded-xl bg-white dark:bg-[#2C2C2E]"
                 >
                   <img
                     src={item.image}
@@ -291,35 +291,35 @@ const RestaurantDetail = () => {
                               <span className="w-2 h-2 bg-red-500 rounded-full" />
                             </span>
                           )}
-                          <h3 className="font-medium text-white">{item.name}</h3>
+                          <h3 className="font-medium text-rez-navy dark:text-white">{item.name}</h3>
                         </div>
                         {item.isBestseller && (
                           <span className="text-xs text-amber-400">⭐ Bestseller</span>
                         )}
                       </div>
                     </div>
-                    <p className="text-xs text-gray-400 mt-1 line-clamp-2">
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1 line-clamp-2">
                       {item.description}
                     </p>
                     <div className="flex items-center justify-between mt-2">
-                      <span className="font-medium text-white">₹{item.price}</span>
+                      <span className="font-medium text-rez-navy dark:text-white">₹{item.price}</span>
                       {getItemQuantity(item.id) === 0 ? (
                         <button
                           onClick={() => addToCart(item)}
-                          className="px-4 py-1.5 rounded-lg bg-emerald-500 text-white text-sm font-medium"
+                          className="px-4 py-1.5 rounded-lg bg-emerald-500 text-rez-navy dark:text-white text-sm font-medium"
                         >
                           Add
                         </button>
                       ) : (
                         <div className="flex items-center gap-3 px-2 py-1 rounded-lg bg-emerald-500">
                           <button onClick={() => removeFromCart(item.id)}>
-                            <Minus className="w-4 h-4 text-white" />
+                            <Minus className="w-4 h-4 text-rez-navy dark:text-white" />
                           </button>
-                          <span className="text-white font-medium">
+                          <span className="text-rez-navy dark:text-white font-medium">
                             {getItemQuantity(item.id)}
                           </span>
                           <button onClick={() => addToCart(item)}>
-                            <Plus className="w-4 h-4 text-white" />
+                            <Plus className="w-4 h-4 text-rez-navy dark:text-white" />
                           </button>
                         </div>
                       )}
@@ -329,9 +329,9 @@ const RestaurantDetail = () => {
               ))}
             </div>
           ) : (
-            <div className="p-8 rounded-2xl bg-[#2C2C2E] text-center">
-              <p className="text-gray-400">Menu coming soon</p>
-              <p className="text-sm text-gray-500 mt-1">
+            <div className="p-8 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center">
+              <p className="text-rez-gray-600 dark:text-gray-400">Menu coming soon</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-500 mt-1">
                 Visit the restaurant or call for details
               </p>
             </div>
@@ -343,10 +343,10 @@ const RestaurantDetail = () => {
       {activeSection === 'reviews' && (
         <div className="px-4 mt-4">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="font-semibold text-white">Reviews</h2>
-            <span className="text-sm text-gray-400">{restaurant.reviews} reviews</span>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Reviews</h2>
+            <span className="text-sm text-rez-gray-600 dark:text-gray-400">{restaurant.reviews} reviews</span>
           </div>
-          <div className="p-4 rounded-2xl bg-[#2C2C2E] text-center">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center">
             <div className="flex items-center justify-center gap-1 mb-2">
               {[1, 2, 3, 4, 5].map((star) => (
                 <Star
@@ -354,13 +354,13 @@ const RestaurantDetail = () => {
                   className={`w-6 h-6 ${
                     star <= Math.floor(restaurant.rating)
                       ? 'text-amber-400 fill-amber-400'
-                      : 'text-gray-600'
+                      : 'text-rez-gray-700 dark:text-gray-600'
                   }`}
                 />
               ))}
             </div>
-            <p className="text-2xl font-bold text-white">{restaurant.rating}</p>
-            <p className="text-sm text-gray-400">Based on {restaurant.reviews} reviews</p>
+            <p className="text-2xl font-bold text-rez-navy dark:text-white">{restaurant.rating}</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Based on {restaurant.reviews} reviews</p>
 
             <div className="mt-4 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
               <div className="flex items-center justify-center gap-2 text-amber-400">
@@ -381,7 +381,7 @@ const RestaurantDetail = () => {
       {/* Photos Section */}
       {activeSection === 'photos' && (
         <div className="px-4 mt-4">
-          <h2 className="font-semibold text-white mb-3">Photos</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Photos</h2>
           <div className="grid grid-cols-3 gap-2">
             <div className="aspect-square rounded-xl overflow-hidden">
               <img
@@ -390,8 +390,8 @@ const RestaurantDetail = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="aspect-square rounded-xl bg-[#2C2C2E] flex items-center justify-center">
-              <span className="text-gray-500">+3</span>
+            <div className="aspect-square rounded-xl bg-white dark:bg-[#2C2C2E] flex items-center justify-center">
+              <span className="text-rez-gray-600 dark:text-gray-500">+3</span>
             </div>
           </div>
         </div>
@@ -404,8 +404,8 @@ const RestaurantDetail = () => {
             <div className="flex items-center justify-between">
               <div>
                 <div className="flex items-center gap-2">
-                  <ShoppingBag className="w-5 h-5 text-white" />
-                  <span className="font-semibold text-white">
+                  <ShoppingBag className="w-5 h-5 text-rez-navy dark:text-white" />
+                  <span className="font-semibold text-rez-navy dark:text-white">
                     {cartItems} item{cartItems > 1 ? 's' : ''} • ₹{cartTotal}
                   </span>
                 </div>

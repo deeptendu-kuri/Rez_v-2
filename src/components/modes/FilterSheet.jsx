@@ -64,7 +64,7 @@ const FilterSheet = () => {
       onClose={toggleFilterSheet}
       title="Filter your experience"
     >
-      <p className="text-gray-400 text-sm mb-4">
+      <p className="text-rez-gray-600 dark:text-gray-400 text-sm mb-4">
         Modes help personalize your experience based on beliefs, preferences, and safety.
       </p>
 
@@ -99,12 +99,12 @@ const FilterSheet = () => {
               <span className="text-2xl">{filter.icon}</span>
               <div className="flex-1 text-left">
                 <div className="flex items-center gap-2">
-                  <span className="font-medium text-white">{filter.label}</span>
+                  <span className="font-medium text-rez-navy dark:text-white">{filter.label}</span>
                   {filter.requiresVerification && (
-                    <Info className="w-4 h-4 text-gray-500" />
+                    <Info className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
                   )}
                 </div>
-                <p className="text-xs text-gray-400 mt-0.5">{filter.description}</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{filter.description}</p>
               </div>
 
               {/* Toggle */}
@@ -122,9 +122,9 @@ const FilterSheet = () => {
         })}
       </div>
 
-      <div className="mt-6 p-4 rounded-2xl bg-white/5 flex items-start gap-3">
-        <Info className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
-        <p className="text-xs text-gray-400">
+      <div className="mt-6 p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 flex items-start gap-3">
+        <Info className="w-5 h-5 text-rez-gray-600 dark:text-gray-400 shrink-0 mt-0.5" />
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400">
           When a mode is active, incompatible products and stores are hidden.
           You'll see a tooltip explaining why items are hidden.
         </p>

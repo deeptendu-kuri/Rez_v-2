@@ -15,7 +15,7 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
     return (
       <Link
         to={`/deal/${deal.id}`}
-        className="min-w-[160px] w-[160px] bg-[#2C2C2E] rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C] transition-colors"
+        className="min-w-[160px] w-[160px] bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C] transition-colors"
       >
         {/* Image */}
         <div className="relative h-24">
@@ -34,15 +34,15 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
 
           {/* Distance */}
           {showDistance && deal.distance && (
-            <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-black/60 backdrop-blur">
-              <span className="text-[10px] text-white">{deal.distance}</span>
+            <div className="absolute bottom-2 right-2 px-2 py-0.5 rounded-full bg-white dark:bg-black/60 backdrop-blur">
+              <span className="text-[10px] text-rez-navy dark:text-white">{deal.distance}</span>
             </div>
           )}
         </div>
 
         <div className="p-3">
-          <p className="text-xs text-gray-400 truncate">{deal.store}</p>
-          <p className="text-sm font-medium text-white line-clamp-2 mt-0.5">{deal.title}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400 truncate">{deal.store}</p>
+          <p className="text-sm font-medium text-rez-navy dark:text-white line-clamp-2 mt-0.5">{deal.title}</p>
         </div>
       </Link>
     );
@@ -65,8 +65,8 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
             onError={(e) => { e.target.style.display = 'none'; }}
           />
           <div className="flex-1">
-            <p className="font-medium text-white text-sm">{deal.store}</p>
-            <p className="text-xs text-gray-400">{deal.title}</p>
+            <p className="font-medium text-rez-navy dark:text-white text-sm">{deal.store}</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">{deal.title}</p>
           </div>
         </div>
 
@@ -79,16 +79,16 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
         </div>
 
         {/* Progress bar */}
-        <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+        <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
           <div
             className="h-full bg-gradient-to-r from-orange-500 to-red-500 rounded-full transition-all"
             style={{ width: `${progressPercent}%` }}
           />
         </div>
-        <p className="text-xs text-gray-400 mt-1">{deal.remaining} left of {deal.total}</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">{deal.remaining} left of {deal.total}</p>
 
         {deal.code && (
-          <div className="mt-3 px-3 py-1.5 bg-white/10 rounded-lg text-center">
+          <div className="mt-3 px-3 py-1.5 bg-rez-gray-100 dark:bg-white/10 rounded-lg text-center">
             <span className="text-sm font-mono text-amber-400">{deal.code}</span>
           </div>
         )}
@@ -101,7 +101,7 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
     return (
       <Link
         to={`/deal/${deal.id}`}
-        className="min-w-[180px] bg-[#2C2C2E] rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C]"
+        className="min-w-[180px] bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C]"
       >
         {deal.image ? (
           <div className="h-28 relative">
@@ -124,16 +124,16 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
         )}
 
         <div className="p-3">
-          <p className="text-xs text-gray-400">{deal.store}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{deal.store}</p>
           <p className="text-lg font-bold text-amber-400">{deal.cashback} Cashback</p>
           {deal.coinsEarned && (
             <div className="flex items-center gap-1 mt-1">
               <span className="text-amber-400">🪙</span>
-              <span className="text-xs text-gray-400">Earn up to {deal.coinsEarned} coins</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">Earn up to {deal.coinsEarned} coins</span>
             </div>
           )}
           {deal.distance && (
-            <p className="text-xs text-gray-500 mt-1 flex items-center gap-1">
+            <p className="text-xs text-rez-gray-600 dark:text-gray-500 mt-1 flex items-center gap-1">
               <MapPin className="w-3 h-3" />
               {deal.distance}
             </p>
@@ -148,14 +148,14 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
     return (
       <Link
         to={`/deal/${deal.id}`}
-        className="flex gap-4 p-4 bg-[#2C2C2E] rounded-2xl active:bg-[#3A3A3C] transition-colors"
+        className="flex gap-4 p-4 bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl active:bg-[#3A3A3C] transition-colors"
       >
         {/* Image or Logo */}
         <div className="w-20 h-20 rounded-xl overflow-hidden shrink-0">
           {deal.image ? (
             <img src={deal.image} alt={deal.store} className="w-full h-full object-cover" />
           ) : deal.storeLogo ? (
-            <div className="w-full h-full bg-white/5 flex items-center justify-center">
+            <div className="w-full h-full bg-rez-gray-50 dark:bg-white/5 flex items-center justify-center">
               <img src={deal.storeLogo} alt={deal.store} className="w-12 h-12 object-contain" />
             </div>
           ) : (
@@ -169,8 +169,8 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
         <div className="flex-1 min-w-0">
           <div className="flex items-start justify-between gap-2">
             <div>
-              <p className="text-sm text-gray-400">{deal.store}</p>
-              <p className="font-medium text-white">{deal.title}</p>
+              <p className="text-sm text-rez-gray-600 dark:text-gray-400">{deal.store}</p>
+              <p className="font-medium text-rez-navy dark:text-white">{deal.title}</p>
             </div>
             <div className={`px-2 py-1 rounded-lg shrink-0 ${getDiscountColor()}`}>
               <span className="text-sm font-bold">{deal.discount || deal.cashback}</span>
@@ -190,7 +190,7 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
           </div>
 
           {/* Meta */}
-          <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
+          <div className="flex items-center gap-3 mt-2 text-xs text-rez-gray-600 dark:text-gray-500">
             {deal.distance && (
               <span className="flex items-center gap-1">
                 <MapPin className="w-3 h-3" />
@@ -213,7 +213,7 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
   return (
     <Link
       to={`/deal/${deal.id}`}
-      className="min-w-[220px] w-[220px] bg-[#2C2C2E] rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C] transition-colors"
+      className="min-w-[220px] w-[220px] bg-white dark:bg-[#2C2C2E] border border-rez-gray-200 dark:border-transparent shadow-sm dark:shadow-none rounded-2xl overflow-hidden shrink-0 active:bg-[#3A3A3C] transition-colors"
     >
       {/* Image */}
       <div className="relative h-32">
@@ -238,15 +238,15 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
         {/* Trending/Hot badge */}
         {(deal.trending || deal.hot) && (
           <div className="absolute top-3 right-3 px-2 py-1 rounded-lg bg-red-500/90">
-            <span className="text-xs font-bold text-white">🔥</span>
+            <span className="text-xs font-bold text-rez-navy dark:text-white">🔥</span>
           </div>
         )}
 
         {/* Timer for expiring deals */}
         {deal.expiresIn && (
-          <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-black/70 backdrop-blur flex items-center gap-1">
+          <div className="absolute bottom-3 left-3 px-2 py-1 rounded-lg bg-white dark:bg-black/70 backdrop-blur flex items-center gap-1">
             <Clock className="w-3 h-3 text-red-400" />
-            <span className="text-xs text-white">{deal.expiresIn}</span>
+            <span className="text-xs text-rez-navy dark:text-white">{deal.expiresIn}</span>
           </div>
         )}
       </div>
@@ -262,19 +262,19 @@ const DealCard = ({ deal, variant = 'default', showDistance = true }) => {
               onError={(e) => { e.target.style.display = 'none'; }}
             />
           )}
-          <p className="text-sm text-gray-400 truncate">{deal.store}</p>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 truncate">{deal.store}</p>
         </div>
-        <p className="font-medium text-white mt-1 line-clamp-2">{deal.title}</p>
+        <p className="font-medium text-rez-navy dark:text-white mt-1 line-clamp-2">{deal.title}</p>
 
         <div className="flex items-center justify-between mt-2">
           {showDistance && deal.distance && (
-            <span className="text-xs text-gray-500 flex items-center gap-1">
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500 flex items-center gap-1">
               <MapPin className="w-3 h-3" />
               {deal.distance}
             </span>
           )}
           {deal.redeemCount && (
-            <span className="text-xs text-gray-500">{deal.redeemCount} used</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">{deal.redeemCount} used</span>
           )}
         </div>
       </div>

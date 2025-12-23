@@ -280,40 +280,40 @@ const Categories = () => {
   const trendingCategories = categories.filter(cat => cat.trending);
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24 transition-colors">
       {/* Header */}
-      <div className="sticky top-0 z-40 glass">
+      <div className="sticky top-0 z-40 glass border-b border-rez-gray-200 dark:border-white/10">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3 mb-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 hover:bg-rez-gray-200 dark:hover:bg-white/20 transition-colors">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">All Categories</h1>
-              <p className="text-xs text-gray-400">Discover, Save & Earn</p>
+              <h1 className="text-h3 font-poppins text-rez-navy dark:text-white">All Categories</h1>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">Discover, Save & Earn</p>
             </div>
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">
-              <Coins className="w-4 h-4 text-amber-400" />
-              <span className="text-sm font-medium text-amber-400">{rezCoins}</span>
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20 dark:bg-amber-500/20">
+              <Coins className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+              <span className="text-body-sm font-medium text-amber-500 dark:text-amber-400">{rezCoins}</span>
             </div>
           </div>
 
           {/* Search */}
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-rez-gray-500 dark:text-gray-500" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search categories..."
-              className="w-full pl-12 pr-4 py-3 rounded-xl bg-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+              className="w-full pl-12 pr-4 py-3 rounded-rez-md bg-rez-gray-100 dark:bg-white/10 text-rez-navy dark:text-white placeholder-rez-gray-500 dark:placeholder-gray-500 border border-rez-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500"
             />
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full bg-white/10 hover:bg-white/20"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full bg-rez-gray-100 dark:bg-white/10 hover:bg-rez-gray-200 dark:hover:bg-white/20 transition-colors"
               >
-                <X className="w-4 h-4 text-gray-400" />
+                <X className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
               </button>
             )}
           </div>
@@ -331,19 +331,19 @@ const Categories = () => {
                   className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 transition-all ${
                     selectedFilter === filter.id
                       ? 'bg-emerald-500 text-white'
-                      : 'bg-white/10 text-gray-400 hover:bg-white/20'
+                      : 'bg-rez-gray-100 dark:bg-white/10 text-rez-gray-600 dark:text-gray-400 hover:bg-rez-gray-200 dark:hover:bg-white/20'
                   }`}
                 >
                   <FilterIcon className="w-3.5 h-3.5" />
-                  <span className="text-xs font-medium">{filter.label}</span>
+                  <span className="text-caption font-medium">{filter.label}</span>
                 </button>
               );
             })}
-            <div className="w-px h-4 bg-white/10 mx-1" />
+            <div className="w-px h-4 bg-rez-gray-200 dark:bg-white/10 mx-1" />
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1.5 rounded-full bg-white/10 text-gray-300 text-xs font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500 shrink-0"
+              className="px-3 py-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10 text-rez-gray-700 dark:text-gray-300 text-caption font-medium border border-rez-gray-200 dark:border-white/10 focus:outline-none focus:ring-2 focus:ring-emerald-500 shrink-0"
             >
               <option value="trending">Trending</option>
               <option value="cashback">Best Cashback</option>
@@ -357,17 +357,17 @@ const Categories = () => {
       {/* Stats Summary */}
       <div className="px-4 py-4">
         <div className="grid grid-cols-3 gap-3">
-          <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/20">
-            <p className="text-2xl font-bold text-emerald-400">{categories.length}</p>
-            <p className="text-xs text-gray-400 mt-0.5">Categories</p>
+          <div className="p-3 rounded-rez-md bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 dark:from-emerald-500/20 dark:to-emerald-500/5 border border-emerald-500/20 dark:border-emerald-500/20">
+            <p className="text-h3 font-poppins text-emerald-600 dark:text-emerald-400">{categories.length}</p>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-0.5">Categories</p>
           </div>
-          <div className="p-3 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/20">
-            <p className="text-2xl font-bold text-amber-400">{categories.reduce((sum, cat) => sum + cat.stores, 0).toLocaleString()}</p>
-            <p className="text-xs text-gray-400 mt-0.5">Total Stores</p>
+          <div className="p-3 rounded-rez-md bg-gradient-to-br from-amber-500/20 to-amber-500/5 dark:from-amber-500/20 dark:to-amber-500/5 border border-amber-500/20 dark:border-amber-500/20">
+            <p className="text-h3 font-poppins text-amber-500 dark:text-amber-400">{categories.reduce((sum, cat) => sum + cat.stores, 0).toLocaleString()}</p>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-0.5">Total Stores</p>
           </div>
-          <div className="p-3 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/20">
-            <p className="text-2xl font-bold text-purple-400">20%</p>
-            <p className="text-xs text-gray-400 mt-0.5">Max Cashback</p>
+          <div className="p-3 rounded-rez-md bg-gradient-to-br from-purple-500/20 to-purple-500/5 dark:from-purple-500/20 dark:to-purple-500/5 border border-purple-500/20 dark:border-purple-500/20">
+            <p className="text-h3 font-poppins text-purple-500 dark:text-purple-400">20%</p>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400 mt-0.5">Max Cashback</p>
           </div>
         </div>
       </div>
@@ -376,11 +376,11 @@ const Categories = () => {
       {(selectedFilter !== 'all' || searchQuery) && (
         <div className="px-4 pb-2">
           <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-500">Active filters:</span>
+            <span className="text-caption text-rez-gray-500 dark:text-gray-500">Active filters:</span>
             {selectedFilter !== 'all' && (
               <button
                 onClick={() => setSelectedFilter('all')}
-                className="flex items-center gap-1 px-2 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 text-xs"
+                className="flex items-center gap-1 px-2 py-1 rounded-rez-sm bg-emerald-500/20 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-caption"
               >
                 <span>{selectedFilter}</span>
                 <X className="w-3 h-3" />
@@ -389,7 +389,7 @@ const Categories = () => {
             {searchQuery && (
               <button
                 onClick={() => setSearchQuery('')}
-                className="flex items-center gap-1 px-2 py-1 rounded-lg bg-blue-500/20 text-blue-400 text-xs"
+                className="flex items-center gap-1 px-2 py-1 rounded-rez-sm bg-blue-500/20 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-caption"
               >
                 <span>"{searchQuery}"</span>
                 <X className="w-3 h-3" />
@@ -404,10 +404,10 @@ const Categories = () => {
         <div className="px-4 mb-6">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-2">
-              <TrendingUp className="w-5 h-5 text-amber-400" />
-              <h2 className="font-semibold text-white">Trending Now</h2>
+              <TrendingUp className="w-5 h-5 text-amber-500 dark:text-amber-400" />
+              <h2 className="text-h4 font-poppins text-rez-navy dark:text-white">Trending Now</h2>
             </div>
-            <span className="text-xs text-gray-500">{trendingCategories.length} trending</span>
+            <span className="text-caption text-rez-gray-500 dark:text-gray-500">{trendingCategories.length} trending</span>
           </div>
           <div className="flex gap-3 overflow-x-auto hide-scrollbar pb-2">
             {trendingCategories.map((category) => {
@@ -416,24 +416,24 @@ const Categories = () => {
                 <Link
                   key={category.id}
                   to={category.path}
-                  className="min-w-[150px] p-4 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10 hover:border-amber-500/30 shrink-0 transition-all hover:scale-105"
+                  className="min-w-[150px] p-4 rounded-rez-lg bg-rez-gray-50 dark:bg-bg-card border border-rez-gray-200 dark:border-white/10 hover:border-amber-500/30 dark:hover:border-amber-500/30 shrink-0 transition-all hover:scale-105 shadow-rez-card"
                 >
-                  <div className={`w-12 h-12 rounded-xl ${category.bgColor} flex items-center justify-center mb-3 relative`}>
+                  <div className={`w-12 h-12 rounded-rez-md ${category.bgColor} flex items-center justify-center mb-3 relative`}>
                     <Icon className={`w-6 h-6 ${category.iconColor}`} />
-                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-orange-500/20 flex items-center justify-center">
+                    <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-orange-500/20 dark:bg-orange-500/20 flex items-center justify-center">
                       <span className="text-[10px]">🔥</span>
                     </div>
                   </div>
-                  <p className="font-semibold text-white text-sm mb-1">{category.name}</p>
+                  <p className="text-body-sm font-semibold text-rez-navy dark:text-white mb-1">{category.name}</p>
                   <div className="flex items-center gap-1 mb-2">
-                    <Zap className="w-3 h-3 text-emerald-400" />
-                    <p className="text-xs text-emerald-400">{category.cashback}</p>
+                    <Zap className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                    <p className="text-caption text-emerald-600 dark:text-emerald-400">{category.cashback}</p>
                   </div>
                   {category.rating && (
                     <div className="flex items-center gap-1">
-                      <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                      <span className="text-xs text-amber-400">{category.rating}</span>
-                      <span className="text-xs text-gray-500">• {category.stores}+</span>
+                      <Star className="w-3 h-3 text-amber-500 dark:text-amber-400 fill-amber-500 dark:fill-amber-400" />
+                      <span className="text-caption text-amber-500 dark:text-amber-400">{category.rating}</span>
+                      <span className="text-caption text-rez-gray-500 dark:text-gray-500">• {category.stores}+</span>
                     </div>
                   )}
                 </Link>
@@ -446,10 +446,10 @@ const Categories = () => {
       {/* All Categories Grid */}
       <div className="px-4">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">
+          <h2 className="text-h4 font-poppins text-rez-navy dark:text-white">
             {searchQuery ? `Results for "${searchQuery}"` : 'All Categories'}
           </h2>
-          <span className="text-xs text-gray-500">{filteredCategories.length} categories</span>
+          <span className="text-caption text-rez-gray-500 dark:text-gray-500">{filteredCategories.length} categories</span>
         </div>
 
         <div className="space-y-3">
@@ -459,16 +459,16 @@ const Categories = () => {
               <Link
                 key={category.id}
                 to={category.path}
-                className="block p-4 rounded-2xl bg-[#2C2C2E] border border-white/10 hover:border-emerald-500/30 transition-all hover:scale-[1.01]"
+                className="block p-4 rounded-rez-lg bg-rez-gray-50 dark:bg-bg-card border border-rez-gray-200 dark:border-white/10 hover:border-emerald-500/30 dark:hover:border-emerald-500/30 transition-all hover:scale-[1.01] shadow-rez-card"
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-14 h-14 rounded-xl ${category.bgColor} flex items-center justify-center shrink-0`}>
+                  <div className={`w-14 h-14 rounded-rez-md ${category.bgColor} flex items-center justify-center shrink-0`}>
                     <Icon className={`w-7 h-7 ${category.iconColor}`} />
                   </div>
 
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-semibold text-white">{category.name}</h3>
+                      <h3 className="text-body font-semibold text-rez-navy dark:text-white">{category.name}</h3>
                       {category.trending && (
                         <span className="px-2 py-0.5 rounded-full bg-orange-500/20 text-[10px] font-bold text-orange-400 uppercase">
                           Hot
@@ -481,7 +481,7 @@ const Categories = () => {
                         </div>
                       )}
                     </div>
-                    <p className="text-xs text-gray-400 mb-2">{category.description}</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">{category.description}</p>
 
                     <div className="flex items-center gap-3 mb-2">
                       <div className="flex items-center gap-1">
@@ -489,8 +489,8 @@ const Categories = () => {
                         <span className="text-xs font-medium text-emerald-400">{category.cashback}</span>
                       </div>
                       <div className="flex items-center gap-1">
-                        <Store className="w-3 h-3 text-gray-500" />
-                        <span className="text-xs text-gray-500">{category.stores} stores</span>
+                        <Store className="w-3 h-3 text-rez-gray-600 dark:text-gray-500" />
+                        <span className="text-xs text-rez-gray-600 dark:text-gray-500">{category.stores} stores</span>
                       </div>
                       {category.avgSavings && (
                         <div className="flex items-center gap-1">
@@ -505,7 +505,7 @@ const Categories = () => {
                         {category.topBrands.slice(0, 3).map((brand, idx) => (
                           <span
                             key={idx}
-                            className="px-2 py-0.5 rounded-md bg-white/5 text-[10px] text-gray-500"
+                            className="px-2 py-0.5 rounded-md bg-rez-gray-50 dark:bg-white/5 text-[10px] text-rez-gray-600 dark:text-gray-500"
                           >
                             {brand}
                           </span>
@@ -514,7 +514,7 @@ const Categories = () => {
                     )}
                   </div>
 
-                  <ChevronRight className="w-5 h-5 text-gray-500 shrink-0 mt-2" />
+                  <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500 shrink-0 mt-2" />
                 </div>
               </Link>
             );
@@ -526,10 +526,10 @@ const Categories = () => {
       {filteredCategories.length === 0 && (
         <div className="px-4 py-12 text-center">
           <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-500/20 to-purple-500/20 flex items-center justify-center mx-auto mb-4">
-            <Search className="w-10 h-10 text-gray-500" />
+            <Search className="w-10 h-10 text-rez-gray-600 dark:text-gray-500" />
           </div>
-          <p className="text-white font-semibold mb-2 text-lg">No categories found</p>
-          <p className="text-sm text-gray-400 mb-4">Try adjusting your filters or search term</p>
+          <p className="text-rez-navy dark:text-white font-semibold mb-2 text-lg">No categories found</p>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-4">Try adjusting your filters or search term</p>
           <button
             onClick={() => {
               setSearchQuery('');
@@ -545,48 +545,48 @@ const Categories = () => {
       {/* Quick Insights */}
       {filteredCategories.length > 0 && (
         <div className="px-4 mt-8 pb-4">
-          <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-white/10">
+          <div className="p-5 rounded-2xl bg-gradient-to-br from-[#2C2C2E] to-[#1C1C1E] border border-rez-gray-200 dark:border-white/10">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500/30 to-purple-500/30 flex items-center justify-center">
                 <TrendingUp className="w-5 h-5 text-emerald-400" />
               </div>
               <div>
-                <h3 className="font-semibold text-white">Quick Insights</h3>
-                <p className="text-xs text-gray-400">Based on {filteredCategories.length} categories</p>
+                <h3 className="font-semibold text-rez-navy dark:text-white">Quick Insights</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Based on {filteredCategories.length} categories</p>
               </div>
             </div>
 
             <div className="space-y-3">
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                 <div className="flex items-center gap-2">
                   <Zap className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm text-gray-300">Best Cashback</span>
+                  <span className="text-sm text-rez-gray-700 dark:text-gray-300">Best Cashback</span>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-bold text-emerald-400">Food & Fitness</p>
-                  <p className="text-xs text-gray-500">Up to 20%</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-500">Up to 20%</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                 <div className="flex items-center gap-2">
                   <Store className="w-4 h-4 text-blue-400" />
-                  <span className="text-sm text-gray-300">Most Stores</span>
+                  <span className="text-sm text-rez-gray-700 dark:text-gray-300">Most Stores</span>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-bold text-blue-400">Fashion</p>
-                  <p className="text-xs text-gray-500">2,100+ partners</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-500">2,100+ partners</p>
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
+              <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                 <div className="flex items-center gap-2">
                   <Star className="w-4 h-4 text-amber-400" />
-                  <span className="text-sm text-gray-300">Top Rated</span>
+                  <span className="text-sm text-rez-gray-700 dark:text-gray-300">Top Rated</span>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-bold text-amber-400">Food & Healthcare</p>
-                  <p className="text-xs text-gray-500">4.8 ⭐</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-500">4.8 ⭐</p>
                 </div>
               </div>
             </div>
@@ -597,36 +597,36 @@ const Categories = () => {
       {/* Bottom Info */}
       <div className="px-4 mt-4 pb-8">
         <div className="p-5 rounded-2xl bg-gradient-to-r from-emerald-500/10 to-purple-500/10 border border-emerald-500/20">
-          <h3 className="font-semibold text-white mb-4 text-center">
+          <h3 className="font-semibold text-rez-navy dark:text-white mb-4 text-center">
             Why shop across categories on ReZ?
           </h3>
           <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-white/5">
+            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <span className="text-2xl">💰</span>
               <div>
-                <p className="text-sm font-medium text-white">Cashback</p>
-                <p className="text-xs text-gray-400">On every purchase</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">Cashback</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">On every purchase</p>
               </div>
             </div>
-            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-white/5">
+            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <span className="text-2xl">🪙</span>
               <div>
-                <p className="text-sm font-medium text-white">ReZ Coins</p>
-                <p className="text-xs text-gray-400">Earn & redeem</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">ReZ Coins</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Earn & redeem</p>
               </div>
             </div>
-            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-white/5">
+            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <span className="text-2xl">🏆</span>
               <div>
-                <p className="text-sm font-medium text-white">Loyalty</p>
-                <p className="text-xs text-gray-400">Brand rewards</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">Loyalty</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Brand rewards</p>
               </div>
             </div>
-            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-white/5">
+            <div className="flex flex-col items-center text-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
               <span className="text-2xl">🎯</span>
               <div>
-                <p className="text-sm font-medium text-white">Best Deals</p>
-                <p className="text-xs text-gray-400">Exclusive offers</p>
+                <p className="text-sm font-medium text-rez-navy dark:text-white">Best Deals</p>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Exclusive offers</p>
               </div>
             </div>
           </div>

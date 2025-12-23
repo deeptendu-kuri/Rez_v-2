@@ -1,19 +1,19 @@
 import { Users, Play, ChevronRight } from 'lucide-react';
 
 const FriendActivity = ({ activity }) => (
-  <div className="flex items-center gap-3 p-3 rounded-xl bg-white/5">
+  <div className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
     <img
       src={activity.avatar}
       alt={activity.name}
       className="w-10 h-10 rounded-full object-cover"
     />
     <div className="flex-1 min-w-0">
-      <p className="text-sm text-white">
+      <p className="text-sm text-rez-navy dark:text-white">
         <span className="font-medium">{activity.name}</span>
-        <span className="text-gray-400"> {activity.action} </span>
+        <span className="text-rez-gray-600 dark:text-gray-400"> {activity.action} </span>
         <span className="text-emerald-400">{activity.event}</span>
       </p>
-      <p className="text-xs text-gray-500">{activity.timeAgo}</p>
+      <p className="text-xs text-rez-gray-600 dark:text-gray-500">{activity.timeAgo}</p>
     </div>
   </div>
 );
@@ -25,10 +25,10 @@ const UGCReel = ({ imageUrl }) => (
       alt="User content"
       className="w-full h-full object-cover group-hover:scale-105 transition-transform"
     />
-    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors" />
+    <div className="absolute inset-0 bg-white dark:bg-black/20 group-hover:bg-white dark:bg-black/40 transition-colors" />
     <div className="absolute inset-0 flex items-center justify-center">
       <div className="p-2 rounded-full bg-white/30 backdrop-blur-sm">
-        <Play className="w-5 h-5 text-white fill-white" />
+        <Play className="w-5 h-5 text-rez-navy dark:text-white fill-white" />
       </div>
     </div>
   </div>
@@ -42,7 +42,7 @@ const SocialProofSection = ({ friendsActivity, ugcImages }) => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Users className="w-5 h-5 text-purple-400" />
-            <h2 className="font-semibold text-white">Friends Are Going</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Friends Are Going</h2>
           </div>
           <button className="text-xs text-emerald-400 flex items-center gap-1">
             See All <ChevronRight className="w-3 h-3" />
@@ -61,7 +61,7 @@ const SocialProofSection = ({ friendsActivity, ugcImages }) => {
           <div className="flex items-center justify-between px-4 mb-3">
             <div className="flex items-center gap-2">
               <Play className="w-5 h-5 text-pink-400" />
-              <h2 className="font-semibold text-white">Event Moments</h2>
+              <h2 className="font-semibold text-rez-navy dark:text-white">Event Moments</h2>
             </div>
             <button className="text-xs text-emerald-400 flex items-center gap-1">
               View All <ChevronRight className="w-3 h-3" />
@@ -80,10 +80,10 @@ const SocialProofSection = ({ friendsActivity, ugcImages }) => {
         <div className="flex items-center gap-4">
           <span className="text-3xl">📸</span>
           <div className="flex-1">
-            <h3 className="font-semibold text-white">Attend & Earn</h3>
-            <p className="text-sm text-gray-300">Post photos/videos from events, earn bonus coins</p>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Attend & Earn</h3>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Post photos/videos from events, earn bonus coins</p>
           </div>
-          <ChevronRight className="w-5 h-5 text-gray-500" />
+          <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
         </div>
       </div>
     </div>

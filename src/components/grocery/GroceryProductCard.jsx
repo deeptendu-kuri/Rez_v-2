@@ -10,10 +10,10 @@ const GroceryProductCard = ({ product, variant = 'default' }) => {
     return (
       <Link
         to={`/grocery/product/${product.id}`}
-        className="min-w-[140px] p-3 rounded-xl bg-[#2C2C2E] shrink-0 relative"
+        className="min-w-[140px] p-3 rounded-xl bg-white dark:bg-[#2C2C2E] shrink-0 relative"
       >
         {product.tag && (
-          <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] text-white z-10">
+          <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full bg-emerald-500 text-[10px] text-rez-navy dark:text-white z-10">
             {product.tag}
           </span>
         )}
@@ -24,19 +24,19 @@ const GroceryProductCard = ({ product, variant = 'default' }) => {
           className="w-full h-24 object-cover rounded-lg mb-2"
         />
 
-        <p className="text-xs text-gray-400">{product.brand}</p>
-        <h3 className="text-sm text-white line-clamp-2 mt-0.5">{product.name}</h3>
-        <p className="text-[10px] text-gray-500">{product.unit}</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+        <h3 className="text-sm text-rez-navy dark:text-white line-clamp-2 mt-0.5">{product.name}</h3>
+        <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">{product.unit}</p>
 
         <div className="flex items-center justify-between mt-2">
           <div>
-            <span className="text-sm font-bold text-white">₹{product.price}</span>
+            <span className="text-sm font-bold text-rez-navy dark:text-white">₹{product.price}</span>
             {discount > 0 && (
-              <span className="text-xs text-gray-500 line-through ml-1">₹{product.originalPrice}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500 line-through ml-1">₹{product.originalPrice}</span>
             )}
           </div>
           <button className="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center">
-            <Plus className="w-4 h-4 text-white" />
+            <Plus className="w-4 h-4 text-rez-navy dark:text-white" />
           </button>
         </div>
 
@@ -51,7 +51,7 @@ const GroceryProductCard = ({ product, variant = 'default' }) => {
   return (
     <Link
       to={`/grocery/product/${product.id}`}
-      className="p-4 rounded-2xl bg-[#2C2C2E]"
+      className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]"
     >
       <div className="flex gap-4">
         <div className="relative w-24 h-24 shrink-0">
@@ -61,7 +61,7 @@ const GroceryProductCard = ({ product, variant = 'default' }) => {
             className="w-full h-full object-cover rounded-xl"
           />
           {product.tag && (
-            <span className="absolute top-1 left-1 px-2 py-0.5 rounded-full bg-emerald-500 text-[8px] text-white">
+            <span className="absolute top-1 left-1 px-2 py-0.5 rounded-full bg-emerald-500 text-[8px] text-rez-navy dark:text-white">
               {product.tag}
             </span>
           )}
@@ -74,26 +74,26 @@ const GroceryProductCard = ({ product, variant = 'default' }) => {
         </div>
 
         <div className="flex-1 min-w-0">
-          <p className="text-xs text-gray-400">{product.brand}</p>
-          <h3 className="text-sm font-medium text-white line-clamp-2 mt-0.5">{product.name}</h3>
-          <p className="text-xs text-gray-500">{product.unit}</p>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.brand}</p>
+          <h3 className="text-sm font-medium text-rez-navy dark:text-white line-clamp-2 mt-0.5">{product.name}</h3>
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500">{product.unit}</p>
 
           <div className="flex items-center gap-2 mt-1">
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{product.rating}</span>
+              <span className="text-xs text-rez-navy dark:text-white">{product.rating}</span>
             </div>
-            <span className="text-xs text-gray-500">({product.reviews})</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">({product.reviews})</span>
           </div>
 
           <div className="flex items-center justify-between mt-2">
             <div>
-              <span className="text-lg font-bold text-white">₹{product.price}</span>
+              <span className="text-lg font-bold text-rez-navy dark:text-white">₹{product.price}</span>
               {discount > 0 && (
-                <span className="text-sm text-gray-500 line-through ml-2">₹{product.originalPrice}</span>
+                <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through ml-2">₹{product.originalPrice}</span>
               )}
             </div>
-            <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-white">
+            <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-rez-navy dark:text-white">
               Add
             </button>
           </div>

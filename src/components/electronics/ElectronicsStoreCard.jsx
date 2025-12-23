@@ -3,7 +3,7 @@ import Button from '../common/Button';
 
 const ElectronicsStoreCard = ({ store }) => {
   return (
-    <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+    <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
       {/* Header */}
       <div className="flex gap-3">
         <img
@@ -14,8 +14,8 @@ const ElectronicsStoreCard = ({ store }) => {
         <div className="flex-1">
           <div className="flex items-start justify-between">
             <div>
-              <h3 className="font-semibold text-white">{store.name}</h3>
-              <p className="text-xs text-gray-400">{store.type}</p>
+              <h3 className="font-semibold text-rez-navy dark:text-white">{store.name}</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">{store.type}</p>
             </div>
             {store.isOpen ? (
               <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-xs text-emerald-400">
@@ -29,14 +29,14 @@ const ElectronicsStoreCard = ({ store }) => {
           </div>
 
           {/* Meta */}
-          <div className="flex items-center gap-3 mt-2 text-gray-400">
+          <div className="flex items-center gap-3 mt-2 text-rez-gray-600 dark:text-gray-400">
             <div className="flex items-center gap-1">
               <MapPin className="w-3 h-3" />
               <span className="text-xs">{store.distance}</span>
             </div>
             <div className="flex items-center gap-1">
               <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{store.rating}</span>
+              <span className="text-xs text-rez-navy dark:text-white">{store.rating}</span>
             </div>
             <div className="flex items-center gap-1">
               <Clock className="w-3 h-3" />
@@ -61,12 +61,12 @@ const ElectronicsStoreCard = ({ store }) => {
 
       {/* Brands */}
       <div className="mt-3">
-        <p className="text-xs text-gray-500 mb-1">Brands Available</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-500 mb-1">Brands Available</p>
         <div className="flex flex-wrap gap-1">
           {store.brands.map((brand, index) => (
             <span
               key={index}
-              className="px-2 py-0.5 rounded-full bg-white/5 text-xs text-gray-400"
+              className="px-2 py-0.5 rounded-full bg-rez-gray-50 dark:bg-white/5 text-xs text-rez-gray-600 dark:text-gray-400"
             >
               {brand}
             </span>
@@ -76,7 +76,7 @@ const ElectronicsStoreCard = ({ store }) => {
 
       {/* Payments */}
       <div className="mt-3">
-        <p className="text-xs text-gray-500 mb-1">Accepts</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-500 mb-1">Accepts</p>
         <div className="flex flex-wrap gap-1">
           {store.payments.map((payment, index) => (
             <span

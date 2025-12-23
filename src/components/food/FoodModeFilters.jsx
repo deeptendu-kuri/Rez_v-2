@@ -46,7 +46,7 @@ const FoodModeFilters = ({ activeModes, onModeChange }) => {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full border transition-colors ${
                 isActive
                   ? colorClass
-                  : 'bg-white/5 border-white/10 text-gray-400'
+                  : 'bg-white/5 border-white/10 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               <span className="text-sm">{mode.icon}</span>
@@ -58,14 +58,14 @@ const FoodModeFilters = ({ activeModes, onModeChange }) => {
                 }}
                 className="p-0.5"
               >
-                <Info className="w-3 h-3 text-gray-500" />
+                <Info className="w-3 h-3 text-rez-gray-600 dark:text-gray-500" />
               </button>
             </button>
 
             {/* Tooltip */}
             {showTooltip === mode.id && (
-              <div className="absolute top-full left-0 mt-2 z-50 w-48 p-2 rounded-lg bg-[#1C1C1E] border border-white/10 shadow-xl">
-                <p className="text-xs text-gray-300">{getModeDescription(mode.id)}</p>
+              <div className="absolute top-full left-0 mt-2 z-50 w-48 p-2 rounded-lg bg-rez-gray-100 dark:bg-[#1C1C1E] border border-white/10 shadow-xl">
+                <p className="text-xs text-rez-gray-700 dark:text-gray-300">{getModeDescription(mode.id)}</p>
                 <button
                   onClick={() => setShowTooltip(null)}
                   className="text-[10px] text-emerald-400 mt-1"

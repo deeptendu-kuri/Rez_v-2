@@ -92,7 +92,7 @@ const QuickActionBar = ({ category = '' }) => {
               <div className={`w-12 h-12 rounded-xl ${action.bgColor} flex items-center justify-center`}>
                 <Icon className={`w-5 h-5 ${action.color}`} />
               </div>
-              <span className="text-[10px] text-gray-400">{action.label}</span>
+              <span className="text-[10px] text-rez-gray-600 dark:text-gray-400">{action.label}</span>
             </Link>
           );
         })}

@@ -5,11 +5,11 @@ const FashionStoreCard = ({ store }) => {
   return (
     <Link
       to={`/store/${store.id}`}
-      className="min-w-[200px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+      className="min-w-[200px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
     >
       <div className="flex items-center gap-3">
         {/* Store Logo */}
-        <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center overflow-hidden">
+        <div className="w-14 h-14 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center overflow-hidden">
           {store.logo.startsWith('http') ? (
             <img
               src={store.logo}
@@ -26,16 +26,16 @@ const FashionStoreCard = ({ store }) => {
         </div>
 
         <div className="flex-1 min-w-0">
-          <h3 className="font-semibold text-white truncate">{store.name}</h3>
+          <h3 className="font-semibold text-rez-navy dark:text-white truncate">{store.name}</h3>
           <div className="flex items-center gap-2 mt-0.5">
             <div className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              <span className="text-xs text-white">{store.rating}</span>
+              <span className="text-xs text-rez-navy dark:text-white">{store.rating}</span>
             </div>
-            <span className="text-xs text-gray-500">•</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">•</span>
             <div className="flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-gray-400" />
-              <span className="text-xs text-gray-400">{store.distance}</span>
+              <MapPin className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">{store.distance}</span>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@ const FashionStoreCard = ({ store }) => {
       {/* Categories */}
       <div className="flex flex-wrap gap-1 mt-2">
         {store.categories.slice(0, 3).map((cat) => (
-          <span key={cat} className="text-[10px] text-gray-500 capitalize">
+          <span key={cat} className="text-[10px] text-rez-gray-600 dark:text-gray-500 capitalize">
             {cat}
           </span>
         ))}

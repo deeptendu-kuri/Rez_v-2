@@ -13,12 +13,12 @@ const IntentBanner = () => {
     >
       <span className="text-3xl">{currentIntent?.icon || '🧭'}</span>
       <div className="flex-1 text-left">
-        <p className="text-sm text-gray-400">What brings you here?</p>
-        <p className="font-medium text-white">
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">What brings you here?</p>
+        <p className="font-medium text-rez-navy dark:text-white">
           {currentIntent?.label || 'Set your intent for better recommendations'}
         </p>
       </div>
-      <ChevronRight className="w-5 h-5 text-gray-400" />
+      <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
     </button>
   );
 };

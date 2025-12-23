@@ -10,20 +10,20 @@ const DiagnosticCard = ({ test, variant = 'default' }) => {
     return (
       <Link
         to={`/healthcare/test/${test.id}`}
-        className="min-w-[180px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+        className="min-w-[180px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
       >
         {test.tag && (
-          <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-white mb-2 inline-block">
+          <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-rez-navy dark:text-white mb-2 inline-block">
             {test.tag}
           </span>
         )}
-        <h3 className="text-sm font-medium text-white line-clamp-2">{test.name}</h3>
-        <p className="text-xs text-gray-400 mt-0.5">{test.lab}</p>
-        <p className="text-xs text-gray-500 mt-0.5">{test.parameters} parameters</p>
+        <h3 className="text-sm font-medium text-rez-navy dark:text-white line-clamp-2">{test.name}</h3>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">{test.lab}</p>
+        <p className="text-xs text-rez-gray-600 dark:text-gray-500 mt-0.5">{test.parameters} parameters</p>
 
         <div className="flex items-center gap-2 mt-2">
-          <span className="text-sm font-bold text-white">₹{test.price}</span>
-          <span className="text-xs text-gray-500 line-through">₹{test.originalPrice}</span>
+          <span className="text-sm font-bold text-rez-navy dark:text-white">₹{test.price}</span>
+          <span className="text-xs text-rez-gray-600 dark:text-gray-500 line-through">₹{test.originalPrice}</span>
           <span className="text-xs text-emerald-400">{discount}% off</span>
         </div>
 
@@ -38,25 +38,25 @@ const DiagnosticCard = ({ test, variant = 'default' }) => {
   return (
     <Link
       to={`/healthcare/test/${test.id}`}
-      className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.99] transition-transform"
+      className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.99] transition-transform"
     >
       <div className="flex items-start justify-between">
         <div className="flex-1">
           {test.tag && (
-            <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-white mb-2 inline-block">
+            <span className="px-2 py-0.5 rounded-full bg-blue-500 text-[10px] text-rez-navy dark:text-white mb-2 inline-block">
               {test.tag}
             </span>
           )}
-          <h3 className="font-semibold text-white">{test.name}</h3>
-          <p className="text-sm text-gray-400">{test.lab}</p>
+          <h3 className="font-semibold text-rez-navy dark:text-white">{test.name}</h3>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">{test.lab}</p>
 
           <div className="flex items-center gap-3 mt-2">
             <div className="flex items-center gap-1">
               <Star className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
-              <span className="text-sm text-white">{test.rating}</span>
-              <span className="text-xs text-gray-500">({test.reviews})</span>
+              <span className="text-sm text-rez-navy dark:text-white">{test.rating}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-500">({test.reviews})</span>
             </div>
-            <span className="text-xs text-gray-500">{test.parameters} parameters</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-500">{test.parameters} parameters</span>
           </div>
         </div>
 
@@ -80,11 +80,11 @@ const DiagnosticCard = ({ test, variant = 'default' }) => {
       </div>
 
       {/* Footer */}
-      <div className="flex items-center justify-between mt-3 pt-3 border-t border-white/10">
+      <div className="flex items-center justify-between mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <div>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-bold text-white">₹{test.price}</span>
-            <span className="text-sm text-gray-500 line-through">₹{test.originalPrice}</span>
+            <span className="text-lg font-bold text-rez-navy dark:text-white">₹{test.price}</span>
+            <span className="text-sm text-rez-gray-600 dark:text-gray-500 line-through">₹{test.originalPrice}</span>
             <span className="text-sm text-emerald-400">{discount}% off</span>
           </div>
           <div className="flex items-center gap-1 mt-0.5">
@@ -92,7 +92,7 @@ const DiagnosticCard = ({ test, variant = 'default' }) => {
             <span className="text-xs text-amber-400">Earn {test.coinsEarned} coins</span>
           </div>
         </div>
-        <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-white">
+        <button className="px-4 py-2 rounded-xl bg-emerald-500 text-sm font-medium text-rez-navy dark:text-white">
           Book Now
         </button>
       </div>

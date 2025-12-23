@@ -5,7 +5,7 @@ const TaxiCard = ({ taxi }) => {
   const isAirport = taxi.type === 'Airport Taxi';
 
   return (
-    <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+    <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
       {/* Header */}
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
@@ -13,8 +13,8 @@ const TaxiCard = ({ taxi }) => {
             <Car className="w-5 h-5 text-amber-400" />
           </div>
           <div>
-            <p className="font-medium text-white">{taxi.type}</p>
-            <p className="text-xs text-gray-400">{taxi.carType}</p>
+            <p className="font-medium text-rez-navy dark:text-white">{taxi.type}</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">{taxi.carType}</p>
           </div>
         </div>
         {taxi.available && (
@@ -28,20 +28,20 @@ const TaxiCard = ({ taxi }) => {
       {isAirport ? (
         <div className="flex items-center gap-3 mb-3">
           <div className="flex-1">
-            <p className="text-sm text-white">{taxi.from}</p>
+            <p className="text-sm text-rez-navy dark:text-white">{taxi.from}</p>
           </div>
-          <ArrowRight className="w-4 h-4 text-gray-500" />
+          <ArrowRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
           <div className="flex-1 text-right">
-            <p className="text-sm text-white">{taxi.to}</p>
+            <p className="text-sm text-rez-navy dark:text-white">{taxi.to}</p>
           </div>
         </div>
       ) : (
-        <p className="text-sm text-gray-300 mb-3">{taxi.description}</p>
+        <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-3">{taxi.description}</p>
       )}
 
       {/* Details */}
       {isAirport && (
-        <div className="flex items-center gap-4 mb-3 text-gray-400">
+        <div className="flex items-center gap-4 mb-3 text-rez-gray-600 dark:text-gray-400">
           <div className="flex items-center gap-1">
             <MapPin className="w-3.5 h-3.5" />
             <span className="text-xs">{taxi.distance}</span>
@@ -54,9 +54,9 @@ const TaxiCard = ({ taxi }) => {
       )}
 
       {/* Price & CTA */}
-      <div className="flex items-center justify-between pt-3 border-t border-white/5">
+      <div className="flex items-center justify-between pt-3 border-t border-rez-gray-200 dark:border-white/5">
         <div>
-          <p className="text-lg font-bold text-white">₹{taxi.price}</p>
+          <p className="text-lg font-bold text-rez-navy dark:text-white">₹{taxi.price}</p>
           <div className="flex items-center gap-1 text-emerald-400">
             <Coins className="w-3 h-3" />
             <span className="text-xs">Earn ₹{taxi.coinsEarned}</span>

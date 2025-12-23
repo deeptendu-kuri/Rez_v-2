@@ -18,12 +18,12 @@ const BirthdaySpecials = () => {
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="flex items-center gap-4 px-4 py-4">
-          <Link to="/deal-store" className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <Link to="/deal-store" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </Link>
           <div className="flex-1">
-            <h1 className="text-xl font-bold text-white">Birthday Specials</h1>
-            <p className="text-sm text-gray-400">Your special day rewards</p>
+            <h1 className="text-xl font-bold text-rez-navy dark:text-white">Birthday Specials</h1>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Your special day rewards</p>
           </div>
           <div className="text-4xl">🎂</div>
         </div>
@@ -48,22 +48,22 @@ const BirthdaySpecials = () => {
         </div>
 
         <div className="relative text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 mb-4">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-rez-gray-100 dark:bg-white/10 mb-4">
             <Cake className="w-5 h-5 text-pink-400" />
             <span className="text-pink-400 font-medium">Birthday Week Active!</span>
           </div>
 
-          <h2 className="text-3xl font-bold text-white">Happy Birthday! 🎉</h2>
-          <p className="text-gray-300 mt-2">Enjoy exclusive gifts & rewards this week</p>
+          <h2 className="text-3xl font-bold text-rez-navy dark:text-white">Happy Birthday! 🎉</h2>
+          <p className="text-rez-gray-700 dark:text-gray-300 mt-2">Enjoy exclusive gifts & rewards this week</p>
 
           <div className="flex justify-center gap-4 mt-6">
-            <div className="px-5 py-3 rounded-2xl bg-white/10">
+            <div className="px-5 py-3 rounded-2xl bg-rez-gray-100 dark:bg-white/10">
               <p className="text-2xl font-bold text-amber-400">{birthdayDealsExtended.length}</p>
-              <p className="text-xs text-gray-400">Free Gifts</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Free Gifts</p>
             </div>
-            <div className="px-5 py-3 rounded-2xl bg-white/10">
+            <div className="px-5 py-3 rounded-2xl bg-rez-gray-100 dark:bg-white/10">
               <p className="text-2xl font-bold text-pink-400">500</p>
-              <p className="text-xs text-gray-400">Bonus Coins</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Bonus Coins</p>
             </div>
           </div>
         </div>
@@ -71,13 +71,13 @@ const BirthdaySpecials = () => {
 
       {/* Birthday Countdown (if not active) */}
       {!userBirthday.isActive && (
-        <div className="mx-4 mt-4 p-4 rounded-2xl bg-[#2C2C2E] flex items-center gap-4">
+        <div className="mx-4 mt-4 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] flex items-center gap-4">
           <div className="w-14 h-14 rounded-2xl bg-purple-500/20 flex items-center justify-center">
             <Calendar className="w-7 h-7 text-purple-400" />
           </div>
           <div className="flex-1">
-            <p className="font-medium text-white">Your birthday: {userBirthday.date}</p>
-            <p className="text-sm text-gray-400">{userBirthday.daysUntil} days until your special day</p>
+            <p className="font-medium text-rez-navy dark:text-white">Your birthday: {userBirthday.date}</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">{userBirthday.daysUntil} days until your special day</p>
           </div>
           <Button variant="secondary" size="sm">Update</Button>
         </div>
@@ -88,9 +88,9 @@ const BirthdaySpecials = () => {
         <div className="px-4 mb-3">
           <div className="flex items-center gap-2">
             <Gift className="w-5 h-5 text-amber-400" />
-            <h3 className="text-lg font-semibold text-white">Your Birthday Gifts</h3>
+            <h3 className="text-lg font-semibold text-rez-navy dark:text-white">Your Birthday Gifts</h3>
           </div>
-          <p className="text-sm text-gray-400">Claim within your birthday week</p>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">Claim within your birthday week</p>
         </div>
 
         <div className="px-4 space-y-3">
@@ -98,7 +98,7 @@ const BirthdaySpecials = () => {
             <Card key={deal.id} className="p-4 relative overflow-hidden" hover>
               {/* Gift ribbon */}
               <div className="absolute -top-1 -right-8 w-24 h-6 bg-gradient-to-r from-amber-500 to-red-500 transform rotate-45 flex items-center justify-center">
-                <span className="text-[10px] font-bold text-white">FREE</span>
+                <span className="text-[10px] font-bold text-rez-navy dark:text-white">FREE</span>
               </div>
 
               <div className="flex gap-4">
@@ -117,23 +117,23 @@ const BirthdaySpecials = () => {
                         className="w-5 h-5 rounded object-contain bg-white"
                       />
                     )}
-                    <p className="text-sm text-gray-400">{deal.store || 'ReZ'}</p>
+                    <p className="text-sm text-rez-gray-600 dark:text-gray-400">{deal.store || 'ReZ'}</p>
                   </div>
 
-                  <p className="font-medium text-white">{deal.title}</p>
-                  <p className="text-sm text-gray-400 mt-1">{deal.description}</p>
+                  <p className="font-medium text-rez-navy dark:text-white">{deal.title}</p>
+                  <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-1">{deal.description}</p>
 
                   <div className="flex items-center gap-2 mt-2">
                     <Badge variant="secondary" size="xs">🎂 Birthday Gift</Badge>
                     {deal.terms && (
-                      <span className="text-xs text-gray-500">{deal.terms}</span>
+                      <span className="text-xs text-rez-gray-600 dark:text-gray-500">{deal.terms}</span>
                     )}
                   </div>
                 </div>
               </div>
 
               {/* Claim button */}
-              <div className="mt-3 pt-3 border-t border-white/5">
+              <div className="mt-3 pt-3 border-t border-rez-gray-200 dark:border-white/5">
                 <Button variant="amber" size="sm" fullWidth>
                   Claim Gift
                 </Button>
@@ -151,19 +151,19 @@ const BirthdaySpecials = () => {
           </div>
           <div className="flex-1">
             <p className="text-2xl font-bold text-amber-400">500 Bonus Coins</p>
-            <p className="text-sm text-gray-300">Auto-credited to your wallet</p>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300">Auto-credited to your wallet</p>
             <Badge variant="success" size="xs" className="mt-1">Credited</Badge>
           </div>
         </div>
       </div>
 
       {/* Party Mode */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E]">
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
         <div className="flex items-center gap-3">
           <PartyPopper className="w-6 h-6 text-purple-400" />
           <div className="flex-1">
-            <p className="font-medium text-white">Share Your Birthday Joy</p>
-            <p className="text-sm text-gray-400">Invite friends & both get bonus coins</p>
+            <p className="font-medium text-rez-navy dark:text-white">Share Your Birthday Joy</p>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Invite friends & both get bonus coins</p>
           </div>
           <Button variant="secondary" size="sm">Share</Button>
         </div>

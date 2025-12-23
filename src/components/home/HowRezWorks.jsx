@@ -11,10 +11,10 @@ const HowRezWorks = () => {
 
   return (
     <div className="px-4 py-4">
-      <div className="p-4 rounded-2xl bg-[#1C1C1E]">
+      <div className="p-4 rounded-2xl bg-rez-gray-100 dark:bg-[#1C1C1E]">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold text-white">How ReZ Works</h2>
+          <h2 className="text-sm font-semibold text-rez-navy dark:text-white">How ReZ Works</h2>
           <Link to="/how-it-works" className="flex items-center gap-1 text-xs text-emerald-400">
             Full guide <ChevronRight className="w-3 h-3" />
           </Link>
@@ -28,12 +28,12 @@ const HowRezWorks = () => {
               <div key={step.id} className="flex flex-col items-center text-center">
                 <div className={`relative w-12 h-12 rounded-xl ${step.color} flex items-center justify-center mb-2`}>
                   <Icon className={`w-5 h-5 ${step.iconColor}`} />
-                  <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-white/10 text-[10px] font-bold text-white flex items-center justify-center">
+                  <span className="absolute -top-1 -left-1 w-5 h-5 rounded-full bg-rez-gray-100 dark:bg-white/10 text-[10px] font-bold text-rez-navy dark:text-white flex items-center justify-center">
                     {step.id}
                   </span>
                 </div>
-                <p className="text-xs font-medium text-white">{step.title}</p>
-                <p className="text-[10px] text-gray-500">{step.subtitle}</p>
+                <p className="text-xs font-medium text-rez-navy dark:text-white">{step.title}</p>
+                <p className="text-[10px] text-rez-gray-600 dark:text-gray-500">{step.subtitle}</p>
                 {index < steps.length - 1 && (
                   <div className="absolute hidden">→</div>
                 )}

@@ -8,7 +8,7 @@ const FleaEventCard = ({ event }) => {
   const isLimited = event.spotsLeft !== null && event.spotsLeft <= 5;
 
   return (
-    <div className="min-w-[260px] rounded-2xl overflow-hidden bg-[#2C2C2E] shrink-0">
+    <div className="min-w-[260px] rounded-2xl overflow-hidden bg-white dark:bg-[#2C2C2E] shrink-0">
       {/* Image */}
       <div className="relative h-32">
         <img
@@ -28,23 +28,23 @@ const FleaEventCard = ({ event }) => {
         </div>
 
         {/* Time */}
-        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/60 backdrop-blur-sm">
-          <Clock className="w-3 h-3 text-white" />
-          <span className="text-xs text-white">{event.time}</span>
+        <div className="absolute bottom-3 left-3 flex items-center gap-1.5 px-2 py-1 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm">
+          <Clock className="w-3 h-3 text-rez-navy dark:text-white" />
+          <span className="text-xs text-rez-navy dark:text-white">{event.time}</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-4">
-        <h4 className="font-semibold text-white">{event.name}</h4>
-        <p className="text-sm text-gray-400 mt-0.5">{event.duration}</p>
+        <h4 className="font-semibold text-rez-navy dark:text-white">{event.name}</h4>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-0.5">{event.duration}</p>
 
         {/* Stats row */}
         <div className="flex items-center gap-3 mt-3">
           {event.spots !== null && (
             <div className="flex items-center gap-1.5">
               <Users className="w-3.5 h-3.5 text-purple-400" />
-              <span className={`text-xs ${isLimited ? 'text-red-400' : 'text-gray-400'}`}>
+              <span className={`text-xs ${isLimited ? 'text-red-400' : 'text-rez-gray-600 dark:text-gray-400'}`}>
                 {isSoldOut ? 'Sold Out' : `${event.spotsLeft} spots left`}
               </span>
             </div>

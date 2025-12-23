@@ -5,7 +5,7 @@ const FitnessChallengeCard = ({ challenge }) => {
   return (
     <Link
       to={`/fitness/challenge/${challenge.id}`}
-      className="min-w-[280px] p-4 rounded-2xl bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
+      className="min-w-[280px] p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] shrink-0 active:scale-[0.98] transition-transform"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">
@@ -13,22 +13,22 @@ const FitnessChallengeCard = ({ challenge }) => {
             <span className="text-2xl">{challenge.icon}</span>
           </div>
           <div>
-            <h3 className="font-medium text-white">{challenge.name}</h3>
-            <p className="text-xs text-gray-400">{challenge.description}</p>
+            <h3 className="font-medium text-rez-navy dark:text-white">{challenge.name}</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">{challenge.description}</p>
           </div>
         </div>
-        <ChevronRight className="w-5 h-5 text-gray-500" />
+        <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-500" />
       </div>
 
       <div className="flex items-center gap-4 mb-3">
         <div className="flex items-center gap-1">
-          <Users className="w-3.5 h-3.5 text-gray-400" />
-          <span className="text-xs text-gray-400">{challenge.participants.toLocaleString()} joined</span>
+          <Users className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">{challenge.participants.toLocaleString()} joined</span>
         </div>
         {challenge.daysLeft && (
           <div className="flex items-center gap-1">
-            <Clock className="w-3.5 h-3.5 text-gray-400" />
-            <span className="text-xs text-gray-400">{challenge.daysLeft} days left</span>
+            <Clock className="w-3.5 h-3.5 text-rez-gray-600 dark:text-gray-400" />
+            <span className="text-xs text-rez-gray-600 dark:text-gray-400">{challenge.daysLeft} days left</span>
           </div>
         )}
       </div>
@@ -36,10 +36,10 @@ const FitnessChallengeCard = ({ challenge }) => {
       {challenge.progress > 0 && (
         <div className="mb-3">
           <div className="flex items-center justify-between mb-1">
-            <span className="text-xs text-gray-400">Your progress</span>
+            <span className="text-xs text-rez-gray-600 dark:text-gray-400">Your progress</span>
             <span className="text-xs text-purple-400">{challenge.progress}%</span>
           </div>
-          <div className="h-1.5 rounded-full bg-white/10 overflow-hidden">
+          <div className="h-1.5 rounded-full bg-rez-gray-100 dark:bg-white/10 overflow-hidden">
             <div
               className="h-full rounded-full bg-gradient-to-r from-purple-500 to-pink-500"
               style={{ width: `${challenge.progress}%` }}
@@ -48,7 +48,7 @@ const FitnessChallengeCard = ({ challenge }) => {
         </div>
       )}
 
-      <div className="flex items-center gap-2 pt-3 border-t border-white/10">
+      <div className="flex items-center gap-2 pt-3 border-t border-rez-gray-200 dark:border-white/10">
         <Trophy className="w-4 h-4 text-amber-400" />
         <span className="text-sm text-amber-400">{challenge.reward}</span>
       </div>

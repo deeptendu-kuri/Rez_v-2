@@ -22,7 +22,7 @@ const ModeSwitcher = () => {
       onClose={toggleModeSwitcher}
       title="Shop your way"
     >
-      <p className="text-gray-400 text-sm mb-6">
+      <p className="text-rez-gray-600 dark:text-gray-400 text-sm mb-6">
         Switch between different ReZ experiences
       </p>
 
@@ -48,16 +48,16 @@ const ModeSwitcher = () => {
               <span className="text-3xl">{mode.icon}</span>
               <div className="flex-1 text-left">
                 <div className="flex items-center gap-2">
-                  <span className="font-semibold text-white">{mode.label}</span>
+                  <span className="font-semibold text-rez-navy dark:text-white">{mode.label}</span>
                   {isLocked && (
-                    <Lock className="w-4 h-4 text-gray-500" />
+                    <Lock className="w-4 h-4 text-rez-gray-600 dark:text-gray-500" />
                   )}
                 </div>
-                <p className="text-sm text-gray-400">{mode.description}</p>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">{mode.description}</p>
               </div>
               {isSelected && (
                 <div className="w-6 h-6 bg-emerald-500 rounded-full flex items-center justify-center">
-                  <Check className="w-4 h-4 text-white" />
+                  <Check className="w-4 h-4 text-rez-navy dark:text-white" />
                 </div>
               )}
             </button>
@@ -70,15 +70,15 @@ const ModeSwitcher = () => {
         <div className="mt-6 p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
           <div className="flex items-center justify-between mb-2">
             <span className="text-sm font-medium text-purple-400">Unlock Privé</span>
-            <span className="text-sm text-gray-400">{user.priveScore}%</span>
+            <span className="text-sm text-rez-gray-600 dark:text-gray-400">{user.priveScore}%</span>
           </div>
-          <div className="h-2 bg-white/10 rounded-full overflow-hidden">
+          <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden">
             <div
               className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full transition-all"
               style={{ width: `${user.priveScore}%` }}
             />
           </div>
-          <p className="text-xs text-gray-500 mt-2">
+          <p className="text-xs text-rez-gray-600 dark:text-gray-500 mt-2">
             Privé is earned, not given. Keep shopping to unlock exclusive access.
           </p>
         </div>

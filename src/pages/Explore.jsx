@@ -30,11 +30,11 @@ const Explore = () => {
   });
 
   return (
-    <div className="pb-4">
+    <div className="min-h-screen bg-white dark:bg-black pb-24 transition-colors">
       {/* Header */}
       <div className="px-4 pt-2 pb-4">
-        <h1 className="text-2xl font-bold text-white">Explore</h1>
-        <p className="text-sm text-gray-400 mt-1">
+        <h1 className="text-h2 font-poppins text-rez-navy dark:text-white">Explore</h1>
+        <p className="text-body-sm text-rez-gray-600 dark:text-gray-400 mt-1">
           {filteredStores.length} stores nearby
         </p>
       </div>
@@ -46,7 +46,7 @@ const Explore = () => {
           className={`px-4 py-2 rounded-full shrink-0 transition-all ${
             !selectedCategory
               ? 'bg-emerald-500 text-white'
-              : 'bg-white/10 text-gray-300'
+              : 'bg-rez-gray-100 dark:bg-white/10 text-rez-gray-700 dark:text-gray-300'
           }`}
         >
           All
@@ -58,7 +58,7 @@ const Explore = () => {
             className={`px-4 py-2 rounded-full shrink-0 transition-all ${
               selectedCategory === cat.name
                 ? 'bg-emerald-500 text-white'
-                : 'bg-white/10 text-gray-300'
+                : 'bg-rez-gray-100 dark:bg-white/10 text-rez-gray-700 dark:text-gray-300'
             }`}
           >
             {cat.name.split(' ')[0]}
@@ -68,7 +68,7 @@ const Explore = () => {
 
       {/* Sort Options */}
       <div className="flex items-center gap-2 px-4 pb-4">
-        <span className="text-sm text-gray-400">Sort by:</span>
+        <span className="text-body-sm text-rez-gray-600 dark:text-gray-400">Sort by:</span>
         <div className="flex gap-2">
           {[
             { id: 'distance', label: 'Distance' },
@@ -78,10 +78,10 @@ const Explore = () => {
             <button
               key={option.id}
               onClick={() => setSortBy(option.id)}
-              className={`px-3 py-1.5 rounded-full text-sm transition-all ${
+              className={`px-3 py-1.5 rounded-full text-body-sm transition-all ${
                 sortBy === option.id
-                  ? 'bg-white/20 text-white'
-                  : 'bg-white/5 text-gray-400'
+                  ? 'bg-rez-gray-200 dark:bg-white/20 text-rez-navy dark:text-white'
+                  : 'bg-rez-gray-50 dark:bg-white/5 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               {option.label}

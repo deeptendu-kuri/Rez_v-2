@@ -31,8 +31,8 @@ const Offers = () => {
     <div className="pb-4">
       {/* Header */}
       <div className="px-4 pt-2 pb-4">
-        <h1 className="text-2xl font-bold text-white">Offers</h1>
-        <p className="text-sm text-gray-400 mt-1">Deals that actually work near you</p>
+        <h1 className="text-2xl font-bold text-rez-navy dark:text-white">Offers</h1>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-1">Deals that actually work near you</p>
       </div>
 
       {/* Flash Deals Banner */}
@@ -40,10 +40,10 @@ const Offers = () => {
         <div className="p-4 rounded-2xl bg-gradient-to-r from-red-500/20 to-orange-500/20 border border-red-500/20">
           <div className="flex items-center gap-2 mb-2">
             <Zap className="w-5 h-5 text-orange-400" />
-            <span className="font-semibold text-white">Flash Deals</span>
+            <span className="font-semibold text-rez-navy dark:text-white">Flash Deals</span>
             <Badge variant="danger" size="xs">Limited Time</Badge>
           </div>
-          <p className="text-sm text-gray-300">Grab these before they're gone!</p>
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300">Grab these before they're gone!</p>
         </div>
       </div>
 
@@ -63,8 +63,8 @@ const Offers = () => {
       {(filters.halal || filters.vegan) && modeOffers.length > 0 && (
         <>
           <div className="px-4 mb-3">
-            <h2 className="text-lg font-semibold text-white">For Your Mode</h2>
-            <p className="text-sm text-gray-400">Special offers based on your preferences</p>
+            <h2 className="text-lg font-semibold text-rez-navy dark:text-white">For Your Mode</h2>
+            <p className="text-sm text-rez-gray-600 dark:text-gray-400">Special offers based on your preferences</p>
           </div>
           <div className="px-4 space-y-3 mb-6">
             {modeOffers.map((offer) => (
@@ -81,8 +81,8 @@ const Offers = () => {
 
       {/* Cashback Offers */}
       <div className="px-4 mb-3">
-        <h2 className="text-lg font-semibold text-white">Cashback Offers</h2>
-        <p className="text-sm text-gray-400">Earn more on every purchase</p>
+        <h2 className="text-lg font-semibold text-rez-navy dark:text-white">Cashback Offers</h2>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">Earn more on every purchase</p>
       </div>
       <div className="px-4 space-y-3 mb-6">
         {cashbackOffers.map((offer) => (
@@ -97,7 +97,7 @@ const Offers = () => {
 
       {/* All Offers */}
       <div className="px-4 mb-3">
-        <h2 className="text-lg font-semibold text-white">All Offers</h2>
+        <h2 className="text-lg font-semibold text-rez-navy dark:text-white">All Offers</h2>
       </div>
       <div className="px-4 space-y-3">
         {relevantOffers.map((offer) => (
@@ -131,7 +131,7 @@ const OfferCard = ({ offer, copiedCode, onCopyCode }) => {
           <div className="flex items-start justify-between gap-2">
             <div>
               <span className="text-xl font-bold text-emerald-400">{offer.discount}</span>
-              <h3 className="font-semibold text-white">{offer.title}</h3>
+              <h3 className="font-semibold text-rez-navy dark:text-white">{offer.title}</h3>
             </div>
             <Badge variant="default" size="xs">
               <Clock className="w-3 h-3" />
@@ -139,19 +139,19 @@ const OfferCard = ({ offer, copiedCode, onCopyCode }) => {
             </Badge>
           </div>
 
-          <p className="text-sm text-gray-400 mt-1">{offer.subtitle}</p>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 mt-1">{offer.subtitle}</p>
 
           {/* Code */}
           {offer.code && (
             <button
               onClick={() => onCopyCode(offer.code)}
-              className="mt-2 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 active:bg-white/20"
+              className="mt-2 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-rez-gray-100 dark:bg-white/10 active:bg-white/20"
             >
               <span className="text-sm font-mono text-amber-400">{offer.code}</span>
               {copiedCode === offer.code ? (
                 <Check className="w-4 h-4 text-emerald-400" />
               ) : (
-                <Copy className="w-4 h-4 text-gray-400" />
+                <Copy className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
               )}
             </button>
           )}

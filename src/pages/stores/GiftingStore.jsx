@@ -59,20 +59,20 @@ const GiftingStore = () => {
   const proof = proofs[proofIndex];
 
   return (
-    <div className="min-h-screen bg-black pb-24">
+    <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
       <div className="sticky top-0 z-40 glass">
         <div className="px-4 py-3">
           <div className="flex items-center gap-3">
-            <Link to="/" className="p-2 rounded-full bg-white/10">
-              <ArrowLeft className="w-5 h-5 text-white" />
+            <Link to="/" className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
             </Link>
             <div className="flex-1">
-              <h1 className="text-xl font-bold text-white">Gifting Store</h1>
+              <h1 className="text-xl font-bold text-rez-navy dark:text-white">Gifting Store</h1>
               <p className="text-xs" style={{ color: theme.primary }}>{giftingStore.tagline}</p>
             </div>
-            <button className="p-2 rounded-full bg-white/10">
-              <Search className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <Search className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full" style={{ backgroundColor: `${theme.primary}30` }}>
               <Coins className="w-4 h-4" style={{ color: theme.primary }} />
@@ -98,7 +98,7 @@ const GiftingStore = () => {
                 className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full shrink-0 text-sm transition-colors ${
                   activeFilters.includes(filter.id)
                     ? 'text-black'
-                    : 'bg-white/10 text-gray-400'
+                    : 'bg-white/10 text-rez-gray-600 dark:text-gray-400'
                 }`}
                 style={activeFilters.includes(filter.id) ? { backgroundColor: theme.primary } : {}}
               >
@@ -115,10 +115,10 @@ const GiftingStore = () => {
 
       {/* Social Proof */}
       <div className="px-4 py-2">
-        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-white/5 animate-fade-in">
+        <div className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 animate-fade-in">
           <span className="text-lg">{proof.avatar}</span>
-          <p className="text-sm text-gray-300 flex-1">
-            <span className="font-medium text-white">{proof.user}</span>{' '}
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300 flex-1">
+            <span className="font-medium text-rez-navy dark:text-white">{proof.user}</span>{' '}
             {proof.action}{' '}
             <span style={{ color: theme.primary }}>{proof.product}</span>
           </p>
@@ -137,8 +137,8 @@ const GiftingStore = () => {
               style={{ backgroundColor: `${theme.primary}20` }}
             >
               <span>{occasion.icon}</span>
-              <span className="text-sm text-white">{occasion.name}</span>
-              <span className="text-xs text-gray-400">({occasion.offers})</span>
+              <span className="text-sm text-rez-navy dark:text-white">{occasion.name}</span>
+              <span className="text-xs text-rez-gray-600 dark:text-gray-400">({occasion.offers})</span>
             </Link>
           ))}
         </div>
@@ -149,7 +149,7 @@ const GiftingStore = () => {
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
             <Gift className="w-5 h-5" style={{ color: theme.primary }} />
-            <h2 className="font-semibold text-white">Gift Categories</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Gift Categories</h2>
           </div>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
@@ -160,11 +160,11 @@ const GiftingStore = () => {
             <Link
               key={category.id}
               to={`/store/gifting/${category.id}`}
-              className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.98] transition-transform"
+              className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.98] transition-transform"
             >
               <span className="text-3xl block mb-2">{category.icon}</span>
-              <h3 className="font-medium text-white">{category.name}</h3>
-              <p className="text-xs text-gray-400 mt-1">{category.items} options</p>
+              <h3 className="font-medium text-rez-navy dark:text-white">{category.name}</h3>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">{category.items} options</p>
               <div className="flex items-center gap-1 mt-2">
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
                 <span className="text-xs" style={{ color: theme.primary }}>{category.cashback}% back</span>
@@ -175,28 +175,28 @@ const GiftingStore = () => {
       </div>
 
       {/* Why Gift on ReZ */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E]">
-        <h3 className="font-semibold text-white mb-3">Why Gift on ReZ?</h3>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-3">Why Gift on ReZ?</h3>
         <div className="grid grid-cols-2 gap-3">
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🎁</span>
-            <h4 className="text-sm font-medium text-white mt-1">Give & Get</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Earn when you gift</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Give & Get</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Earn when you gift</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">📅</span>
-            <h4 className="text-sm font-medium text-white mt-1">Schedule</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Perfect timing</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Schedule</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Perfect timing</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">💌</span>
-            <h4 className="text-sm font-medium text-white mt-1">Personal Touch</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Add messages</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Personal Touch</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Add messages</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
             <span className="text-xl">🎀</span>
-            <h4 className="text-sm font-medium text-white mt-1">Gift Wrap</h4>
-            <p className="text-xs text-gray-400 mt-0.5">Premium packaging</p>
+            <h4 className="text-sm font-medium text-rez-navy dark:text-white mt-1">Gift Wrap</h4>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-0.5">Premium packaging</p>
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@ const GiftingStore = () => {
       {/* Popular Gift Cards */}
       <div className="mt-6 px-4">
         <div className="flex items-center justify-between mb-3">
-          <h2 className="font-semibold text-white">Popular Gift Cards</h2>
+          <h2 className="font-semibold text-rez-navy dark:text-white">Popular Gift Cards</h2>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
           </button>
@@ -214,12 +214,12 @@ const GiftingStore = () => {
             <Link
               key={card.id}
               to={`/store/gifting/card/${card.id}`}
-              className="p-4 rounded-2xl bg-[#2C2C2E] active:scale-[0.98] transition-transform"
+              className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] active:scale-[0.98] transition-transform"
             >
               <div className="w-12 h-12 rounded-xl mb-2 flex items-center justify-center" style={{ backgroundColor: `${theme.primary}20` }}>
                 <Gift className="w-6 h-6" style={{ color: theme.primary }} />
               </div>
-              <h3 className="font-medium text-white">{card.brand}</h3>
+              <h3 className="font-medium text-rez-navy dark:text-white">{card.brand}</h3>
               <div className="flex items-center gap-1 mt-1">
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
                 <span className="text-xs" style={{ color: theme.primary }}>{card.cashback}% back</span>
@@ -234,7 +234,7 @@ const GiftingStore = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5" style={{ color: theme.primary }} />
-            <h2 className="font-semibold text-white">Gift Experiences</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Gift Experiences</h2>
           </div>
           <button className="text-xs flex items-center gap-1" style={{ color: theme.primary }}>
             View All <ChevronRight className="w-3 h-3" />
@@ -248,8 +248,8 @@ const GiftingStore = () => {
               className="min-w-[180px] p-4 rounded-2xl shrink-0 active:scale-[0.98] transition-transform"
               style={{ backgroundColor: `${theme.primary}15` }}
             >
-              <h3 className="font-medium text-white mb-1">{exp.name}</h3>
-              <p className="text-lg font-bold text-white mb-2">₹{exp.price.toLocaleString()}</p>
+              <h3 className="font-medium text-rez-navy dark:text-white mb-1">{exp.name}</h3>
+              <p className="text-lg font-bold text-rez-navy dark:text-white mb-2">₹{exp.price.toLocaleString()}</p>
               <div className="flex items-center gap-1">
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
                 <span className="text-xs" style={{ color: theme.primary }}>+{exp.coins} coins</span>
@@ -264,27 +264,27 @@ const GiftingStore = () => {
         <div className="p-4 rounded-2xl" style={{ backgroundColor: `${theme.primary}15` }}>
           <div className="flex items-center gap-2 mb-3">
             <Coins className="w-5 h-5" style={{ color: theme.primary }} />
-            <h3 className="font-semibold text-white">Earn While You Gift</h3>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Earn While You Gift</h3>
           </div>
           <div className="space-y-2">
-            <div className="flex items-center justify-between p-3 rounded-xl bg-white/10">
+            <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
               <div className="flex items-center gap-2">
                 <Gift className="w-4 h-4" style={{ color: theme.primary }} />
-                <span className="text-sm text-white">Gift Someone</span>
+                <span className="text-sm text-rez-navy dark:text-white">Gift Someone</span>
               </div>
               <span className="font-medium" style={{ color: theme.primary }}>+{giftingStore.socialBonus.shareGift} coins</span>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-xl bg-white/10">
+            <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
               <div className="flex items-center gap-2">
                 <MessageSquare className="w-4 h-4" style={{ color: theme.primary }} />
-                <span className="text-sm text-white">Review Gift</span>
+                <span className="text-sm text-rez-navy dark:text-white">Review Gift</span>
               </div>
               <span className="font-medium" style={{ color: theme.primary }}>+{giftingStore.socialBonus.reviewGift} coins</span>
             </div>
-            <div className="flex items-center justify-between p-3 rounded-xl bg-white/10">
+            <div className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10">
               <div className="flex items-center gap-2">
                 <Share2 className="w-4 h-4" style={{ color: theme.primary }} />
-                <span className="text-sm text-white">Refer Friend</span>
+                <span className="text-sm text-rez-navy dark:text-white">Refer Friend</span>
               </div>
               <span className="font-medium" style={{ color: theme.primary }}>+{giftingStore.socialBonus.referFriend} coins</span>
             </div>
@@ -294,27 +294,27 @@ const GiftingStore = () => {
 
       {/* Gift Features */}
       <div className="mt-6 px-4">
-        <h2 className="font-semibold text-white mb-3">Gift Features</h2>
+        <h2 className="font-semibold text-rez-navy dark:text-white mb-3">Gift Features</h2>
         <div className="space-y-3">
-          <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg" style={{ backgroundColor: `${theme.primary}20` }}>
                 <Calendar className="w-5 h-5" style={{ color: theme.primary }} />
               </div>
               <div>
-                <h3 className="font-medium text-white">Schedule Delivery</h3>
-                <p className="text-sm text-gray-400">Deliver on the perfect day</p>
+                <h3 className="font-medium text-rez-navy dark:text-white">Schedule Delivery</h3>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Deliver on the perfect day</p>
               </div>
             </div>
           </div>
-          <div className="p-4 rounded-2xl bg-[#2C2C2E]">
+          <div className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E]">
             <div className="flex items-center gap-3">
               <div className="p-2 rounded-lg" style={{ backgroundColor: `${theme.primary}20` }}>
                 <MessageSquare className="w-5 h-5" style={{ color: theme.primary }} />
               </div>
               <div>
-                <h3 className="font-medium text-white">Personal Message</h3>
-                <p className="text-sm text-gray-400">Add a heartfelt note</p>
+                <h3 className="font-medium text-rez-navy dark:text-white">Personal Message</h3>
+                <p className="text-sm text-rez-gray-600 dark:text-gray-400">Add a heartfelt note</p>
               </div>
             </div>
           </div>
@@ -326,15 +326,15 @@ const GiftingStore = () => {
         <div className="flex items-center justify-between px-4 mb-3">
           <div className="flex items-center gap-2">
             <MapPin className="w-5 h-5 text-blue-400" />
-            <h2 className="font-semibold text-white">Gift Stores Nearby</h2>
+            <h2 className="font-semibold text-rez-navy dark:text-white">Gift Stores Nearby</h2>
           </div>
         </div>
         <div className="px-4 space-y-3">
           {['Archies', 'Hallmark', 'Ferns N Petals'].map((store, idx) => (
-            <div key={idx} className="p-4 rounded-2xl bg-[#2C2C2E] flex items-center justify-between">
+            <div key={idx} className="p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] flex items-center justify-between">
               <div>
-                <h3 className="font-medium text-white">{store}</h3>
-                <p className="text-xs text-gray-400 mt-1">{1.5 + idx * 0.5} km away</p>
+                <h3 className="font-medium text-rez-navy dark:text-white">{store}</h3>
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-1">{1.5 + idx * 0.5} km away</p>
               </div>
               <div className="flex items-center gap-1 px-2 py-1 rounded-full" style={{ backgroundColor: `${theme.primary}20` }}>
                 <Coins className="w-3 h-3" style={{ color: theme.primary }} />
@@ -350,26 +350,26 @@ const GiftingStore = () => {
         <div className="flex items-center gap-3 mb-3">
           <Gift className="w-6 h-6" style={{ color: theme.primary }} />
           <div>
-            <h3 className="font-semibold text-white">Gift Giver Progress</h3>
-            <p className="text-xs text-gray-400">2 more gifts to unlock bonus</p>
+            <h3 className="font-semibold text-rez-navy dark:text-white">Gift Giver Progress</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">2 more gifts to unlock bonus</p>
           </div>
         </div>
-        <div className="h-2 bg-white/10 rounded-full overflow-hidden mb-2">
+        <div className="h-2 bg-rez-gray-100 dark:bg-white/10 rounded-full overflow-hidden mb-2">
           <div
             className="h-full rounded-full transition-all"
             style={{ width: '60%', backgroundColor: theme.primary }}
           />
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-xs text-gray-400">3/5 gifts</span>
+          <span className="text-xs text-rez-gray-600 dark:text-gray-400">3/5 gifts</span>
           <span className="text-xs" style={{ color: theme.primary }}>🎁 +200 Bonus Coins</span>
         </div>
       </div>
 
       {/* Value Proposition */}
-      <div className="mx-4 mt-6 p-4 rounded-2xl bg-[#2C2C2E] text-center">
-        <h3 className="font-semibold text-white mb-2">Share Joy. Earn Rewards.</h3>
-        <p className="text-sm text-gray-400">Every gift you give comes back to you. With ReZ.</p>
+      <div className="mx-4 mt-6 p-4 rounded-2xl bg-white dark:bg-[#2C2C2E] text-center">
+        <h3 className="font-semibold text-rez-navy dark:text-white mb-2">Share Joy. Earn Rewards.</h3>
+        <p className="text-sm text-rez-gray-600 dark:text-gray-400">Every gift you give comes back to you. With ReZ.</p>
       </div>
 
       {/* AI Suggestions */}
@@ -389,8 +389,8 @@ const GiftingStore = () => {
             <p className="text-xs text-black/70">Gift someone today</p>
           </div>
           <div className="flex gap-2">
-            <Button variant="secondary" size="sm" className="bg-black/20 text-black border-0">Cards</Button>
-            <Button variant="primary" size="sm" className="bg-black text-amber-500">
+            <Button variant="secondary" size="sm" className="bg-white dark:bg-black/20 text-black border-0">Cards</Button>
+            <Button variant="primary" size="sm" className="bg-white dark:bg-black text-amber-500">
               Send Gift
             </Button>
           </div>

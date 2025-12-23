@@ -177,12 +177,12 @@ const ProductServicePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black pb-32">
+    <div className="min-h-screen bg-white dark:bg-black pb-32">
       {/* 🔝 TOP BAR */}
       <div className="sticky top-0 z-50 glass">
         <div className="flex items-center justify-between px-4 py-3">
-          <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-white/10">
-            <ArrowLeft className="w-5 h-5 text-white" />
+          <button onClick={() => navigate(-1)} className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
 
           <div className="flex items-center gap-2">
@@ -199,8 +199,8 @@ const ProductServicePage = () => {
               <Heart className={`w-5 h-5 ${isSaved ? 'text-red-400 fill-red-400' : 'text-white'}`} />
             </button>
 
-            <button className="p-2 rounded-full bg-white/10">
-              <Share2 className="w-5 h-5 text-white" />
+            <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+              <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
           </div>
         </div>
@@ -210,7 +210,7 @@ const ProductServicePage = () => {
       <div className="px-4 py-4">
         {/* Image Carousel */}
         <div className="mb-4">
-          <div className="relative rounded-3xl overflow-hidden bg-white/5 aspect-square">
+          <div className="relative rounded-3xl overflow-hidden bg-rez-gray-50 dark:bg-white/5 aspect-square">
             <img
               src={product.images[selectedImage]}
               alt={product.name}
@@ -241,10 +241,10 @@ const ProductServicePage = () => {
             )}
             {/* Rating Badge */}
             <div className="absolute bottom-4 left-4">
-              <div className="px-3 py-1.5 rounded-full bg-black/60 backdrop-blur-sm flex items-center gap-1">
+              <div className="px-3 py-1.5 rounded-full bg-white dark:bg-black/60 backdrop-blur-sm flex items-center gap-1">
                 <Star className="w-3 h-3 text-amber-400 fill-amber-400" />
-                <span className="text-sm font-semibold text-white">{product.rating}</span>
-                <span className="text-xs text-gray-300">({product.reviews})</span>
+                <span className="text-sm font-semibold text-rez-navy dark:text-white">{product.rating}</span>
+                <span className="text-xs text-rez-gray-700 dark:text-gray-300">({product.reviews})</span>
               </div>
             </div>
           </div>
@@ -256,7 +256,7 @@ const ProductServicePage = () => {
                 key={idx}
                 onClick={() => setSelectedImage(idx)}
                 className={`w-16 h-16 rounded-xl overflow-hidden border-2 ${
-                  selectedImage === idx ? 'border-emerald-500' : 'border-white/10'
+                  selectedImage === idx ? 'border-emerald-500' : 'border-rez-gray-200 dark:border-white/10'
                 }`}
               >
                 <img src={img} alt="" className="w-full h-full object-cover" />
@@ -267,14 +267,14 @@ const ProductServicePage = () => {
 
         {/* Product Identity */}
         <div className="mb-4">
-          <p className="text-sm text-gray-400 mb-1">{product.category} · {product.brand}</p>
-          <h1 className="text-2xl font-bold text-white mb-2">{product.name}</h1>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400 mb-1">{product.category} · {product.brand}</p>
+          <h1 className="text-2xl font-bold text-rez-navy dark:text-white mb-2">{product.name}</h1>
 
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
               <Star className="w-4 h-4 text-amber-400 fill-amber-400" />
-              <span className="text-sm font-semibold text-white">{product.rating}</span>
-              <span className="text-sm text-gray-400">({product.reviews} reviews)</span>
+              <span className="text-sm font-semibold text-rez-navy dark:text-white">{product.rating}</span>
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400">({product.reviews} reviews)</span>
             </div>
             {product.verified && (
               <Badge variant="success" size="sm">
@@ -285,10 +285,10 @@ const ProductServicePage = () => {
           </div>
 
           {product.storePickup && (
-            <div className="flex items-center gap-2 mt-2 text-sm text-gray-300">
+            <div className="flex items-center gap-2 mt-2 text-sm text-rez-gray-700 dark:text-gray-300">
               <MapPin className="w-4 h-4 text-emerald-400" />
               <span>Available at {product.storeAddress.split(',')[0]}</span>
-              <span className="text-gray-500">• {product.storeDistance}</span>
+              <span className="text-rez-gray-600 dark:text-gray-500">• {product.storeDistance}</span>
             </div>
           )}
 
@@ -317,23 +317,23 @@ const ProductServicePage = () => {
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
               <Trophy className="w-5 h-5 text-emerald-400" />
-              <span className="text-sm font-semibold text-white">Loyalty Status with {product.brand}</span>
+              <span className="text-sm font-semibold text-rez-navy dark:text-white">Loyalty Status with {product.brand}</span>
             </div>
-            <ChevronRight className="w-4 h-4 text-gray-400" />
+            <ChevronRight className="w-4 h-4 text-rez-gray-600 dark:text-gray-400" />
           </div>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="px-2 py-1 rounded-lg bg-white/10">
-                <p className="text-xs text-gray-400">Visits</p>
-                <p className="text-sm font-bold text-white">8</p>
+              <div className="px-2 py-1 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Visits</p>
+                <p className="text-sm font-bold text-rez-navy dark:text-white">8</p>
               </div>
-              <div className="px-2 py-1 rounded-lg bg-white/10">
-                <p className="text-xs text-gray-400">Tier</p>
+              <div className="px-2 py-1 rounded-lg bg-rez-gray-100 dark:bg-white/10">
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400">Tier</p>
                 <p className="text-sm font-bold text-amber-400">Silver</p>
               </div>
             </div>
             <div className="text-right">
-              <p className="text-xs text-gray-400">Next reward in</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400">Next reward in</p>
               <p className="text-sm font-bold text-emerald-400">2 visits</p>
             </div>
           </div>
@@ -343,16 +343,16 @@ const ProductServicePage = () => {
       {/* 💰 PRICE & SAVINGS BLOCK */}
       <div className="px-4 mb-6">
         <div className="p-5 rounded-3xl bg-gradient-to-br from-emerald-500/20 via-emerald-600/10 to-amber-500/10 border border-emerald-500/30">
-          <p className="text-sm text-gray-300 mb-3">Price Breakdown</p>
+          <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-3">Price Breakdown</p>
 
           <div className="space-y-2 mb-4">
             <div className="flex items-center justify-between">
-              <span className="text-sm text-gray-400 line-through">MRP</span>
-              <span className="text-sm text-gray-400 line-through">₹{product.mrp.toLocaleString()}</span>
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400 line-through">MRP</span>
+              <span className="text-sm text-rez-gray-600 dark:text-gray-400 line-through">₹{product.mrp.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-between">
-              <span className="text-base text-white font-semibold">ReZ Price</span>
-              <span className="text-2xl text-white font-bold">₹{product.rezPrice.toLocaleString()}</span>
+              <span className="text-base text-rez-navy dark:text-white font-semibold">ReZ Price</span>
+              <span className="text-2xl text-rez-navy dark:text-white font-bold">₹{product.rezPrice.toLocaleString()}</span>
             </div>
             <div className="flex items-center justify-between p-2 rounded-xl bg-emerald-500/20">
               <span className="text-sm text-emerald-300 font-semibold">🎉 You Save</span>
@@ -360,25 +360,25 @@ const ProductServicePage = () => {
             </div>
           </div>
 
-          <div className="pt-4 border-t border-white/10">
-            <p className="text-sm text-gray-300 mb-3">🎁 Rewards You'll Earn</p>
+          <div className="pt-4 border-t border-rez-gray-200 dark:border-white/10">
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-3">🎁 Rewards You'll Earn</p>
             <div className="space-y-2">
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-300">🪙 ReZ Coins</span>
+                <span className="text-rez-gray-700 dark:text-gray-300">🪙 ReZ Coins</span>
                 <span className="text-amber-400 font-semibold">{product.coinsEarned}</span>
               </div>
               <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-300">💸 Cashback</span>
+                <span className="text-rez-gray-700 dark:text-gray-300">💸 Cashback</span>
                 <span className="text-emerald-400 font-semibold">₹{product.cashback}</span>
               </div>
               {product.extraCoinsOnShare && (
                 <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-300">🔥 Bonus (Share after purchase)</span>
+                  <span className="text-rez-gray-700 dark:text-gray-300">🔥 Bonus (Share after purchase)</span>
                   <span className="text-purple-400 font-semibold">+{product.extraCoinsOnShare} coins</span>
                 </div>
               )}
             </div>
-            <p className="text-xs text-gray-400 mt-3 text-center">
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mt-3 text-center">
               💡 Rewards are credited instantly after payment
             </p>
           </div>
@@ -443,20 +443,20 @@ const ProductServicePage = () => {
           <div className="p-5 rounded-3xl bg-gradient-to-br from-purple-500/20 to-blue-600/10 border border-purple-500/30">
             <div className="flex items-center gap-2 mb-3">
               <Lock className="w-5 h-5 text-purple-400" />
-              <h2 className="text-lg font-bold text-white">🔥 Lock this product now</h2>
+              <h2 className="text-lg font-bold text-rez-navy dark:text-white">🔥 Lock this product now</h2>
             </div>
 
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-4">
               Pay just {product.lockPercentage}% to reserve this product. Visit the store or choose delivery later — price stays locked.
             </p>
 
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 mb-4">
+            <div className="p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 mb-4">
               <div className="flex items-center justify-between mb-3">
-                <span className="text-sm text-gray-300">Lock Price ({product.lockPercentage}%)</span>
+                <span className="text-sm text-rez-gray-700 dark:text-gray-300">Lock Price ({product.lockPercentage}%)</span>
                 <span className="text-2xl font-bold text-purple-400">₹{lockPrice}</span>
               </div>
 
-              <p className="text-xs text-gray-400 mb-3">Lock Duration:</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-3">Lock Duration:</p>
               <div className="flex gap-2">
                 {product.lockDurations.map((hours) => (
                   <button
@@ -465,7 +465,7 @@ const ProductServicePage = () => {
                     className={`flex-1 py-2 px-3 rounded-xl text-sm font-medium transition-all ${
                       lockDuration === hours
                         ? 'bg-purple-500/30 text-purple-300 border-2 border-purple-500/50'
-                        : 'bg-white/5 text-gray-400 border border-white/10'
+                        : 'bg-white/5 text-rez-gray-600 dark:text-gray-400 border border-rez-gray-200 dark:border-white/10'
                     }`}
                   >
                     ⏳ {hours}h
@@ -476,7 +476,7 @@ const ProductServicePage = () => {
 
             <button
               onClick={handleLockProduct}
-              className="w-full py-4 rounded-2xl bg-purple-500 text-white font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform"
+              className="w-full py-4 rounded-2xl bg-purple-500 text-rez-navy dark:text-white font-bold flex items-center justify-center gap-2 active:scale-95 transition-transform"
             >
               <Lock className="w-5 h-5" />
               Lock Product for ₹{lockPrice}
@@ -499,8 +499,8 @@ const ProductServicePage = () => {
                   <Lock className="w-5 h-5 text-green-400" />
                 </div>
                 <div>
-                  <p className="text-lg font-bold text-white">🔒 Product Locked</p>
-                  <p className="text-sm text-gray-300">Price protected at ₹{product.rezPrice.toLocaleString()}</p>
+                  <p className="text-lg font-bold text-rez-navy dark:text-white">🔒 Product Locked</p>
+                  <p className="text-sm text-rez-gray-700 dark:text-gray-300">Price protected at ₹{product.rezPrice.toLocaleString()}</p>
                 </div>
               </div>
               <button onClick={handleCancelLock} className="text-red-400">
@@ -509,13 +509,13 @@ const ProductServicePage = () => {
             </div>
 
             {timeRemaining && (
-              <div className="p-3 rounded-xl bg-white/10 mb-4 text-center">
-                <p className="text-xs text-gray-400 mb-1">Time Remaining</p>
-                <p className="text-2xl font-bold text-white">{formatTime(timeRemaining)}</p>
+              <div className="p-3 rounded-xl bg-rez-gray-100 dark:bg-white/10 mb-4 text-center">
+                <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">Time Remaining</p>
+                <p className="text-2xl font-bold text-rez-navy dark:text-white">{formatTime(timeRemaining)}</p>
               </div>
             )}
 
-            <p className="text-sm text-gray-300 mb-4">
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-4">
               Complete your purchase by choosing one of these options:
             </p>
 
@@ -523,48 +523,48 @@ const ProductServicePage = () => {
             <div className="space-y-2">
               <button
                 onClick={() => handlePurchaseOption('store')}
-                className="w-full p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between active:bg-white/10 transition-colors"
+                className="w-full p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center justify-between active:bg-rez-gray-100 dark:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <Store className="w-5 h-5 text-emerald-400" />
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-white">Visit Store & Pay</p>
-                    <p className="text-xs text-gray-400">Remaining: ₹{remainingPrice.toLocaleString()}</p>
+                    <p className="text-sm font-semibold text-rez-navy dark:text-white">Visit Store & Pay</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">Remaining: ₹{remainingPrice.toLocaleString()}</p>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-gray-400" />
+                <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
               </button>
 
               {product.delivery60Min && (
                 <button
                   onClick={() => handlePurchaseOption('delivery')}
-                  className="w-full p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between active:bg-white/10 transition-colors"
+                  className="w-full p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center justify-between active:bg-rez-gray-100 dark:bg-white/10 transition-colors"
                 >
                   <div className="flex items-center gap-3">
                     <Truck className="w-5 h-5 text-blue-400" />
                     <div className="text-left">
-                      <p className="text-sm font-semibold text-white">Get Delivered in 60 Min</p>
-                      <p className="text-xs text-gray-400">
+                      <p className="text-sm font-semibold text-rez-navy dark:text-white">Get Delivered in 60 Min</p>
+                      <p className="text-xs text-rez-gray-600 dark:text-gray-400">
                         Fee: ₹{product.deliveryFee} {product.deliveryFeeReturnAsCoins && '(returned as coins)'}
                       </p>
                     </div>
                   </div>
-                  <ChevronRight className="w-5 h-5 text-gray-400" />
+                  <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
                 </button>
               )}
 
               <button
                 onClick={() => handlePurchaseOption('online')}
-                className="w-full p-4 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-between active:bg-white/10 transition-colors"
+                className="w-full p-4 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 flex items-center justify-between active:bg-rez-gray-100 dark:bg-white/10 transition-colors"
               >
                 <div className="flex items-center gap-3">
                   <Globe className="w-5 h-5 text-purple-400" />
                   <div className="text-left">
-                    <p className="text-sm font-semibold text-white">Buy Online Now</p>
-                    <p className="text-xs text-gray-400">Complete payment online</p>
+                    <p className="text-sm font-semibold text-rez-navy dark:text-white">Buy Online Now</p>
+                    <p className="text-xs text-rez-gray-600 dark:text-gray-400">Complete payment online</p>
                   </div>
                 </div>
-                <ChevronRight className="w-5 h-5 text-gray-400" />
+                <ChevronRight className="w-5 h-5 text-rez-gray-600 dark:text-gray-400" />
               </button>
             </div>
           </div>
@@ -574,23 +574,23 @@ const ProductServicePage = () => {
       {/* 🪙 PAY WITH REZ */}
       {!isLocked && (
         <div className="px-4 mb-6">
-          <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-            <h3 className="text-base font-bold text-white mb-3">Pay with ReZ</h3>
+          <div className="p-5 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
+            <h3 className="text-base font-bold text-rez-navy dark:text-white mb-3">Pay with ReZ</h3>
 
             <div className="space-y-2">
-              <label className="flex items-center gap-3 p-3 rounded-xl bg-white/5 cursor-pointer">
+              <label className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 cursor-pointer">
                 <input type="radio" name="payment" className="w-4 h-4" defaultChecked />
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-white">✔ Mix Coins + Cash</p>
-                  <p className="text-xs text-gray-400">Maximum savings applied automatically</p>
+                  <p className="text-sm font-medium text-rez-navy dark:text-white">✔ Mix Coins + Cash</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Maximum savings applied automatically</p>
                 </div>
               </label>
 
-              <label className="flex items-center gap-3 p-3 rounded-xl bg-white/5 cursor-pointer">
+              <label className="flex items-center gap-3 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 cursor-pointer">
                 <input type="radio" name="payment" className="w-4 h-4" />
                 <div className="flex-1">
-                  <p className="text-sm font-medium text-white">✔ Pay Normally & Earn Later</p>
-                  <p className="text-xs text-gray-400">Get full cashback + coins</p>
+                  <p className="text-sm font-medium text-rez-navy dark:text-white">✔ Pay Normally & Earn Later</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Get full cashback + coins</p>
                 </div>
               </label>
             </div>
@@ -604,28 +604,28 @@ const ProductServicePage = () => {
 
       {/* 🎁 OFFERS & DEALS */}
       <div className="px-4 mb-6">
-        <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
+        <div className="p-5 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-base font-bold text-white">🎁 Offers & Deals</h3>
+            <h3 className="text-base font-bold text-rez-navy dark:text-white">🎁 Offers & Deals</h3>
             <button className="text-xs text-emerald-400 font-semibold">View All</button>
           </div>
 
           {/* Applied Automatically */}
           <div className="mb-4">
-            <p className="text-xs text-gray-400 mb-2">✅ Applied Automatically</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">✅ Applied Automatically</p>
             <div className="space-y-2">
               <div className="flex items-start gap-2 p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20">
                 <CheckCircle className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-emerald-300">15% ReZ Discount</p>
-                  <p className="text-xs text-gray-400">Save ₹{Math.round(product.mrp * 0.15)}</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Save ₹{Math.round(product.mrp * 0.15)}</p>
                 </div>
               </div>
               <div className="flex items-start gap-2 p-3 rounded-xl bg-amber-500/10 border border-amber-500/20">
                 <CheckCircle className="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
                   <p className="text-sm font-semibold text-amber-300">₹{product.cashback} Cashback</p>
-                  <p className="text-xs text-gray-400">Credited as ReZ Coins</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Credited as ReZ Coins</p>
                 </div>
               </div>
             </div>
@@ -633,20 +633,20 @@ const ProductServicePage = () => {
 
           {/* Available Offers */}
           <div>
-            <p className="text-xs text-gray-400 mb-2">💡 Available Offers</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">💡 Available Offers</p>
             <div className="space-y-2">
-              <div className="flex items-start gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+              <div className="flex items-start gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
                 <Gift className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-white">Pay via UPI → Extra 2%</p>
-                  <p className="text-xs text-gray-400">Get additional savings</p>
+                  <p className="text-sm font-semibold text-rez-navy dark:text-white">Pay via UPI → Extra 2%</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Get additional savings</p>
                 </div>
               </div>
-              <div className="flex items-start gap-2 p-3 rounded-xl bg-white/5 border border-white/10">
+              <div className="flex items-start gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
                 <Zap className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
                 <div className="flex-1">
-                  <p className="text-sm font-semibold text-white">Use Promo Coins → Save ₹100</p>
-                  <p className="text-xs text-gray-400">If you have promo coins available</p>
+                  <p className="text-sm font-semibold text-rez-navy dark:text-white">Use Promo Coins → Save ₹100</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">If you have promo coins available</p>
                 </div>
               </div>
             </div>
@@ -660,8 +660,8 @@ const ProductServicePage = () => {
           <div className="flex gap-3">
             <Sparkles className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" />
             <div>
-              <p className="text-sm font-semibold text-white mb-1">Why This is a Good Deal</p>
-              <p className="text-sm text-gray-300">{product.aiSuggestion}</p>
+              <p className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Why This is a Good Deal</p>
+              <p className="text-sm text-rez-gray-700 dark:text-gray-300">{product.aiSuggestion}</p>
             </div>
           </div>
         </div>
@@ -677,7 +677,7 @@ const ProductServicePage = () => {
               className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 activeTab === tab
                   ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                  : 'bg-white/5 text-gray-400'
+                  : 'bg-white/5 text-rez-gray-600 dark:text-gray-400'
               }`}
             >
               {tab.charAt(0).toUpperCase() + tab.slice(1).replace('-', ' ')}
@@ -685,17 +685,17 @@ const ProductServicePage = () => {
           ))}
         </div>
 
-        <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
+        <div className="p-5 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
           {activeTab === 'description' && (
-            <p className="text-sm text-gray-300 leading-relaxed">{product.description}</p>
+            <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">{product.description}</p>
           )}
 
           {activeTab === 'specifications' && (
             <div className="space-y-3">
               {product.specifications.map((spec, idx) => (
-                <div key={idx} className="flex items-center justify-between py-2 border-b border-white/5">
-                  <span className="text-sm text-gray-400">{spec.label}</span>
-                  <span className="text-sm font-medium text-white">{spec.value}</span>
+                <div key={idx} className="flex items-center justify-between py-2 border-b border-rez-gray-200 dark:border-white/5">
+                  <span className="text-sm text-rez-gray-600 dark:text-gray-400">{spec.label}</span>
+                  <span className="text-sm font-medium text-rez-navy dark:text-white">{spec.value}</span>
                 </div>
               ))}
             </div>
@@ -706,20 +706,20 @@ const ProductServicePage = () => {
               {/* Ratings Summary */}
               <div className="flex items-center gap-4 mb-6">
                 <div className="text-center">
-                  <p className="text-4xl font-bold text-white mb-1">{product.rating}</p>
+                  <p className="text-4xl font-bold text-rez-navy dark:text-white mb-1">{product.rating}</p>
                   <div className="flex items-center gap-0.5 mb-1">
                     {[1, 2, 3, 4, 5].map((star) => (
-                      <Star key={star} className={`w-3 h-3 ${star <= Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-gray-600'}`} />
+                      <Star key={star} className={`w-3 h-3 ${star <= Math.floor(product.rating) ? 'text-amber-400 fill-amber-400' : 'text-rez-gray-700 dark:text-gray-600'}`} />
                     ))}
                   </div>
-                  <p className="text-xs text-gray-400">{product.reviews} reviews</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">{product.reviews} reviews</p>
                 </div>
                 <div className="flex-1">
                   <div className="space-y-1">
                     {[5, 4, 3, 2, 1].map((stars) => (
                       <div key={stars} className="flex items-center gap-2">
-                        <span className="text-xs text-gray-400 w-8">{stars}⭐</span>
-                        <div className="flex-1 h-2 rounded-full bg-white/10">
+                        <span className="text-xs text-rez-gray-600 dark:text-gray-400 w-8">{stars}⭐</span>
+                        <div className="flex-1 h-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
                           <div
                             className="h-full rounded-full bg-amber-500"
                             style={{ width: `${Math.random() * 60 + 20}%` }}
@@ -733,7 +733,7 @@ const ProductServicePage = () => {
 
               {/* Review Highlights */}
               <div className="mb-4">
-                <p className="text-sm font-semibold text-white mb-2">Review Highlights</p>
+                <p className="text-sm font-semibold text-rez-navy dark:text-white mb-2">Review Highlights</p>
                 <div className="flex flex-wrap gap-2">
                   <div className="px-3 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-500/30">
                     <p className="text-xs text-emerald-300">✓ Best price in area</p>
@@ -749,14 +749,14 @@ const ProductServicePage = () => {
 
               {/* UGC Preview */}
               <div>
-                <p className="text-sm font-semibold text-white mb-2">People Near You</p>
+                <p className="text-sm font-semibold text-rez-navy dark:text-white mb-2">People Near You</p>
                 <div className="space-y-3">
                   {[1, 2].map((review) => (
-                    <div key={review} className="p-3 rounded-xl bg-white/5">
+                    <div key={review} className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                       <div className="flex items-center gap-2 mb-2">
                         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-purple-500 to-blue-500"></div>
                         <div className="flex-1">
-                          <p className="text-sm font-semibold text-white">User {review}</p>
+                          <p className="text-sm font-semibold text-rez-navy dark:text-white">User {review}</p>
                           <div className="flex items-center gap-1">
                             {[1, 2, 3, 4, 5].map((star) => (
                               <Star key={star} className="w-3 h-3 text-amber-400 fill-amber-400" />
@@ -764,7 +764,7 @@ const ProductServicePage = () => {
                           </div>
                         </div>
                       </div>
-                      <p className="text-xs text-gray-300">Great product! Got it at best price with ReZ coins.</p>
+                      <p className="text-xs text-rez-gray-700 dark:text-gray-300">Great product! Got it at best price with ReZ coins.</p>
                     </div>
                   ))}
                 </div>
@@ -776,7 +776,7 @@ const ProductServicePage = () => {
           )}
 
           {activeTab === 'lock-info' && (
-            <div className="space-y-3 text-sm text-gray-300">
+            <div className="space-y-3 text-sm text-rez-gray-700 dark:text-gray-300">
               <p>• Pay {product.lockPercentage}% upfront to lock the product</p>
               <p>• Lock valid for selected duration</p>
               <p>• Remaining amount payable when you visit store or choose delivery</p>
@@ -786,7 +786,7 @@ const ProductServicePage = () => {
           )}
 
           {activeTab === 'terms' && (
-            <div className="space-y-3 text-sm text-gray-300">
+            <div className="space-y-3 text-sm text-rez-gray-700 dark:text-gray-300">
               <p>• Easy returns within 7 days</p>
               <p>• Warranty as per manufacturer</p>
               <p>• Coins credited within 24 hours</p>
@@ -798,8 +798,8 @@ const ProductServicePage = () => {
 
       {/* 💰 COMPARE PRICES */}
       <div className="px-4 mb-6">
-        <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
-          <h3 className="text-base font-bold text-white mb-4">💰 Compare Prices</h3>
+        <div className="p-5 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
+          <h3 className="text-base font-bold text-rez-navy dark:text-white mb-4">💰 Compare Prices</h3>
 
           <div className="space-y-2">
             {/* This Store (Best) */}
@@ -807,7 +807,7 @@ const ProductServicePage = () => {
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-emerald-400" />
-                  <span className="text-sm font-semibold text-white">This Store (ReZ)</span>
+                  <span className="text-sm font-semibold text-rez-navy dark:text-white">This Store (ReZ)</span>
                   <Badge variant="success" size="sm">Best Deal</Badge>
                 </div>
                 <span className="text-lg font-bold text-emerald-400">₹{product.rezPrice.toLocaleString()}</span>
@@ -816,24 +816,24 @@ const ProductServicePage = () => {
             </div>
 
             {/* Other nearby stores */}
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-white">Other Nearby Stores</p>
-                  <p className="text-xs text-gray-400">Average price in your area</p>
+                  <p className="text-sm text-rez-navy dark:text-white">Other Nearby Stores</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Average price in your area</p>
                 </div>
-                <span className="text-sm font-semibold text-gray-300">₹{(product.rezPrice + 2000).toLocaleString()}</span>
+                <span className="text-sm font-semibold text-rez-gray-700 dark:text-gray-300">₹{(product.rezPrice + 2000).toLocaleString()}</span>
               </div>
             </div>
 
             {/* Online platforms */}
-            <div className="p-3 rounded-xl bg-white/5 border border-white/10">
+            <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm text-white">Online Platforms</p>
-                  <p className="text-xs text-gray-400">Amazon, Flipkart avg</p>
+                  <p className="text-sm text-rez-navy dark:text-white">Online Platforms</p>
+                  <p className="text-xs text-rez-gray-600 dark:text-gray-400">Amazon, Flipkart avg</p>
                 </div>
-                <span className="text-sm font-semibold text-gray-300">₹{(product.rezPrice + 1500).toLocaleString()}</span>
+                <span className="text-sm font-semibold text-rez-gray-700 dark:text-gray-300">₹{(product.rezPrice + 1500).toLocaleString()}</span>
               </div>
             </div>
           </div>
@@ -849,16 +849,16 @@ const ProductServicePage = () => {
       {/* 🔁 SIMILAR PRODUCTS */}
       <div className="px-4 mb-6">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-lg font-bold text-white">Similar Products</h3>
+          <h3 className="text-lg font-bold text-rez-navy dark:text-white">Similar Products</h3>
           <button className="text-xs text-emerald-400 font-semibold">View All</button>
         </div>
         <div className="flex gap-3 overflow-x-auto hide-scrollbar">
           {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="flex-shrink-0 w-40 p-3 rounded-2xl bg-white/5 border border-white/10">
+            <div key={item} className="flex-shrink-0 w-40 p-3 rounded-2xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
               <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-purple-500/20 to-blue-500/20 mb-2 flex items-center justify-center">
                 <Package className="w-8 h-8 text-white/40" />
               </div>
-              <p className="text-xs font-medium text-white mb-1 line-clamp-2">Similar Product {item}</p>
+              <p className="text-xs font-medium text-rez-navy dark:text-white mb-1 line-clamp-2">Similar Product {item}</p>
               <div className="flex items-center justify-between">
                 <p className="text-xs text-emerald-400">₹{(product.rezPrice - 1000).toLocaleString()}</p>
                 <p className="text-xs text-amber-400">+250 🪙</p>
@@ -871,44 +871,44 @@ const ProductServicePage = () => {
       {/* 🛡️ TRUST & SAFETY */}
       <div className="px-4 mb-6">
         <div className="grid grid-cols-3 gap-3">
-          <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 text-center">
             <CheckCircle className="w-6 h-6 text-emerald-400 mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white mb-1">Secure Payment</p>
-            <p className="text-[10px] text-gray-400">100% Protected</p>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-1">Secure Payment</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">100% Protected</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 text-center">
             <Award className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white mb-1">Verified</p>
-            <p className="text-[10px] text-gray-400">Merchant</p>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-1">Verified</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">Merchant</p>
           </div>
-          <div className="p-3 rounded-xl bg-white/5 border border-white/10 text-center">
+          <div className="p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 text-center">
             <Users className="w-6 h-6 text-purple-400 mx-auto mb-2" />
-            <p className="text-xs font-semibold text-white mb-1">24/7 Support</p>
-            <p className="text-[10px] text-gray-400">ReZ Help</p>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-1">24/7 Support</p>
+            <p className="text-[10px] text-rez-gray-600 dark:text-gray-400">ReZ Help</p>
           </div>
         </div>
       </div>
 
       {/* 🔘 STICKY BOTTOM BAR */}
-      <div className="fixed bottom-20 left-0 right-0 z-50 glass border-t border-white/10 p-4">
+      <div className="fixed bottom-20 left-0 right-0 z-50 glass border-t border-rez-gray-200 dark:border-white/10 p-4">
         <div className="flex items-center gap-3">
           <div className="flex-1">
-            <p className="text-xs text-gray-400">Final Price</p>
-            <p className="text-xl font-bold text-white">₹{(isLocked ? remainingPrice : product.rezPrice).toLocaleString()}</p>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400">Final Price</p>
+            <p className="text-xl font-bold text-rez-navy dark:text-white">₹{(isLocked ? remainingPrice : product.rezPrice).toLocaleString()}</p>
             <p className="text-xs text-emerald-400">Earn {product.coinsEarned} coins</p>
           </div>
 
           {!isLocked ? (
             <button
               onClick={handleBuyNow}
-              className="px-8 py-4 rounded-2xl bg-emerald-500 text-white font-bold flex items-center gap-2 active:scale-95 transition-transform"
+              className="px-8 py-4 rounded-2xl bg-emerald-500 text-rez-navy dark:text-white font-bold flex items-center gap-2 active:scale-95 transition-transform"
             >
               <ShoppingCart className="w-5 h-5" />
               Buy Now
             </button>
           ) : (
             <div className="text-right">
-              <p className="text-xs text-gray-400 mb-1">Locked</p>
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">Locked</p>
               <p className="text-sm font-bold text-emerald-400">{timeRemaining && formatTime(timeRemaining)}</p>
             </div>
           )}
@@ -918,10 +918,10 @@ const ProductServicePage = () => {
       {/* END MESSAGE */}
       <div className="px-4 pb-6">
         <div className="p-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-blue-600/10 border border-purple-500/30 text-center">
-          <p className="text-sm font-semibold text-white mb-1">
+          <p className="text-sm font-semibold text-rez-navy dark:text-white mb-1">
             Smart people don't just buy — they earn while buying.
           </p>
-          <p className="text-xs text-gray-300">That's ReZ.</p>
+          <p className="text-xs text-rez-gray-700 dark:text-gray-300">That's ReZ.</p>
         </div>
       </div>
     </div>

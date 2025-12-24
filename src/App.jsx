@@ -80,6 +80,17 @@ import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import Help from './pages/Help';
 import UniversalServicePage from './pages/UniversalServicePage';
+import OfferDetail from './pages/OfferDetail';
+import CashbackDetail from './pages/CashbackDetail';
+import SupportChat from './pages/support/SupportChat';
+import WalletUse from './pages/wallet/WalletUse';
+import EventsMovies from './pages/events/EventsMovies';
+import EventsConcerts from './pages/events/EventsConcerts';
+import EventsWorkshops from './pages/events/EventsWorkshops';
+import EventsParks from './pages/events/EventsParks';
+import EventsGaming from './pages/events/EventsGaming';
+import EventsExperiences from './pages/events/EventsExperiences';
+import RezPrive from './pages/exclusive/RezPrive';
 import Deals from './pages/Deals';
 import ScanPay from './pages/ScanPay';
 import Reels from './pages/Reels';
@@ -156,6 +167,7 @@ function App() {
                 <Route path="categories" element={<Categories />} />
                 <Route path="store/:id" element={<StorePage />} />
                 <Route path="wallet" element={<Wallet />} />
+                <Route path="wallet/use" element={<WalletUse />} />
                 <Route path="offers" element={<Offers />} />
                 <Route path="deal-store" element={<DealStore />} />
                 <Route path="deal/:id" element={<DealDetail />} />
@@ -163,6 +175,12 @@ function App() {
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />
+                <Route path="events/movies" element={<EventsMovies />} />
+                <Route path="events/concerts" element={<EventsConcerts />} />
+                <Route path="events/workshops" element={<EventsWorkshops />} />
+                <Route path="events/parks" element={<EventsParks />} />
+                <Route path="events/gaming" element={<EventsGaming />} />
+                <Route path="events/experiences" element={<EventsExperiences />} />
                 <Route path="event/:type/:id" element={<EventDetail />} />
                 <Route path="event/:id" element={<EventDetail />} />
                 <Route path="travel" element={<Travel />} />
@@ -226,12 +244,17 @@ function App() {
                 <Route path="order/:orderId" element={<OrderDetail />} />
                 <Route path="wishlist" element={<Wishlist />} />
 
+                {/* Offers & Cashback Details */}
+                <Route path="offers/:id" element={<OfferDetail />} />
+                <Route path="cashback/:id" element={<CashbackDetail />} />
+
                 {/* Notifications & Settings */}
                 <Route path="notifications" element={<Notifications />} />
                 <Route path="settings" element={<Settings />} />
 
                 {/* Help & Support */}
                 <Route path="help" element={<Help />} />
+                <Route path="support/chat" element={<SupportChat />} />
                 <Route path="terms" element={<Terms />} />
 
                 {/* Deals & Shopping */}
@@ -285,6 +308,7 @@ function App() {
                 <Route path="exclusive/birthday" element={<BirthdaySpecials />} />
                 <Route path="exclusive/loyalty" element={<LoyaltyRewards />} />
                 <Route path="exclusive/special-profiles" element={<SpecialProfiles />} />
+                <Route path="exclusive/prive" element={<RezPrive />} />
 
                 {/* Loyalty & Rewards - Unified Hub */}
                 <Route path="loyalty-rewards" element={<LoyaltyRewardsHub />} />

@@ -11,6 +11,8 @@ const HomeCategoryGrid = () => {
     { id: 'fitness', name: 'Fitness', icon: '🏋️', cashback: 18, link: '/fitness', color: 'from-red-500/20 to-orange-500/20' },
     { id: 'electronics', name: 'Electronics', icon: '📱', cashback: 8, link: '/electronics', color: 'from-blue-500/20 to-indigo-500/20' },
     { id: 'services', name: 'Home', icon: '🔧', cashback: 15, link: '/home-services', color: 'from-cyan-500/20 to-blue-500/20' },
+    { id: 'events', name: 'Events', icon: '🎉', cashback: 22, link: '/events', color: 'from-purple-500/20 to-pink-500/20' },
+    { id: 'financial', name: 'Financial', icon: '💳', cashback: 10, link: '/financial', color: 'from-indigo-500/20 to-blue-500/20' },
     { id: 'travel', name: 'Travel', icon: '✈️', cashback: 20, link: '/travel', color: 'from-emerald-500/20 to-teal-500/20' },
     { id: 'luxury', name: 'Luxury', icon: '👑', cashback: 6, link: '/store/luxury', color: 'from-amber-500/20 to-yellow-500/20' },
   ];

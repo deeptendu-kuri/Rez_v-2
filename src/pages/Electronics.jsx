@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   ArrowLeft,
   Search,
@@ -35,6 +35,7 @@ import UGCSocialProof from '../components/common/UGCSocialProof';
 import FooterTrust from '../components/common/FooterTrust';
 
 const Electronics = () => {
+  const navigate = useNavigate();
   const { rezCoins } = useWallet();
   const [activeFilters, setActiveFilters] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -54,6 +55,10 @@ const Electronics = () => {
     } else {
       setActiveFilters([...activeFilters, filterId]);
     }
+  };
+
+  const handleSearchClick = () => {
+    navigate('/search?category=electronics');
   };
 
   // Filter products
@@ -82,7 +87,10 @@ const Electronics = () => {
               <h1 className="text-xl font-bold text-rez-navy dark:text-white">Electronics</h1>
               <p className="text-xs text-rez-gray-600 dark:text-gray-400">Compare · Buy · Earn Rewards</p>
             </div>
-            <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10">
+            <button
+              onClick={handleSearchClick}
+              className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10"
+            >
               <Search className="w-5 h-5 text-rez-navy dark:text-white" />
             </button>
             <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">

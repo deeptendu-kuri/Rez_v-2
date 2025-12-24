@@ -45,6 +45,10 @@ const Healthcare = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSpec, setSelectedSpec] = useState(null);
 
+  const handleEmergencyCall = () => {
+    window.location.href = 'tel:108'; // Emergency number
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black pb-24">
       {/* Header */}
@@ -59,7 +63,11 @@ const Healthcare = () => {
               </div>
             </div>
             <div className="flex items-center gap-2">
-              <button className="p-2 rounded-full bg-red-500/20">
+              <button
+                onClick={handleEmergencyCall}
+                className="p-2 rounded-full bg-red-500/20"
+                title="Emergency Call 108"
+              >
                 <Phone className="w-5 h-5 text-red-400" />
               </button>
               <Link to="/wallet" className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-500/20">

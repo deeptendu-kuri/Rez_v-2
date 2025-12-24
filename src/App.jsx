@@ -49,6 +49,7 @@ import Wishlist from './pages/Wishlist';
 import Notifications from './pages/Notifications';
 import Settings from './pages/Settings';
 import Help from './pages/Help';
+import UniversalServicePage from './pages/UniversalServicePage';
 
 // Explore Subpages
 import CategoryDetail from './pages/explore/CategoryDetail';
@@ -171,7 +172,8 @@ function App() {
 
                 {/* Universal Product/Service Page */}
                 <Route path="product/:id" element={<ProductServicePage />} />
-                <Route path="service/:id" element={<ProductServicePage />} />
+                <Route path="service/:id" element={<UniversalServicePage />} />
+                <Route path="online/:id" element={<UniversalServicePage />} />
 
                 {/* Service Booking Page */}
                 <Route path="booking/:id" element={<ServiceBookingPage />} />

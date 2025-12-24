@@ -11,6 +11,7 @@ import ExploreNew from './pages/ExploreNew';
 import Categories from './pages/Categories';
 import Onboarding from './pages/Onboarding';
 import StorePage from './pages/StorePage';
+import StoreHub from './pages/StoreHub';
 import Wallet from './pages/Wallet';
 import Offers from './pages/Offers';
 import CashStore from './pages/CashStore';
@@ -206,6 +207,7 @@ function App() {
                 <Route path="explore/review-earn/:productId" element={<ReviewEarnPage />} />
                 <Route path="explore/map" element={<MapViewPage />} />
                 <Route path="categories" element={<Categories />} />
+                <Route path="stores" element={<StoreHub />} />
                 <Route path="store/:id" element={<StorePage />} />
                 <Route path="wallet" element={<Wallet />} />
                 <Route path="wallet/use" element={<WalletUse />} />

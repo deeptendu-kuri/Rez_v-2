@@ -3,7 +3,7 @@ import { Search, Camera, Receipt, Gift, Flame, Gamepad2 } from 'lucide-react';
 
 const HomeQuickActions = () => {
   const actions = [
-    { id: 'find', label: 'Find Store', icon: Search, link: '/explore', color: 'bg-blue-500/20', iconColor: 'text-blue-400' },
+    { id: 'stores', label: 'All Stores', icon: Search, link: '/stores', color: 'bg-blue-500/20', iconColor: 'text-blue-400' },
     { id: 'scan', label: 'Scan & Pay', icon: Camera, link: '/scan', color: 'bg-emerald-500/20', iconColor: 'text-emerald-400' },
     { id: 'bill', label: 'Upload Bill', icon: Receipt, link: '/upload-bill', color: 'bg-purple-500/20', iconColor: 'text-purple-400' },
     { id: 'drops', label: 'Coin Drops', icon: Gift, link: '/coin-drops', color: 'bg-amber-500/20', iconColor: 'text-amber-400', badge: '3' },

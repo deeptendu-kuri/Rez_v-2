@@ -10,12 +10,20 @@ const HomeHeader = () => {
   const userTier = 'Gold';
   const streak = 5;
 
+  const handleLocationClick = () => {
+    // TODO: Open location selector modal
+    console.log('Location clicked - implement location selection');
+  };
+
   return (
     <div className="sticky top-0 z-50 glass">
       <div className="px-4 py-3">
         <div className="flex items-center justify-between">
           {/* Left - Location */}
-          <button className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 active:bg-rez-gray-100 dark:active:bg-white/10 transition-colors">
+          <button
+            onClick={handleLocationClick}
+            className="flex items-center gap-2 px-3 py-2 rounded-full bg-rez-gray-50 dark:bg-white/5 active:bg-rez-gray-100 dark:active:bg-white/10 transition-colors"
+          >
             <MapPin className="w-4 h-4 text-emerald-400" />
             <div className="text-left">
               <p className="text-sm font-medium text-rez-navy dark:text-white truncate max-w-[140px]">{location}</p>

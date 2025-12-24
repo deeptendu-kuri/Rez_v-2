@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {
   Search,
   MapPin,
@@ -38,6 +38,7 @@ import UGCSocialProof from '../components/common/UGCSocialProof';
 import FooterTrust from '../components/common/FooterTrust';
 
 const Grocery = () => {
+  const navigate = useNavigate();
   const { rezCoins } = useWallet();
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTab, setActiveTab] = useState('nearby');
@@ -50,6 +51,11 @@ const Grocery = () => {
     } else {
       setActiveModes([...activeModes, modeId]);
     }
+  };
+
+  const handleCartClick = () => {
+    // Navigate to cart page
+    navigate('/cart');
   };
 
   // Filter stores by tab
@@ -83,7 +89,10 @@ const Grocery = () => {
                 <Coins className="w-4 h-4 text-amber-400" />
                 <span className="text-sm font-medium text-amber-400">{rezCoins}</span>
               </Link>
-              <button className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 relative">
+              <button
+                onClick={handleCartClick}
+                className="p-2 rounded-full bg-rez-gray-100 dark:bg-white/10 relative"
+              >
                 <ShoppingCart className="w-5 h-5 text-rez-navy dark:text-white" />
               </button>
             </div>

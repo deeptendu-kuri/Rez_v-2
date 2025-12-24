@@ -12,6 +12,7 @@ import Categories from './pages/Categories';
 import Onboarding from './pages/Onboarding';
 import StorePage from './pages/StorePage';
 import StoreHub from './pages/StoreHub';
+import StoreDetailPage from './pages/StoreDetailPage';
 import Wallet from './pages/Wallet';
 import Offers from './pages/Offers';
 import CashStore from './pages/CashStore';
@@ -209,6 +210,7 @@ function App() {
                 <Route path="categories" element={<Categories />} />
                 <Route path="stores" element={<StoreHub />} />
                 <Route path="store/:id" element={<StorePage />} />
+                <Route path="store-detail/:id" element={<StoreDetailPage />} />
                 <Route path="wallet" element={<Wallet />} />
                 <Route path="wallet/use" element={<WalletUse />} />
                 <Route path="offers" element={<Offers />} />

@@ -188,11 +188,21 @@ import HowRezWorks from './pages/HowRezWorks';
 import MallBrandDetail from './pages/mall/MallBrandDetail';
 import MallCategory from './pages/mall/MallCategory';
 import MallCollection from './pages/mall/MallCollection';
+import MallBrands from './pages/mall/MallBrands';
+import MallCategories from './pages/mall/MallCategories';
+import MallCart from './pages/mall/MallCart';
 
 // Cash Store sub-pages
 import CashStoreBrandDetail from './pages/cashstore/CashStoreBrandDetail';
 import TrackCashback from './pages/cashstore/TrackCashback';
 import HowItWorks from './pages/cashstore/HowItWorks';
+import CashStoreStores from './pages/cashstore/CashStoreStores';
+import CashStoreCoupons from './pages/cashstore/CashStoreCoupons';
+
+// Privé sub-pages
+import PrivePrivileges from './pages/prive/PrivePrivileges';
+import PriveExplore from './pages/prive/PriveExplore';
+import PriveInfluence from './pages/prive/PriveInfluence';
 
 function App() {
   return (
@@ -229,13 +239,21 @@ function App() {
                 <Route path="deal/:id" element={<DealDetail />} />
                 <Route path="cash-store" element={<CashStore />} />
                 <Route path="cash-store/brand/:brandId" element={<CashStoreBrandDetail />} />
+                <Route path="cash-store/stores" element={<CashStoreStores />} />
+                <Route path="cash-store/coupons" element={<CashStoreCoupons />} />
                 <Route path="cash-store/track" element={<TrackCashback />} />
                 <Route path="cash-store/how-it-works" element={<HowItWorks />} />
                 <Route path="mall" element={<RezMall />} />
                 <Route path="mall/brand/:brandId" element={<MallBrandDetail />} />
+                <Route path="mall/brands" element={<MallBrands />} />
                 <Route path="mall/category/:categoryId" element={<MallCategory />} />
+                <Route path="mall/categories" element={<MallCategories />} />
                 <Route path="mall/collection/:collectionId" element={<MallCollection />} />
+                <Route path="mall/cart" element={<MallCart />} />
                 <Route path="prive" element={<RezPrive />} />
+                <Route path="prive/privileges" element={<PrivePrivileges />} />
+                <Route path="prive/explore" element={<PriveExplore />} />
+                <Route path="prive/influence" element={<PriveInfluence />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

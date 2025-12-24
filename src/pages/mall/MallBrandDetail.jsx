@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Star, Heart, Share2, ChevronRight, Info, Zap, Award, ShoppingBag, TrendingUp } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const MallBrandDetail = () => {
   const { brandId } = useParams();
@@ -334,7 +334,7 @@ const MallBrandDetail = () => {
         </button>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

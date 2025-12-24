@@ -6,7 +6,7 @@ import {
 } from 'lucide-react';
 import { useWallet } from '../contexts/WalletContext';
 import Header from '../components/layout/Header';
-import BottomNav from '../components/layout/BottomNav';
+import BottomNavManager from '../components/layout/BottomNavManager';
 import ModeSwitcher from '../components/home/ModeSwitcher';
 
 const RezMall = () => {
@@ -399,7 +399,7 @@ const RezMall = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, SlidersHorizontal, Star, Zap, ChevronDown, TrendingUp, Award } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const MallCategory = () => {
   const { categoryId } = useParams();
@@ -405,7 +405,7 @@ const MallCategory = () => {
         </button>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

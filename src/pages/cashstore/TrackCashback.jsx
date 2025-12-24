@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Clock, CheckCircle, XCircle, AlertCircle, Search, Filter, Calendar, ExternalLink, Info } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const TrackCashback = () => {
   const navigate = useNavigate();
@@ -388,7 +388,7 @@ const TrackCashback = () => {
         </div>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

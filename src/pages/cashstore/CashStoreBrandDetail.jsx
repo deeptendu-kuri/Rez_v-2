@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, ExternalLink, Info, Copy, Check, Zap, TrendingUp, Clock, AlertCircle, Gift, Percent } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const CashStoreBrandDetail = () => {
   const { brandId } = useParams();
@@ -357,7 +357,7 @@ const CashStoreBrandDetail = () => {
         </p>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

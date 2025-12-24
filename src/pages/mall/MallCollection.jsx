@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Heart, Share2, Star, Zap, ChevronRight, Sparkles } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const MallCollection = () => {
   const { collectionId } = useParams();
@@ -315,7 +315,7 @@ const MallCollection = () => {
         </div>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

@@ -7,7 +7,7 @@ import {
 import { useWallet } from '../contexts/WalletContext';
 import { useUser } from '../contexts/UserContext';
 import Header from '../components/layout/Header';
-import BottomNav from '../components/layout/BottomNav';
+import BottomNavManager from '../components/layout/BottomNavManager';
 import ModeSwitcher from '../components/home/ModeSwitcher';
 
 const RezPrive = () => {
@@ -403,7 +403,7 @@ const RezPrive = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

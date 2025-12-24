@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { ArrowLeft, Search, ShoppingBag, Zap, CheckCircle, AlertCircle, HelpCircle, ExternalLink, Shield, Clock, Coins } from 'lucide-react';
 import Header from '../../components/layout/Header';
 import ModeSwitcher from '../../components/home/ModeSwitcher';
-import BottomNav from '../../components/layout/BottomNav';
+import BottomNavManager from '../../components/layout/BottomNavManager';
 
 const HowItWorks = () => {
   const navigate = useNavigate();
@@ -351,7 +351,7 @@ const HowItWorks = () => {
         </div>
       </div>
 
-      <BottomNav />
+      <BottomNavManager />
     </div>
   );
 };

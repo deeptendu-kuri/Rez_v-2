@@ -16,6 +16,7 @@ import StoreDetailPage from './pages/StoreDetailPage';
 import Wallet from './pages/Wallet';
 import Offers from './pages/Offers';
 import CashStore from './pages/CashStore';
+import RezMall from './pages/RezMall';
 import Profile from './pages/Profile';
 import DealStore from './pages/DealStore';
 import DealDetail from './pages/DealDetail';
@@ -217,6 +218,7 @@ function App() {
                 <Route path="deal-store" element={<DealStore />} />
                 <Route path="deal/:id" element={<DealDetail />} />
                 <Route path="cash-store" element={<CashStore />} />
+                <Route path="mall" element={<RezMall />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

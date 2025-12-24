@@ -64,9 +64,50 @@ import GroceryStoreDetail from './pages/grocery/GroceryStoreDetail';
 import GroceryProductDetail from './pages/grocery/GroceryProductDetail';
 import GroceryOffers from './pages/grocery/GroceryOffers';
 import Healthcare from './pages/Healthcare';
+import HealthcareDoctors from './pages/healthcare/HealthcareDoctors';
+import HealthcareDental from './pages/healthcare/HealthcareDental';
+import HealthcareDiagnostics from './pages/healthcare/HealthcareDiagnostics';
+import HealthcarePharmacy from './pages/healthcare/HealthcarePharmacy';
+import HealthcareOffers from './pages/healthcare/HealthcareOffers';
+import HealthcareEmergency from './pages/healthcare/HealthcareEmergency';
+import HealthcareSupport from './pages/healthcare/HealthcareSupport';
+import HealthcareCategory from './pages/healthcare/HealthcareCategory';
+import HealthcareDoctorDetail from './pages/healthcare/HealthcareDoctorDetail';
+import HealthcareDentalDetail from './pages/healthcare/HealthcareDentalDetail';
+import HealthcareTestDetail from './pages/healthcare/HealthcareTestDetail';
+import HealthcarePharmacyDetail from './pages/healthcare/HealthcarePharmacyDetail';
+import HealthcareUploadBill from './pages/healthcare/HealthcareUploadBill';
 import Fitness from './pages/Fitness';
+import FitnessGyms from './pages/fitness/FitnessGyms';
+import FitnessStudios from './pages/fitness/FitnessStudios';
+import FitnessTrainers from './pages/fitness/FitnessTrainers';
+import FitnessStore from './pages/fitness/FitnessStore';
+import FitnessChallenges from './pages/fitness/FitnessChallenges';
+import FitnessFeed from './pages/fitness/FitnessFeed';
+import FitnessStreak from './pages/fitness/FitnessStreak';
+import FitnessCategory from './pages/fitness/FitnessCategory';
+import FitnessGymDetail from './pages/fitness/FitnessGymDetail';
+import FitnessTrainerDetail from './pages/fitness/FitnessTrainerDetail';
+import FitnessChallengeDetail from './pages/fitness/FitnessChallengeDetail';
+import FitnessProductDetail from './pages/fitness/FitnessProductDetail';
 import HomeServices from './pages/HomeServices';
+import HomeServicesPopular from './pages/home-services/HomeServicesPopular';
+import HomeServicesProviders from './pages/home-services/HomeServicesProviders';
+import HomeServicesBookings from './pages/home-services/HomeServicesBookings';
+import HomeServicesAvailableToday from './pages/home-services/HomeServicesAvailableToday';
+import HomeServicesCategory from './pages/home-services/HomeServicesCategory';
+import HomeServicesBook from './pages/home-services/HomeServicesBook';
+import HomeServicesProviderDetail from './pages/home-services/HomeServicesProviderDetail';
 import Financial from './pages/Financial';
+import FinancialBills from './pages/financial/FinancialBills';
+import FinancialOffers from './pages/financial/FinancialOffers';
+import FinancialHistory from './pages/financial/FinancialHistory';
+import FinancialOTT from './pages/financial/FinancialOTT';
+import FinancialOTTDetail from './pages/financial/FinancialOTTDetail';
+import FinancialGold from './pages/financial/FinancialGold';
+import FinancialOfferDetail from './pages/financial/FinancialOfferDetail';
+import FinancialPayBill from './pages/financial/FinancialPayBill';
+import FinancialCategory from './pages/financial/FinancialCategory';
 import ProductServicePage from './pages/ProductServicePage';
 import ServiceBookingPage from './pages/ServiceBookingPage';
 import ProductCheckout from './pages/ProductCheckout';
@@ -227,9 +268,50 @@ function App() {
                 <Route path="grocery/store/:id" element={<GroceryStoreDetail />} />
                 <Route path="grocery/product/:id" element={<GroceryProductDetail />} />
                 <Route path="healthcare" element={<Healthcare />} />
+                <Route path="healthcare/doctors" element={<HealthcareDoctors />} />
+                <Route path="healthcare/dental" element={<HealthcareDental />} />
+                <Route path="healthcare/diagnostics" element={<HealthcareDiagnostics />} />
+                <Route path="healthcare/pharmacy" element={<HealthcarePharmacy />} />
+                <Route path="healthcare/offers" element={<HealthcareOffers />} />
+                <Route path="healthcare/emergency" element={<HealthcareEmergency />} />
+                <Route path="healthcare/support" element={<HealthcareSupport />} />
+                <Route path="healthcare/upload-bill" element={<HealthcareUploadBill />} />
+                <Route path="healthcare/:category" element={<HealthcareCategory />} />
+                <Route path="healthcare/doctor/:id" element={<HealthcareDoctorDetail />} />
+                <Route path="healthcare/dental/:id" element={<HealthcareDentalDetail />} />
+                <Route path="healthcare/test/:id" element={<HealthcareTestDetail />} />
+                <Route path="healthcare/pharmacy/:id" element={<HealthcarePharmacyDetail />} />
                 <Route path="fitness" element={<Fitness />} />
+                <Route path="fitness/gyms" element={<FitnessGyms />} />
+                <Route path="fitness/studios" element={<FitnessStudios />} />
+                <Route path="fitness/trainers" element={<FitnessTrainers />} />
+                <Route path="fitness/store" element={<FitnessStore />} />
+                <Route path="fitness/challenges" element={<FitnessChallenges />} />
+                <Route path="fitness/feed" element={<FitnessFeed />} />
+                <Route path="fitness/streak" element={<FitnessStreak />} />
+                <Route path="fitness/:category" element={<FitnessCategory />} />
+                <Route path="fitness/gym/:id" element={<FitnessGymDetail />} />
+                <Route path="fitness/trainer/:id" element={<FitnessTrainerDetail />} />
+                <Route path="fitness/challenge/:id" element={<FitnessChallengeDetail />} />
+                <Route path="fitness/product/:id" element={<FitnessProductDetail />} />
                 <Route path="home-services" element={<HomeServices />} />
+                <Route path="home-services/popular" element={<HomeServicesPopular />} />
+                <Route path="home-services/providers" element={<HomeServicesProviders />} />
+                <Route path="home-services/bookings" element={<HomeServicesBookings />} />
+                <Route path="home-services/available-today" element={<HomeServicesAvailableToday />} />
+                <Route path="home-services/:category" element={<HomeServicesCategory />} />
+                <Route path="home-services/book/:id" element={<HomeServicesBook />} />
+                <Route path="home-services/provider/:id" element={<HomeServicesProviderDetail />} />
                 <Route path="financial" element={<Financial />} />
+                <Route path="financial/bills" element={<FinancialBills />} />
+                <Route path="financial/offers" element={<FinancialOffers />} />
+                <Route path="financial/history" element={<FinancialHistory />} />
+                <Route path="financial/ott" element={<FinancialOTT />} />
+                <Route path="financial/ott/:id" element={<FinancialOTTDetail />} />
+                <Route path="financial/gold" element={<FinancialGold />} />
+                <Route path="financial/:category" element={<FinancialCategory />} />
+                <Route path="financial/offer/:id" element={<FinancialOfferDetail />} />
+                <Route path="financial/pay-bill/:id" element={<FinancialPayBill />} />
 
                 {/* Search Results */}
                 <Route path="search" element={<SearchResults />} />

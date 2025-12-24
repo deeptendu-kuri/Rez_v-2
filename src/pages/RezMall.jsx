@@ -13,15 +13,15 @@ const RezMall = () => {
   const { rezCoins } = useWallet();
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Mock data - will be replaced with actual data
+  // Curated featured brands (quality over quantity)
   const featuredBrands = [
     {
       id: 1,
       name: 'Zara',
       logo: '👔',
       category: 'Fashion',
-      cashback: '₹500',
-      badge: 'Mall Exclusive',
+      cashback: '₹500 ReZ Coins',
+      badge: '✅ Verified',
       rating: 4.8,
       color: 'from-blue-500/20 to-cyan-500/20'
     },
@@ -30,8 +30,8 @@ const RezMall = () => {
       name: 'Nykaa',
       logo: '💄',
       category: 'Beauty',
-      cashback: '₹300',
-      badge: 'Premium Partner',
+      cashback: '₹300 ReZ Coins',
+      badge: '⭐ ReZ Preferred',
       rating: 4.9,
       color: 'from-pink-500/20 to-rose-500/20'
     },
@@ -40,8 +40,8 @@ const RezMall = () => {
       name: 'Sony',
       logo: '📱',
       category: 'Electronics',
-      cashback: '₹1,200',
-      badge: 'Trusted Brand',
+      cashback: '₹1,200 ReZ Coins',
+      badge: '✅ Verified',
       rating: 4.7,
       color: 'from-purple-500/20 to-violet-500/20'
     },
@@ -50,8 +50,8 @@ const RezMall = () => {
       name: 'Licious',
       logo: '🍖',
       category: 'Food',
-      cashback: '₹250',
-      badge: 'Top Rated',
+      cashback: '₹250 ReZ Coins',
+      badge: '👑 Premium',
       rating: 4.6,
       color: 'from-red-500/20 to-orange-500/20'
     }
@@ -66,53 +66,56 @@ const RezMall = () => {
   ];
 
   const categories = [
-    { id: 'fashion', name: 'Fashion', icon: '👗', cashback: 'Up to 35%', stores: 120 },
-    { id: 'beauty', name: 'Beauty', icon: '💅', cashback: 'Up to 25%', stores: 85 },
-    { id: 'electronics', name: 'Electronics', icon: '📱', cashback: 'Up to 15%', stores: 95 },
-    { id: 'home', name: 'Home & Living', icon: '🏠', cashback: 'Up to 20%', stores: 70 },
-    { id: 'wellness', name: 'Wellness', icon: '🧘', cashback: 'Up to 30%', stores: 55 },
-    { id: 'lifestyle', name: 'Lifestyle', icon: '🎨', cashback: 'Up to 28%', stores: 65 }
+    { id: 'fashion', name: 'Fashion', icon: '👗', cashback: 'Earn up to 35% ReZ Coins', stores: 120 },
+    { id: 'beauty', name: 'Beauty', icon: '💅', cashback: 'Earn up to 25% ReZ Coins', stores: 85 },
+    { id: 'electronics', name: 'Electronics', icon: '📱', cashback: 'Earn up to 15% ReZ Coins', stores: 95 },
+    { id: 'home', name: 'Home & Lifestyle', icon: '🏠', cashback: 'Earn up to 20% ReZ Coins', stores: 70 },
+    { id: 'wellness', name: 'Wellness', icon: '🧘', cashback: 'Earn up to 30% ReZ Coins', stores: 55 },
+    { id: 'luxury', name: 'Luxury', icon: '💎', cashback: 'Earn up to 40% ReZ Coins', stores: 25 }
   ];
 
   const exclusiveOffers = [
     {
       id: 1,
       brand: 'H&M',
-      title: 'Flat 40% off + Extra Coins',
-      coins: 500,
+      title: 'Flat 40% off + Extra ReZ Coins',
+      coins: '500 ReZ Coins',
       validTill: '2 days',
-      image: '🎽'
+      image: '🎽',
+      badge: '🟢 Mall Exclusive'
     },
     {
       id: 2,
       brand: 'Myntra',
       title: 'Weekend Fashion Sale',
-      coins: 750,
+      coins: '750 ReZ Coins',
       validTill: '3 days',
-      image: '👠'
+      image: '👠',
+      badge: '🟢 Mall Exclusive'
     },
     {
       id: 3,
       brand: 'Tanishq',
-      title: 'Gold Coins on Jewelry',
-      coins: 2000,
+      title: 'Premium Jewelry Rewards',
+      coins: '2000 ReZ Coins',
       validTill: '5 days',
-      image: '💍'
+      image: '💍',
+      badge: '🟢 Mall Exclusive'
     }
   ];
 
   const newArrivals = [
-    { id: 1, name: 'Urban Company', category: 'Services', badge: 'New', logo: '🔧' },
-    { id: 2, name: 'Boat', category: 'Electronics', badge: 'New', logo: '🎧' },
-    { id: 3, name: 'Mamaearth', category: 'Wellness', badge: 'New', logo: '🌿' },
-    { id: 4, name: 'Pepperfry', category: 'Home', badge: 'New', logo: '🪑' }
+    { id: 1, name: 'Urban Company', category: 'Services', badge: '🆕 New on ReZ', logo: '🔧', bonus: 'Extra 100 Coins' },
+    { id: 2, name: 'Boat', category: 'Electronics', badge: '🆕 New on ReZ', logo: '🎧', bonus: 'Early-bird Coins' },
+    { id: 3, name: 'Mamaearth', category: 'Wellness', badge: '🆕 New on ReZ', logo: '🌿', bonus: 'Extra 150 Coins' },
+    { id: 4, name: 'Pepperfry', category: 'Home', badge: '🆕 New on ReZ', logo: '🪑', bonus: 'Double Coins' }
   ];
 
   const topRated = [
-    { id: 1, name: 'Amazon', rating: 4.9, orders: '50K+', cashback: '10%' },
-    { id: 2, name: 'Flipkart', rating: 4.8, orders: '45K+', cashback: '12%' },
-    { id: 3, name: 'Swiggy', rating: 4.7, orders: '40K+', cashback: '15%' },
-    { id: 4, name: 'BookMyShow', rating: 4.6, orders: '35K+', cashback: '8%' }
+    { id: 1, name: 'Zara', rating: 4.9, orders: '50K+', coins: 'Earn 10% ReZ Coins' },
+    { id: 2, name: 'Nykaa', rating: 4.8, orders: '45K+', coins: 'Earn 12% ReZ Coins' },
+    { id: 3, name: 'Sony', rating: 4.7, orders: '40K+', coins: 'Earn 15% ReZ Coins' },
+    { id: 4, name: 'Licious', rating: 4.6, orders: '35K+', coins: 'Earn 8% ReZ Coins' }
   ];
 
   return (
@@ -238,7 +241,7 @@ const RezMall = () => {
                 {category.name}
               </h3>
               <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium mb-1">
-                {category.cashback} cashback
+                {category.cashback}
               </p>
               <p className="text-xs text-rez-gray-600 dark:text-gray-400">
                 {category.stores} stores
@@ -274,8 +277,8 @@ const RezMall = () => {
                   <span className="font-semibold text-rez-navy dark:text-white">
                     {offer.brand}
                   </span>
-                  <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-[10px] font-bold text-amber-600 dark:text-amber-400">
-                    Mall Exclusive
+                  <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-[10px] font-bold text-emerald-600 dark:text-emerald-400">
+                    {offer.badge}
                   </span>
                 </div>
                 <p className="text-sm text-rez-gray-700 dark:text-gray-300 mb-2">
@@ -320,8 +323,11 @@ const RezMall = () => {
               <h3 className="font-semibold text-sm text-rez-navy dark:text-white mb-1">
                 {brand.name}
               </h3>
-              <p className="text-xs text-rez-gray-600 dark:text-gray-400">
+              <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">
                 {brand.category}
+              </p>
+              <p className="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                {brand.bonus}
               </p>
             </Link>
           ))}
@@ -358,7 +364,7 @@ const RezMall = () => {
                     {brand.orders} orders
                   </span>
                   <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
-                    {brand.cashback} back
+                    {brand.coins}
                   </span>
                 </div>
               </div>

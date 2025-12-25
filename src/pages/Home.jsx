@@ -14,6 +14,7 @@ import StreaksGamification from '../components/home/StreaksGamification';
 import LiveActivityFeed from '../components/home/LiveActivityFeed';
 import FloatingScanButton from '../components/home/FloatingScanButton';
 import BottomNavManager from '../components/layout/BottomNavManager';
+import LiveChatWidget from '../components/LiveChatWidget';
 
 const Home = () => {
   const { globalMode, filters, vibe } = useApp();
@@ -413,6 +414,411 @@ const Home = () => {
         </div>
       </div>
 
+      {/* 🛍️ BEAUTY & WELLNESS */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">💄 Beauty & Wellness</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Pamper yourself, save more</p>
+          </div>
+          <Link to="/beauty" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/beauty/services"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-pink-500/20 to-rose-500/10 dark:from-pink-500/20 dark:to-rose-500/10 border border-pink-500/30 dark:border-pink-500/30 hover:border-pink-500/50 dark:hover:border-pink-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">💆</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Salon & Spa</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Hair, nails, skin</p>
+            <div className="text-xs font-semibold text-pink-600 dark:text-pink-400">Up to 30% off</div>
+          </Link>
+
+          <Link
+            to="/beauty/products"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-purple-500/20 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/10 border border-purple-500/30 dark:border-purple-500/30 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">💄</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Products</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Makeup, skincare</p>
+            <div className="text-xs font-semibold text-purple-600 dark:text-purple-400">20% cashback</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/beauty/clinics"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-pink-500 dark:hover:border-pink-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🏥</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Clinics</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Dermatology</p>
+          </Link>
+
+          <Link
+            to="/beauty/nearby"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-rose-500 dark:hover:border-rose-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">📍</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Nearby</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Near you</p>
+          </Link>
+
+          <Link
+            to="/beauty/deals"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-purple-500 dark:hover:border-purple-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🏷️</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Deals</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Hot offers</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* 💪 FITNESS & SPORTS */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">💪 Fitness & Sports</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Get fit, get rewards</p>
+          </div>
+          <Link to="/fitness" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/fitness/gyms"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-orange-500/20 to-red-500/10 dark:from-orange-500/20 dark:to-red-500/10 border border-orange-500/30 dark:border-orange-500/30 hover:border-orange-500/50 dark:hover:border-orange-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🏋️</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Gyms</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">All equipment</p>
+            <div className="text-xs font-semibold text-orange-600 dark:text-orange-400">15% off memberships</div>
+          </Link>
+
+          <Link
+            to="/fitness/studios"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-green-500/20 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/10 border border-green-500/30 dark:border-green-500/30 hover:border-green-500/50 dark:hover:border-green-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🧘</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Studios</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Yoga, dance, pilates</p>
+            <div className="text-xs font-semibold text-green-600 dark:text-green-400">Book classes</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/fitness/trainers"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-orange-500 dark:hover:border-orange-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">👨‍🏫</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Trainers</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Personal PT</p>
+          </Link>
+
+          <Link
+            to="/fitness/store"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-red-500 dark:hover:border-red-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">👟</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Store</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Gear & wear</p>
+          </Link>
+
+          <Link
+            to="/fitness/challenges"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🏆</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Challenges</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Win prizes</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* 🛒 GROCERY & ESSENTIALS */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">🛒 Grocery & Essentials</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Daily needs, delivered fast</p>
+          </div>
+          <Link to="/grocery" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/grocery/fast"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-green-500/20 to-teal-500/10 dark:from-green-500/20 dark:to-teal-500/10 border border-green-500/30 dark:border-green-500/30 hover:border-green-500/50 dark:hover:border-green-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">⚡</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Quick Delivery</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">10-30 mins</p>
+            <div className="text-xs font-semibold text-green-600 dark:text-green-400">5% instant cashback</div>
+          </Link>
+
+          <Link
+            to="/grocery/stores"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/10 border border-blue-500/30 dark:border-blue-500/30 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🏪</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Stores</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Big Bazaar, More</p>
+            <div className="text-xs font-semibold text-blue-600 dark:text-blue-400">10% cashback</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/grocery/deals"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🔥</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Deals</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Daily offers</p>
+          </Link>
+
+          <Link
+            to="/grocery/compare"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">⚖️</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Compare</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Best prices</p>
+          </Link>
+
+          <Link
+            to="/grocery/products"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">📦</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Browse</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">All products</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* ⚕️ HEALTHCARE */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">⚕️ Healthcare</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Your health, our priority</p>
+          </div>
+          <Link to="/healthcare" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/healthcare/doctors"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-blue-500/20 to-indigo-500/10 dark:from-blue-500/20 dark:to-indigo-500/10 border border-blue-500/30 dark:border-blue-500/30 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">👨‍⚕️</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Doctors</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Book appointments</p>
+            <div className="text-xs font-semibold text-blue-600 dark:text-blue-400">Instant booking</div>
+          </Link>
+
+          <Link
+            to="/healthcare/pharmacy"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-green-500/20 to-emerald-500/10 dark:from-green-500/20 dark:to-emerald-500/10 border border-green-500/30 dark:border-green-500/30 hover:border-green-500/50 dark:hover:border-green-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">💊</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Pharmacy</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Order medicines</p>
+            <div className="text-xs font-semibold text-green-600 dark:text-green-400">25% off</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/healthcare/diagnostics"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🔬</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Lab Tests</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Home service</p>
+          </Link>
+
+          <Link
+            to="/healthcare/dental"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🦷</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Dental</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Specialists</p>
+          </Link>
+
+          <Link
+            to="/healthcare/emergency"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-red-500 dark:hover:border-red-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🚑</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Emergency</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">24x7</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* 🏠 HOME SERVICES */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">🏠 Home Services</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Professional help at home</p>
+          </div>
+          <Link to="/home-services" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/home-services/popular"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-amber-500/20 to-orange-500/10 dark:from-amber-500/20 dark:to-orange-500/10 border border-amber-500/30 dark:border-amber-500/30 hover:border-amber-500/50 dark:hover:border-amber-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🔧</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Repairs</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">AC, plumbing, electric</p>
+            <div className="text-xs font-semibold text-amber-600 dark:text-amber-400">Same day service</div>
+          </Link>
+
+          <Link
+            to="/home-services/cleaning"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-blue-500/20 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/10 border border-blue-500/30 dark:border-blue-500/30 hover:border-blue-500/50 dark:hover:border-blue-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🧹</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Cleaning</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Deep clean, pest control</p>
+            <div className="text-xs font-semibold text-blue-600 dark:text-blue-400">Book now</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/home-services/painting"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-amber-500 dark:hover:border-amber-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🎨</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Painting</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Interior</p>
+          </Link>
+
+          <Link
+            to="/home-services/available-today"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">⚡</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Today</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Available</p>
+          </Link>
+
+          <Link
+            to="/home-services/providers"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">👨‍🔧</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Providers</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Verified</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* 💳 FINANCIAL SERVICES */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">💳 Financial Services</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Pay bills, recharge & more</p>
+          </div>
+          <Link to="/financial" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 mb-3">
+          <Link
+            to="/financial/bills"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-indigo-500/20 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/10 border border-indigo-500/30 dark:border-indigo-500/30 hover:border-indigo-500/50 dark:hover:border-indigo-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">📝</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Pay Bills</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Electricity, water, gas</p>
+            <div className="text-xs font-semibold text-indigo-600 dark:text-indigo-400">Earn cashback</div>
+          </Link>
+
+          <Link
+            to="/financial/ott"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-purple-500/20 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/10 border border-purple-500/30 dark:border-purple-500/30 hover:border-purple-500/50 dark:hover:border-purple-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">📺</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">OTT Plans</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Netflix, Prime, Disney+</p>
+            <div className="text-xs font-semibold text-purple-600 dark:text-purple-400">Special prices</div>
+          </Link>
+        </div>
+
+        <div className="grid grid-cols-3 gap-2">
+          <Link
+            to="/financial/recharge"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-blue-500 dark:hover:border-blue-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">📱</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Recharge</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Mobile, DTH</p>
+          </Link>
+
+          <Link
+            to="/financial/gold"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-yellow-500 dark:hover:border-yellow-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🪙</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Gold</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Digital gold</p>
+          </Link>
+
+          <Link
+            to="/financial/offers"
+            className="p-3 rounded-rez-lg bg-white dark:bg-white/10 border border-rez-gray-200 dark:border-white/10 hover:border-green-500 dark:hover:border-green-500 transition-all active:scale-95"
+          >
+            <span className="text-xl mb-1 block">🎁</span>
+            <p className="text-xs font-semibold text-rez-navy dark:text-white mb-0.5">Offers</p>
+            <p className="text-[10px] text-rez-gray-500 dark:text-gray-400">Cashback</p>
+          </Link>
+        </div>
+      </div>
+
+      {/* ✈️ TRAVEL */}
+      <div className="px-4 mb-6">
+        <div className="flex items-center justify-between mb-4">
+          <div>
+            <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">✈️ Travel</h2>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">Book trips, save big</p>
+          </div>
+          <Link to="/travel" className="text-button text-rez-green-500 dark:text-emerald-400 font-poppins">View All →</Link>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3">
+          <Link
+            to="/travel"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-sky-500/20 to-blue-500/10 dark:from-sky-500/20 dark:to-blue-500/10 border border-sky-500/30 dark:border-sky-500/30 hover:border-sky-500/50 dark:hover:border-sky-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">✈️</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Flights</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Domestic & international</p>
+            <div className="text-xs font-semibold text-sky-600 dark:text-sky-400">Best prices guaranteed</div>
+          </Link>
+
+          <Link
+            to="/travel"
+            className="p-4 rounded-rez-lg bg-gradient-to-br from-green-500/20 to-teal-500/10 dark:from-green-500/20 dark:to-teal-500/10 border border-green-500/30 dark:border-green-500/30 hover:border-green-500/50 dark:hover:border-green-500/50 transition-all active:scale-95"
+          >
+            <span className="text-3xl mb-2 block">🏨</span>
+            <h3 className="text-sm font-semibold text-rez-navy dark:text-white mb-1">Hotels</h3>
+            <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-2">Luxury to budget</p>
+            <div className="text-xs font-semibold text-green-600 dark:text-green-400">Up to 50% off</div>
+          </Link>
+        </div>
+      </div>
+
       {/* 6️⃣ HOW ReZ WORKS */}
       <HowRezWorks />
 
@@ -702,6 +1108,9 @@ const Home = () => {
 
       {/* 1️⃣3️⃣ FLOATING CTA */}
       <FloatingScanButton />
+
+      {/* Live Chat Support */}
+      <LiveChatWidget position="bottom-right" />
 
       {/* Bottom Navigation */}
       <BottomNavManager />

@@ -84,6 +84,7 @@ import Events from './pages/Events';
 import EventDetail from './pages/EventDetail';
 import Travel from './pages/Travel';
 import FoodDining from './pages/FoodDining';
+import Games from './pages/Games';
 import RestaurantDetail from './pages/RestaurantDetail';
 import Electronics from './pages/Electronics';
 import ElectronicsCategory from './pages/ElectronicsCategory';
@@ -290,6 +291,7 @@ function App() {
                 <Route path="offers" element={<Offers />} />
                 <Route path="deal-store" element={<DealStore />} />
                 <Route path="deal/:id" element={<DealDetail />} />
+                <Route path="games" element={<Games />} />
                 <Route path="cash-store" element={<CashStore />} />
                 <Route path="cash-store/brand/:brandId" element={<CashStoreBrandDetail />} />
                 <Route path="cash-store/stores" element={<CashStoreStores />} />

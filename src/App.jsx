@@ -72,6 +72,8 @@ import SavingsTracker from './pages/SavingsTracker';
 import ContestHub from './pages/contests/ContestHub';
 import ContestDetail from './pages/contests/ContestDetail';
 import EmployeeVerification from './pages/corporate/EmployeeVerification';
+import EnhancedWishlist from './pages/EnhancedWishlist';
+import NotificationsCenter from './pages/NotificationsCenter';
 import Profile from './pages/Profile';
 import DealStore from './pages/DealStore';
 import DealDetail from './pages/DealDetail';
@@ -351,6 +353,8 @@ function App() {
                 <Route path="contests" element={<ContestHub />} />
                 <Route path="contest/:contestId" element={<ContestDetail />} />
                 <Route path="corporate/verify" element={<EmployeeVerification />} />
+                <Route path="wishlist-enhanced" element={<EnhancedWishlist />} />
+                <Route path="notifications-center" element={<NotificationsCenter />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

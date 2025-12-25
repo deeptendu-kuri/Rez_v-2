@@ -1,0 +1,214 @@
+/**
+ * D5 - Privé Content Guidelines Screen
+ * Purpose: Maintain quality without sounding strict
+ * Tone: Clear, calm, professional
+ */
+
+import React from 'react';
+// React Native imports removed
+import {
+  ScreenContainer,
+  Text,
+  Card,
+  PriveHeader,
+  Divider,
+} from '../../components';
+import { colors, spacing, borderRadius } from '../../theme';
+
+interface D5_ContentGuidelinesScreenProps {
+  onBack?: () => void;
+}
+
+export const D5_ContentGuidelinesScreen: React.FC<D5_ContentGuidelinesScreenProps> = ({
+  onBack,
+}) => {
+  const whatWorks = [
+    'Clear, well-lit photos and videos',
+    'Honest, detailed descriptions of your experience',
+    'Specific mentions of what stood out',
+    'Natural, conversational tone',
+    'Context about when and why you visited',
+  ];
+
+  const whatToAvoid = [
+    'Blurry or poorly lit content',
+    'Generic or copied text',
+    'Misleading claims about products or services',
+    'Overly promotional language',
+    'Content that doesn\'t reflect genuine experience',
+  ];
+
+  const brandSafeRules = [
+    'Respect brand guidelines when provided',
+    'Maintain professional representation',
+    'Disclose Privé partnership when required',
+    'Avoid controversial or divisive content',
+  ];
+
+  return (
+    <ScreenContainer>
+      <PriveHeader title="Content Guidelines" showBack onBack={onBack} />
+
+      {/* Introduction */}
+      <Text variant="body" color={colors.text.secondary} style={style={{...styles.intro}>
+        Quality content builds trust and unlocks higher rewards. Here's what helps your content succeed.
+      </Text>
+
+      <Divider variant="gold" spacing={spacing[6]} />
+
+      {/* What Works Best */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          What Works Best
+        </Text>
+        <Card variant="gold">
+          {whatWorks.map((item, index) => (
+            <div key={index} style={style={{...styles.guidelineItem}>
+              <div style={style={{...styles.checkIcon}>
+                <Text variant="bodySmall" color={colors.status.success}>
+                  {'\u2713'}
+                </Text>
+              </div>
+              <Text variant="body" color={colors.text.primary}>
+                {item}
+              </Text>
+            </div>
+          ))}
+        </Card>
+      </div>
+
+      {/* What to Avoid */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          What to Avoid
+        </Text>
+        <Card variant="default">
+          {whatToAvoid.map((item, index) => (
+            <div key={index} style={style={{...styles.guidelineItem}>
+              <div style={style={{...styles.crossIcon}>
+                <Text variant="bodySmall" color={colors.status.error}>
+                  {'\u2212'}
+                </Text>
+              </div>
+              <Text variant="body" color={colors.text.secondary}>
+                {item}
+              </Text>
+            </div>
+          ))}
+        </Card>
+      </div>
+
+      <Divider variant="light" spacing={spacing[6]} />
+
+      {/* Brand-Safe Rules */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          Brand-Safe Guidelines
+        </Text>
+        <Card variant="default">
+          {brandSafeRules.map((item, index) => (
+            <div key={index} style={style={{...styles.guidelineItem}>
+              <div style={style={{...styles.bulletIcon}>
+                <Text variant="caption" gold>
+                  {'\u2022'}
+                </Text>
+              </div>
+              <Text variant="body" color={colors.text.secondary}>
+                {item}
+              </Text>
+            </div>
+          ))}
+        </Card>
+      </div>
+
+      {/* Authenticity Note */}
+      <Card variant="goldGlow" style={style={{...styles.authenticityCard}>
+        <div style={style={{...styles.authenticityContent}>
+          <div style={style={{...styles.authenticityIcon}>
+            <Text variant="h4" gold>
+              {'\u2605'}
+            </Text>
+          </div>
+          <div style={style={{...styles.authenticityText}>
+            <Text variant="bodyLarge" color={colors.text.primary}>
+              Authenticity is key
+            </Text>
+            <Text variant="bodySmall" color={colors.text.secondary} style={style={{...styles.authenticitySubtext}>
+              The most successful Privé content comes from genuine experiences. Share what you truly feel, and your audience will respond.
+            </Text>
+          </div>
+        </div>
+      </Card>
+    </ScreenContainer>
+  );
+};
+
+const styles = StyleSheet.create({
+  intro: {
+    marginTop: spacing[4],
+    lineHeight: 24,
+  },
+  section: {
+    marginTop: spacing[2],
+  },
+  sectionLabel: {
+    marginBottom: spacing[3],
+  },
+  guidelineItem: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    paddingVertical: spacing[3],
+    borderBottomWidth: 1,
+    borderBottomColor: colors.border.secondary,
+  },
+  checkIcon: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.transparent.gold10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[3],
+  },
+  crossIcon: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: colors.background.tertiary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[3],
+  },
+  bulletIcon: {
+    width: 24,
+    height: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[3],
+  },
+  authenticityCard: {
+    marginTop: spacing[6],
+  },
+  authenticityContent: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+  },
+  authenticityIcon: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: colors.transparent.gold10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[4],
+  },
+  authenticityText: {
+    flex: 1,
+  },
+  authenticitySubtext: {
+    marginTop: spacing[2],
+    lineHeight: 20,
+  },
+});
+
+export default D5_ContentGuidelinesScreen;

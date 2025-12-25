@@ -1,0 +1,375 @@
+/**
+ * Privé Payment Screen
+ * Shows coin breakdown and payment options
+ */
+
+import React, { useState } from 'react';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
+// SafeAreaView removed
+import { useNavigate } from 'react-router-dom';
+import { Text } from '../../components';
+import { colors, spacing } from '../../theme';
+
+interface PaymentScreenProps {
+  onBack?: () => void;
+  onComplete?: () => void;
+}
+
+interface CoinBalance {
+  type: 'rez' | 'branded' | 'prive';
+  name: string;
+  balance: number;
+  usable: number;
+  color: string;
+}
+
+export const PaymentScreen: React.FC<PaymentScreenProps> = ({ onBack, onComplete }) => {
+  const navigation = useNavigation<any>();
+  const [selectedCoins, setSelectedCoins] = useState<string[]>(['rez', 'prive']);
+
+  const orderAmount = 2500;
+
+  const coins: CoinBalance[] = [
+    { type: 'rez', name: 'ReZ Coin', balance: 850, usable: 500, color: '#4CAF50' },
+    { type: 'branded', name: 'Luxury Café Coin', balance: 200, usable: 200, color: '#64B5F6' },
+    { type: 'prive', name: 'Privé Coin', balance: 1200, usable: 800, color: '#C9A962' },
+  ];
+
+  const totalCoinValue = coins
+    .filter(c => selectedCoins.includes(c.type))
+    .reduce((sum, c) => sum + c.usable, 0);
+
+  const remainingAmount = Math.max(0, orderAmount - totalCoinValue);
+
+  const toggleCoin = (type: string) => {
+    setSelectedCoins(prev =>
+      prev.includes(type)
+        ? prev.filter(t => t !== type)
+        : [...prev, type]
+    );
+  };
+
+  const paymentMethods = [
+    { id: 'upi', name: 'UPI', subtitle: 'GPay, PhonePe, Paytm', bonus: '+2% Privé Coins' },
+    { id: 'card', name: 'Credit/Debit Card', subtitle: 'Visa, Mastercard, RuPay', bonus: null },
+    { id: 'bnpl', name: 'Pay Later', subtitle: 'LazyPay, Simpl', bonus: '+5% Privé Coins' },
+  ];
+
+  return (
+    <div style={style={{...styles.container}>
+      {/* Header */}
+      <div style={style={{...styles.header}>
+        <div onPress={onBack || (() => navigation.goBack())}>
+          <Text variant="body" gold>← Back</Text>
+        </div>
+        <Text variant="h3" color={colors.text.primary}>Payment</Text>
+        <div style={{ width: 50 }} />
+      </div>
+
+      <div style={style={{...styles.scrollView} showsVerticalScrollIndicator={false}>
+        {/* Order Summary */}
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            ORDER SUMMARY
+          </Text>
+          <div style={style={{...styles.orderCard}>
+            <div style={style={{...styles.orderRow}>
+              <Text variant="body" color={colors.text.secondary}>Order Total</Text>
+              <Text variant="h3" color={colors.text.primary}>₹{orderAmount.toLocaleString()}</Text>
+            </div>
+          </div>
+        </div>
+
+        {/* Coin Selection */}
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            USE YOUR COINS
+          </Text>
+
+          {coins.map((coin) => (
+            <div
+              key={coin.type}
+              style={[
+                style={{...styles.coinCard,
+                selectedCoins.includes(coin.type) && style={{...styles.coinCardSelected,
+                { borderColor: selectedCoins.includes(coin.type) ? coin.color : '#2A2A2A' }
+              ]}
+              onPress={() => toggleCoin(coin.type)}
+            >
+              <div style={style={{...styles.coinLeft}>
+                <div style={[style={{...styles.coinIcon, { backgroundColor: coin.color + '20' }]}>
+                  <Text style={[style={{...styles.coinIconText, { color: coin.color }]}>◉</Text>
+                </div>
+                <div>
+                  <Text variant="body" color={colors.text.primary}>{coin.name}</Text>
+                  <Text variant="caption" color={colors.text.tertiary}>
+                    Balance: {coin.balance} · Usable: {coin.usable}
+                  </Text>
+                </div>
+              </div>
+              <div style={style={{...styles.coinRight}>
+                <Text variant="bodyLarge" style={{ color: coin.color }}>
+                  -₹{coin.usable}
+                </Text>
+                <div style={[
+                  style={{...styles.checkbox,
+                  selectedCoins.includes(coin.type) && { backgroundColor: coin.color, borderColor: coin.color }
+                ]}>
+                  {selectedCoins.includes(coin.type) && (
+                    <Text style={style={{...styles.checkmark}>✓</Text>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+
+          {/* Coin Summary */}
+          <div style={style={{...styles.coinSummary}>
+            <Text variant="body" color={colors.text.secondary}>Total Coin Value</Text>
+            <Text variant="bodyLarge" gold>-₹{totalCoinValue.toLocaleString()}</Text>
+          </div>
+        </div>
+
+        {/* Remaining Amount */}
+        <div style={style={{...styles.section}>
+          <div style={style={{...styles.remainingCard}>
+            <Text variant="body" color={colors.text.secondary}>Amount to Pay</Text>
+            <Text variant="h2" gold>₹{remainingAmount.toLocaleString()}</Text>
+          </div>
+        </div>
+
+        {/* Payment Methods */}
+        {remainingAmount > 0 && (
+          <div style={style={{...styles.section}>
+            <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+              PAYMENT METHOD
+            </Text>
+
+            {paymentMethods.map((method) => (
+              <div key={method.id} style={style={{...styles.methodCard}>
+                <div>
+                  <Text variant="body" color={colors.text.primary}>{method.name}</Text>
+                  <Text variant="caption" color={colors.text.tertiary}>{method.subtitle}</Text>
+                </div>
+                {method.bonus && (
+                  <div style={style={{...styles.bonusBadge}>
+                    <Text variant="caption" gold>{method.bonus}</Text>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
+        {/* Earnings Preview */}
+        <div style={style={{...styles.section}>
+          <div style={style={{...styles.earningsCard}>
+            <Text variant="label" color={colors.text.tertiary}>YOU'LL EARN</Text>
+            <div style={style={{...styles.earningsRow}>
+              <div style={style={{...styles.earningItem}>
+                <Text variant="h3" style={{ color: '#4CAF50' }}>+125</Text>
+                <Text variant="caption" color={colors.text.tertiary}>ReZ Coins</Text>
+              </div>
+              <div style={style={{...styles.earningItem}>
+                <Text variant="h3" style={{ color: '#64B5F6' }}>+50</Text>
+                <Text variant="caption" color={colors.text.tertiary}>Brand Coins</Text>
+              </div>
+              <div style={style={{...styles.earningItem}>
+                <Text variant="h3" gold>+375</Text>
+                <Text variant="caption" color={colors.text.tertiary}>Privé Coins</Text>
+              </div>
+            </div>
+            <Text variant="caption" color={colors.text.tertiary} style={style={{...styles.earningsNote}>
+              15% Privé Reward based on your engagement tier
+            </Text>
+          </div>
+        </div>
+
+        <div style={style={{...styles.bottomSpace} />
+      </div>
+
+      {/* Pay Button */}
+      <div style={style={{...styles.payButtonContainer}>
+        <div
+          style={style={{...styles.payButton}
+          onPress={onComplete || (() => navigation.navigate('Redemption', { screen: 'PaymentSuccess' }))}
+        >
+          <Text variant="bodyLarge" color="#0A0A0A">
+            {remainingAmount > 0 ? `Pay ₹${remainingAmount.toLocaleString()}` : 'Complete Order'}
+          </Text>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0A0A0A',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing[5],
+    paddingVertical: spacing[4],
+    borderBottomWidth: 1,
+    borderBottomColor: '#2A2A2A',
+  },
+  scrollView: {
+    flex: 1,
+  },
+  section: {
+    paddingHorizontal: spacing[5],
+    marginTop: spacing[6],
+  },
+  sectionLabel: {
+    marginBottom: spacing[3],
+    letterSpacing: 1,
+  },
+  orderCard: {
+    backgroundColor: '#181818',
+    borderRadius: 12,
+    padding: spacing[4],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+  orderRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  coinCard: {
+    backgroundColor: '#181818',
+    borderRadius: 12,
+    padding: spacing[4],
+    marginBottom: spacing[3],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  coinCardSelected: {
+    backgroundColor: '#1A1A1A',
+  },
+  coinLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[3],
+  },
+  coinIcon: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  coinIconText: {
+    fontSize: 20,
+  },
+  coinRight: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[3],
+  },
+  checkbox: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    borderWidth: 2,
+    borderColor: '#4A4A4A',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  checkmark: {
+    color: '#0A0A0A',
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  coinSummary: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingTop: spacing[3],
+    borderTopWidth: 1,
+    borderTopColor: '#2A2A2A',
+  },
+  remainingCard: {
+    backgroundColor: '#181818',
+    borderRadius: 12,
+    padding: spacing[5],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.3)',
+    alignItems: 'center',
+    gap: spacing[2],
+  },
+  methodCard: {
+    backgroundColor: '#181818',
+    borderRadius: 12,
+    padding: spacing[4],
+    marginBottom: spacing[3],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  bonusBadge: {
+    backgroundColor: 'rgba(201, 169, 98, 0.1)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[1],
+    borderRadius: 6,
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.3)',
+  },
+  earningsCard: {
+    backgroundColor: '#181818',
+    borderRadius: 12,
+    padding: spacing[5],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    alignItems: 'center',
+  },
+  earningsRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '100%',
+    marginTop: spacing[4],
+  },
+  earningItem: {
+    alignItems: 'center',
+    gap: spacing[1],
+  },
+  earningsNote: {
+    marginTop: spacing[3],
+    fontStyle: 'italic',
+  },
+  bottomSpace: {
+    height: 100,
+  },
+  payButtonContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing[5],
+    backgroundColor: '#0A0A0A',
+    borderTopWidth: 1,
+    borderTopColor: '#2A2A2A',
+  },
+  payButton: {
+    backgroundColor: '#C9A962',
+    paddingVertical: spacing[4],
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+});
+
+export default PaymentScreen;

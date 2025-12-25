@@ -2,7 +2,7 @@ import { useApp } from '../../contexts/AppContext';
 import BottomNavNearYou from './BottomNavNearYou';
 import BottomNavMall from './BottomNavMall';
 import BottomNavCashStore from './BottomNavCashStore';
-import BottomNavPrive from './BottomNavPrive';
+import BottomNavPriveExact from './BottomNavPriveExact';
 
 /**
  * BottomNavManager - Renders the appropriate bottom navigation based on current mode
@@ -24,7 +24,7 @@ const BottomNavManager = () => {
     case 'cashStore':
       return <BottomNavCashStore />;
     case 'prive':
-      return <BottomNavPrive />;
+      return <BottomNavPriveExact />;
     default:
       return <BottomNavNearYou />;
   }

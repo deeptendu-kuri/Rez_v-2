@@ -1,0 +1,785 @@
+/**
+ * F6 - Privé Invitations & Referrals
+ * Purpose: Show all invitations from merchants and referral tracking
+ * Includes: Pending invitations, accepted campaigns, referral data
+ */
+
+import React, { useState } from 'react';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Share,
+} from 'react-native';
+import { useNavigate } from 'react-router-dom';
+// SafeAreaView removed
+// LinearGradient will use CSS
+import { Text, Card } from '../../components';
+import { colors, spacing, borderRadius } from '../../theme';
+
+type TabType = 'invitations' | 'referrals';
+
+interface BrandInvitation {
+  id: string;
+  brandName: string;
+  brandLogo?: string;
+  campaignTitle: string;
+  rewardRange: string;
+  actionRequired: string;
+  duration: string;
+  expiresIn: string;
+  status: 'pending' | 'accepted' | 'declined' | 'expired';
+  receivedDate: string;
+}
+
+interface ReferralData {
+  code: string;
+  totalInvited: number;
+  joined: number;
+  pending: number;
+  totalEarned: number;
+  pendingEarnings: number;
+  referrals: {
+    id: string;
+    name: string;
+    joinedDate?: string;
+    status: 'joined' | 'pending';
+    earnedCoins?: number;
+  }[];
+}
+
+const mockInvitations: BrandInvitation[] = [
+  {
+    id: 'inv1',
+    brandName: 'Luxury Café',
+    campaignTitle: 'Weekend Brunch Experience',
+    rewardRange: '20-45%',
+    actionRequired: 'Visit + Share Experience',
+    duration: '2 weeks',
+    expiresIn: '5 days',
+    status: 'pending',
+    receivedDate: 'Today',
+  },
+  {
+    id: 'inv2',
+    brandName: 'Maison de Luxe',
+    campaignTitle: 'New Collection Launch',
+    rewardRange: '25-50%',
+    actionRequired: 'Purchase + Review',
+    duration: '1 month',
+    expiresIn: '12 days',
+    status: 'pending',
+    receivedDate: 'Yesterday',
+  },
+  {
+    id: 'inv3',
+    brandName: 'The Grand Pavilion',
+    campaignTitle: 'Holiday Special Menu',
+    rewardRange: '30-40%',
+    actionRequired: 'Dine + Share Story',
+    duration: '3 weeks',
+    expiresIn: '8 days',
+    status: 'pending',
+    receivedDate: '2 days ago',
+  },
+  {
+    id: 'inv4',
+    brandName: 'Artisan Watch Co',
+    campaignTitle: 'Limited Edition Preview',
+    rewardRange: '35-55%',
+    actionRequired: 'Store Visit + Content',
+    duration: '2 weeks',
+    expiresIn: 'Accepted',
+    status: 'accepted',
+    receivedDate: '5 days ago',
+  },
+  {
+    id: 'inv5',
+    brandName: 'Premium Spa',
+    campaignTitle: 'Wellness Week',
+    rewardRange: '15-30%',
+    actionRequired: 'Treatment + Review',
+    duration: '1 week',
+    expiresIn: 'Expired',
+    status: 'expired',
+    receivedDate: '2 weeks ago',
+  },
+];
+
+const mockReferralData: ReferralData = {
+  code: 'PRIVE-RAHUL2025',
+  totalInvited: 12,
+  joined: 8,
+  pending: 4,
+  totalEarned: 4000,
+  pendingEarnings: 1000,
+  referrals: [
+    { id: 'r1', name: 'Amit Sharma', status: 'joined', joinedDate: 'Nov 2025', earnedCoins: 500 },
+    { id: 'r2', name: 'Priya Patel', status: 'joined', joinedDate: 'Dec 2025', earnedCoins: 500 },
+    { id: 'r3', name: 'Vikram Singh', status: 'joined', joinedDate: 'Dec 2025', earnedCoins: 500 },
+    { id: 'r4', name: 'Neha Gupta', status: 'pending' },
+    { id: 'r5', name: 'Raj Malhotra', status: 'joined', joinedDate: 'Oct 2025', earnedCoins: 500 },
+  ],
+};
+
+export const F6_InvitationsScreen: React.FC = () => {
+  const navigation = useNavigation<any>();
+  const [activeTab, setActiveTab] = useState<TabType>('invitations');
+
+  const pendingInvitations = mockInvitations.filter(i => i.status === 'pending');
+  const acceptedInvitations = mockInvitations.filter(i => i.status === 'accepted');
+  const expiredInvitations = mockInvitations.filter(i => i.status === 'expired' || i.status === 'declined');
+
+  const handleShareCode = async () => {
+    try {
+      await Share.share({
+        message: `Join ReZ Privé with my invite code: ${mockReferralData.code}\n\nGet exclusive access to luxury rewards and earn coins on your purchases!`,
+      });
+    } catch (error) {
+      console.log('Error sharing:', error);
+    }
+  };
+
+  const handleViewInvitation = (invitation: BrandInvitation) => {
+    navigation.navigate('Offers', {
+      screen: 'C3_BrandInvitation',
+      params: { invitation },
+    });
+  };
+
+  const renderInvitationsTab = () => (
+    <>
+      {/* Pending Invitations */}
+      {pendingInvitations.length > 0 && (
+        <div style={style={{...styles.section}>
+          <div style={style={{...styles.sectionHeader}>
+            <Text variant="label" color={colors.text.tertiary}>
+              PENDING INVITATIONS
+            </Text>
+            <div style={style={{...styles.countBadge}>
+              <Text variant="caption" gold>{pendingInvitations.length}</Text>
+            </div>
+          </div>
+
+          {pendingInvitations.map((invitation) => (
+            <div
+              key={invitation.id}
+              style={style={{...styles.invitationCard}
+              onPress={() => handleViewInvitation(invitation)}
+              activeOpacity={0.8}
+            >
+              <div style={style={{...styles.invitationHeader}>
+                <div style={style={{...styles.brandLogo}>
+                  <Text variant="body" gold>{invitation.brandName.charAt(0)}</Text>
+                </div>
+                <div style={style={{...styles.invitationInfo}>
+                  <Text variant="body" color={colors.text.primary}>
+                    {invitation.brandName}
+                  </Text>
+                  <Text variant="caption" color={colors.text.secondary}>
+                    {invitation.campaignTitle}
+                  </Text>
+                </div>
+                <div style={style={{...styles.expiryBadge}>
+                  <Text variant="caption" color="#FFC107">
+                    {invitation.expiresIn}
+                  </Text>
+                </div>
+              </div>
+
+              <div style={style={{...styles.invitationDetails}>
+                <div style={style={{...styles.detailItem}>
+                  <Text variant="caption" color={colors.text.tertiary}>Reward</Text>
+                  <Text variant="body" gold>{invitation.rewardRange}</Text>
+                </div>
+                <div style={style={{...styles.detailDivider} />
+                <div style={style={{...styles.detailItem}>
+                  <Text variant="caption" color={colors.text.tertiary}>Action</Text>
+                  <Text variant="caption" color={colors.text.secondary}>
+                    {invitation.actionRequired}
+                  </Text>
+                </div>
+                <div style={style={{...styles.detailDivider} />
+                <div style={style={{...styles.detailItem}>
+                  <Text variant="caption" color={colors.text.tertiary}>Duration</Text>
+                  <Text variant="caption" color={colors.text.secondary}>
+                    {invitation.duration}
+                  </Text>
+                </div>
+              </div>
+
+              <div style={style={{...styles.invitationActions}>
+                <div
+                  style={style={{...styles.acceptBtn}
+                  onPress={() => handleViewInvitation(invitation)}
+                >
+                  <Text variant="body" color="#0A0A0A">View & Accept</Text>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Active Campaigns */}
+      {acceptedInvitations.length > 0 && (
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            ACTIVE CAMPAIGNS
+          </Text>
+
+          {acceptedInvitations.map((invitation) => (
+            <div
+              key={invitation.id}
+              style={[style={{...styles.invitationCard, style={{...styles.acceptedCard]}
+              onPress={() => navigation.navigate('Offers', {
+                screen: 'C2_OfferDetail',
+                params: { offerId: invitation.id },
+              })}
+            >
+              <div style={style={{...styles.invitationHeader}>
+                <div style={[style={{...styles.brandLogo, style={{...styles.brandLogoActive]}>
+                  <Text variant="body" color="#4CAF50">{invitation.brandName.charAt(0)}</Text>
+                </div>
+                <div style={style={{...styles.invitationInfo}>
+                  <Text variant="body" color={colors.text.primary}>
+                    {invitation.brandName}
+                  </Text>
+                  <Text variant="caption" color={colors.text.secondary}>
+                    {invitation.campaignTitle}
+                  </Text>
+                </div>
+                <div style={style={{...styles.activeBadge}>
+                  <Text variant="caption" color="#4CAF50">Active</Text>
+                </div>
+              </div>
+
+              <div style={style={{...styles.progressSection}>
+                <div style={style={{...styles.progressBar}>
+                  <div style={[style={{...styles.progressFill, { width: '30%' }]} />
+                </div>
+                <Text variant="caption" color={colors.text.tertiary}>
+                  In Progress · {invitation.duration} remaining
+                </Text>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Expired/Declined */}
+      {expiredInvitations.length > 0 && (
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            EXPIRED
+          </Text>
+
+          {expiredInvitations.map((invitation) => (
+            <div key={invitation.id} style={[style={{...styles.invitationCard, style={{...styles.expiredCard]}>
+              <div style={style={{...styles.invitationHeader}>
+                <div style={[style={{...styles.brandLogo, style={{...styles.brandLogoExpired]}>
+                  <Text variant="body" color={colors.text.tertiary}>
+                    {invitation.brandName.charAt(0)}
+                  </Text>
+                </div>
+                <div style={style={{...styles.invitationInfo}>
+                  <Text variant="body" color={colors.text.tertiary}>
+                    {invitation.brandName}
+                  </Text>
+                  <Text variant="caption" color={colors.text.tertiary}>
+                    {invitation.campaignTitle}
+                  </Text>
+                </div>
+                <Text variant="caption" color={colors.text.tertiary}>
+                  {invitation.receivedDate}
+                </Text>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {pendingInvitations.length === 0 && acceptedInvitations.length === 0 && (
+        <div style={style={{...styles.emptyState}>
+          <Text variant="h3" color={colors.text.secondary} center>
+            No Invitations Yet
+          </Text>
+          <Text variant="body" color={colors.text.tertiary} center style={style={{...styles.emptyText}>
+            Keep engaging with Privé partners to receive exclusive brand invitations
+          </Text>
+        </div>
+      )}
+    </>
+  );
+
+  const renderReferralsTab = () => (
+    <>
+      {/* Referral Summary */}
+      <LinearGradient
+        colors={['rgba(201, 169, 98, 0.15)', 'rgba(201, 169, 98, 0.05)']}
+        style={style={{...styles.referralSummary}
+      >
+        <Text variant="caption" color={colors.text.tertiary}>YOUR NETWORK VALUE</Text>
+        <Text style={style={{...styles.summaryAmount}>
+          +{mockReferralData.totalEarned.toLocaleString()}
+        </Text>
+        <Text variant="caption" color={colors.text.tertiary}>coins earned from referrals</Text>
+
+        {mockReferralData.pendingEarnings > 0 && (
+          <div style={style={{...styles.pendingEarningsBadge}>
+            <Text variant="caption" color="#FFC107">
+              +{mockReferralData.pendingEarnings} pending
+            </Text>
+          </div>
+        )}
+      </LinearGradient>
+
+      {/* Stats Row */}
+      <div style={style={{...styles.statsRow}>
+        <div style={style={{...styles.statCard}>
+          <Text variant="h2" gold>{mockReferralData.joined}</Text>
+          <Text variant="caption" color={colors.text.tertiary}>Joined</Text>
+        </div>
+        <div style={style={{...styles.statDivider} />
+        <div style={style={{...styles.statCard}>
+          <Text variant="h2" color="#FFC107">{mockReferralData.pending}</Text>
+          <Text variant="caption" color={colors.text.tertiary}>Pending</Text>
+        </div>
+        <div style={style={{...styles.statDivider} />
+        <div style={style={{...styles.statCard}>
+          <Text variant="h2" color={colors.text.primary}>{mockReferralData.totalInvited}</Text>
+          <Text variant="caption" color={colors.text.tertiary}>Total</Text>
+        </div>
+      </div>
+
+      {/* Referral Code */}
+      <div style={style={{...styles.referralCodeSection}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          YOUR INVITE CODE
+        </Text>
+        <div style={style={{...styles.referralCodeCard}>
+          <div style={style={{...styles.codeDisplay}>
+            <Text variant="h3" gold>{mockReferralData.code}</Text>
+          </div>
+          <div style={style={{...styles.shareBtn} onPress={handleShareCode}>
+            <Text variant="body" color="#0A0A0A">Share Code</Text>
+          </div>
+        </div>
+        <Text variant="caption" color={colors.text.tertiary} center style={style={{...styles.codeNote}>
+          Earn 500 coins for each friend who joins Privé
+        </Text>
+      </div>
+
+      {/* Referral List */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          YOUR REFERRALS
+        </Text>
+
+        {mockReferralData.referrals.map((referral) => (
+          <div key={referral.id} style={style={{...styles.referralCard}>
+            <div style={style={{...styles.referralAvatar}>
+              <Text variant="body" color={colors.text.secondary}>
+                {referral.name.charAt(0)}
+              </Text>
+            </div>
+            <div style={style={{...styles.referralInfo}>
+              <Text variant="body" color={colors.text.primary}>{referral.name}</Text>
+              <Text variant="caption" color={colors.text.tertiary}>
+                {referral.status === 'joined'
+                  ? `Joined ${referral.joinedDate}`
+                  : 'Invite sent'}
+              </Text>
+            </div>
+            {referral.status === 'joined' ? (
+              <div style={style={{...styles.earnedBadge}>
+                <Text variant="caption" color="#4CAF50">
+                  +{referral.earnedCoins} earned
+                </Text>
+              </div>
+            ) : (
+              <div style={style={{...styles.pendingBadge}>
+                <Text variant="caption" color="#FFC107">Pending</Text>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* Invite More */}
+      <div style={style={{...styles.inviteMoreCard} onPress={handleShareCode}>
+        <div style={style={{...styles.inviteMoreIcon}>
+          <Text style={style={{...styles.inviteMoreIconText}>+</Text>
+        </div>
+        <div style={style={{...styles.inviteMoreContent}>
+          <Text variant="body" color={colors.text.primary}>Invite More Friends</Text>
+          <Text variant="caption" color={colors.text.tertiary}>
+            Share your code and grow your network
+          </Text>
+        </div>
+        <Text variant="body" gold>→</Text>
+      </div>
+    </>
+  );
+
+  return (
+    <div style={style={{...styles.container}>
+      {/* Header */}
+      <div style={style={{...styles.header}>
+        <div style={style={{...styles.backBtn} onPress={() => navigation.goBack()}>
+          <Text variant="bodyLarge" color={colors.text.primary}>←</Text>
+        </div>
+        <Text variant="h3" color={colors.text.primary}>Invitations & Referrals</Text>
+        <div style={{ width: 40 }} />
+      </div>
+
+      {/* Tabs */}
+      <div style={style={{...styles.tabs}>
+        <div
+          style={[style={{...styles.tab, activeTab === 'invitations' && style={{...styles.tabActive]}
+          onPress={() => setActiveTab('invitations')}
+        >
+          <Text
+            variant="body"
+            color={activeTab === 'invitations' ? colors.gold.primary : colors.text.tertiary}
+          >
+            Brand Invitations
+          </Text>
+          {pendingInvitations.length > 0 && (
+            <div style={style={{...styles.tabBadge}>
+              <Text variant="caption" color="#0A0A0A">{pendingInvitations.length}</Text>
+            </div>
+          )}
+        </div>
+        <div
+          style={[style={{...styles.tab, activeTab === 'referrals' && style={{...styles.tabActive]}
+          onPress={() => setActiveTab('referrals')}
+        >
+          <Text
+            variant="body"
+            color={activeTab === 'referrals' ? colors.gold.primary : colors.text.tertiary}
+          >
+            My Referrals
+          </Text>
+        </div>
+      </div>
+
+      <div
+        style={style={{...styles.scrollView}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={style={{...styles.scrollContent}
+      >
+        {activeTab === 'invitations' ? renderInvitationsTab() : renderReferralsTab()}
+      </div>
+    </div>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0A0A0A',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing[4],
+    paddingVertical: spacing[3],
+    borderBottomWidth: 1,
+    borderBottomColor: '#1A1A1A',
+  },
+  backBtn: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#181818',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  tabs: {
+    flexDirection: 'row',
+    paddingHorizontal: spacing[5],
+    paddingVertical: spacing[3],
+    gap: spacing[3],
+  },
+  tab: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: spacing[3],
+    borderRadius: borderRadius.lg,
+    backgroundColor: '#181818',
+    gap: spacing[2],
+  },
+  tabActive: {
+    backgroundColor: 'rgba(201, 169, 98, 0.15)',
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.3)',
+  },
+  tabBadge: {
+    backgroundColor: colors.gold.primary,
+    paddingHorizontal: spacing[2],
+    paddingVertical: 2,
+    borderRadius: borderRadius.full,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    paddingHorizontal: spacing[5],
+    paddingBottom: spacing[8],
+  },
+  section: {
+    marginBottom: spacing[6],
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[2],
+    marginBottom: spacing[4],
+  },
+  sectionLabel: {
+    marginBottom: spacing[4],
+  },
+  countBadge: {
+    backgroundColor: 'rgba(201, 169, 98, 0.15)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: 2,
+    borderRadius: borderRadius.full,
+  },
+  invitationCard: {
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.xl,
+    padding: spacing[4],
+    marginBottom: spacing[3],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+  acceptedCard: {
+    borderColor: 'rgba(76, 175, 80, 0.3)',
+  },
+  expiredCard: {
+    opacity: 0.6,
+  },
+  invitationHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: spacing[4],
+  },
+  brandLogo: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+    backgroundColor: 'rgba(201, 169, 98, 0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[3],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.3)',
+  },
+  brandLogoActive: {
+    backgroundColor: 'rgba(76, 175, 80, 0.15)',
+    borderColor: 'rgba(76, 175, 80, 0.3)',
+  },
+  brandLogoExpired: {
+    backgroundColor: '#2A2A2A',
+    borderColor: 'transparent',
+  },
+  invitationInfo: {
+    flex: 1,
+    gap: spacing[1],
+  },
+  expiryBadge: {
+    backgroundColor: 'rgba(255, 193, 7, 0.15)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[1],
+    borderRadius: borderRadius.sm,
+  },
+  activeBadge: {
+    backgroundColor: 'rgba(76, 175, 80, 0.15)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[1],
+    borderRadius: borderRadius.sm,
+  },
+  invitationDetails: {
+    flexDirection: 'row',
+    backgroundColor: '#0A0A0A',
+    borderRadius: borderRadius.lg,
+    padding: spacing[3],
+    marginBottom: spacing[4],
+  },
+  detailItem: {
+    flex: 1,
+    alignItems: 'center',
+    gap: spacing[1],
+  },
+  detailDivider: {
+    width: 1,
+    backgroundColor: '#2A2A2A',
+  },
+  invitationActions: {
+    flexDirection: 'row',
+    gap: spacing[3],
+  },
+  acceptBtn: {
+    flex: 1,
+    backgroundColor: colors.gold.primary,
+    paddingVertical: spacing[3],
+    borderRadius: borderRadius.lg,
+    alignItems: 'center',
+  },
+  progressSection: {
+    gap: spacing[2],
+  },
+  progressBar: {
+    height: 6,
+    backgroundColor: '#2A2A2A',
+    borderRadius: 3,
+    overflow: 'hidden',
+  },
+  progressFill: {
+    height: '100%',
+    backgroundColor: '#4CAF50',
+    borderRadius: 3,
+  },
+  emptyState: {
+    paddingVertical: spacing[10],
+    gap: spacing[3],
+  },
+  emptyText: {
+    paddingHorizontal: spacing[4],
+  },
+
+  // Referrals Tab
+  referralSummary: {
+    borderRadius: borderRadius.xl,
+    padding: spacing[6],
+    alignItems: 'center',
+    marginBottom: spacing[4],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.2)',
+  },
+  summaryAmount: {
+    fontSize: 42,
+    fontWeight: '200',
+    color: colors.gold.primary,
+    marginVertical: spacing[2],
+  },
+  pendingEarningsBadge: {
+    marginTop: spacing[3],
+    backgroundColor: 'rgba(255, 193, 7, 0.15)',
+    paddingHorizontal: spacing[3],
+    paddingVertical: spacing[1],
+    borderRadius: borderRadius.full,
+  },
+  statsRow: {
+    flexDirection: 'row',
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.xl,
+    padding: spacing[4],
+    marginBottom: spacing[6],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+  statCard: {
+    flex: 1,
+    alignItems: 'center',
+    gap: spacing[1],
+  },
+  statDivider: {
+    width: 1,
+    backgroundColor: '#2A2A2A',
+  },
+  referralCodeSection: {
+    marginBottom: spacing[6],
+  },
+  referralCodeCard: {
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.xl,
+    padding: spacing[4],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.2)',
+  },
+  codeDisplay: {
+    backgroundColor: '#0A0A0A',
+    borderRadius: borderRadius.lg,
+    padding: spacing[4],
+    alignItems: 'center',
+    marginBottom: spacing[4],
+  },
+  shareBtn: {
+    backgroundColor: colors.gold.primary,
+    paddingVertical: spacing[3],
+    borderRadius: borderRadius.lg,
+    alignItems: 'center',
+  },
+  codeNote: {
+    marginTop: spacing[3],
+  },
+  referralCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.lg,
+    padding: spacing[4],
+    marginBottom: spacing[3],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+  referralAvatar: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: '#2A2A2A',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: spacing[3],
+  },
+  referralInfo: {
+    flex: 1,
+    gap: spacing[1],
+  },
+  earnedBadge: {
+    backgroundColor: 'rgba(76, 175, 80, 0.15)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[1],
+    borderRadius: borderRadius.sm,
+  },
+  pendingBadge: {
+    backgroundColor: 'rgba(255, 193, 7, 0.15)',
+    paddingHorizontal: spacing[2],
+    paddingVertical: spacing[1],
+    borderRadius: borderRadius.sm,
+  },
+  inviteMoreCard: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.xl,
+    padding: spacing[4],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.2)',
+    gap: spacing[3],
+  },
+  inviteMoreIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: 'rgba(201, 169, 98, 0.15)',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  inviteMoreIconText: {
+    fontSize: 24,
+    color: colors.gold.primary,
+  },
+  inviteMoreContent: {
+    flex: 1,
+    gap: spacing[1],
+  },
+});
+
+export default F6_InvitationsScreen;

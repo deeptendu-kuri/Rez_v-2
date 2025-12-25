@@ -16,8 +16,45 @@ import StoreDetailPage from './pages/StoreDetailPage';
 import Wallet from './pages/Wallet';
 import Offers from './pages/Offers';
 import CashStore from './pages/CashStore';
+import CashStoreTrack from './pages/cashstore/CashStoreTrack';
 import RezMall from './pages/RezMall';
 import RezPrive from './pages/RezPrive';
+import PriveHome from './pages/prive/PriveHome';
+import PrivePrivileges from './pages/prive/PrivePrivileges';
+import PriveExplore from './pages/prive/PriveExplore';
+import PriveInfluence from './pages/prive/PriveInfluence';
+import PriveTierProgress from './pages/prive/PriveTierProgress';
+import PriveOfferDetail from './pages/prive/PriveOfferDetail';
+import PriveRedeem from './pages/prive/PriveRedeem';
+import PriveProfile from './pages/prive/PriveProfile';
+import PriveStoreDetail from './pages/prive/PriveStoreDetail';
+import PriveInfluenceHub from './pages/prive/PriveInfluenceHub';
+import PriveNotifications from './pages/prive/PriveNotifications';
+import PriveBrandInvitation from './pages/prive/PriveBrandInvitation';
+import PriveEarnings from './pages/prive/PriveEarnings';
+import PriveActivity from './pages/prive/PriveActivity';
+import PriveRecognition from './pages/prive/PriveRecognition';
+import PriveAuthority from './pages/prive/PriveAuthority';
+import PriveVisibilityControl from './pages/prive/PriveVisibilityControl';
+import PriveActivityStatement from './pages/prive/PriveActivityStatement';
+import PriveExit from './pages/prive/PriveExit';
+import PriveInvitations from './pages/prive/PriveInvitations';
+import PriveSettings from './pages/prive/PriveSettings';
+import PriveOffersFeed from './pages/prive/PriveOffersFeed';
+import PriveCampaignTask from './pages/prive/PriveCampaignTask';
+import PriveCampaignStatus from './pages/prive/PriveCampaignStatus';
+import PriveEligibility from './pages/prive/PriveEligibility';
+import PriveContentPerformance from './pages/prive/PriveContentPerformance';
+import PriveContentGuidelines from './pages/prive/PriveContentGuidelines';
+import PriveRedemptionHistory from './pages/prive/PriveRedemptionHistory';
+import PriveScoreBreakdown from './pages/prive/PriveScoreBreakdown';
+import PriveGiftCards from './pages/prive/PriveGiftCards';
+import PriveExperiences from './pages/prive/PriveExperiences';
+import PrivePartnerPrivileges from './pages/prive/PrivePartnerPrivileges';
+import PriveExperienceDetail from './pages/prive/PriveExperienceDetail';
+import PriveGiftCardDetail from './pages/prive/PriveGiftCardDetail';
+import PriveCheckout from './pages/prive/PriveCheckout';
+import PriveBooking from './pages/prive/PriveBooking';
 import Profile from './pages/Profile';
 import DealStore from './pages/DealStore';
 import DealDetail from './pages/DealDetail';
@@ -199,11 +236,6 @@ import HowItWorks from './pages/cashstore/HowItWorks';
 import CashStoreStores from './pages/cashstore/CashStoreStores';
 import CashStoreCoupons from './pages/cashstore/CashStoreCoupons';
 
-// Privé sub-pages
-import PrivePrivileges from './pages/prive/PrivePrivileges';
-import PriveExplore from './pages/prive/PriveExplore';
-import PriveInfluence from './pages/prive/PriveInfluence';
-
 function App() {
   return (
     <BrowserRouter>
@@ -241,8 +273,7 @@ function App() {
                 <Route path="cash-store/brand/:brandId" element={<CashStoreBrandDetail />} />
                 <Route path="cash-store/stores" element={<CashStoreStores />} />
                 <Route path="cash-store/coupons" element={<CashStoreCoupons />} />
-                <Route path="cash-store/track" element={<TrackCashback />} />
-                <Route path="cash-store/how-it-works" element={<HowItWorks />} />
+                <Route path="cash-store/track" element={<CashStoreTrack />} />
                 <Route path="mall" element={<RezMall />} />
                 <Route path="mall/brand/:brandId" element={<MallBrandDetail />} />
                 <Route path="mall/brands" element={<MallBrands />} />
@@ -250,10 +281,42 @@ function App() {
                 <Route path="mall/categories" element={<MallCategories />} />
                 <Route path="mall/collection/:collectionId" element={<MallCollection />} />
                 <Route path="mall/cart" element={<MallCart />} />
-                <Route path="prive" element={<RezPrive />} />
+                <Route path="prive" element={<PriveHome />} />
                 <Route path="prive/privileges" element={<PrivePrivileges />} />
                 <Route path="prive/explore" element={<PriveExplore />} />
                 <Route path="prive/influence" element={<PriveInfluence />} />
+                <Route path="prive/tier-progress" element={<PriveTierProgress />} />
+                <Route path="prive/offer/:offerId" element={<PriveOfferDetail />} />
+                <Route path="prive/redeem" element={<PriveRedeem />} />
+                <Route path="prive/profile" element={<PriveProfile />} />
+                <Route path="prive/store/:storeId" element={<PriveStoreDetail />} />
+                <Route path="prive/influence-hub" element={<PriveInfluenceHub />} />
+                <Route path="prive/notifications" element={<PriveNotifications />} />
+                <Route path="prive/invitation/:invitationId" element={<PriveBrandInvitation />} />
+                <Route path="prive/earnings" element={<PriveEarnings />} />
+                <Route path="prive/activity" element={<PriveActivity />} />
+                <Route path="prive/recognition" element={<PriveRecognition />} />
+                <Route path="prive/authority" element={<PriveAuthority />} />
+                <Route path="prive/visibility" element={<PriveVisibilityControl />} />
+                <Route path="prive/statement" element={<PriveActivityStatement />} />
+                <Route path="prive/exit" element={<PriveExit />} />
+                <Route path="prive/invitations" element={<PriveInvitations />} />
+                <Route path="prive/settings" element={<PriveSettings />} />
+                <Route path="prive/offers-feed" element={<PriveOffersFeed />} />
+                <Route path="prive/campaign/:campaignId" element={<PriveCampaignTask />} />
+                <Route path="prive/campaign-status/:campaignId" element={<PriveCampaignStatus />} />
+                <Route path="prive/eligibility" element={<PriveEligibility />} />
+                <Route path="prive/content-performance/:contentId" element={<PriveContentPerformance />} />
+                <Route path="prive/content-guidelines" element={<PriveContentGuidelines />} />
+                <Route path="prive/redemption-history" element={<PriveRedemptionHistory />} />
+                <Route path="prive/score-breakdown" element={<PriveScoreBreakdown />} />
+                <Route path="prive/gift-cards" element={<PriveGiftCards />} />
+                <Route path="prive/gift-card/:cardId" element={<PriveGiftCardDetail />} />
+                <Route path="prive/experiences" element={<PriveExperiences />} />
+                <Route path="prive/experience/:experienceId" element={<PriveExperienceDetail />} />
+                <Route path="prive/partner-privileges" element={<PrivePartnerPrivileges />} />
+                <Route path="prive/checkout" element={<PriveCheckout />} />
+                <Route path="prive/booking" element={<PriveBooking />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

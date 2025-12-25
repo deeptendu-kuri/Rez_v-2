@@ -1,0 +1,231 @@
+/**
+ * Warning Screen
+ * Soft warning for policy violations
+ */
+
+import React from 'react';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
+// SafeAreaView removed
+import { useNavigate } from 'react-router-dom';
+import { Text } from '../../components';
+import { colors, spacing } from '../../theme';
+
+interface WarningScreenProps {
+  onBack?: () => void;
+  onAcknowledge?: () => void;
+}
+
+export const WarningScreen: React.FC<WarningScreenProps> = ({ onBack, onAcknowledge }) => {
+  const navigation = useNavigation<any>();
+
+  const warningDetails = {
+    type: 'Content Quality',
+    reason: 'Recent content submissions did not meet Privé quality standards.',
+    impact: 'Your Privé Coin earning rate has been temporarily reduced by 10%.',
+    actions: [
+      'Review Privé Content Guidelines',
+      'Ensure authentic engagement only',
+      'Maintain quality in future submissions',
+    ],
+    gracePeriod: '7 days',
+  };
+
+  return (
+    <div style={style={{...styles.container}>
+      {/* Header */}
+      <div style={style={{...styles.header}>
+        <div onPress={onBack || (() => navigation.goBack())}>
+          <Text variant="body" gold>← Back</Text>
+        </div>
+        <Text variant="h3" color={colors.text.primary}>Notice</Text>
+        <div style={{ width: 50 }} />
+      </div>
+
+      <div style={style={{...styles.scrollView} showsVerticalScrollIndicator={false}>
+        {/* Warning Icon */}
+        <div style={style={{...styles.iconContainer}>
+          <div style={style={{...styles.warningIcon}>
+            <Text style={style={{...styles.warningIconText}>⚠</Text>
+          </div>
+        </div>
+
+        {/* Warning Title */}
+        <div style={style={{...styles.titleSection}>
+          <Text variant="h2" color="#FF9800" center>Attention Required</Text>
+          <Text variant="body" color={colors.text.secondary} center style={style={{...styles.subtitle}>
+            We noticed something that needs your attention
+          </Text>
+        </div>
+
+        {/* Warning Details */}
+        <div style={style={{...styles.detailsCard}>
+          <div style={style={{...styles.detailRow}>
+            <Text variant="caption" color={colors.text.tertiary}>TYPE</Text>
+            <Text variant="body" color={colors.text.primary}>{warningDetails.type}</Text>
+          </div>
+
+          <div style={style={{...styles.divider} />
+
+          <div style={style={{...styles.detailRow}>
+            <Text variant="caption" color={colors.text.tertiary}>REASON</Text>
+            <Text variant="body" color={colors.text.primary}>{warningDetails.reason}</Text>
+          </div>
+
+          <div style={style={{...styles.divider} />
+
+          <div style={style={{...styles.detailRow}>
+            <Text variant="caption" color={colors.text.tertiary}>IMPACT</Text>
+            <Text variant="body" color="#FF9800">{warningDetails.impact}</Text>
+          </div>
+        </div>
+
+        {/* What To Do */}
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            WHAT YOU CAN DO
+          </Text>
+
+          {warningDetails.actions.map((action, index) => (
+            <div key={index} style={style={{...styles.actionItem}>
+              <div style={style={{...styles.actionNumber}>
+                <Text variant="caption" color="#0A0A0A">{index + 1}</Text>
+              </div>
+              <Text variant="body" color={colors.text.primary}>{action}</Text>
+            </div>
+          ))}
+        </div>
+
+        {/* Grace Period */}
+        <div style={style={{...styles.gracePeriodCard}>
+          <Text variant="caption" color={colors.text.tertiary}>RECOVERY PERIOD</Text>
+          <Text variant="h3" color="#4CAF50">{warningDetails.gracePeriod}</Text>
+          <Text variant="caption" color={colors.text.secondary}>
+            Maintain good standing to restore full benefits
+          </Text>
+        </div>
+
+        {/* Reassurance */}
+        <div style={style={{...styles.reassuranceSection}>
+          <Text variant="body" color={colors.text.tertiary} center style={style={{...styles.reassuranceText}>
+            This is a soft warning. Your Privé access remains active.{'\n'}
+            We believe in supporting your journey, not punishing mistakes.
+          </Text>
+        </div>
+
+        <div style={style={{...styles.bottomSpace} />
+      </div>
+
+      {/* Acknowledge Button */}
+      <div style={style={{...styles.buttonContainer}>
+        <div style={style={{...styles.guidelinesButton}>
+          <Text variant="body" gold>View Guidelines</Text>
+        </div>
+        <div
+          style={style={{...styles.acknowledgeButton}
+          onPress={onAcknowledge || (() => navigation.goBack())}
+        >
+          <Text variant="bodyLarge" color="#0A0A0A">I Understand</Text>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#0A0A0A' },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: spacing[5],
+    paddingVertical: spacing[4],
+    borderBottomWidth: 1,
+    borderBottomColor: '#2A2A2A',
+  },
+  scrollView: { flex: 1 },
+  iconContainer: { alignItems: 'center', paddingTop: spacing[8] },
+  warningIcon: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: 'rgba(255, 152, 0, 0.2)',
+    borderWidth: 2,
+    borderColor: '#FF9800',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  warningIconText: { fontSize: 36, color: '#FF9800' },
+  titleSection: { paddingVertical: spacing[6], paddingHorizontal: spacing[5] },
+  subtitle: { marginTop: spacing[2] },
+  detailsCard: {
+    marginHorizontal: spacing[5],
+    backgroundColor: '#181818',
+    borderRadius: 16,
+    padding: spacing[5],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+  detailRow: { gap: spacing[2] },
+  divider: { height: 1, backgroundColor: '#2A2A2A', marginVertical: spacing[4] },
+  section: { paddingHorizontal: spacing[5], paddingTop: spacing[6] },
+  sectionLabel: { marginBottom: spacing[4], letterSpacing: 1 },
+  actionItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[3],
+    marginBottom: spacing[3],
+  },
+  actionNumber: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: '#C9A962',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  gracePeriodCard: {
+    marginHorizontal: spacing[5],
+    marginTop: spacing[6],
+    backgroundColor: 'rgba(76, 175, 80, 0.1)',
+    borderRadius: 12,
+    padding: spacing[5],
+    borderWidth: 1,
+    borderColor: 'rgba(76, 175, 80, 0.3)',
+    alignItems: 'center',
+    gap: spacing[2],
+  },
+  reassuranceSection: { paddingHorizontal: spacing[5], paddingTop: spacing[6] },
+  reassuranceText: { fontStyle: 'italic', lineHeight: 22 },
+  bottomSpace: { height: 150 },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing[5],
+    backgroundColor: '#0A0A0A',
+    borderTopWidth: 1,
+    borderTopColor: '#2A2A2A',
+    gap: spacing[3],
+  },
+  guidelinesButton: {
+    paddingVertical: spacing[3],
+    borderRadius: 12,
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.3)',
+  },
+  acknowledgeButton: {
+    backgroundColor: '#C9A962',
+    paddingVertical: spacing[4],
+    borderRadius: 12,
+    alignItems: 'center',
+  },
+});
+
+export default WarningScreen;

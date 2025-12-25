@@ -13,6 +13,7 @@ import HomeReels from '../components/home/HomeReels';
 import StreaksGamification from '../components/home/StreaksGamification';
 import LiveActivityFeed from '../components/home/LiveActivityFeed';
 import FloatingScanButton from '../components/home/FloatingScanButton';
+import BottomNavManager from '../components/layout/BottomNavManager';
 
 const Home = () => {
   const { globalMode, filters, vibe } = useApp();
@@ -494,6 +495,9 @@ const Home = () => {
 
       {/* 1️⃣3️⃣ FLOATING CTA */}
       <FloatingScanButton />
+
+      {/* Bottom Navigation */}
+      <BottomNavManager />
     </div>
   );
 };

@@ -1,0 +1,641 @@
+/**
+ * E10 - Wallet Screen
+ *
+ * Unified wallet view showing:
+ * - Three coin types (ReZ, Branded, Privé)
+ * - Clear breakdown of each
+ * - Where coins came from
+ * - Where they can be used
+ * - What expires when
+ *
+ * Key principle: "No confusion"
+ */
+
+import React, { useState } from 'react';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ScrollView,
+  Dimensions,
+} from 'react-native';
+// SafeAreaView removed
+import { useNavigate } from 'react-router-dom';
+// LinearGradient will use CSS
+import { Text } from '../../components';
+import { colors, spacing, borderRadius } from '../../theme';
+import {
+  WalletData,
+  CoinBalance,
+  CoinSource,
+  COIN_TYPES,
+  buildMockWalletData,
+  formatCoinBalance,
+  getExpiryMessage,
+} from '../../utils/habitLoops';
+
+const { width: SCREEN_WIDTH } = Dimensions.get('window');
+
+type WalletTab = 'overview' | 'rez' | 'branded' | 'prive';
+
+export const E10_WalletScreen: React.FC = () => {
+  const navigation = useNavigation<any>();
+  const [activeTab, setActiveTab] = useState<WalletTab>('overview');
+  const walletData = buildMockWalletData();
+
+  const tabs: { id: WalletTab; label: string }[] = [
+    { id: 'overview', label: 'Overview' },
+    { id: 'rez', label: 'ReZ' },
+    { id: 'branded', label: 'Branded' },
+    { id: 'prive', label: 'Privé' },
+  ];
+
+  const formatDate = (date: Date): string => {
+    const now = new Date();
+    const diffTime = now.getTime() - date.getTime();
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays === 0) return 'Today';
+    if (diffDays === 1) return 'Yesterday';
+    if (diffDays < 7) return `${diffDays} days ago`;
+    return date.toLocaleDateString('en-IN', { month: 'short', day: 'numeric' });
+  };
+
+  const renderCoinCard = (coin: CoinBalance) => {
+    const coinInfo = COIN_TYPES[coin.type];
+    const expiryMessage = getExpiryMessage(coin.expiringAmount, coin.expiringDate);
+
+    return (
+      <div
+        key={coin.type}
+        style={style={{...styles.coinCard}
+        onPress={() => setActiveTab(coin.type)}
+        activeOpacity={0.7}
+      >
+        <LinearGradient
+          colors={[`${coin.color}15`, `${coin.color}05`]}
+          style={style={{...styles.coinCardGradient}
+        >
+          {/* Header */}
+          <div style={style={{...styles.coinCardHeader}>
+            <div style={[style={{...styles.coinIcon, { backgroundColor: `${coin.color}20` }]}>
+              <Text style={style={{...styles.coinEmoji}>{coin.icon}</Text>
+            </div>
+            <div style={style={{...styles.coinInfo}>
+              <Text variant="body" color={colors.text.primary}>{coin.name}</Text>
+              <Text variant="caption" color={colors.text.tertiary}>{coinInfo.description}</Text>
+            </div>
+          </div>
+
+          {/* Balance */}
+          <div style={style={{...styles.coinBalance}>
+            <Text variant="h2" style={{ color: coin.color }}>
+              {formatCoinBalance(coin.balance)}
+            </Text>
+            {coin.pendingBalance > 0 && (
+              <Text variant="caption" color={colors.text.tertiary}>
+                +{coin.pendingBalance} pending
+              </Text>
+            )}
+          </div>
+
+          {/* Weekly Earnings */}
+          <div style={style={{...styles.coinEarnings}>
+            <Text variant="caption" color={colors.text.secondary}>
+              Earned this week: +{coin.earnedThisWeek}
+            </Text>
+          </div>
+
+          {/* Expiry Warning */}
+          {expiryMessage && (
+            <div style={style={{...styles.expiryWarning}>
+              <Text variant="caption" color="#FFC107">
+                {expiryMessage}
+              </Text>
+            </div>
+          )}
+        </LinearGradient>
+      </div>
+    );
+  };
+
+  const renderOverview = () => (
+    <>
+      {/* Total Value */}
+      <div style={style={{...styles.totalCard}>
+        <LinearGradient
+          colors={['rgba(201, 169, 98, 0.15)', 'rgba(201, 169, 98, 0.05)']}
+          style={style={{...styles.totalGradient}
+        >
+          <Text variant="label" color={colors.text.tertiary}>TOTAL WALLET VALUE</Text>
+          <div style={style={{...styles.totalValue}>
+            <Text variant="h1" gold>₹{walletData.totalValue.toLocaleString()}</Text>
+          </div>
+          <Text variant="caption" color={colors.text.secondary}>
+            Combined value of all your coins
+          </Text>
+        </LinearGradient>
+      </div>
+
+      {/* Coin Cards */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          YOUR COINS
+        </Text>
+        {walletData.coins.map(renderCoinCard)}
+      </div>
+
+      {/* Recent Activity */}
+      <div style={style={{...styles.section}>
+        <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+          RECENT ACTIVITY
+        </Text>
+        <div style={style={{...styles.activityCard}>
+          {walletData.recentActivity.slice(0, 5).map((activity, index) => {
+            const coinInfo = COIN_TYPES[activity.type];
+            return (
+              <div
+                key={index}
+                style={[
+                  style={{...styles.activityItem,
+                  index < 4 && style={{...styles.activityItemBorder,
+                ]}
+              >
+                <div style={[style={{...styles.activityIcon, { backgroundColor: `${coinInfo.color}20` }]}>
+                  <Text style={style={{...styles.activityEmoji}>{coinInfo.icon}</Text>
+                </div>
+                <div style={style={{...styles.activityContent}>
+                  <Text variant="body" color={colors.text.primary}>
+                    {activity.description}
+                  </Text>
+                  <Text variant="caption" color={colors.text.tertiary}>
+                    {formatDate(activity.date)}
+                  </Text>
+                </div>
+                <Text variant="body" style={{ color: coinInfo.color }}>
+                  +{activity.amount}
+                </Text>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Usage Info */}
+      <div style={style={{...styles.infoCard}>
+        <Text variant="body" color={colors.text.secondary} center>
+          "One wallet. Three coin types. Clear breakdown. No confusion."
+        </Text>
+      </div>
+    </>
+  );
+
+  const renderCoinDetail = (coinType: 'rez' | 'branded' | 'prive') => {
+    const coin = walletData.coins.find(c => c.type === coinType)!;
+    const coinInfo = COIN_TYPES[coinType];
+    const expiryMessage = getExpiryMessage(coin.expiringAmount, coin.expiringDate);
+
+    return (
+      <>
+        {/* Coin Header */}
+        <div style={style={{...styles.detailHeader}>
+          <LinearGradient
+            colors={[`${coin.color}20`, `${coin.color}08`]}
+            style={style={{...styles.detailGradient}
+          >
+            <div style={[style={{...styles.detailIcon, { backgroundColor: `${coin.color}25` }]}>
+              <Text style={style={{...styles.detailEmoji}>{coin.icon}</Text>
+            </div>
+            <Text variant="h1" style={{ color: coin.color }}>
+              {formatCoinBalance(coin.balance)}
+            </Text>
+            <Text variant="body" color={colors.text.primary}>{coin.name}</Text>
+            <Text variant="caption" color={colors.text.secondary}>{coinInfo.description}</Text>
+          </LinearGradient>
+        </div>
+
+        {/* Stats Grid */}
+        <div style={style={{...styles.statsGrid}>
+          <div style={style={{...styles.statCard}>
+            <Text variant="h3" color={colors.text.primary}>{coin.pendingBalance}</Text>
+            <Text variant="caption" color={colors.text.tertiary}>Pending</Text>
+          </div>
+          <div style={style={{...styles.statCard}>
+            <Text variant="h3" color={colors.text.primary}>+{coin.earnedThisWeek}</Text>
+            <Text variant="caption" color={colors.text.tertiary}>This Week</Text>
+          </div>
+          <div style={style={{...styles.statCard}>
+            <Text variant="h3" color={coin.expiringAmount > 0 ? '#FFC107' : colors.text.primary}>
+              {coin.expiringAmount}
+            </Text>
+            <Text variant="caption" color={colors.text.tertiary}>Expiring</Text>
+          </div>
+        </div>
+
+        {/* Expiry Warning */}
+        {expiryMessage && (
+          <div style={style={{...styles.expiryBanner}>
+            <Text style={style={{...styles.expiryBannerIcon}>⏱</Text>
+            <Text variant="body" color="#FFC107">{expiryMessage}</Text>
+          </div>
+        )}
+
+        {/* Where to Use */}
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            WHERE TO USE
+          </Text>
+          <div style={style={{...styles.usageCard}>
+            {coinType === 'rez' && (
+              <>
+                <Text variant="body" color={colors.text.primary}>Accepted everywhere</Text>
+                <Text variant="caption" color={colors.text.secondary}>
+                  All ReZ partners, gift cards, and experiences
+                </Text>
+              </>
+            )}
+            {coinType === 'branded' && (
+              <>
+                <Text variant="body" color={colors.text.primary}>Partner-specific</Text>
+                <Text variant="caption" color={colors.text.secondary}>
+                  Only at the merchants that issued them
+                </Text>
+              </>
+            )}
+            {coinType === 'prive' && (
+              <>
+                <Text variant="body" color={colors.text.primary}>Premium rewards only</Text>
+                <Text variant="caption" color={colors.text.secondary}>
+                  Gift cards, exclusive experiences, Privé privileges
+                </Text>
+              </>
+            )}
+          </div>
+        </div>
+
+        {/* Transaction History */}
+        <div style={style={{...styles.section}>
+          <Text variant="label" color={colors.text.tertiary} style={style={{...styles.sectionLabel}>
+            TRANSACTION HISTORY
+          </Text>
+          <div style={style={{...styles.activityCard}>
+            {coin.sources.map((source, index) => (
+              <div
+                key={index}
+                style={[
+                  style={{...styles.activityItem,
+                  index < coin.sources.length - 1 && style={{...styles.activityItemBorder,
+                ]}
+              >
+                <div style={style={{...styles.activityContent}>
+                  <Text variant="body" color={colors.text.primary}>
+                    {source.description}
+                  </Text>
+                  <Text variant="caption" color={colors.text.tertiary}>
+                    {formatDate(source.date)}
+                  </Text>
+                </div>
+                <Text variant="body" style={{ color: coin.color }}>
+                  +{source.amount}
+                </Text>
+              </div>
+            ))}
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  return (
+    <div style={style={{...styles.container}>
+      {/* Header */}
+      <div style={style={{...styles.header}>
+        <div
+          style={style={{...styles.backButton}
+          onPress={() => navigation.goBack()}
+        >
+          <Text style={style={{...styles.backIcon}>←</Text>
+        </div>
+        <Text variant="h2" color={colors.text.primary}>Wallet</Text>
+        <div style={style={{...styles.placeholder} />
+      </div>
+
+      {/* Tabs */}
+      <div style={style={{...styles.tabsContainer}>
+        <div
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={style={{...styles.tabsContent}
+        >
+          {tabs.map((tab) => (
+            <div
+              key={tab.id}
+              style={[style={{...styles.tab, activeTab === tab.id && style={{...styles.tabActive]}
+              onPress={() => setActiveTab(tab.id)}
+            >
+              <Text
+                variant="body"
+                color={activeTab === tab.id ? colors.gold.primary : colors.text.tertiary}
+              >
+                {tab.label}
+              </Text>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div
+        style={style={{...styles.scrollView}
+        contentContainerStyle={style={{...styles.scrollContent}
+        showsVerticalScrollIndicator={false}
+      >
+        {activeTab === 'overview' && renderOverview()}
+        {activeTab === 'rez' && renderCoinDetail('rez')}
+        {activeTab === 'branded' && renderCoinDetail('branded')}
+        {activeTab === 'prive' && renderCoinDetail('prive')}
+
+        <div style={style={{...styles.bottomSpace} />
+      </div>
+
+      {/* Redeem CTA */}
+      <div style={style={{...styles.ctaContainer}>
+        <div
+          style={style={{...styles.ctaButton}
+          onPress={() => navigation.navigate('E1_RedemptionHome')}
+        >
+          <Text variant="bodyLarge" color="#0A0A0A">Redeem Coins</Text>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0A0A0A',
+  },
+  header: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing[5],
+    paddingVertical: spacing[4],
+    borderBottomWidth: 1,
+    borderBottomColor: '#1A1A1A',
+  },
+  backButton: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: '#181818',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  backIcon: {
+    fontSize: 18,
+    color: colors.text.primary,
+  },
+  placeholder: {
+    width: 40,
+  },
+
+  // Tabs
+  tabsContainer: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#1A1A1A',
+  },
+  tabsContent: {
+    paddingHorizontal: spacing[5],
+    gap: spacing[4],
+    paddingVertical: spacing[3],
+  },
+  tab: {
+    paddingVertical: spacing[2],
+    paddingHorizontal: spacing[3],
+  },
+  tabActive: {
+    borderBottomWidth: 2,
+    borderBottomColor: colors.gold.primary,
+  },
+
+  scrollView: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: spacing[5],
+  },
+
+  // Total Card
+  totalCard: {
+    borderRadius: borderRadius.lg,
+    overflow: 'hidden',
+    marginBottom: spacing[5],
+  },
+  totalGradient: {
+    padding: spacing[5],
+    alignItems: 'center',
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.2)',
+    borderRadius: borderRadius.lg,
+  },
+  totalValue: {
+    marginVertical: spacing[2],
+  },
+
+  // Section
+  section: {
+    marginBottom: spacing[5],
+  },
+  sectionLabel: {
+    letterSpacing: 1,
+    marginBottom: spacing[3],
+  },
+
+  // Coin Card
+  coinCard: {
+    borderRadius: borderRadius.lg,
+    overflow: 'hidden',
+    marginBottom: spacing[3],
+  },
+  coinCardGradient: {
+    padding: spacing[4],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    borderRadius: borderRadius.lg,
+  },
+  coinCardHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[3],
+    marginBottom: spacing[3],
+  },
+  coinIcon: {
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  coinEmoji: {
+    fontSize: 22,
+  },
+  coinInfo: {
+    flex: 1,
+    gap: spacing[1],
+  },
+  coinBalance: {
+    flexDirection: 'row',
+    alignItems: 'baseline',
+    gap: spacing[2],
+    marginBottom: spacing[2],
+  },
+  coinEarnings: {
+    marginBottom: spacing[2],
+  },
+  expiryWarning: {
+    backgroundColor: 'rgba(255, 193, 7, 0.1)',
+    paddingHorizontal: spacing[3],
+    paddingVertical: spacing[2],
+    borderRadius: borderRadius.md,
+    borderWidth: 1,
+    borderColor: 'rgba(255, 193, 7, 0.2)',
+  },
+
+  // Activity
+  activityCard: {
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.lg,
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    overflow: 'hidden',
+  },
+  activityItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: spacing[4],
+    gap: spacing[3],
+  },
+  activityItemBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: '#2A2A2A',
+  },
+  activityIcon: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  activityEmoji: {
+    fontSize: 16,
+  },
+  activityContent: {
+    flex: 1,
+    gap: spacing[1],
+  },
+
+  // Info Card
+  infoCard: {
+    backgroundColor: 'rgba(201, 169, 98, 0.08)',
+    borderRadius: borderRadius.lg,
+    padding: spacing[4],
+    borderWidth: 1,
+    borderColor: 'rgba(201, 169, 98, 0.15)',
+  },
+
+  // Detail Header
+  detailHeader: {
+    borderRadius: borderRadius.lg,
+    overflow: 'hidden',
+    marginBottom: spacing[5],
+  },
+  detailGradient: {
+    padding: spacing[6],
+    alignItems: 'center',
+    gap: spacing[2],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+    borderRadius: borderRadius.lg,
+  },
+  detailIcon: {
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: spacing[2],
+  },
+  detailEmoji: {
+    fontSize: 32,
+  },
+
+  // Stats Grid
+  statsGrid: {
+    flexDirection: 'row',
+    gap: spacing[3],
+    marginBottom: spacing[5],
+  },
+  statCard: {
+    flex: 1,
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.lg,
+    padding: spacing[4],
+    alignItems: 'center',
+    gap: spacing[1],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+
+  // Expiry Banner
+  expiryBanner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing[2],
+    backgroundColor: 'rgba(255, 193, 7, 0.1)',
+    padding: spacing[4],
+    borderRadius: borderRadius.lg,
+    marginBottom: spacing[5],
+    borderWidth: 1,
+    borderColor: 'rgba(255, 193, 7, 0.2)',
+  },
+  expiryBannerIcon: {
+    fontSize: 20,
+  },
+
+  // Usage Card
+  usageCard: {
+    backgroundColor: '#181818',
+    borderRadius: borderRadius.lg,
+    padding: spacing[4],
+    gap: spacing[1],
+    borderWidth: 1,
+    borderColor: '#2A2A2A',
+  },
+
+  bottomSpace: {
+    height: 100,
+  },
+
+  // CTA
+  ctaContainer: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: spacing[5],
+    paddingBottom: spacing[6],
+    backgroundColor: '#0A0A0A',
+    borderTopWidth: 1,
+    borderTopColor: '#2A2A2A',
+  },
+  ctaButton: {
+    backgroundColor: colors.gold.primary,
+    paddingVertical: spacing[4],
+    borderRadius: borderRadius.lg,
+    alignItems: 'center',
+  },
+});
+
+export default E10_WalletScreen;

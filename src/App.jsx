@@ -55,6 +55,7 @@ import PriveExperienceDetail from './pages/prive/PriveExperienceDetail';
 import PriveGiftCardDetail from './pages/prive/PriveGiftCardDetail';
 import PriveCheckout from './pages/prive/PriveCheckout';
 import PriveBooking from './pages/prive/PriveBooking';
+import PaymentGateway from './pages/PaymentGateway';
 import Profile from './pages/Profile';
 import DealStore from './pages/DealStore';
 import DealDetail from './pages/DealDetail';
@@ -317,6 +318,7 @@ function App() {
                 <Route path="prive/partner-privileges" element={<PrivePartnerPrivileges />} />
                 <Route path="prive/checkout" element={<PriveCheckout />} />
                 <Route path="prive/booking" element={<PriveBooking />} />
+                <Route path="payment" element={<PaymentGateway />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

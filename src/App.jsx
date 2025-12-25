@@ -56,6 +56,17 @@ import PriveGiftCardDetail from './pages/prive/PriveGiftCardDetail';
 import PriveCheckout from './pages/prive/PriveCheckout';
 import PriveBooking from './pages/prive/PriveBooking';
 import PaymentGateway from './pages/PaymentGateway';
+import QRScanner from './pages/QRScanner';
+import ReferralDashboard from './pages/ReferralDashboard';
+import MerchantSignup from './pages/merchant/MerchantSignup';
+import MerchantBusinessDetails from './pages/merchant/MerchantBusinessDetails';
+import MerchantSuccess from './pages/merchant/MerchantSuccess';
+import EventTicketing from './pages/EventTicketing';
+import MyTickets from './pages/MyTickets';
+import TicketDetail from './pages/TicketDetail';
+import CoinHistory from './pages/CoinHistory';
+import StudentVerification from './pages/college/StudentVerification';
+import AmbassadorDashboard from './pages/college/AmbassadorDashboard';
 import Profile from './pages/Profile';
 import DealStore from './pages/DealStore';
 import DealDetail from './pages/DealDetail';
@@ -319,6 +330,17 @@ function App() {
                 <Route path="prive/checkout" element={<PriveCheckout />} />
                 <Route path="prive/booking" element={<PriveBooking />} />
                 <Route path="payment" element={<PaymentGateway />} />
+                <Route path="qr-scanner" element={<QRScanner />} />
+                <Route path="referral" element={<ReferralDashboard />} />
+                <Route path="merchant/signup" element={<MerchantSignup />} />
+                <Route path="merchant/business-details" element={<MerchantBusinessDetails />} />
+                <Route path="merchant/success" element={<MerchantSuccess />} />
+                <Route path="event-ticketing" element={<EventTicketing />} />
+                <Route path="my-tickets" element={<MyTickets />} />
+                <Route path="ticket/:ticketId" element={<TicketDetail />} />
+                <Route path="coin-history" element={<CoinHistory />} />
+                <Route path="college/verify" element={<StudentVerification />} />
+                <Route path="college/ambassador" element={<AmbassadorDashboard />} />
                 <Route path="profile" element={<Profile />} />
                 <Route path="flea-market" element={<FleaMarket />} />
                 <Route path="events" element={<Events />} />

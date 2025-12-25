@@ -23,7 +23,7 @@ function OrderDetail() {
     ],
     subtotal: 124999,
     tax: 0,
-    shipping: 0,
+    shippingCost: 0,
     total: 124999,
     cashback: 6249,
     coinsEarned: 1250,

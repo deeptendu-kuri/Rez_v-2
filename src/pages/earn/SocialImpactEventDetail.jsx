@@ -14,7 +14,9 @@ import {
   Award,
   Phone,
   Mail,
-  Info
+  Info,
+  Building2,
+  Sparkles
 } from 'lucide-react';
 import BottomNavManager from '../../components/layout/BottomNavManager';
 
@@ -32,13 +34,15 @@ const SocialImpactEventDetail = () => {
       iconBg: 'bg-red-500/20',
       iconColor: 'text-red-500',
       organizer: 'Apollo Hospitals',
+      sponsor: 'Tata Group',
+      csrActivity: true,
       logo: '🏥',
       date: 'Dec 28, 2024',
       time: '9:00 AM - 5:00 PM',
       location: 'Apollo Hospital, Sector 18',
       fullAddress: 'Apollo Hospitals, Sector 18, Noida, Uttar Pradesh 201301',
       distance: '2.3 km',
-      rewards: { rezCoins: 200, brandedCoins: 150, brandName: 'Apollo' },
+      rewards: { rezCoins: 200, brandCoins: 300, brandName: 'Tata Coins' },
       enrolled: 234,
       goal: 500,
       impact: 'Save 3 lives per donation',
@@ -55,7 +59,7 @@ const SocialImpactEventDetail = () => {
         'Free health checkup',
         'Refreshments provided',
         'Blood donor certificate',
-        'ReZ Coins + Apollo branded coins',
+        'ReZ Coins + Tata brand coins',
         'Priority access to blood bank if needed'
       ],
       contact: {
@@ -71,18 +75,20 @@ const SocialImpactEventDetail = () => {
     },
     '2': {
       type: 'tree-plantation',
-      title: 'Tree Plantation Drive',
+      title: 'Green India Mission',
       icon: '🌳',
       iconBg: 'bg-green-500/20',
       iconColor: 'text-green-500',
       organizer: 'Green Earth Foundation',
+      sponsor: 'Reliance Industries',
+      csrActivity: true,
       logo: '🌍',
       date: 'Dec 30, 2024',
       time: '7:00 AM - 11:00 AM',
       location: 'City Park, Botanical Gardens',
       fullAddress: 'Botanical Gardens, Sector 38, Noida, Uttar Pradesh 201303',
       distance: '4.1 km',
-      rewards: { rezCoins: 150, brandedCoins: 100, brandName: 'Green Earth' },
+      rewards: { rezCoins: 150, brandCoins: 250, brandName: 'Reliance Coins' },
       enrolled: 156,
       goal: 200,
       impact: 'Plant 1000+ saplings',
@@ -120,13 +126,15 @@ const SocialImpactEventDetail = () => {
       iconBg: 'bg-blue-500/20',
       iconColor: 'text-blue-500',
       organizer: 'Clean Beaches Initiative',
+      sponsor: 'Infosys Foundation',
+      csrActivity: true,
       logo: '🌊',
       date: 'Jan 2, 2025',
       time: '6:00 AM - 9:00 AM',
       location: 'Marina Beach',
       fullAddress: 'Marina Beach, Chennai, Tamil Nadu 600001',
       distance: '8.5 km',
-      rewards: { rezCoins: 120, brandedCoins: 80, brandName: 'Clean Beaches' },
+      rewards: { rezCoins: 120, brandCoins: 180, brandName: 'Infosys Coins' },
       enrolled: 89,
       goal: 150,
       impact: 'Clean 5 km of coastline',
@@ -159,35 +167,37 @@ const SocialImpactEventDetail = () => {
     },
     '4': {
       type: 'ngo-volunteer',
-      title: 'Community Kitchen Volunteering',
-      icon: '🍲',
-      iconBg: 'bg-orange-500/20',
-      iconColor: 'text-orange-500',
-      organizer: 'Feed the Need NGO',
-      logo: '🤝',
-      date: 'Every Sunday',
-      time: '11:00 AM - 2:00 PM',
+      title: 'Digital Literacy Workshop',
+      icon: '💻',
+      iconBg: 'bg-blue-500/20',
+      iconColor: 'text-blue-500',
+      organizer: 'Tech for All NGO',
+      sponsor: 'Wipro',
+      csrActivity: true,
+      logo: '🖥️',
+      date: 'Jan 5, 2025',
+      time: '2:00 PM - 5:00 PM',
       location: 'Community Center, MG Road',
       fullAddress: 'Community Center, MG Road, Bangalore, Karnataka 560001',
       distance: '3.7 km',
-      rewards: { rezCoins: 100, brandedCoins: 0 },
+      rewards: { rezCoins: 180, brandCoins: 220, brandName: 'Wipro Coins' },
       enrolled: 45,
       goal: 100,
-      impact: 'Feed 200+ people',
-      status: 'ongoing',
-      description: 'Help us serve nutritious meals to those in need. Volunteers assist in cooking, serving, and cleanup. A fulfilling way to give back to the community.',
+      impact: 'Teach 50+ senior citizens',
+      status: 'upcoming',
+      description: 'Volunteer to teach basic computer and smartphone skills to senior citizens. Help bridge the digital divide and empower elderly people with essential tech knowledge.',
       requirements: [
-        'Available for 3 hours every Sunday',
-        'Basic hygiene (hair tied, clean hands)',
-        'Comfortable closed shoes',
-        'Food handlers training provided',
+        'Basic computer/smartphone knowledge',
+        'Patient and friendly demeanor',
+        'Available for 3 hours',
+        'Teaching materials provided',
         'Age 16+ (or with guardian)'
       ],
       benefits: [
-        'Make real impact in community',
-        'Free lunch provided',
-        'Volunteer certificate (monthly)',
-        'ReZ Coins weekly',
+        'Make real impact in digital inclusion',
+        'Teaching experience certificate',
+        'Volunteer certificate',
+        'ReZ Coins + Wipro brand coins',
         'Meet like-minded people'
       ],
       contact: {
@@ -195,10 +205,10 @@ const SocialImpactEventDetail = () => {
         email: 'volunteer@feedtheneed.org'
       },
       schedule: [
-        { time: '11:00 AM', activity: 'Arrival & Briefing' },
-        { time: '11:30 AM', activity: 'Food preparation begins' },
-        { time: '12:30 PM', activity: 'Serving meals' },
-        { time: '1:30 PM', activity: 'Cleanup & Debrief' }
+        { time: '2:00 PM', activity: 'Arrival & Briefing' },
+        { time: '2:30 PM', activity: 'Session 1: Basic smartphone usage' },
+        { time: '3:30 PM', activity: 'Session 2: Online safety & apps' },
+        { time: '4:30 PM', activity: 'Q&A & Certificates' }
       ]
     }
   };
@@ -225,8 +235,23 @@ const SocialImpactEventDetail = () => {
             <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
           </button>
           <div className="flex-1">
-            <h1 className="text-h4 font-poppins text-rez-navy dark:text-white">{event.title}</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-h4 font-poppins text-rez-navy dark:text-white">{event.title}</h1>
+              {event.csrActivity && (
+                <span className="px-2 py-0.5 rounded-full bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30">
+                  <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400">CSR</span>
+                </span>
+              )}
+            </div>
             <p className="text-caption text-rez-gray-600 dark:text-gray-400">{event.organizer}</p>
+            {event.sponsor && (
+              <div className="flex items-center gap-1.5 mt-1">
+                <Building2 className="w-3 h-3 text-purple-600 dark:text-purple-400" />
+                <span className="text-xs font-semibold text-purple-600 dark:text-purple-400">
+                  Sponsored by {event.sponsor}
+                </span>
+              </div>
+            )}
           </div>
           <button className="p-2 hover:bg-rez-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors">
             <Share2 className="w-5 h-5 text-rez-navy dark:text-white" />
@@ -301,27 +326,35 @@ const SocialImpactEventDetail = () => {
           </div>
         </div>
 
-        {/* Rewards */}
-        <div className="p-5 rounded-rez-xl bg-white dark:bg-bg-card border border-rez-gray-200 dark:border-white/10">
-          <h3 className="text-h5 font-poppins text-rez-navy dark:text-white mb-4 flex items-center gap-2">
+        {/* Rewards - Enhanced CSR Display */}
+        <div className="p-5 rounded-rez-xl bg-gradient-to-br from-emerald-500/10 via-purple-500/10 to-blue-500/10 border-2 border-emerald-500/30">
+          <h3 className="text-h5 font-poppins text-rez-navy dark:text-white mb-3 flex items-center gap-2">
             <Award className="w-5 h-5 text-amber-500" />
-            Rewards
+            Participation Rewards
           </h3>
-          <div className="space-y-3">
-            <div className="flex items-center justify-between p-3 rounded-rez-lg bg-emerald-50 dark:bg-emerald-500/10">
-              <div className="flex items-center gap-2">
-                <span className="text-lg">💰</span>
-                <span className="text-body-sm font-medium text-rez-navy dark:text-white">ReZ Coins</span>
+          {event.sponsor && (
+            <p className="text-xs text-gray-600 dark:text-gray-400 mb-4">
+              🎁 Double rewards: ReZ Coins + Brand Coins from CSR sponsor
+            </p>
+          )}
+          <div className="grid grid-cols-2 gap-3">
+            <div className="p-4 rounded-xl bg-gradient-to-br from-emerald-500/20 to-green-500/20 border border-emerald-500/30">
+              <div className="flex items-center gap-2 mb-2">
+                <Coins className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                <span className="text-xs font-medium text-gray-600 dark:text-gray-400">ReZ Coins</span>
               </div>
-              <span className="text-h5 font-poppins text-emerald-600 dark:text-emerald-400">+{event.rewards.rezCoins}</span>
+              <span className="text-2xl font-bold text-emerald-600 dark:text-emerald-400">+{event.rewards.rezCoins}</span>
             </div>
-            {event.rewards.brandedCoins > 0 && (
-              <div className="flex items-center justify-between p-3 rounded-rez-lg bg-purple-50 dark:bg-purple-500/10">
-                <div className="flex items-center gap-2">
-                  <span className="text-lg">🏪</span>
-                  <span className="text-body-sm font-medium text-rez-navy dark:text-white">{event.rewards.brandName} Coins</span>
+            {event.rewards.brandCoins > 0 && (
+              <div className="p-4 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 border border-purple-500/30">
+                <div className="flex items-center gap-2 mb-2">
+                  <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                  <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Brand Coins</span>
                 </div>
-                <span className="text-h5 font-poppins text-purple-600 dark:text-purple-400">+{event.rewards.brandedCoins}</span>
+                <span className="text-2xl font-bold text-purple-600 dark:text-purple-400">+{event.rewards.brandCoins}</span>
+                <p className="text-[10px] text-purple-600 dark:text-purple-400 mt-1">
+                  {event.rewards.brandName}
+                </p>
               </div>
             )}
           </div>

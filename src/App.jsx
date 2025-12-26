@@ -313,6 +313,7 @@ import PreloaderDemo from './pages/PreloaderDemo';
 
 // Preloader Manager
 import PreloaderManager from './components/preloader/PreloaderManager';
+import ModeTransitionManager from './components/preloader/ModeTransitionManager';
 
 function App() {
   return (
@@ -323,6 +324,7 @@ function App() {
             <CreatorProvider>
               <AppProvider>
                 <PreloaderManager>
+                  <ModeTransitionManager>
             <Routes>
               {/* Auth & Onboarding Routes (No Layout) */}
               <Route path="/splash" element={<Splash />} />
@@ -679,6 +681,7 @@ function App() {
                 <Route path="brand/:brandId" element={<BrandLoyalty />} />
               </Route>
             </Routes>
+                  </ModeTransitionManager>
                 </PreloaderManager>
               </AppProvider>
             </CreatorProvider>

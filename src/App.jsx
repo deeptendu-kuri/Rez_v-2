@@ -4,6 +4,10 @@ import { WalletProvider } from './contexts/WalletContext';
 import { UserProvider } from './contexts/UserContext';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { CreatorProvider } from './contexts/CreatorContext';
+import { SearchProvider } from './contexts/SearchContext';
+import { WishlistProvider } from './contexts/WishlistContext';
+import { SavingsProvider } from './contexts/SavingsContext';
+import { GamificationProvider } from './contexts/GamificationContext';
 
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
@@ -321,10 +325,14 @@ function App() {
       <ThemeProvider>
         <UserProvider>
           <WalletProvider>
-            <CreatorProvider>
-              <AppProvider>
-                <PreloaderManager>
-                  <ModeTransitionManager>
+            <WishlistProvider>
+              <SavingsProvider>
+                <GamificationProvider>
+                  <CreatorProvider>
+                    <SearchProvider>
+                      <AppProvider>
+                        <PreloaderManager>
+                          <ModeTransitionManager>
             <Routes>
               {/* Auth & Onboarding Routes (No Layout) */}
               <Route path="/splash" element={<Splash />} />
@@ -681,10 +689,14 @@ function App() {
                 <Route path="brand/:brandId" element={<BrandLoyalty />} />
               </Route>
             </Routes>
-                  </ModeTransitionManager>
-                </PreloaderManager>
-              </AppProvider>
-            </CreatorProvider>
+                          </ModeTransitionManager>
+                        </PreloaderManager>
+                      </AppProvider>
+                    </SearchProvider>
+                  </CreatorProvider>
+                </GamificationProvider>
+              </SavingsProvider>
+            </WishlistProvider>
           </WalletProvider>
         </UserProvider>
       </ThemeProvider>

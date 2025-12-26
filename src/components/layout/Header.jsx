@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Search, Bell, SlidersHorizontal, Sparkles } from 'lucide-react';
 import { useApp, globalModeOptions } from '../../contexts/AppContext';
 import { useWallet } from '../../contexts/WalletContext';
 import ThemeToggle from '../ThemeToggle';
+import SearchModal from '../SearchModal';
 
 const Header = () => {
   const { globalMode, toggleFilterSheet, toggleModeSwitcher } = useApp();
   const { totalCoinsValue } = useWallet();
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   const currentMode = globalModeOptions.find(m => m.id === globalMode);
 
@@ -72,21 +75,22 @@ const Header = () => {
 
         {/* Search Bar with Advanced Glassmorphism */}
         <div className="flex gap-2">
-          <div className="flex-1 relative group">
-            {/* Glow Effect on Focus */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-focus-within:opacity-100 transition-opacity"></div>
+          <button
+            onClick={() => setIsSearchOpen(true)}
+            className="flex-1 relative group"
+          >
+            {/* Glow Effect on Hover */}
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500/20 to-teal-500/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity"></div>
 
             {/* Search Input */}
             <div className="relative flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/60 dark:bg-white/5 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-xl hover:shadow-2xl transition-all">
               <Search className="w-5 h-5 text-gray-500 dark:text-gray-400 flex-shrink-0" />
-              <input
-                type="text"
-                placeholder="Search stores, products, or tell us what you need..."
-                className="flex-1 bg-transparent text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 outline-none text-sm font-medium"
-              />
+              <span className="flex-1 text-left text-gray-500 dark:text-gray-400 text-sm font-medium">
+                Search stores, products, or tell us what you need...
+              </span>
               <Sparkles className="w-4 h-4 text-emerald-500 dark:text-emerald-400 opacity-50" />
             </div>
-          </div>
+          </button>
 
           {/* Filter Button with Glass */}
           <button
@@ -101,6 +105,9 @@ const Header = () => {
 
       {/* Bottom Border Glow */}
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200/50 dark:via-white/10 to-transparent"></div>
+
+      {/* Search Modal */}
+      <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </header>
   );
 };

@@ -299,6 +299,14 @@ import CreatorStoreHome from './pages/creator/CreatorStoreHome';
 import CreatorProfile from './pages/creator/CreatorProfile';
 import CreatorPickDetail from './pages/creator/CreatorPickDetail';
 import CollectionDetail from './pages/creator/CollectionDetail';
+import CreatorsAll from './pages/creator/CreatorsAll';
+
+// Partner pages
+import PartnerSignup from './pages/partner/PartnerSignup';
+import PartnerSuccess from './pages/partner/PartnerSuccess';
+
+// Cart
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -352,6 +360,7 @@ function App() {
                 <Route path="cash-store/gift-cards" element={<CashStoreGiftCards />} />
                 <Route path="cash-store/missing-cashback" element={<CashStoreMissingCashback />} />
                 <Route path="cash-store/category/:category" element={<CashStoreCategory />} />
+                <Route path="cash-store/how-it-works" element={<HowItWorks />} />
                 <Route path="mall" element={<RezMall />} />
                 <Route path="mall/brand/:brandId" element={<MallBrandDetail />} />
                 <Route path="mall/brands" element={<MallBrands />} />
@@ -362,9 +371,17 @@ function App() {
 
                 {/* Creator Store Routes */}
                 <Route path="creators" element={<CreatorStoreHome />} />
+                <Route path="creators/all" element={<CreatorsAll />} />
                 <Route path="creators/:username" element={<CreatorProfile />} />
                 <Route path="creators/:username/pick/:pickId" element={<CreatorPickDetail />} />
                 <Route path="creators/:username/collection/:collectionId" element={<CollectionDetail />} />
+
+                {/* Cart */}
+                <Route path="cart" element={<Cart />} />
+
+                {/* Partner Routes */}
+                <Route path="partner/:type" element={<PartnerSignup />} />
+                <Route path="partner/success" element={<PartnerSuccess />} />
 
                 <Route path="prive" element={<PriveHome />} />
                 <Route path="prive/privileges" element={<PrivePrivileges />} />

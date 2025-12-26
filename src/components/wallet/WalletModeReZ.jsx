@@ -1,292 +1,350 @@
 import { Link } from 'react-router-dom';
 import {
-  Wallet,
-  TrendingUp,
-  Flame,
+  ArrowLeft,
+  QrCode,
+  Receipt,
   MapPin,
-  Gift,
-  Users,
-  Zap,
-  Award,
+  Clock,
+  Flame,
+  TrendingUp,
   ArrowRight,
-  QrCode
+  Target,
+  Award,
+  Calendar
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useWallet } from '../../contexts/WalletContext';
-import { useApp } from '../../contexts/AppContext';
-import {
-  calculateTotalCoins,
-  formatRupees,
-  calculateSavingsTrend
-} from '../../utils/wallet';
+import { formatRupees } from '../../utils/wallet';
 import BottomNav from '../layout/BottomNav';
 
 /**
  * WalletModeReZ Component
- * ReZ (Near You / Daily Use) Wallet Experience
+ * ReZ (Rewards Near You) Wallet Experience
  *
- * Emotion: "I'm saving money every day"
- * Design: Light, friendly, energetic
- * Colors: Green (#00C06A) + Gold (#FFD700)
- * Focus: Savings, streaks, nearby stores, quick earn/spend
+ * PURPOSE: Daily local savings, offline payments, habit creation
+ * EMOTION: "You saved money today"
+ * DESIGN: Red + White, Smart, fast, practical
+ * TONE: Reinforces daily habit, offline-first, simple, no clutter
  */
 const WalletModeReZ = () => {
+  const navigate = useNavigate();
   const wallet = useWallet();
-  const { theme } = useApp();
-  const isDark = theme === 'dark';
 
-  const totalCoins = calculateTotalCoins(wallet);
-  const savingsTrend = calculateSavingsTrend(wallet.savingsStats);
+  // Calculate total savings for the month
+  const totalSavedThisMonth = wallet.savingsStats.thisMonth;
+  const totalRezCoins = wallet.rezCoinsData?.balance || wallet.rezCoins;
+  const totalBrandedCoins = wallet.brandedCoins.reduce((sum, brand) => sum + brand.balance, 0);
 
   return (
-    <div className={`min-h-screen ${isDark ? 'bg-gray-900' : 'bg-gray-50'}`}>
-      {/* Hero Section - Total Savings */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-green-500 to-emerald-600 px-6 py-8 text-white">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="relative">
-          <div className="flex items-center justify-between mb-6">
-            <div className="flex items-center gap-2">
-              <Wallet className="w-6 h-6" />
-              <h1 className="text-lg font-semibold">My Wallet</h1>
-            </div>
-            <button className="p-2 rounded-full bg-white/20 hover:bg-white/30">
-              <Gift className="w-5 h-5" />
-            </button>
-          </div>
-
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5 text-green-200" />
-              <p className="text-green-100 text-sm font-medium">Total Savings This Month</p>
-            </div>
-            <h2 className="text-4xl font-bold mb-2">
-              {formatRupees(wallet.savingsStats.thisMonth)}
-            </h2>
-            {savingsTrend && (
-              <div className={`inline-flex items-center gap-1 px-3 py-1 rounded-full ${
-                savingsTrend.isIncreasing
-                  ? 'bg-green-400/30 text-green-50'
-                  : 'bg-orange-400/30 text-orange-50'
-              }`}>
-                <TrendingUp className={`w-3 h-3 ${savingsTrend.isIncreasing ? '' : 'rotate-180'}`} />
-                <span className="text-sm font-medium">
-                  {Math.abs(savingsTrend.percentChange)}% from last month
-                </span>
-              </div>
-            )}
-          </div>
-
-          <div className="text-center text-green-100">
-            <p className="text-sm">
-              You're crushing it! Keep scanning & saving 🎉
-            </p>
+    <div className="min-h-screen bg-white dark:bg-dark-900">
+      {/* Header */}
+      <div className="sticky top-0 z-40 bg-white dark:bg-dark-800 border-b border-rez-gray-200 dark:border-dark-700">
+        <div className="flex items-center gap-3 px-4 py-4">
+          <button
+            onClick={() => navigate(-1)}
+            className="p-2 hover:bg-rez-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
+          </button>
+          <div className="flex-1">
+            <h1 className="text-h4 font-poppins text-rez-navy dark:text-white">
+              Wallet
+            </h1>
           </div>
         </div>
       </div>
 
-      {/* Quick Actions */}
-      <div className="px-6 -mt-4 mb-6">
+      {/* Top Section - Total Saved This Month */}
+      <div className="px-4 py-6 bg-gradient-to-br from-red-500 to-orange-500 text-white">
+        <div className="text-center">
+          <p className="text-sm font-medium text-red-100 mb-2">
+            ₹ Total Saved This Month
+          </p>
+          <h2 className="text-5xl font-bold font-poppins mb-2">
+            {formatRupees(totalSavedThisMonth)}
+          </h2>
+          <p className="text-red-100 text-sm">
+            "You saved money today"
+          </p>
+        </div>
+      </div>
+
+      <div className="p-4 space-y-4 pb-24">
+        {/* Coins Snapshot - Horizontal Cards */}
+        <div className="space-y-3">
+          {/* ReZ Coin */}
+          <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+                  <span className="text-2xl">🪙</span>
+                </div>
+                <div>
+                  <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+                    ReZ Coin
+                  </h3>
+                  <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                    Use anywhere
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-h4 font-bold text-rez-navy dark:text-white">
+                  {totalRezCoins}
+                </p>
+                <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                  = {formatRupees(totalRezCoins)}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Branded Coin - Top 3 */}
+          {wallet.brandedCoins.slice(0, 3).map((brand) => (
+            <Link
+              key={brand.brandId}
+              to={`/store/${brand.brandId}`}
+              className="block p-4 rounded-2xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 hover:bg-blue-100 dark:hover:bg-blue-500/20 transition-colors"
+            >
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-white dark:bg-white/10 flex items-center justify-center border border-blue-200 dark:border-blue-500/30">
+                    <span className="text-2xl">{brand.logo}</span>
+                  </div>
+                  <div>
+                    <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+                      {brand.merchant} Coin
+                    </h3>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                      {brand.usableAt}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-h4 font-bold text-rez-navy dark:text-white">
+                    {brand.balance}
+                  </p>
+                </div>
+              </div>
+            </Link>
+          ))}
+
+          {/* Promo Coin - If exists */}
+          {wallet.promoCoins.balance > 0 && (
+            <div className="p-4 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border-2 border-orange-300 dark:border-orange-500/30">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                    <Flame className="w-6 h-6 text-orange-600 dark:text-orange-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+                      Promo Coin
+                    </h3>
+                    <p className="text-caption text-orange-600 dark:text-orange-400 font-medium">
+                      Expiring in {wallet.promoCoins.expiry}
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-h4 font-bold text-orange-600 dark:text-orange-400">
+                    {wallet.promoCoins.balance}
+                  </p>
+                </div>
+              </div>
+              <div className="text-caption text-orange-700 dark:text-orange-300 bg-orange-100 dark:bg-orange-500/20 p-2 rounded-lg">
+                ⚠️ {wallet.promoCoins.maxRedemption} • {wallet.promoCoins.campaign}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Primary CTA */}
+        <Link
+          to="/pay-in-store"
+          className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-semibold transition-all shadow-lg"
+        >
+          <QrCode className="w-6 h-6" />
+          Pay with ReZ
+        </Link>
+
+        {/* Quick Actions */}
         <div className="grid grid-cols-4 gap-3">
           <Link
             to="/pay-in-store"
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all"
+            className="flex flex-col items-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors"
           >
-            <div className="p-3 rounded-full bg-gradient-to-br from-green-500 to-emerald-600 text-white">
-              <QrCode className="w-5 h-5" />
+            <div className="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center">
+              <QrCode className="w-6 h-6 text-red-600 dark:text-red-400" />
             </div>
-            <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Scan</span>
+            <span className="text-caption text-rez-navy dark:text-white font-medium text-center">
+              Scan & Pay
+            </span>
+          </Link>
+
+          <Link
+            to="/upload-bill"
+            className="flex flex-col items-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors"
+          >
+            <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center">
+              <Receipt className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+            </div>
+            <span className="text-caption text-rez-navy dark:text-white font-medium text-center">
+              Upload Bill
+            </span>
+          </Link>
+
+          <Link
+            to="/lock-price"
+            className="flex flex-col items-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors"
+          >
+            <div className="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center">
+              <Clock className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+            </div>
+            <span className="text-caption text-rez-navy dark:text-white font-medium text-center">
+              Lock Price
+            </span>
           </Link>
 
           <Link
             to="/explore/map"
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all"
+            className="flex flex-col items-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors"
           >
-            <div className="p-3 rounded-full bg-gradient-to-br from-blue-500 to-cyan-600 text-white">
-              <MapPin className="w-5 h-5" />
+            <div className="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center">
+              <MapPin className="w-6 h-6 text-orange-600 dark:text-orange-400" />
             </div>
-            <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Nearby</span>
-          </Link>
-
-          <Link
-            to="/earn"
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all"
-          >
-            <div className="p-3 rounded-full bg-gradient-to-br from-yellow-500 to-orange-600 text-white">
-              <Zap className="w-5 h-5" />
-            </div>
-            <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Earn</span>
-          </Link>
-
-          <Link
-            to="/referrals"
-            className="flex flex-col items-center gap-2 p-4 rounded-2xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-all"
-          >
-            <div className="p-3 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 text-white">
-              <Users className="w-5 h-5" />
-            </div>
-            <span className="text-xs font-medium text-gray-700 dark:text-gray-300">Refer</span>
-          </Link>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="px-6 space-y-6 pb-24">
-        {/* ReZ Coins Balance */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
-          <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2">
-              <div className="text-2xl">🪙</div>
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                ReZ Coins Balance
-              </h3>
-            </div>
-            <Link
-              to="/wallet/transactions"
-              className="text-green-600 dark:text-green-400 text-sm font-medium hover:underline"
-            >
-              History
-            </Link>
-          </div>
-
-          <div className="mb-4">
-            <div className="text-3xl font-bold text-gray-900 dark:text-white mb-1">
-              {wallet.rezCoinsData.balance.toLocaleString()} coins
-            </div>
-            <div className="text-gray-600 dark:text-gray-400">
-              = {formatRupees(totalCoins.rezCoins * 0.1)} value
-            </div>
-          </div>
-
-          <div className="flex items-center gap-2 p-3 rounded-xl bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800">
-            <Award className="w-5 h-5 text-green-600 dark:text-green-400" />
-            <span className="text-sm text-green-700 dark:text-green-300">
-              Use anywhere on ReZ to save instantly!
+            <span className="text-caption text-rez-navy dark:text-white font-medium text-center">
+              Nearby
             </span>
-          </div>
+          </Link>
         </div>
 
-        {/* Branded Coins - Nearby Stores */}
-        <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-md">
+        {/* Savings Timeline */}
+        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-blue-600" />
-              Branded Coins (Nearby)
+            <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+              Recent Savings
             </h3>
             <Link
-              to="/wallet/brands"
-              className="text-blue-600 dark:text-blue-400 text-sm font-medium hover:underline flex items-center gap-1"
+              to="/wallet/transactions"
+              className="text-caption text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1"
             >
-              View All {wallet.brandedCoins.length}
-              <ArrowRight className="w-4 h-4" />
+              See All
+              <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
 
           <div className="space-y-3">
-            {wallet.brandedCoins.slice(0, 3).map((brand, index) => (
-              <Link
-                key={index}
-                to={`/store/${brand.brandId}`}
-                className="flex items-center justify-between p-3 rounded-xl bg-gray-50 dark:bg-gray-700/50 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-              >
+            {wallet.transactions.slice(0, 3).filter(t => t.type === 'earned').map((transaction) => (
+              <div key={transaction.id} className="flex items-center justify-between p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5">
                 <div className="flex items-center gap-3">
-                  <div className="text-2xl">{brand.logo}</div>
+                  <span className="text-2xl">{transaction.storeIcon}</span>
                   <div>
-                    <div className="font-medium text-gray-900 dark:text-white">
-                      {brand.merchant}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
-                      {brand.balance} coins
-                    </div>
+                    <p className="text-body-sm font-medium text-rez-navy dark:text-white">
+                      {transaction.store}
+                    </p>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                      {transaction.description}
+                    </p>
                   </div>
                 </div>
-                <ArrowRight className="w-5 h-5 text-gray-400" />
-              </Link>
+                <div className="text-right">
+                  <p className="text-body-sm font-bold text-emerald-600 dark:text-emerald-400">
+                    +₹{transaction.amount}
+                  </p>
+                  <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                    {transaction.date}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* Promo Coins - Expiring Soon */}
+        {/* Expiring Soon */}
         {wallet.promoCoins.balance > 0 && (
-          <div className="bg-gradient-to-br from-orange-50 to-red-50 dark:from-orange-900/20 dark:to-red-900/20 rounded-2xl p-6 shadow-md border-2 border-orange-200 dark:border-orange-800">
-            <div className="flex items-center gap-2 mb-4">
-              <Flame className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                Promo Coins (Expiring Soon!)
+          <div className="p-4 rounded-2xl bg-orange-50 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20">
+            <div className="flex items-center gap-2 mb-3">
+              <Flame className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+              <h3 className="text-body font-semibold text-orange-900 dark:text-orange-300">
+                Expiring Soon
               </h3>
             </div>
-
-            <div className="mb-4">
-              <div className="text-2xl font-bold text-orange-600 dark:text-orange-400 mb-1">
-                {wallet.promoCoins.balance} coins
-              </div>
-              <div className="text-sm text-gray-700 dark:text-gray-300">
-                Expires in {wallet.promoCoins.expiry} • {wallet.promoCoins.maxRedemption}
+            <div className="space-y-2">
+              <div className="p-3 rounded-xl bg-white dark:bg-orange-500/10">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-body-sm font-medium text-rez-navy dark:text-white">
+                      {wallet.promoCoins.campaign} Promo
+                    </p>
+                    <p className="text-caption text-orange-600 dark:text-orange-400">
+                      {wallet.promoCoins.balance} coins • {wallet.promoCoins.expiry}
+                    </p>
+                  </div>
+                  <Clock className="w-5 h-5 text-orange-500" />
+                </div>
               </div>
             </div>
-
-            <Link
-              to="/explore/trending"
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold transition-all"
-            >
-              <Zap className="w-5 h-5" />
-              Use Now to Save More!
-            </Link>
           </div>
         )}
 
-        {/* Savings Proof */}
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 shadow-md">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-            💰 Your Savings Journey
-          </h3>
-
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                {formatRupees(wallet.savingsStats.totalSaved)}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Lifetime Saved
-              </div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold text-green-600 dark:text-green-400">
-                {formatRupees(wallet.savingsStats.avgPerVisit)}
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Avg. Per Visit
-              </div>
-            </div>
-          </div>
-
-          <Link
-            to="/wallet/savings"
-            className="text-green-600 dark:text-green-400 text-sm font-medium hover:underline flex items-center gap-1"
-          >
-            See detailed breakdown
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        {/* Leaderboard Teaser */}
-        <div className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-6 shadow-md">
+        {/* Daily Habit Card */}
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-500/10 dark:to-pink-500/10 border border-purple-200 dark:border-purple-500/20">
           <div className="flex items-center gap-2 mb-3">
-            <Award className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Top Savers This Month
+            <Target className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+            <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+              🎯 Today's Smart Save Task
             </h3>
           </div>
+          <div className="p-3 rounded-xl bg-white dark:bg-white/10 mb-3">
+            <p className="text-body-sm text-rez-navy dark:text-white font-medium mb-1">
+              Pay at any store via ReZ
+            </p>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+              Earn 20 bonus coins today
+            </p>
+          </div>
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <Award className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+              <span className="text-caption text-purple-700 dark:text-purple-300 font-medium">
+                2/7 days streak
+              </span>
+            </div>
+            <Link
+              to="/pay-in-store"
+              className="px-4 py-2 rounded-lg bg-purple-600 hover:bg-purple-700 text-white text-caption font-semibold transition-colors"
+            >
+              Complete Now
+            </Link>
+          </div>
+        </div>
 
-          <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-            You're in the top 15% of savers in your area! 🏆
-          </p>
+        {/* Stats */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+            <div className="flex items-center gap-2 mb-2">
+              <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                Lifetime Saved
+              </p>
+            </div>
+            <p className="text-h4 font-bold text-rez-navy dark:text-white">
+              {formatRupees(wallet.savingsStats.totalSaved)}
+            </p>
+          </div>
 
-          <Link
-            to="/leaderboard"
-            className="text-purple-600 dark:text-purple-400 text-sm font-medium hover:underline flex items-center gap-1"
-          >
-            View Leaderboard
-            <ArrowRight className="w-4 h-4" />
-          </Link>
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+            <div className="flex items-center gap-2 mb-2">
+              <Calendar className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                Avg Per Visit
+              </p>
+            </div>
+            <p className="text-h4 font-bold text-rez-navy dark:text-white">
+              {formatRupees(wallet.savingsStats.avgPerVisit)}
+            </p>
+          </div>
         </div>
       </div>
 

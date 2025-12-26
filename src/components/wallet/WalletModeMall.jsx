@@ -1,304 +1,339 @@
 import { Link } from 'react-router-dom';
 import {
-  Wallet,
-  Gift,
-  TrendingUp,
-  ShoppingBag,
+  ArrowLeft,
   Award,
+  ShoppingBag,
+  TrendingUp,
   ArrowRight,
+  Gift,
   Sparkles,
-  CreditCard,
-  Package
+  Star,
+  ChevronRight
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import { useWallet } from '../../contexts/WalletContext';
-import { useApp } from '../../contexts/AppContext';
-import {
-  calculateTotalCoins,
-  formatRupees
-} from '../../utils/wallet';
+import { useUser } from '../../contexts/UserContext';
+import { formatRupees } from '../../utils/wallet';
 import BottomNav from '../layout/BottomNav';
 
 /**
  * WalletModeMall Component
  * ReZ Mall Wallet Experience
  *
- * Emotion: "I'm shopping smart, not cheap"
- * Design: Clean, premium, curated
- * Colors: White (#FFFFFF) + Gold (#D4AF37)
- * Focus: Brands, value, trust, gift card conversions
+ * PURPOSE: Curated brands, trusted shopping, higher-value purchases
+ * EMOTION: "Your rewards make premium affordable"
+ * DESIGN: White + Gold, Trust, premium
+ * TONE: Makes coins feel valuable, encourages higher AOV, reinforces curated trust
  */
 const WalletModeMall = () => {
+  const navigate = useNavigate();
   const wallet = useWallet();
-  const { theme } = useApp();
-  const isDark = theme === 'dark';
+  const { user } = useUser();
 
-  const totalCoins = calculateTotalCoins(wallet);
+  const totalRezCoins = wallet.rezCoinsData?.balance || wallet.rezCoins;
+  const totalBrandedCoins = wallet.brandedCoins.reduce((sum, brand) => sum + brand.balance, 0);
 
   return (
-    <div className={`min-h-screen ${isDark ? 'bg-gray-900' : 'bg-white'}`}>
-      {/* Hero Section - Premium Style */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-gray-900 to-black px-6 py-8 text-white">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5"></div>
-        <div className="relative">
-          <div className="flex items-center justify-between mb-8">
-            <div className="flex items-center gap-2">
-              <Wallet className="w-6 h-6 text-yellow-500" />
-              <h1 className="text-lg font-semibold">Wallet</h1>
-            </div>
-            <button className="p-2 rounded-full bg-white/10 hover:bg-white/20">
-              <Sparkles className="w-5 h-5 text-yellow-500" />
-            </button>
-          </div>
-
-          <div className="text-center mb-6">
-            <p className="text-gray-400 text-sm font-medium mb-2">Total Balance</p>
-            <h2 className="text-4xl font-bold mb-1 bg-gradient-to-r from-yellow-500 to-yellow-300 bg-clip-text text-transparent">
-              {totalCoins.total.toLocaleString()} coins
-            </h2>
-            <p className="text-yellow-500 text-lg font-semibold">
-              {formatRupees(totalCoins.totalValue)}
-            </p>
-          </div>
-
-          <div className="text-center text-gray-400">
-            <p className="text-sm">Smart shopping, great savings</p>
+    <div className="min-h-screen bg-rez-gray-50 dark:bg-dark-900">
+      {/* Header */}
+      <div className="sticky top-0 z-40 bg-white dark:bg-dark-800 border-b border-rez-gray-200 dark:border-dark-700">
+        <div className="flex items-center gap-3 px-4 py-4">
+          <button
+            onClick={() => navigate(-1)}
+            className="p-2 hover:bg-rez-gray-100 dark:hover:bg-white/10 rounded-xl transition-colors"
+          >
+            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
+          </button>
+          <div className="flex-1">
+            <h1 className="text-h4 font-poppins text-rez-navy dark:text-white">
+              Wallet
+            </h1>
           </div>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="px-6 space-y-6 pb-24 -mt-6">
-        {/* Earned from Mall */}
-        <div className={`rounded-2xl p-6 shadow-lg ${
-          isDark ? 'bg-gray-800' : 'bg-gradient-to-br from-gray-50 to-white'
-        } border ${isDark ? 'border-gray-700' : 'border-gray-200'}`}>
-          <div className="flex items-center gap-2 mb-4">
-            <ShoppingBag className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Earned from Mall
-            </h3>
+      {/* Top Section */}
+      <div className="px-4 py-6 bg-gradient-to-br from-white via-amber-50 to-yellow-50 dark:from-dark-800 dark:via-yellow-900/20 dark:to-amber-900/20">
+        <div className="text-center">
+          <p className="text-sm font-medium text-rez-gray-700 dark:text-gray-300 mb-2">
+            Your ReZ Mall Balance
+          </p>
+          <h2 className="text-5xl font-bold font-poppins mb-2 bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">
+            {totalRezCoins + totalBrandedCoins}
+          </h2>
+          <p className="text-sm text-rez-gray-600 dark:text-gray-400">
+            Usable on curated brands
+          </p>
+        </div>
+      </div>
+
+      <div className="p-4 space-y-4 pb-24">
+        {/* Coin Emphasis */}
+        <div className="space-y-3">
+          {/* ReZ Coin (Primary in Mall) */}
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border-2 border-amber-200 dark:border-amber-500/30 shadow-sm">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-500 flex items-center justify-center shadow-lg">
+                  <span className="text-2xl">🪙</span>
+                </div>
+                <div>
+                  <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+                    ReZ Coin
+                  </h3>
+                  <p className="text-caption text-amber-600 dark:text-amber-400 font-medium">
+                    Primary currency
+                  </p>
+                </div>
+              </div>
+              <div className="text-right">
+                <p className="text-h3 font-bold text-rez-navy dark:text-white">
+                  {totalRezCoins}
+                </p>
+                <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                  = {formatRupees(totalRezCoins)}
+                </p>
+              </div>
+            </div>
+            <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-500/10 border border-amber-200 dark:border-amber-500/20">
+              <p className="text-caption text-amber-800 dark:text-amber-300">
+                💡 Best use: Apply on premium brands for maximum value
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 mb-4">
-            <div>
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                {formatRupees(wallet.savingsStats.thisMonth)}
+          {/* Branded Coins (Brand tiles with logos) */}
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-2">
+                <ShoppingBag className="w-5 h-5 text-rez-navy dark:text-white" />
+                <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+                  Brand Wallet
+                </h3>
               </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                This Month
+              <Link
+                to="/wallet/brands"
+                className="text-caption text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1"
+              >
+                View All
+                <ChevronRight className="w-3 h-3" />
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-3 gap-3">
+              {wallet.brandedCoins.slice(0, 6).map((brand) => (
+                <Link
+                  key={brand.brandId}
+                  to={`/store/${brand.brandId}`}
+                  className="flex flex-col items-center gap-2 p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors border border-rez-gray-200 dark:border-white/10"
+                >
+                  <div className="w-14 h-14 rounded-xl bg-white dark:bg-white/10 flex items-center justify-center shadow-sm">
+                    <span className="text-3xl">{brand.logo}</span>
+                  </div>
+                  <div className="text-center">
+                    <p className="text-caption font-semibold text-rez-navy dark:text-white truncate w-full">
+                      {brand.merchant}
+                    </p>
+                    <p className="text-[10px] text-amber-600 dark:text-amber-400 font-bold">
+                      {brand.balance} coins
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Privé Coin (subtle highlight) - Only show if user is Privé member */}
+          {user?.isPriveMember && wallet.priveCoins.balance > 0 && (
+            <div className="p-4 rounded-2xl bg-gradient-to-br from-gray-900 to-black border border-[#D4AF37]/30 shadow-lg">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/20 flex items-center justify-center">
+                    <span className="text-2xl">👑</span>
+                  </div>
+                  <div>
+                    <h3 className="text-body font-semibold text-white">
+                      Privé Coin
+                    </h3>
+                    <p className="text-caption text-[#D4AF37]">
+                      Elite member exclusive
+                    </p>
+                  </div>
+                </div>
+                <div className="text-right">
+                  <p className="text-h4 font-bold text-[#D4AF37]">
+                    {wallet.priveCoins.balance}
+                  </p>
+                </div>
               </div>
             </div>
-            <div>
-              <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                12
-              </div>
-              <div className="text-sm text-gray-600 dark:text-gray-400">
-                Purchases
-              </div>
-            </div>
+          )}
+        </div>
+
+        {/* Best Use Suggestions */}
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-500/10 dark:to-purple-500/10 border border-blue-200 dark:border-blue-500/20">
+          <div className="flex items-center gap-2 mb-3">
+            <Sparkles className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+              Smart Apply Preview
+            </h3>
+          </div>
+          <div className="p-3 rounded-xl bg-white dark:bg-white/10 mb-3">
+            <p className="text-body-sm text-rez-navy dark:text-white font-medium mb-1">
+              Use 320 ReZ Coins on Nykaa → Save ₹320
+            </p>
+            <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+              Best savings will be auto-applied at checkout
+            </p>
           </div>
         </div>
 
-        {/* Brand Coins Available */}
-        <div className={`rounded-2xl p-6 shadow-lg ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        }`}>
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-              <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-500" />
-              Brand Coins
-            </h3>
-            <Link
-              to="/wallet/brands"
-              className="text-gray-600 dark:text-gray-400 text-sm font-medium hover:underline flex items-center gap-1"
-            >
-              View All
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-2 gap-3 mb-4">
-            {wallet.brandedCoins.slice(0, 6).map((brand, index) => (
+        {/* Brand Wallet View */}
+        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+          <h3 className="text-body font-semibold text-rez-navy dark:text-white mb-4">
+            Brand Performance
+          </h3>
+          <div className="space-y-3">
+            {wallet.brandedCoins.slice(0, 3).map((brand) => (
               <Link
-                key={index}
+                key={brand.brandId}
                 to={`/store/${brand.brandId}`}
-                className={`flex flex-col items-center gap-2 p-4 rounded-xl ${
-                  isDark
-                    ? 'bg-gray-700/50 hover:bg-gray-700'
-                    : 'bg-gray-50 hover:bg-gray-100'
-                } transition-colors`}
+                className="block p-3 rounded-xl bg-rez-gray-50 dark:bg-white/5 hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors"
               >
-                <div className="text-3xl mb-1">{brand.logo}</div>
-                <div className="text-center">
-                  <div className="font-semibold text-gray-900 dark:text-white text-sm">
-                    {brand.merchant}
+                <div className="flex items-center justify-between mb-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-2xl">{brand.logo}</span>
+                    <div>
+                      <p className="text-body-sm font-semibold text-rez-navy dark:text-white">
+                        {brand.merchant}
+                      </p>
+                      <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                        {brand.loyaltyData.lifetimeVisits} visits
+                      </p>
+                    </div>
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">
-                    {brand.balance} coins
+                  <ChevronRight className="w-5 h-5 text-rez-gray-400" />
+                </div>
+                <div className="grid grid-cols-3 gap-2 text-center">
+                  <div>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">Earned</p>
+                    <p className="text-body-sm font-bold text-emerald-600 dark:text-emerald-400">
+                      {brand.loyaltyData.totalCoinsEarned}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">Used</p>
+                    <p className="text-body-sm font-bold text-rez-navy dark:text-white">
+                      {brand.loyaltyData.totalCoinsEarned - brand.balance}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">Available</p>
+                    <p className="text-body-sm font-bold text-amber-600 dark:text-amber-400">
+                      {brand.balance}
+                    </p>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
-
-          <Link
-            to="/wallet/brands"
-            className="w-full py-3 text-center rounded-xl border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
-          >
-            View All {wallet.brandedCoins.length} Brands
-          </Link>
         </div>
 
-        {/* Gift Card Ready Balance */}
-        <div className={`rounded-2xl p-6 shadow-lg ${
-          isDark
-            ? 'bg-gradient-to-br from-yellow-900/30 to-orange-900/30'
-            : 'bg-gradient-to-br from-yellow-50 to-orange-50'
-        } border-2 ${
-          isDark ? 'border-yellow-800' : 'border-yellow-200'
-        }`}>
-          <div className="flex items-center gap-2 mb-4">
-            <Gift className="w-6 h-6 text-yellow-600 dark:text-yellow-500" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Gift Card Ready
+        {/* Mall History */}
+        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+              Mall History
             </h3>
-          </div>
-
-          <div className="mb-4">
-            <div className="text-gray-700 dark:text-gray-300 text-sm mb-2">
-              Privé Coins (can be converted to gift cards)
-            </div>
-            <div className="flex items-baseline gap-2 mb-1">
-              <span className="text-3xl font-bold text-yellow-600 dark:text-yellow-500">
-                👑 {wallet.priveCoins.balance}
-              </span>
-              <span className="text-gray-600 dark:text-gray-400">coins</span>
-            </div>
-            <div className="text-sm text-gray-600 dark:text-gray-400">
-              = {formatRupees(wallet.priveCoins.balance * 0.1)} in gift cards
-            </div>
-          </div>
-
-          {wallet.priveCoins.balance > 0 ? (
             <Link
-              to="/gift-cards"
-              className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold transition-all"
+              to="/wallet/transactions"
+              className="text-caption text-blue-600 dark:text-blue-400 font-medium flex items-center gap-1"
             >
-              <CreditCard className="w-5 h-5" />
-              Convert to Gift Cards
+              See All
+              <ArrowRight className="w-3 h-3" />
             </Link>
-          ) : (
-            <div className="text-center py-3 text-sm text-gray-600 dark:text-gray-400">
-              Earn Privé coins to unlock gift cards
-            </div>
-          )}
-        </div>
-
-        {/* Mall Cashback Tracker */}
-        <div className={`rounded-2xl p-6 shadow-lg ${
-          isDark ? 'bg-gray-800' : 'bg-white'
-        }`}>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
-            <Package className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-            Cashback Tracker
-          </h3>
+          </div>
 
           <div className="space-y-3">
-            {/* Pending Cashback */}
-            <div className={`p-4 rounded-xl ${
-              isDark ? 'bg-orange-900/20' : 'bg-orange-50'
-            } border ${isDark ? 'border-orange-800' : 'border-orange-200'}`}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  ⏳ Pending
-                </span>
-                <span className="text-lg font-bold text-orange-600 dark:text-orange-400">
-                  {formatRupees(wallet.pendingRewards)}
-                </span>
+            <div className="p-3 rounded-xl bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Award className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
+                  <div>
+                    <p className="text-body-sm font-semibold text-rez-navy dark:text-white">
+                      Brand-wise savings
+                    </p>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                      {formatRupees(wallet.savingsStats.thisMonth)} this month
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                3 orders tracking
-              </p>
             </div>
 
-            {/* Confirmed */}
-            <div className={`p-4 rounded-xl ${
-              isDark ? 'bg-green-900/20' : 'bg-green-50'
-            } border ${isDark ? 'border-green-800' : 'border-green-200'}`}>
-              <div className="flex items-center justify-between mb-1">
-                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                  ✅ Confirmed
-                </span>
-                <span className="text-lg font-bold text-green-600 dark:text-green-400">
-                  {wallet.rezCoinsData.balance} coins
-                </span>
+            <div className="p-3 rounded-xl bg-blue-50 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Star className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                  <div>
+                    <p className="text-body-sm font-semibold text-rez-navy dark:text-white">
+                      Trust badges earned
+                    </p>
+                    <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                      {wallet.brandedCoins.length} brands trusted
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="text-xs text-gray-600 dark:text-gray-400">
-                Ready to use anywhere
-              </p>
             </div>
           </div>
         </div>
 
-        {/* Earn More Section */}
-        <div className={`rounded-2xl p-6 shadow-lg ${
-          isDark
-            ? 'bg-gradient-to-br from-purple-900/30 to-pink-900/30'
-            : 'bg-gradient-to-br from-purple-50 to-pink-50'
-        }`}>
+        {/* Earn More from Mall */}
+        <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-500/10 dark:to-pink-500/10 border border-purple-200 dark:border-purple-500/20">
           <div className="flex items-center gap-2 mb-3">
             <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              Earn More Coins
+            <h3 className="text-body font-semibold text-rez-navy dark:text-white">
+              Earn More
             </h3>
           </div>
-
-          <div className="space-y-3 mb-4">
-            <div className={`p-3 rounded-xl ${
-              isDark ? 'bg-white/5' : 'bg-white/60'
-            }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">👗</span>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
-                      Buy from Zara
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
-                      Get 10% cashback
-                    </div>
-                  </div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-gray-400" />
-              </div>
-            </div>
-
-            <div className={`p-3 rounded-xl ${
-              isDark ? 'bg-white/5' : 'bg-white/60'
-            }`}>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">💄</span>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 dark:text-white">
-                      Shop Nykaa
-                    </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
-                      Get 8% cashback
-                    </div>
-                  </div>
-                </div>
-                <ArrowRight className="w-5 h-5 text-gray-400" />
-              </div>
-            </div>
-          </div>
-
+          <p className="text-caption text-rez-gray-600 dark:text-gray-400 mb-4">
+            Shop from curated brands to earn more coins and unlock exclusive rewards
+          </p>
           <Link
             to="/mall"
-            className="w-full py-3 text-center rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all"
+            className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold transition-all"
           >
+            <ShoppingBag className="w-5 h-5" />
             Browse Mall Brands
           </Link>
+        </div>
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 gap-3">
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+            <div className="flex items-center gap-2 mb-2">
+              <Gift className="w-4 h-4 text-amber-600 dark:text-amber-400" />
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                This Month
+              </p>
+            </div>
+            <p className="text-h4 font-bold text-rez-navy dark:text-white">
+              {formatRupees(wallet.savingsStats.thisMonth)}
+            </p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
+            <div className="flex items-center gap-2 mb-2">
+              <ShoppingBag className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">
+                Purchases
+              </p>
+            </div>
+            <p className="text-h4 font-bold text-rez-navy dark:text-white">
+              {wallet.transactions.filter(t => t.type === 'earned').length}
+            </p>
+          </div>
         </div>
       </div>
 

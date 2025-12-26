@@ -20,8 +20,7 @@ const ModeSwitcher = () => {
     // Update global mode state
     setGlobalMode(mode.id);
 
-    // Navigate to the mode's page
-    navigate(mode.path);
+    // Navigation will be handled by ModeTransitionManager
   };
 
   const activeMode = modes.find(m => m.id === globalMode) || modes[0];

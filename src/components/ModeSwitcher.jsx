@@ -4,19 +4,23 @@
  */
 
 import { useNavigate, useLocation } from 'react-router-dom';
+import { useApp } from '../contexts/AppContext';
 
 const ModeSwitcher = ({ currentMode = 'normal' }) => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { setGlobalMode } = useApp();
 
   const isPriveMode = location.pathname.startsWith('/prive');
 
   const switchToNormal = () => {
-    navigate('/');
+    setGlobalMode('nearYou');
+    // Navigation will be handled by ModeTransitionManager
   };
 
   const switchToPrive = () => {
-    navigate('/prive');
+    setGlobalMode('prive');
+    // Navigation will be handled by ModeTransitionManager
   };
 
   return (

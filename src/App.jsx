@@ -311,6 +311,9 @@ import Cart from './pages/Cart';
 // Preloader Demo
 import PreloaderDemo from './pages/PreloaderDemo';
 
+// Preloader Manager
+import PreloaderManager from './components/preloader/PreloaderManager';
+
 function App() {
   return (
     <BrowserRouter>
@@ -319,6 +322,7 @@ function App() {
           <WalletProvider>
             <CreatorProvider>
               <AppProvider>
+                <PreloaderManager>
             <Routes>
               {/* Auth & Onboarding Routes (No Layout) */}
               <Route path="/splash" element={<Splash />} />
@@ -675,6 +679,7 @@ function App() {
                 <Route path="brand/:brandId" element={<BrandLoyalty />} />
               </Route>
             </Routes>
+                </PreloaderManager>
               </AppProvider>
             </CreatorProvider>
           </WalletProvider>

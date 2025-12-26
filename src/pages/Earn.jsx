@@ -35,12 +35,19 @@ import {
   Coins
 } from 'lucide-react';
 import { useWallet } from '../contexts/WalletContext';
+import { useCreator } from '../contexts/CreatorContext';
+import CreatorPickCard from '../components/creator/CreatorPickCard';
 import BottomNavManager from '../components/layout/BottomNavManager';
 
 const Earn = () => {
   const { rezCoins, brandedCoins, promoCoins } = useWallet();
+  const { getTrendingPicks, getFeaturedCreators } = useCreator();
   const [currentStreak, setCurrentStreak] = useState(7);
   const [monthlyEarnings, setMonthlyEarnings] = useState(2480);
+
+  // Get creator data
+  const trendingPicks = getTrendingPicks().slice(0, 3);
+  const featuredCreators = getFeaturedCreators().slice(0, 2);
 
   // Calculate total branded coins
   const totalBrandedCoins = brandedCoins.reduce((sum, coin) => sum + coin.balance, 0);
@@ -316,6 +323,78 @@ const Earn = () => {
             );
           })}
         </div>
+      </div>
+
+      {/* Creator Earnings Section */}
+      <div className="px-4 py-6 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-2">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <div>
+              <h2 className="text-h3 font-poppins text-rez-navy dark:text-white">Become a Creator</h2>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">Earn by recommending products</p>
+            </div>
+          </div>
+          <Link
+            to="/creators"
+            className="text-purple-600 dark:text-purple-400 text-caption font-semibold hover:underline flex items-center gap-1"
+          >
+            Explore
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+
+        {/* Featured Creators */}
+        <div className="grid grid-cols-2 gap-3 mb-4">
+          {featuredCreators.map(creator => (
+            <Link
+              key={creator.id}
+              to={`/creators/${creator.username}`}
+              className="p-4 rounded-rez-xl bg-white dark:bg-bg-card border border-purple-200 dark:border-purple-500/30 hover:shadow-lg transition-all"
+            >
+              <div className="flex items-center gap-2 mb-2">
+                <img
+                  src={creator.avatar}
+                  alt={creator.name}
+                  className="w-10 h-10 rounded-full object-cover"
+                />
+                {creator.verified && (
+                  <CheckCircle className="w-4 h-4 text-blue-500" />
+                )}
+              </div>
+              <h3 className="text-body-sm font-semibold text-rez-navy dark:text-white mb-1">{creator.name}</h3>
+              <div className="flex items-center gap-2 text-caption text-rez-gray-600 dark:text-gray-400">
+                <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />
+                <span>{creator.stats.avgRating.toFixed(1)}</span>
+                <span>•</span>
+                <span>{creator.stats.totalPicks} picks</span>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Trending Picks */}
+        <div>
+          <h3 className="text-body font-semibold text-rez-navy dark:text-white mb-3">Trending Picks</h3>
+          <div className="grid grid-cols-3 gap-3">
+            {trendingPicks.map(pick => (
+              <div key={pick.id} className="col-span-1">
+                <CreatorPickCard pick={pick} showCreator={false} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <Link
+          to="/creators"
+          className="mt-4 w-full py-3 rounded-rez-md bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-semibold flex items-center justify-center gap-2 transition-all"
+        >
+          <Crown className="w-5 h-5" />
+          Start Earning as Creator
+        </Link>
       </div>
 
       {/* Daily & Streak Earnings */}

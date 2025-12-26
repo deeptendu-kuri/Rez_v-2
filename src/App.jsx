@@ -290,6 +290,8 @@ import CashStoreStores from './pages/cashstore/CashStoreStores';
 import CashStoreCoupons from './pages/cashstore/CashStoreCoupons';
 import CreatorStoreHome from './pages/creator/CreatorStoreHome';
 import CreatorProfile from './pages/creator/CreatorProfile';
+import CreatorPickDetail from './pages/creator/CreatorPickDetail';
+import CollectionDetail from './pages/creator/CollectionDetail';
 
 function App() {
   return (
@@ -351,6 +353,8 @@ function App() {
                 {/* Creator Store Routes */}
                 <Route path="creators" element={<CreatorStoreHome />} />
                 <Route path="creators/:username" element={<CreatorProfile />} />
+                <Route path="creators/:username/pick/:pickId" element={<CreatorPickDetail />} />
+                <Route path="creators/:username/collection/:collectionId" element={<CollectionDetail />} />
 
                 <Route path="prive" element={<PriveHome />} />
                 <Route path="prive/privileges" element={<PrivePrivileges />} />

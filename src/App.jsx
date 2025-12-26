@@ -259,6 +259,9 @@ import UGCCreator from './pages/earn/UGCCreator';
 import CollegeAmbassador from './pages/earn/CollegeAmbassador';
 import CorporateEmployee from './pages/earn/CorporateEmployee';
 import Surveys from './pages/earn/Surveys';
+import PlayGames from './pages/earn/PlayGames';
+import ReferEarn from './pages/earn/ReferEarn';
+import WriteReviews from './pages/earn/WriteReviews';
 import Quiz from './pages/earn/Quiz';
 import MemoryMatch from './pages/earn/MemoryMatch';
 import LuckyDraw from './pages/earn/LuckyDraw';
@@ -525,6 +528,9 @@ function App() {
                 <Route path="earn/coin-hunt" element={<CoinHunt />} />
                 <Route path="earn/scratch-card" element={<ScratchCard />} />
                 <Route path="earn/surveys" element={<Surveys />} />
+                <Route path="earn/play" element={<PlayGames />} />
+                <Route path="earn/refer" element={<ReferEarn />} />
+                <Route path="earn/reviews" element={<WriteReviews />} />
                 <Route path="upload-bill" element={<UploadBillPage />} />
                 <Route path="refer" element={<ReferralPage />} />
 

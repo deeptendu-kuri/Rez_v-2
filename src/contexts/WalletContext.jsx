@@ -306,8 +306,65 @@ const initialState = {
     }
   ],
 
-  // Coin usage order (for transparency)
-  coinUsageOrder: ['Promo Coins', 'Branded Coins', 'ReZ Coins']
+  // Coin usage order (for transparency) - Auto-Apply Priority
+  coinUsageOrder: ['Promo Coins', 'Branded Coins', 'ReZ Coins', 'Privé Coins'],
+
+  // Privé Coins (Premium coin for elite users)
+  priveCoins: {
+    balance: 0, // Default 0, only for Privé members
+    expiry: 'No expiry',
+    usableAt: 'Anywhere - most powerful coin',
+    description: 'Premium status currency for elite users',
+    color: '#F59E0B',
+    icon: '👑',
+    exclusive: true
+  },
+
+  // Coin System Rules
+  coinRules: {
+    rezCoin: {
+      canUseAt: ['all-partners', 'online', 'offline', 'services', 'events'],
+      cannotUseFor: ['gift-cards', 'vouchers'],
+      maxUsagePercent: 100,
+      transferable: false,
+      logic: 'ReZ Coin = internal currency. Gift cards = external cash equivalent'
+    },
+    brandedCoin: {
+      canUseAt: ['same-brand-only'],
+      cannotUseFor: ['gift-cards', 'vouchers', 'other-brands'],
+      maxUsagePercent: 100, // Brand decides
+      transferable: false,
+      logic: 'Brand coins drive repeat loyalty, not cash leakage'
+    },
+    priveCoin: {
+      canUseAt: ['anywhere', 'gift-cards', 'vouchers', 'luxury', 'experiences', 'events', 'services'],
+      cannotUseFor: [],
+      maxUsagePercent: 100,
+      transferable: false,
+      exclusive: true,
+      logic: 'Privé Coin = status currency. Must feel superior to all others'
+    },
+    promoCoin: {
+      canUseAt: [], // Varies by campaign
+      restrictions: {
+        maxPercentPerBill: 20, // Can vary 20-30%
+        categoryRestricted: true,
+        merchantRestricted: true,
+        timeRestricted: true,
+        oneTimeUse: true,
+        nonTransferable: true
+      },
+      logic: 'Promo Coin = growth lever, not loyalty currency'
+    },
+
+    // Auto-apply priority at checkout
+    autoApplyPriority: [
+      { order: 1, type: 'promo', reason: 'Use first, expires soon' },
+      { order: 2, type: 'branded', reason: 'Merchant loyalty' },
+      { order: 3, type: 'rez', reason: 'Universal usage' },
+      { order: 4, type: 'prive', reason: 'User can choose to save or use' }
+    ]
+  }
 };
 
 const walletReducer = (state, action) => {
@@ -372,6 +429,98 @@ export const WalletProvider = ({ children }) => {
     return brand || null;
   };
 
+  // Calculate auto-applied coins at checkout
+  const calculateAutoApplyCoins = (billAmount, merchantId = null, category = null) => {
+    let remaining = billAmount;
+    const applied = {
+      promo: 0,
+      branded: 0,
+      rez: 0,
+      prive: 0,
+      total: 0,
+      breakdown: []
+    };
+
+    // 1. Apply Promo Coins first (with restrictions)
+    if (state.promoCoins.balance > 0) {
+      const maxPromoUsage = billAmount * (state.coinRules.promoCoin.restrictions.maxPercentPerBill / 100);
+      const promoToApply = Math.min(state.promoCoins.balance, maxPromoUsage, remaining);
+      applied.promo = promoToApply;
+      remaining -= promoToApply;
+      if (promoToApply > 0) {
+        applied.breakdown.push({
+          type: 'promo',
+          amount: promoToApply,
+          name: 'Promo Coins',
+          icon: '🎁',
+          priority: 1
+        });
+      }
+    }
+
+    // 2. Apply Branded Coins (if merchant matches)
+    if (merchantId && remaining > 0) {
+      const brandCoin = state.brandedCoins.find(bc => bc.brandId === merchantId);
+      if (brandCoin && brandCoin.balance > 0) {
+        const brandedToApply = Math.min(brandCoin.balance, remaining);
+        applied.branded = brandedToApply;
+        remaining -= brandedToApply;
+        if (brandedToApply > 0) {
+          applied.breakdown.push({
+            type: 'branded',
+            amount: brandedToApply,
+            name: `${brandCoin.merchant} Coins`,
+            icon: brandCoin.logo,
+            priority: 2
+          });
+        }
+      }
+    }
+
+    // 3. Apply ReZ Coins (universal)
+    if (state.rezCoins.balance > 0 && remaining > 0) {
+      const rezToApply = Math.min(state.rezCoins.balance, remaining);
+      applied.rez = rezToApply;
+      remaining -= rezToApply;
+      if (rezToApply > 0) {
+        applied.breakdown.push({
+          type: 'rez',
+          amount: rezToApply,
+          name: 'ReZ Coins',
+          icon: '💰',
+          priority: 3
+        });
+      }
+    }
+
+    // 4. Privé Coins are NOT auto-applied (user choice)
+    // User can manually choose to use Privé Coins
+
+    applied.total = applied.promo + applied.branded + applied.rez + applied.prive;
+    applied.remainingBill = Math.max(0, remaining);
+
+    return applied;
+  };
+
+  // Check if coin can be used for specific purpose
+  const canUseCoinFor = (coinType, purpose, merchantId = null) => {
+    const rules = state.coinRules[coinType + 'Coin'];
+    if (!rules) return false;
+
+    // Check restrictions
+    if (rules.cannotUseFor && rules.cannotUseFor.includes(purpose)) {
+      return false;
+    }
+
+    // For branded coins, check merchant match
+    if (coinType === 'branded' && merchantId) {
+      const brandCoin = state.brandedCoins.find(bc => bc.brandId === merchantId);
+      return brandCoin && brandCoin.balance > 0;
+    }
+
+    return true;
+  };
+
   const value = {
     ...state,
     // Override rezCoins to be just the balance for backward compatibility
@@ -386,6 +535,9 @@ export const WalletProvider = ({ children }) => {
     setDefaultPayment: (id) => dispatch({ type: 'SET_DEFAULT_PAYMENT', payload: id }),
     dismissAlert: (id) => dispatch({ type: 'DISMISS_ALERT', payload: id }),
     getBrandLoyalty,
+    // New coin system functions
+    calculateAutoApplyCoins,
+    canUseCoinFor,
   };
 
   return <WalletContext.Provider value={value}>{children}</WalletContext.Provider>;

@@ -1,59 +1,54 @@
-import React from 'react';
-import { ArrowLeft } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { ArrowLeft, FileText } from 'lucide-react';
 
-function Terms() {
-  const navigate = useNavigate();
-
+const Terms = () => {
   return (
-    <div className="min-h-screen bg-rez-gray-50 dark:bg-dark-900 pb-20">
-      <div className="sticky top-0 z-10 bg-white dark:bg-dark-800 border-b border-rez-gray-200 dark:border-dark-700">
-        <div className="px-4 py-4 flex items-center gap-3">
-          <button onClick={() => navigate(-1)} className="p-2 -ml-2 rounded-full hover:bg-rez-gray-100 dark:hover:bg-dark-700">
-            <ArrowLeft className="w-5 h-5 text-rez-navy dark:text-white" />
-          </button>
-          <h1 className="text-h3 font-poppins text-rez-navy dark:text-white">Terms of Service</h1>
+    <div className="min-h-screen bg-white dark:bg-black pb-8">
+      <div className="sticky top-0 z-40 bg-white/95 dark:bg-black/95 backdrop-blur-sm border-b border-rez-gray-200 dark:border-white/10">
+        <div className="px-4 py-4 flex items-center gap-4">
+          <Link to="/" className="p-2 rounded-rez-lg hover:bg-rez-gray-100 dark:hover:bg-white/10 transition-colors">
+            <ArrowLeft className="w-6 h-6 text-rez-navy dark:text-white" />
+          </Link>
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-rez-lg bg-purple-500/20 flex items-center justify-center">
+              <FileText className="w-5 h-5 text-purple-500" />
+            </div>
+            <div>
+              <h1 className="text-h4 font-poppins text-rez-navy dark:text-white">Terms & Conditions</h1>
+              <p className="text-caption text-rez-gray-600 dark:text-gray-400">Last updated: Dec 26, 2024</p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div className="px-4 py-6 space-y-6">
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
-          <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-3">1. Acceptance of Terms</h2>
-          <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">
-            By using ReZ, you agree to these terms and conditions. Please read them carefully.
-          </p>
-        </div>
+      <div className="max-w-3xl mx-auto px-4 py-8 space-y-8">
+        <p className="text-body text-rez-gray-700 dark:text-gray-300">
+          By using ReZ, you agree to these terms. Please read them carefully.
+        </p>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
-          <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-3">2. Use of Service</h2>
-          <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">
-            ReZ provides a platform for cashback rewards and shopping. You must use the service responsibly and in accordance with applicable laws.
+        <section>
+          <h2 className="text-h3 font-poppins text-rez-navy dark:text-white mb-4">1. Acceptance of Terms</h2>
+          <p className="text-body text-rez-gray-700 dark:text-gray-300">
+            By accessing ReZ, you agree to be bound by these Terms and Conditions.
           </p>
-        </div>
+        </section>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
-          <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-3">3. ReZ Coins & Cashback</h2>
-          <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">
-            ReZ Coins and cashback are subject to terms and conditions. Coins may expire after a certain period. Please check wallet for details.
+        <section>
+          <h2 className="text-h3 font-poppins text-rez-navy dark:text-white mb-4">2. ReZ Coins & Rewards</h2>
+          <p className="text-body text-rez-gray-700 dark:text-gray-300 mb-3">
+            Coins are virtual rewards with no cash value. They may expire as per policy.
           </p>
-        </div>
+        </section>
 
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
-          <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-3">4. Privacy</h2>
-          <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">
-            Your privacy is important to us. Please review our Privacy Policy to understand how we collect and use your information.
-          </p>
-        </div>
-
-        <div className="p-4 rounded-2xl bg-white dark:bg-dark-800 border border-rez-gray-200 dark:border-dark-700">
-          <h2 className="text-lg font-bold text-rez-navy dark:text-white mb-3">5. Modifications</h2>
-          <p className="text-sm text-rez-gray-700 dark:text-gray-300 leading-relaxed">
-            We reserve the right to modify these terms at any time. Continued use of the service constitutes acceptance of modified terms.
-          </p>
-        </div>
+        <section>
+          <h2 className="text-h3 font-poppins text-rez-navy dark:text-white mb-4">3. Contact Us</h2>
+          <div className="p-4 rounded-rez-lg bg-rez-gray-50 dark:bg-white/5 border border-rez-gray-200 dark:border-white/10">
+            <p className="text-body text-rez-navy dark:text-white">Email: legal@rez.com</p>
+          </div>
+        </section>
       </div>
     </div>
   );
-}
+};
 
 export default Terms;

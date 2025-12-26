@@ -10,39 +10,194 @@ import { useNavigate } from 'react-router-dom';
 const ContestHub = () => {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('active');
+  const [contestType, setContestType] = useState('all'); // all, individual, college, corporate
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedInstitution, setSelectedInstitution] = useState('all'); // for filtering by specific college/company
 
   const activeContests = [
+    // College-Specific Individual Contests
     {
       id: 1,
-      title: 'Student of the Month',
+      title: 'Oxford College Student of the Month',
       subtitle: 'December 2024',
-      type: 'student',
+      type: 'individual',
+      category: 'student',
       endDate: 'Dec 31, 2024',
       daysLeft: 6,
-      totalVotes: 1250,
-      nominees: 8,
-      prize: '₹5,000 + Badge',
+      totalVotes: 450,
+      nominees: 12,
+      prize: '₹3,000 + Certificate',
       image: '🎓',
       status: 'voting',
+      scope: 'Oxford College, Bangalore',
+      institution: 'Oxford College',
     },
     {
       id: 2,
-      title: 'Employee of the Month',
+      title: 'Christ University Student of the Month',
       subtitle: 'December 2024',
-      type: 'employee',
+      type: 'individual',
+      category: 'student',
       endDate: 'Dec 31, 2024',
       daysLeft: 6,
-      totalVotes: 850,
-      nominees: 6,
-      prize: '₹10,000 + Recognition',
-      image: '💼',
+      totalVotes: 680,
+      nominees: 15,
+      prize: '₹5,000 + Badge',
+      image: '🎓',
       status: 'voting',
+      scope: 'Christ University, Bangalore',
+      institution: 'Christ University',
     },
     {
       id: 3,
+      title: 'IIT Bangalore Student of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'student',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 920,
+      nominees: 10,
+      prize: '₹7,500 + Amazon Voucher',
+      image: '🎓',
+      status: 'voting',
+      scope: 'IIT Bangalore',
+      institution: 'IIT Bangalore',
+    },
+    {
+      id: 10,
+      title: 'St. Joseph\'s College Student of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'student',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 520,
+      nominees: 14,
+      prize: '₹4,000 + Certificate',
+      image: '🎓',
+      status: 'voting',
+      scope: 'St. Joseph\'s College, Bangalore',
+      institution: 'St. Joseph\'s College',
+    },
+    {
+      id: 11,
+      title: 'BMS College Student of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'student',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 590,
+      nominees: 13,
+      prize: '₹4,500 + Swag Kit',
+      image: '🎓',
+      status: 'voting',
+      scope: 'BMS College, Bangalore',
+      institution: 'BMS College',
+    },
+    // National Individual Contests
+    {
+      id: 12,
+      title: 'National Student of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'student',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 1250,
+      nominees: 25,
+      prize: '₹10,000 + National Recognition',
+      image: '🏅',
+      status: 'voting',
+      scope: 'All India',
+    },
+    // Company-Specific Employee Contests
+    {
+      id: 15,
+      title: 'Google Employee of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'employee',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 780,
+      nominees: 16,
+      prize: '₹8,000 + Google Swag',
+      image: '💼',
+      status: 'voting',
+      scope: 'Google India',
+      institution: 'Google',
+    },
+    {
+      id: 16,
+      title: 'Flipkart Employee of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'employee',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 650,
+      nominees: 14,
+      prize: '₹7,000 + Vouchers',
+      image: '💼',
+      status: 'voting',
+      scope: 'Flipkart',
+      institution: 'Flipkart',
+    },
+    {
+      id: 17,
+      title: 'Infosys Employee of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'employee',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 890,
+      nominees: 20,
+      prize: '₹6,000 + Recognition',
+      image: '💼',
+      status: 'voting',
+      scope: 'Infosys',
+      institution: 'Infosys',
+    },
+    {
+      id: 18,
+      title: 'TCS Employee of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'employee',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 1050,
+      nominees: 22,
+      prize: '₹6,500 + Certificate',
+      image: '💼',
+      status: 'voting',
+      scope: 'TCS',
+      institution: 'TCS',
+    },
+    {
+      id: 13,
+      title: 'National Employee of the Month',
+      subtitle: 'December 2024',
+      type: 'individual',
+      category: 'employee',
+      endDate: 'Dec 31, 2024',
+      daysLeft: 6,
+      totalVotes: 850,
+      nominees: 18,
+      prize: '₹15,000 + National Recognition',
+      image: '💼',
+      status: 'voting',
+      scope: 'All India - All Companies',
+    },
+    {
+      id: 14,
       title: 'Best Campus Ambassador',
       subtitle: 'Q4 2024',
-      type: 'ambassador',
+      type: 'individual',
+      category: 'ambassador',
       endDate: 'Dec 31, 2024',
       daysLeft: 6,
       totalVotes: 620,
@@ -50,6 +205,105 @@ const ContestHub = () => {
       prize: '₹15,000 + Trip',
       image: '🏆',
       status: 'voting',
+      scope: 'National',
+    },
+    // Inter-College Contests
+    {
+      id: 4,
+      title: 'Inter-College Savings Challenge',
+      subtitle: 'Bangalore Colleges',
+      type: 'college',
+      category: 'inter-college',
+      endDate: 'Jan 15, 2025',
+      daysLeft: 20,
+      totalVotes: 2450,
+      nominees: 25,
+      prize: '₹50,000 to winning college',
+      image: '🏫',
+      status: 'voting',
+      scope: 'Regional - Bangalore',
+      participants: ['IIT Bangalore', 'IIIT Bangalore', 'BMS College', 'Christ University', 'St. Joseph\'s'],
+    },
+    {
+      id: 5,
+      title: 'North vs South College Battle',
+      subtitle: 'Pan India',
+      type: 'college',
+      category: 'regional',
+      endDate: 'Jan 31, 2025',
+      daysLeft: 36,
+      totalVotes: 5420,
+      nominees: 50,
+      prize: '₹1,00,000 + Trophy',
+      image: '🎯',
+      status: 'voting',
+      scope: 'All India',
+      participants: ['North India Colleges', 'South India Colleges', 'East India Colleges', 'West India Colleges'],
+    },
+    {
+      id: 6,
+      title: 'Best College ReZ Community',
+      subtitle: 'Mumbai Region',
+      type: 'college',
+      category: 'community',
+      endDate: 'Jan 10, 2025',
+      daysLeft: 15,
+      totalVotes: 1890,
+      nominees: 15,
+      prize: '₹30,000 + Swag Kit',
+      image: '🌟',
+      status: 'voting',
+      scope: 'Regional - Mumbai',
+      participants: ['IIT Bombay', 'VJTI', 'DJ Sanghvi', 'SP Jain', 'Mumbai University'],
+    },
+    // Corporate Contests
+    {
+      id: 7,
+      title: 'Tech Companies Savings War',
+      subtitle: 'Top Tech Firms',
+      type: 'corporate',
+      category: 'inter-corporate',
+      endDate: 'Feb 15, 2025',
+      daysLeft: 51,
+      totalVotes: 3250,
+      nominees: 30,
+      prize: '₹2,00,000 to winning company employees',
+      image: '💻',
+      status: 'voting',
+      scope: 'Bangalore Tech Hub',
+      participants: ['Google', 'Microsoft', 'Amazon', 'Flipkart', 'Swiggy', 'Zomato'],
+    },
+    {
+      id: 8,
+      title: 'Startup vs MNC Challenge',
+      subtitle: 'All India Corporate',
+      type: 'corporate',
+      category: 'company-battle',
+      endDate: 'Feb 28, 2025',
+      daysLeft: 64,
+      totalVotes: 4890,
+      nominees: 45,
+      prize: '₹5,00,000 Prize Pool',
+      image: '🚀',
+      status: 'voting',
+      scope: 'Pan India',
+      participants: ['Startups (0-500 emp)', 'Mid-size (500-5000)', 'MNC (5000+)'],
+    },
+    {
+      id: 9,
+      title: 'Best Corporate ReZ Team',
+      subtitle: 'IT Services Sector',
+      type: 'corporate',
+      category: 'team-challenge',
+      endDate: 'Jan 20, 2025',
+      daysLeft: 25,
+      totalVotes: 2130,
+      nominees: 20,
+      prize: '₹75,000 + Team Outing',
+      image: '👥',
+      status: 'voting',
+      scope: 'IT Services Companies',
+      participants: ['TCS', 'Infosys', 'Wipro', 'HCL', 'Tech Mahindra'],
     },
   ];
 
@@ -70,8 +324,132 @@ const ContestHub = () => {
     },
   ];
 
-  const renderActive = () => (
+  // Get unique institutions for filter dropdown
+  const institutions = ['all', ...new Set(activeContests
+    .filter(c => c.institution)
+    .map(c => c.institution))];
+
+  // Social media sharing function
+  const handleShare = (contest, platform) => {
+    const contestUrl = `https://rez.app/contest/${contest.id}`;
+    const shareText = `Vote for "${contest.title}"! ${contest.prize} prize pool. Ends ${contest.endDate}. #ReZContest`;
+
+    let shareUrl = '';
+    switch(platform) {
+      case 'twitter':
+        shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(contestUrl)}`;
+        break;
+      case 'facebook':
+        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(contestUrl)}`;
+        break;
+      case 'whatsapp':
+        shareUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + contestUrl)}`;
+        break;
+      case 'linkedin':
+        shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(contestUrl)}`;
+        break;
+    }
+
+    if (shareUrl) {
+      window.open(shareUrl, '_blank', 'width=600,height=400');
+    }
+  };
+
+  const renderActive = () => {
+    // Filter contests based on type, institution, and search query
+    let filteredContests = activeContests;
+
+    // Filter by contest type
+    if (contestType !== 'all') {
+      filteredContests = filteredContests.filter(c => c.type === contestType);
+    }
+
+    // Filter by institution
+    if (selectedInstitution !== 'all') {
+      filteredContests = filteredContests.filter(c => c.institution === selectedInstitution);
+    }
+
+    // Filter by search query
+    if (searchQuery) {
+      filteredContests = filteredContests.filter(c =>
+        c.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        c.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (c.institution && c.institution.toLowerCase().includes(searchQuery.toLowerCase())) ||
+        (c.scope && c.scope.toLowerCase().includes(searchQuery.toLowerCase()))
+      );
+    }
+
+    return (
     <div>
+      {/* Search and Filters */}
+      <div style={{ marginBottom: '20px' }}>
+        {/* Search Bar */}
+        <div style={{ marginBottom: '12px' }}>
+          <input
+            type="text"
+            placeholder="🔍 Search contests by name, college, or company..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              width: '100%',
+              padding: '12px 16px',
+              borderRadius: '8px',
+              border: '1px solid #E5E7EB',
+              fontSize: '14px',
+              outline: 'none',
+            }}
+          />
+        </div>
+
+        {/* Institution Filter Dropdown */}
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          <label style={{ fontSize: '12px', color: '#6B7280', fontWeight: '500', minWidth: '80px' }}>
+            Filter by:
+          </label>
+          <select
+            value={selectedInstitution}
+            onChange={(e) => setSelectedInstitution(e.target.value)}
+            style={{
+              flex: 1,
+              padding: '8px 12px',
+              borderRadius: '8px',
+              border: '1px solid #E5E7EB',
+              fontSize: '13px',
+              fontWeight: '500',
+              color: '#374151',
+              backgroundColor: '#FFFFFF',
+              cursor: 'pointer',
+              outline: 'none',
+            }}
+          >
+            <option value="all">All Institutions</option>
+            {institutions.slice(1).map((inst) => (
+              <option key={inst} value={inst}>{inst}</option>
+            ))}
+          </select>
+          {(searchQuery || selectedInstitution !== 'all') && (
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedInstitution('all');
+              }}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: '#EF4444',
+                color: '#FFFFFF',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '12px',
+                fontWeight: '500',
+                cursor: 'pointer',
+              }}
+            >
+              Clear
+            </button>
+          )}
+        </div>
+      </div>
+
       {/* How Contests Work */}
       <div style={{
         backgroundColor: '#EFF6FF',
@@ -94,9 +472,14 @@ const ContestHub = () => {
         </ul>
       </div>
 
+      {/* Results Count */}
+      <div style={{ marginBottom: '16px', fontSize: '14px', color: '#6B7280' }}>
+        Showing <strong style={{ color: '#1F2937' }}>{filteredContests.length}</strong> {contestType === 'all' ? 'contests' : `${contestType} contest${filteredContests.length !== 1 ? 's' : ''}`}
+      </div>
+
       {/* Active Contests */}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-        {activeContests.map((contest) => (
+        {filteredContests.map((contest) => (
           <div
             key={contest.id}
             onClick={() => navigate(`/contest/${contest.id}`)}
@@ -183,6 +566,58 @@ const ContestHub = () => {
 
             {/* Footer */}
             <div style={{ padding: '16px' }}>
+              {/* Scope Badge - Show for college/corporate contests */}
+              {contest.scope && (
+                <div style={{
+                  marginBottom: '12px',
+                  padding: '8px 12px',
+                  backgroundColor: '#F0F9FF',
+                  borderRadius: '6px',
+                  fontSize: '12px',
+                  color: '#0369A1',
+                  fontWeight: '500',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}>
+                  <span>🌍</span>
+                  <span>{contest.scope}</span>
+                </div>
+              )}
+
+              {/* Participants - Show for college/corporate contests */}
+              {contest.participants && contest.participants.length > 0 && (
+                <div style={{
+                  marginBottom: '12px',
+                  padding: '12px',
+                  backgroundColor: '#F9FAFB',
+                  borderRadius: '8px',
+                  border: '1px solid #E5E7EB',
+                }}>
+                  <div style={{ fontSize: '12px', color: '#6B7280', marginBottom: '8px', fontWeight: '600' }}>
+                    Participating {contest.type === 'college' ? 'Colleges' : 'Companies'}:
+                  </div>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    {contest.participants.map((participant, index) => (
+                      <span
+                        key={index}
+                        style={{
+                          padding: '4px 10px',
+                          backgroundColor: '#FFFFFF',
+                          border: '1px solid #E5E7EB',
+                          borderRadius: '12px',
+                          fontSize: '11px',
+                          color: '#374151',
+                          fontWeight: '500',
+                        }}
+                      >
+                        {participant}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div style={{
                 display: 'flex',
                 justifyContent: 'space-between',
@@ -226,6 +661,107 @@ const ContestHub = () => {
                 <span>⏰</span>
                 <span>Voting ends on {contest.endDate}</span>
               </div>
+
+              {/* Social Share Buttons */}
+              <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid #E5E7EB' }}>
+                <div style={{ fontSize: '11px', color: '#6B7280', marginBottom: '8px', fontWeight: '600' }}>
+                  Share Contest:
+                </div>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleShare(contest, 'whatsapp');
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '6px',
+                      backgroundColor: '#25D366',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    📱 WhatsApp
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleShare(contest, 'twitter');
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '6px',
+                      backgroundColor: '#1DA1F2',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    🐦 Twitter
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleShare(contest, 'facebook');
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '6px',
+                      backgroundColor: '#1877F2',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    📘 Facebook
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleShare(contest, 'linkedin');
+                    }}
+                    style={{
+                      flex: 1,
+                      padding: '6px',
+                      backgroundColor: '#0A66C2',
+                      color: '#FFFFFF',
+                      border: 'none',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      fontWeight: '500',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '4px',
+                    }}
+                  >
+                    💼 LinkedIn
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         ))}
@@ -264,7 +800,8 @@ const ContestHub = () => {
         </button>
       </div>
     </div>
-  );
+    );
+  };
 
   const renderPastWinners = () => (
     <div>
@@ -415,6 +952,41 @@ const ContestHub = () => {
             </button>
           ))}
         </div>
+
+        {/* Contest Type Filters - Only show for Active tab */}
+        {activeTab === 'active' && (
+          <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
+            {[
+              { id: 'all', label: 'All', icon: '🎯' },
+              { id: 'individual', label: 'Individual', icon: '👤' },
+              { id: 'college', label: 'College', icon: '🏫' },
+              { id: 'corporate', label: 'Corporate', icon: '💼' },
+            ].map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setContestType(filter.id)}
+                style={{
+                  flex: 1,
+                  padding: '8px',
+                  backgroundColor: contestType === filter.id ? '#DBEAFE' : '#FFFFFF',
+                  color: contestType === filter.id ? '#1E40AF' : '#6B7280',
+                  border: contestType === filter.id ? '1px solid #3B82F6' : '1px solid #E5E7EB',
+                  borderRadius: '8px',
+                  fontSize: '12px',
+                  fontWeight: '500',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '4px',
+                }}
+              >
+                <span>{filter.icon}</span>
+                {filter.label}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Content */}

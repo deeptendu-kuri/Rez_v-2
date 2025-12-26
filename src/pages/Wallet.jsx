@@ -191,6 +191,36 @@ const Wallet = () => {
         </Link>
       </div>
 
+      {/* 💡 COIN SYSTEM GUIDE */}
+      <div className="mx-4 mb-6">
+        <Link
+          to="/coin-system"
+          className="block p-5 rounded-rez-xl bg-gradient-to-br from-amber-500/10 via-purple-500/10 to-blue-500/10 dark:from-amber-500/10 dark:via-purple-500/10 dark:to-blue-500/10 border border-amber-500/30 dark:border-amber-500/30 hover:shadow-rez-card transition-all"
+        >
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-full bg-gradient-to-br from-amber-500 to-orange-500 flex items-center justify-center">
+                <span className="text-2xl">💡</span>
+              </div>
+              <div>
+                <h3 className="text-h5 font-poppins text-rez-navy dark:text-white">Learn About Coins</h3>
+                <p className="text-caption text-rez-gray-600 dark:text-gray-400">4 types of coins explained</p>
+              </div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-rez-gray-400 dark:text-gray-400" />
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-lg">💰</span>
+            <span className="text-lg">🏪</span>
+            <span className="text-lg">👑</span>
+            <span className="text-lg">🎁</span>
+            <span className="text-caption text-rez-gray-600 dark:text-gray-400 ml-2">
+              Understand how each coin works & auto-apply priority
+            </span>
+          </div>
+        </Link>
+      </div>
+
       {/* 🪙 COIN TYPES SECTION */}
       <div className="mx-4 mb-6">
         <h2 className="text-h3 font-poppins text-rez-navy dark:text-white mb-3">Your ReZ Rewards</h2>

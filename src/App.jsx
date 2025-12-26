@@ -6,6 +6,12 @@ import { ThemeProvider } from './contexts/ThemeContext';
 
 import Layout from './components/layout/Layout';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
+import OTPVerify from './pages/OTPVerify';
+import Splash from './pages/Splash';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
 import Explore from './pages/Explore';
 import ExploreNew from './pages/ExploreNew';
 import Categories from './pages/Categories';
@@ -196,7 +202,6 @@ import EventsExperiences from './pages/events/EventsExperiences';
 import Deals from './pages/Deals';
 import ScanPay from './pages/ScanPay';
 import Reels from './pages/Reels';
-import Terms from './pages/Terms';
 import SuperDeals from './pages/SuperDeals';
 import Missions from './pages/Missions';
 import NewArrivals from './pages/NewArrivals';
@@ -218,6 +223,10 @@ import MapViewPage from './pages/explore/MapViewPage';
 // Earn Subpages
 import UploadBillPage from './pages/earn/UploadBillPage';
 import ReferralPage from './pages/earn/ReferralPage';
+import Achievements from './pages/earn/Achievements';
+import Leaderboard from './pages/earn/Leaderboard';
+import CoinHunt from './pages/earn/CoinHunt';
+import ScratchCard from './pages/earn/ScratchCard';
 
 // Specialized Stores
 import LuxuryStore from './pages/stores/LuxuryStore';
@@ -241,6 +250,13 @@ import RewardsHub from './pages/RewardsHub';
 import LoyaltyRewardsHub from './pages/LoyaltyRewardsHub';
 import PayInStore from './pages/PayInStore';
 import HowRezWorks from './pages/HowRezWorks';
+import CoinSystemGuide from './pages/CoinSystemGuide';
+import SocialHub from './pages/SocialHub';
+import SocialImpact from './pages/earn/SocialImpact';
+import BrandTasks from './pages/earn/BrandTasks';
+import UGCCreator from './pages/earn/UGCCreator';
+import CollegeAmbassador from './pages/earn/CollegeAmbassador';
+import CorporateEmployee from './pages/earn/CorporateEmployee';
 
 // ReZ Mall sub-pages
 import MallBrandDetail from './pages/mall/MallBrandDetail';
@@ -265,7 +281,16 @@ function App() {
           <WalletProvider>
             <AppProvider>
             <Routes>
+              {/* Auth & Onboarding Routes (No Layout) */}
+              <Route path="/splash" element={<Splash />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/otp-verify" element={<OTPVerify />} />
               <Route path="/onboarding" element={<Onboarding />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+
+              {/* Main App Routes (With Layout) */}
               <Route path="/" element={<Layout />}>
                 <Route index element={<Home />} />
                 <Route path="explore" element={<ExploreNew />} />
@@ -466,8 +491,23 @@ function App() {
 
                 {/* Earn Page */}
                 <Route path="earn" element={<Earn />} />
+                <Route path="earn/achievements" element={<Achievements />} />
+                <Route path="earn/leaderboard" element={<Leaderboard />} />
+                <Route path="earn/coin-hunt" element={<CoinHunt />} />
+                <Route path="earn/scratch-card" element={<ScratchCard />} />
                 <Route path="upload-bill" element={<UploadBillPage />} />
                 <Route path="refer" element={<ReferralPage />} />
+
+                {/* Shop by Experience Routes */}
+                <Route path="experience/sample-trial" element={<Navigate to="/explore" replace />} />
+                <Route path="experience/60-min-delivery" element={<Navigate to="/grocery/fast" replace />} />
+                <Route path="experience/luxury" element={<LuxuryStore />} />
+                <Route path="experience/organic" element={<OrganicStore />} />
+                <Route path="experience/men" element={<MenStore />} />
+                <Route path="experience/women" element={<WomenStore />} />
+                <Route path="experience/children" element={<ChildrenStore />} />
+                <Route path="experience/rental" element={<RentalStore />} />
+                <Route path="experience/gifting" element={<GiftingStore />} />
 
                 {/* Orders & Wishlist */}
                 <Route path="orders" element={<OrderHistory />} />
@@ -509,6 +549,16 @@ function App() {
                 {/* How ReZ Works - Interactive Flow */}
                 <Route path="how-rez-works" element={<HowRezWorks />} />
                 <Route path="how-it-works" element={<HowRezWorks />} />
+                <Route path="coin-system" element={<CoinSystemGuide />} />
+                <Route path="coins-guide" element={<CoinSystemGuide />} />
+
+                {/* Social & Community */}
+                <Route path="social" element={<SocialHub />} />
+                <Route path="earn/social-impact" element={<SocialImpact />} />
+                <Route path="earn/brand-tasks" element={<BrandTasks />} />
+                <Route path="earn/ugc-creator" element={<UGCCreator />} />
+                <Route path="earn/college-ambassador" element={<CollegeAmbassador />} />
+                <Route path="earn/corporate-employee" element={<CorporateEmployee />} />
 
                 {/* Universal Product/Service Page */}
                 <Route path="product/:id" element={<ProductServicePage />} />

@@ -137,12 +137,12 @@ const Earn = () => {
 
   // Social & Community Actions
   const socialActions = [
-    { icon: Share2, title: 'Share Store/Offer', coins: '20-50', description: 'Friends must view' },
-    { icon: ThumbsUp, title: 'Vote in Polls', coins: '10', description: 'Daily polls available' },
-    { icon: MessageCircle, title: 'Comment on Offers', coins: '15', description: 'Quality comments' },
-    { icon: Camera, title: 'Upload Photos', coins: '25-100', description: 'Store/product photos' },
-    { icon: Video, title: 'Create Reels', coins: '50-200', description: 'UGC content rewards' },
-    { icon: Heart, title: 'Rate Events', coins: '20', description: 'After event attendance' }
+    { icon: Share2, title: 'Share Store/Offer', coins: '20-50', description: 'Friends must view', path: '/refer' },
+    { icon: ThumbsUp, title: 'Vote in Polls', coins: '10', description: 'Daily polls available', path: '/social' },
+    { icon: MessageCircle, title: 'Comment on Offers', coins: '15', description: 'Quality comments', path: '/social' },
+    { icon: Camera, title: 'Upload Photos', coins: '25-100', description: 'Store/product photos', path: '/upload-bill' },
+    { icon: Video, title: 'Create Reels', coins: '50-200', description: 'UGC content rewards', path: '/social' },
+    { icon: Heart, title: 'Rate Events', coins: '20', description: 'After event attendance', path: '/events' }
   ];
 
   // Special Programs
@@ -219,17 +219,17 @@ const Earn = () => {
 
   // Live Tournaments (from Games page)
   const tournaments = [
-    { id: 1, title: 'Weekend Shopping Sprint', prize: '₹10,000', participants: 1247, endsIn: '2d 5h', status: 'Live', rank: 23, icon: '🏆' },
-    { id: 2, title: 'Coin Master Challenge', prize: '50,000 coins', participants: 892, endsIn: '5d', status: 'Live', rank: 45, icon: '🪙' },
-    { id: 3, title: 'Referral Rally', prize: '₹5,000', participants: 543, endsIn: '1d 12h', status: 'Ending Soon', rank: 12, icon: '👥' },
+    { id: 1, title: 'Weekend Shopping Sprint', prize: '₹10,000', participants: 1247, endsIn: '2d 5h', status: 'Live', rank: 23, icon: '🏆', path: '/earn/tournaments/1' },
+    { id: 2, title: 'Coin Master Challenge', prize: '50,000 coins', participants: 892, endsIn: '5d', status: 'Live', rank: 45, icon: '🪙', path: '/earn/tournaments/2' },
+    { id: 3, title: 'Referral Rally', prize: '₹5,000', participants: 543, endsIn: '1d 12h', status: 'Ending Soon', rank: 12, icon: '👥', path: '/earn/tournaments/3' },
   ];
 
   // Mini Games (from Games page)
   const miniGames = [
-    { id: 1, title: 'Quiz Master', icon: '🧠', plays: '5/day', earnings: '250 coins/day' },
-    { id: 2, title: 'Memory Match', icon: '🃏', plays: '3/day', earnings: '150 coins/day' },
-    { id: 3, title: 'Lucky Draw', icon: '🎰', plays: '1/day', earnings: 'Up to 1000 coins' },
-    { id: 4, title: 'Guess the Price', icon: '💰', plays: 'Unlimited', earnings: '50 coins/win' },
+    { id: 1, title: 'Quiz Master', icon: '🧠', plays: '5/day', earnings: '250 coins/day', path: '/earn/quiz' },
+    { id: 2, title: 'Memory Match', icon: '🃏', plays: '3/day', earnings: '150 coins/day', path: '/earn/memory-match' },
+    { id: 3, title: 'Lucky Draw', icon: '🎰', plays: '1/day', earnings: 'Up to 1000 coins', path: '/earn/lucky-draw' },
+    { id: 4, title: 'Guess the Price', icon: '💰', plays: 'Unlimited', earnings: '50 coins/win', path: '/earn/guess-price' },
   ];
 
   // Achievements (from Games page)
@@ -362,10 +362,13 @@ const Earn = () => {
             />
           </div>
 
-          <button className="w-full py-3 rounded-rez-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-rez-navy dark:text-white font-semibold flex items-center justify-center gap-2 transition-all">
+          <Link
+            to="/explore/daily-checkin"
+            className="w-full py-3 rounded-rez-md bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-rez-navy dark:text-white font-semibold flex items-center justify-center gap-2 transition-all"
+          >
             <CheckCircle className="w-5 h-5" />
             Check in Today
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -426,15 +429,16 @@ const Earn = () => {
           {socialActions.map((action, idx) => {
             const Icon = action.icon;
             return (
-              <div
+              <Link
                 key={idx}
-                className="p-4 rounded-rez-lg bg-white dark:bg-bg-card border border-rez-gray-200 dark:border-white/10 shadow-rez-subtle"
+                to={action.path}
+                className="p-4 rounded-rez-lg bg-white dark:bg-bg-card border border-rez-gray-200 dark:border-white/10 shadow-rez-subtle hover:border-pink-300 dark:hover:border-pink-500/30 hover:shadow-rez-card transition-all"
               >
                 <Icon className="w-6 h-6 text-pink-500 dark:text-pink-400 mb-3" />
                 <h3 className="text-body-sm font-semibold text-rez-navy dark:text-white mb-1">{action.title}</h3>
                 <p className="text-caption text-rez-gray-500 dark:text-gray-500 mb-2">{action.description}</p>
                 <p className="text-body-sm font-bold text-pink-600 dark:text-pink-400">+{action.coins} coins</p>
-              </div>
+              </Link>
             );
           })}
         </div>
@@ -445,6 +449,51 @@ const Earn = () => {
             👥 <span className="font-semibold">Friends redeemed your shared deal</span> → +50 ReZ Coins
           </p>
         </div>
+      </div>
+
+      {/* 🌍 Social Impact - Powerful Differentiator */}
+      <div className="px-4 py-4">
+        <Link
+          to="/earn/social-impact"
+          className="block p-6 rounded-rez-xl bg-gradient-to-br from-emerald-50 via-blue-50 to-green-50 dark:from-emerald-500/20 dark:via-blue-500/20 dark:to-green-500/20 border border-emerald-200 dark:border-emerald-500/30 shadow-rez-card hover:shadow-rez-green transition-all"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-14 h-14 rounded-rez-lg bg-gradient-to-br from-emerald-500 to-blue-500 flex items-center justify-center">
+              <Heart className="w-7 h-7 text-white" />
+            </div>
+            <div className="flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <h2 className="text-h4 font-poppins text-rez-navy dark:text-white">Social Impact</h2>
+                <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  Powerful Differentiator
+                </span>
+              </div>
+              <p className="text-body-sm text-rez-gray-600 dark:text-gray-400">Earn while making a difference</p>
+            </div>
+            <ChevronRight className="w-6 h-6 text-rez-gray-400 dark:text-gray-400" />
+          </div>
+
+          <div className="grid grid-cols-4 gap-2 mb-4">
+            {[
+              { icon: '🩸', label: 'Blood Donation', coins: 200 },
+              { icon: '🌳', label: 'Tree Plantation', coins: 150 },
+              { icon: '🏖️', label: 'Beach Cleanup', coins: 120 },
+              { icon: '🍲', label: 'NGO Volunteer', coins: 100 }
+            ].map((activity, idx) => (
+              <div key={idx} className="p-3 rounded-rez-md bg-white dark:bg-white/5 text-center">
+                <p className="text-2xl mb-1">{activity.icon}</p>
+                <p className="text-[10px] text-rez-gray-600 dark:text-gray-400 mb-1">{activity.label}</p>
+                <p className="text-xs font-bold text-emerald-600 dark:text-emerald-400">+{activity.coins}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="p-3 rounded-rez-md bg-gradient-to-r from-emerald-500/20 to-blue-500/20 dark:from-emerald-500/30 dark:to-blue-500/30">
+            <p className="text-body-sm text-rez-navy dark:text-white text-center">
+              💰 Earn ReZ Coins + 🏪 Branded Coins from sponsors
+            </p>
+          </div>
+        </Link>
       </div>
 
       {/* Special Programs */}
@@ -584,18 +633,20 @@ const Earn = () => {
 
           <div className="space-y-2">
             {[
-              'How ReZ Coins work',
-              'Difference between coin types',
-              'Best ways to earn faster',
-              'Coin expiry rules'
+              { title: 'Complete Coin System Guide', path: '/coin-system' },
+              { title: 'How ReZ Coins work', path: '/how-rez-works' },
+              { title: 'Difference between coin types', path: '/coin-system' },
+              { title: 'Best ways to earn faster', path: '/how-rez-works' },
+              { title: 'Coin expiry rules', path: '/how-rez-works' }
             ].map((topic, idx) => (
-              <button
+              <Link
                 key={idx}
+                to={topic.path}
                 className="w-full p-3 rounded-rez-md bg-rez-gray-50 dark:bg-white/50 dark:bg-white/10 hover:bg-white dark:hover:bg-white/20 text-left flex items-center justify-between transition-colors"
               >
-                <span className="text-body-sm text-rez-navy dark:text-white">{topic}</span>
+                <span className="text-body-sm text-rez-navy dark:text-white">{topic.title}</span>
                 <ChevronRight className="w-4 h-4 text-rez-gray-400 dark:text-gray-400" />
-              </button>
+              </Link>
             ))}
           </div>
 
@@ -692,9 +743,10 @@ const Earn = () => {
         </div>
         <div className="space-y-3">
           {tournaments.map((tournament) => (
-            <div
+            <Link
               key={tournament.id}
-              className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/10 border border-purple-500/20"
+              to={tournament.path}
+              className="block p-4 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 dark:from-purple-500/20 dark:to-pink-500/10 border border-purple-500/20 hover:border-purple-500/40 transition-all"
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center gap-2">
@@ -726,7 +778,7 @@ const Earn = () => {
                   <p className="text-sm font-bold text-red-400">{tournament.endsIn}</p>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -741,15 +793,16 @@ const Earn = () => {
         </div>
         <div className="grid grid-cols-2 gap-3">
           {miniGames.map((game) => (
-            <div
+            <Link
               key={game.id}
+              to={game.path}
               className="p-4 rounded-2xl bg-white dark:bg-white/5 border border-rez-gray-200 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-500 transition-all active:scale-95 cursor-pointer"
             >
               <span className="text-3xl mb-2 block">{game.icon}</span>
               <h3 className="text-sm font-bold text-rez-navy dark:text-white mb-1">{game.title}</h3>
               <p className="text-xs text-rez-gray-600 dark:text-gray-400 mb-1">{game.plays}</p>
               <p className="text-xs text-emerald-400 font-semibold">{game.earnings}</p>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

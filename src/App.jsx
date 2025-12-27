@@ -53,11 +53,15 @@ import PriveActivityStatement from './pages/prive/PriveActivityStatement';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminUsers from './pages/admin/AdminUsers';
 import AdminMerchants from './pages/admin/AdminMerchants';
+import AdminOffers from './pages/admin/AdminOffers';
 
 // Merchant Pages
 import MerchantDashboard from './pages/merchant/MerchantDashboard';
 import CreateOffer from './pages/merchant/CreateOffer';
 import MerchantOffers from './pages/merchant/MerchantOffers';
+import MerchantCustomers from './pages/merchant/MerchantCustomers';
+import MerchantTransactions from './pages/merchant/MerchantTransactions';
+import MerchantReviews from './pages/merchant/MerchantReviews';
 import PriveExit from './pages/prive/PriveExit';
 import PriveInvitations from './pages/prive/PriveInvitations';
 import PriveSettings from './pages/prive/PriveSettings';
@@ -703,12 +707,16 @@ function App() {
                 <Route path="admin/dashboard" element={<AdminDashboard />} />
                 <Route path="admin/users" element={<AdminUsers />} />
                 <Route path="admin/merchants" element={<AdminMerchants />} />
+                <Route path="admin/offers" element={<AdminOffers />} />
 
                 {/* Merchant Routes */}
                 <Route path="merchant" element={<MerchantDashboard />} />
                 <Route path="merchant/dashboard" element={<MerchantDashboard />} />
                 <Route path="merchant/offers" element={<MerchantOffers />} />
                 <Route path="merchant/offers/create" element={<CreateOffer />} />
+                <Route path="merchant/customers" element={<MerchantCustomers />} />
+                <Route path="merchant/transactions" element={<MerchantTransactions />} />
+                <Route path="merchant/reviews" element={<MerchantReviews />} />
 
                 {/* Loyalty & Rewards - Unified Hub */}
                 <Route path="loyalty-rewards" element={<LoyaltyRewardsHub />} />

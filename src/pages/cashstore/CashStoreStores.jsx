@@ -25,90 +25,90 @@ const CashStoreStores = () => {
   // Comprehensive stores data with all merchant categories
   const stores = [
     // E-commerce Giants
-    { id: 1, name: 'Amazon', logo: '📦', category: 'shopping', cashback: '12%', coupons: 145, trending: true, autoTracked: true },
-    { id: 2, name: 'Flipkart', logo: '🛒', category: 'shopping', cashback: '15%', coupons: 98, trending: true, autoTracked: true },
-    { id: 3, name: 'Myntra', logo: '👗', category: 'fashion', cashback: '20%', coupons: 67, trending: true, autoTracked: true },
-    { id: 4, name: 'Ajio', logo: '👔', category: 'fashion', cashback: '22%', coupons: 56, autoTracked: true },
-    { id: 5, name: 'Nykaa', logo: '💄', category: 'beauty', cashback: '18%', coupons: 73, trending: true, autoTracked: true },
+    { id: 1, name: 'Amazon', logo: 'https://logo.clearbit.com/amazon.in', category: 'shopping', cashback: '12%', coupons: 145, trending: true, autoTracked: true },
+    { id: 2, name: 'Flipkart', logo: 'https://logo.clearbit.com/flipkart.com', category: 'shopping', cashback: '15%', coupons: 98, trending: true, autoTracked: true },
+    { id: 3, name: 'Myntra', logo: 'https://logo.clearbit.com/myntra.com', category: 'fashion', cashback: '20%', coupons: 67, trending: true, autoTracked: true },
+    { id: 4, name: 'Ajio', logo: 'https://logo.clearbit.com/ajio.com', category: 'fashion', cashback: '22%', coupons: 56, autoTracked: true },
+    { id: 5, name: 'Nykaa', logo: 'https://logo.clearbit.com/nykaa.com', category: 'beauty', cashback: '18%', coupons: 73, trending: true, autoTracked: true },
 
     // Retail & Grocery
-    { id: 6, name: 'DMart', logo: '🛍️', category: 'shopping', cashback: '8%', coupons: 42, trending: true, autoTracked: true },
-    { id: 7, name: 'Reliance Retail', logo: '🏪', category: 'shopping', cashback: '10%', coupons: 65, trending: true, autoTracked: true },
-    { id: 8, name: 'Spencer\'s', logo: '🛒', category: 'shopping', cashback: '12%', coupons: 38, autoTracked: true },
-    { id: 9, name: 'SPAR', logo: '🏬', category: 'shopping', cashback: '9%', coupons: 28, autoTracked: true },
-    { id: 10, name: 'BigBasket', logo: '🥬', category: 'shopping', cashback: '14%', coupons: 52, trending: true, autoTracked: true },
-    { id: 11, name: 'Zepto', logo: '⚡', category: 'shopping', cashback: '11%', coupons: 34, trending: true, autoTracked: true },
-    { id: 12, name: 'Blinkit', logo: '🚀', category: 'shopping', cashback: '10%', coupons: 29, autoTracked: true },
+    { id: 6, name: 'DMart', logo: 'https://logo.clearbit.com/dmart.in', category: 'shopping', cashback: '8%', coupons: 42, trending: true, autoTracked: true },
+    { id: 7, name: 'Reliance Retail', logo: 'https://logo.clearbit.com/relianceretail.com', category: 'shopping', cashback: '10%', coupons: 65, trending: true, autoTracked: true },
+    { id: 8, name: 'Spencer\'s', logo: 'https://logo.clearbit.com/spencersretail.com', category: 'shopping', cashback: '12%', coupons: 38, autoTracked: true },
+    { id: 9, name: 'SPAR', logo: 'https://logo.clearbit.com/sparindia.com', category: 'shopping', cashback: '9%', coupons: 28, autoTracked: true },
+    { id: 10, name: 'BigBasket', logo: 'https://logo.clearbit.com/bigbasket.com', category: 'shopping', cashback: '14%', coupons: 52, trending: true, autoTracked: true },
+    { id: 11, name: 'Zepto', logo: 'https://logo.clearbit.com/zeptonow.com', category: 'shopping', cashback: '11%', coupons: 34, trending: true, autoTracked: true },
+    { id: 12, name: 'Blinkit', logo: 'https://logo.clearbit.com/blinkit.com', category: 'shopping', cashback: '10%', coupons: 29, autoTracked: true },
 
     // Food Delivery & QSR
-    { id: 13, name: 'Swiggy', logo: '🍔', category: 'food', cashback: '10%', coupons: 52, trending: true, autoTracked: true },
-    { id: 14, name: 'Zomato', logo: '🍕', category: 'food', cashback: '8%', coupons: 48, trending: true, autoTracked: true },
-    { id: 15, name: 'McDonald\'s', logo: '🍟', category: 'food', cashback: '12%', coupons: 23, trending: true, autoTracked: true },
-    { id: 16, name: 'Domino\'s', logo: '🍕', category: 'food', cashback: '15%', coupons: 31, trending: true, autoTracked: true },
-    { id: 17, name: 'KFC', logo: '🍗', category: 'food', cashback: '14%', coupons: 27, trending: true, autoTracked: true },
-    { id: 18, name: 'Burger King', logo: '🍔', category: 'food', cashback: '13%', coupons: 22, autoTracked: true },
-    { id: 19, name: 'Pizza Hut', logo: '🍕', category: 'food', cashback: '14%', coupons: 25, autoTracked: true },
-    { id: 20, name: 'Subway', logo: '🥪', category: 'food', cashback: '11%', coupons: 18, autoTracked: true },
-    { id: 21, name: 'Starbucks', logo: '☕', category: 'food', cashback: '10%', coupons: 15, trending: true, autoTracked: true },
-    { id: 22, name: 'Chaayos', logo: '🍵', category: 'food', cashback: '12%', coupons: 12, autoTracked: true },
-    { id: 23, name: 'Barista', logo: '☕', category: 'food', cashback: '11%', coupons: 14, autoTracked: true },
-    { id: 24, name: 'Blue Tokai', logo: '☕', category: 'food', cashback: '15%', coupons: 9, autoTracked: true },
-    { id: 25, name: 'Baskin Robbins', logo: '🍦', category: 'food', cashback: '10%', coupons: 16, autoTracked: true },
+    { id: 13, name: 'Swiggy', logo: 'https://logo.clearbit.com/swiggy.com', category: 'food', cashback: '10%', coupons: 52, trending: true, autoTracked: true },
+    { id: 14, name: 'Zomato', logo: 'https://logo.clearbit.com/zomato.com', category: 'food', cashback: '8%', coupons: 48, trending: true, autoTracked: true },
+    { id: 15, name: 'McDonald\'s', logo: 'https://logo.clearbit.com/mcdonalds.in', category: 'food', cashback: '12%', coupons: 23, trending: true, autoTracked: true },
+    { id: 16, name: 'Domino\'s', logo: 'https://logo.clearbit.com/dominos.co.in', category: 'food', cashback: '15%', coupons: 31, trending: true, autoTracked: true },
+    { id: 17, name: 'KFC', logo: 'https://logo.clearbit.com/kfc.co.in', category: 'food', cashback: '14%', coupons: 27, trending: true, autoTracked: true },
+    { id: 18, name: 'Burger King', logo: 'https://logo.clearbit.com/burgerking.in', category: 'food', cashback: '13%', coupons: 22, autoTracked: true },
+    { id: 19, name: 'Pizza Hut', logo: 'https://logo.clearbit.com/pizzahut.co.in', category: 'food', cashback: '14%', coupons: 25, autoTracked: true },
+    { id: 20, name: 'Subway', logo: 'https://logo.clearbit.com/subway.com', category: 'food', cashback: '11%', coupons: 18, autoTracked: true },
+    { id: 21, name: 'Starbucks', logo: 'https://logo.clearbit.com/starbucks.in', category: 'food', cashback: '10%', coupons: 15, trending: true, autoTracked: true },
+    { id: 22, name: 'Chaayos', logo: 'https://logo.clearbit.com/chaayos.com', category: 'food', cashback: '12%', coupons: 12, autoTracked: true },
+    { id: 23, name: 'Barista', logo: 'https://logo.clearbit.com/barista.co.in', category: 'food', cashback: '11%', coupons: 14, autoTracked: true },
+    { id: 24, name: 'Blue Tokai', logo: 'https://logo.clearbit.com/bluetokaicoffee.com', category: 'food', cashback: '15%', coupons: 9, autoTracked: true },
+    { id: 25, name: 'Baskin Robbins', logo: 'https://logo.clearbit.com/baskinrobbins.in', category: 'food', cashback: '10%', coupons: 16, autoTracked: true },
 
     // Fashion & Lifestyle - Retail Giants
-    { id: 26, name: 'Westside', logo: '👗', category: 'fashion', cashback: '18%', coupons: 45, trending: true, autoTracked: true },
-    { id: 27, name: 'Pantaloons', logo: '👔', category: 'fashion', cashback: '17%', coupons: 42, trending: true, autoTracked: true },
-    { id: 28, name: 'Shoppers Stop', logo: '🛍️', category: 'fashion', cashback: '19%', coupons: 51, trending: true, autoTracked: true },
-    { id: 29, name: 'Lifestyle', logo: '👗', category: 'fashion', cashback: '18%', coupons: 48, trending: true, autoTracked: true },
-    { id: 30, name: 'Max Fashion', logo: '👔', category: 'fashion', cashback: '16%', coupons: 38, autoTracked: true },
-    { id: 31, name: 'Fabindia', logo: '🧵', category: 'fashion', cashback: '15%', coupons: 28, autoTracked: true },
-    { id: 32, name: 'Allen Solly', logo: '👔', category: 'fashion', cashback: '17%', coupons: 32, autoTracked: true },
-    { id: 33, name: 'Van Heusen', logo: '👔', category: 'fashion', cashback: '17%', coupons: 34, autoTracked: true },
-    { id: 34, name: 'Peter England', logo: '👔', category: 'fashion', cashback: '16%', coupons: 29, autoTracked: true },
-    { id: 35, name: 'Levi\'s', logo: '👖', category: 'fashion', cashback: '18%', coupons: 36, trending: true, autoTracked: true },
-    { id: 36, name: 'Puma', logo: '👟', category: 'fashion', cashback: '19%', coupons: 41, trending: true, autoTracked: true },
-    { id: 37, name: 'Bata', logo: '👞', category: 'fashion', cashback: '14%', coupons: 27, autoTracked: true },
+    { id: 26, name: 'Westside', logo: 'https://logo.clearbit.com/westside.com', category: 'fashion', cashback: '18%', coupons: 45, trending: true, autoTracked: true },
+    { id: 27, name: 'Pantaloons', logo: 'https://logo.clearbit.com/pantaloons.com', category: 'fashion', cashback: '17%', coupons: 42, trending: true, autoTracked: true },
+    { id: 28, name: 'Shoppers Stop', logo: 'https://logo.clearbit.com/shoppersstop.com', category: 'fashion', cashback: '19%', coupons: 51, trending: true, autoTracked: true },
+    { id: 29, name: 'Lifestyle', logo: 'https://logo.clearbit.com/lifestylestores.com', category: 'fashion', cashback: '18%', coupons: 48, trending: true, autoTracked: true },
+    { id: 30, name: 'Max Fashion', logo: 'https://logo.clearbit.com/maxfashion.in', category: 'fashion', cashback: '16%', coupons: 38, autoTracked: true },
+    { id: 31, name: 'Fabindia', logo: 'https://logo.clearbit.com/fabindia.com', category: 'fashion', cashback: '15%', coupons: 28, autoTracked: true },
+    { id: 32, name: 'Allen Solly', logo: 'https://logo.clearbit.com/allensolly.com', category: 'fashion', cashback: '17%', coupons: 32, autoTracked: true },
+    { id: 33, name: 'Van Heusen', logo: 'https://logo.clearbit.com/vanheusenindia.com', category: 'fashion', cashback: '17%', coupons: 34, autoTracked: true },
+    { id: 34, name: 'Peter England', logo: 'https://logo.clearbit.com/peterengland.com', category: 'fashion', cashback: '16%', coupons: 29, autoTracked: true },
+    { id: 35, name: 'Levi\'s', logo: 'https://logo.clearbit.com/levi.in', category: 'fashion', cashback: '18%', coupons: 36, trending: true, autoTracked: true },
+    { id: 36, name: 'Puma', logo: 'https://logo.clearbit.com/puma.com', category: 'fashion', cashback: '19%', coupons: 41, trending: true, autoTracked: true },
+    { id: 37, name: 'Bata', logo: 'https://logo.clearbit.com/bata.in', category: 'fashion', cashback: '14%', coupons: 27, autoTracked: true },
 
     // D2C Fashion Brands
-    { id: 38, name: 'Snitch', logo: '👔', category: 'fashion', cashback: '22%', coupons: 24, trending: true, autoTracked: true },
-    { id: 39, name: 'The Souled Store', logo: '👕', category: 'fashion', cashback: '20%', coupons: 28, trending: true, autoTracked: true },
-    { id: 40, name: 'Bewakoof', logo: '👕', category: 'fashion', cashback: '21%', coupons: 31, trending: true, autoTracked: true },
-    { id: 41, name: 'Campus Sutra', logo: '👔', category: 'fashion', cashback: '19%', coupons: 22, autoTracked: true },
+    { id: 38, name: 'Snitch', logo: 'https://logo.clearbit.com/snitch.co.in', category: 'fashion', cashback: '22%', coupons: 24, trending: true, autoTracked: true },
+    { id: 39, name: 'The Souled Store', logo: 'https://logo.clearbit.com/thesouledstore.com', category: 'fashion', cashback: '20%', coupons: 28, trending: true, autoTracked: true },
+    { id: 40, name: 'Bewakoof', logo: 'https://logo.clearbit.com/bewakoof.com', category: 'fashion', cashback: '21%', coupons: 31, trending: true, autoTracked: true },
+    { id: 41, name: 'Campus Sutra', logo: 'https://logo.clearbit.com/campussutra.com', category: 'fashion', cashback: '19%', coupons: 22, autoTracked: true },
 
     // Beauty & Wellness
-    { id: 42, name: 'Sephora', logo: '💄', category: 'beauty', cashback: '16%', coupons: 38, trending: true, autoTracked: true },
-    { id: 43, name: 'Mamaearth', logo: '🌿', category: 'beauty', cashback: '20%', coupons: 42, trending: true, autoTracked: true },
-    { id: 44, name: 'Mcaffeine', logo: '☕', category: 'beauty', cashback: '19%', coupons: 28, autoTracked: true },
-    { id: 45, name: 'Plum', logo: '🍑', category: 'beauty', cashback: '18%', coupons: 24, autoTracked: true },
-    { id: 46, name: 'Minimalist', logo: '💧', category: 'beauty', cashback: '17%', coupons: 21, autoTracked: true },
-    { id: 47, name: 'Sugar Cosmetics', logo: '💄', category: 'beauty', cashback: '19%', coupons: 32, trending: true, autoTracked: true },
+    { id: 42, name: 'Sephora', logo: 'https://logo.clearbit.com/sephora.nnnow.com', category: 'beauty', cashback: '16%', coupons: 38, trending: true, autoTracked: true },
+    { id: 43, name: 'Mamaearth', logo: 'https://logo.clearbit.com/mamaearth.in', category: 'beauty', cashback: '20%', coupons: 42, trending: true, autoTracked: true },
+    { id: 44, name: 'Mcaffeine', logo: 'https://logo.clearbit.com/mcaffeine.com', category: 'beauty', cashback: '19%', coupons: 28, autoTracked: true },
+    { id: 45, name: 'Plum', logo: 'https://logo.clearbit.com/plumgoodness.com', category: 'beauty', cashback: '18%', coupons: 24, autoTracked: true },
+    { id: 46, name: 'Minimalist', logo: 'https://logo.clearbit.com/beminimalist.co', category: 'beauty', cashback: '17%', coupons: 21, autoTracked: true },
+    { id: 47, name: 'Sugar Cosmetics', logo: 'https://logo.clearbit.com/sugarcosmetics.com', category: 'beauty', cashback: '19%', coupons: 32, trending: true, autoTracked: true },
 
     // Health & Pharmacy
-    { id: 48, name: 'Apollo Pharmacy', logo: '💊', category: 'health', cashback: '12%', coupons: 45, trending: true, autoTracked: true },
-    { id: 49, name: 'Netmeds', logo: '💊', category: 'health', cashback: '15%', coupons: 38, trending: true, autoTracked: true },
-    { id: 50, name: 'PharmEasy', logo: '💊', category: 'health', cashback: '14%', coupons: 41, trending: true, autoTracked: true },
-    { id: 51, name: '1mg', logo: '💊', category: 'health', cashback: '13%', coupons: 36, autoTracked: true },
-    { id: 52, name: 'MedPlus', logo: '💊', category: 'health', cashback: '11%', coupons: 28, autoTracked: true },
+    { id: 48, name: 'Apollo Pharmacy', logo: 'https://logo.clearbit.com/apollopharmacy.in', category: 'health', cashback: '12%', coupons: 45, trending: true, autoTracked: true },
+    { id: 49, name: 'Netmeds', logo: 'https://logo.clearbit.com/netmeds.com', category: 'health', cashback: '15%', coupons: 38, trending: true, autoTracked: true },
+    { id: 50, name: 'PharmEasy', logo: 'https://logo.clearbit.com/pharmeasy.in', category: 'health', cashback: '14%', coupons: 41, trending: true, autoTracked: true },
+    { id: 51, name: '1mg', logo: 'https://logo.clearbit.com/1mg.com', category: 'health', cashback: '13%', coupons: 36, autoTracked: true },
+    { id: 52, name: 'MedPlus', logo: 'https://logo.clearbit.com/medplusmart.com', category: 'health', cashback: '11%', coupons: 28, autoTracked: true },
 
     // Electronics
-    { id: 53, name: 'Croma', logo: '📱', category: 'electronics', cashback: '10%', coupons: 52, trending: true, autoTracked: true },
-    { id: 54, name: 'Reliance Digital', logo: '🖥️', category: 'electronics', cashback: '12%', coupons: 48, trending: true, autoTracked: true },
-    { id: 55, name: 'Vijay Sales', logo: '📺', category: 'electronics', cashback: '11%', coupons: 42, autoTracked: true },
-    { id: 56, name: 'Boat', logo: '🎧', category: 'electronics', cashback: '14%', coupons: 34, trending: true, autoTracked: true },
-    { id: 57, name: 'Lenskart', logo: '👓', category: 'electronics', cashback: '18%', coupons: 38, trending: true, autoTracked: true },
+    { id: 53, name: 'Croma', logo: 'https://logo.clearbit.com/croma.com', category: 'electronics', cashback: '10%', coupons: 52, trending: true, autoTracked: true },
+    { id: 54, name: 'Reliance Digital', logo: 'https://logo.clearbit.com/reliancedigital.in', category: 'electronics', cashback: '12%', coupons: 48, trending: true, autoTracked: true },
+    { id: 55, name: 'Vijay Sales', logo: 'https://logo.clearbit.com/vijaysales.com', category: 'electronics', cashback: '11%', coupons: 42, autoTracked: true },
+    { id: 56, name: 'Boat', logo: 'https://logo.clearbit.com/boat-lifestyle.com', category: 'electronics', cashback: '14%', coupons: 34, trending: true, autoTracked: true },
+    { id: 57, name: 'Lenskart', logo: 'https://logo.clearbit.com/lenskart.com', category: 'electronics', cashback: '18%', coupons: 38, trending: true, autoTracked: true },
 
     // Travel & Entertainment
-    { id: 58, name: 'MakeMyTrip', logo: '✈️', category: 'travel', cashback: '25%', coupons: 89, trending: true, autoTracked: true },
-    { id: 59, name: 'Cleartrip', logo: '🛫', category: 'travel', cashback: '20%', coupons: 67, autoTracked: true },
-    { id: 60, name: 'Uber', logo: '🚗', category: 'travel', cashback: '12%', coupons: 42, trending: true, autoTracked: true },
-    { id: 61, name: 'BookMyShow', logo: '🎬', category: 'travel', cashback: '15%', coupons: 54, trending: true, autoTracked: true },
-    { id: 62, name: 'PVR INOX', logo: '🎬', category: 'travel', cashback: '18%', coupons: 38, trending: true, autoTracked: true },
-    { id: 63, name: 'Cinepolis', logo: '🍿', category: 'travel', cashback: '16%', coupons: 32, autoTracked: true },
+    { id: 58, name: 'MakeMyTrip', logo: 'https://logo.clearbit.com/makemytrip.com', category: 'travel', cashback: '25%', coupons: 89, trending: true, autoTracked: true },
+    { id: 59, name: 'Cleartrip', logo: 'https://logo.clearbit.com/cleartrip.com', category: 'travel', cashback: '20%', coupons: 67, autoTracked: true },
+    { id: 60, name: 'Uber', logo: 'https://logo.clearbit.com/uber.com', category: 'travel', cashback: '12%', coupons: 42, trending: true, autoTracked: true },
+    { id: 61, name: 'BookMyShow', logo: 'https://logo.clearbit.com/bookmyshow.com', category: 'travel', cashback: '15%', coupons: 54, trending: true, autoTracked: true },
+    { id: 62, name: 'PVR INOX', logo: 'https://logo.clearbit.com/pvrcinemas.com', category: 'travel', cashback: '18%', coupons: 38, trending: true, autoTracked: true },
+    { id: 63, name: 'Cinepolis', logo: 'https://logo.clearbit.com/cinepolis.co.in', category: 'travel', cashback: '16%', coupons: 32, autoTracked: true },
 
     // Home Services
-    { id: 64, name: 'Urban Company', logo: '🔧', category: 'services', cashback: '14%', coupons: 28, trending: true, autoTracked: true },
-    { id: 65, name: 'Rentomojo', logo: '🏠', category: 'services', cashback: '12%', coupons: 18, autoTracked: true },
-    { id: 66, name: 'Furlenco', logo: '🛋️', category: 'services', cashback: '13%', coupons: 16, autoTracked: true },
+    { id: 64, name: 'Urban Company', logo: 'https://logo.clearbit.com/urbancompany.com', category: 'services', cashback: '14%', coupons: 28, trending: true, autoTracked: true },
+    { id: 65, name: 'Rentomojo', logo: 'https://logo.clearbit.com/rentomojo.com', category: 'services', cashback: '12%', coupons: 18, autoTracked: true },
+    { id: 66, name: 'Furlenco', logo: 'https://logo.clearbit.com/furlenco.com', category: 'services', cashback: '13%', coupons: 16, autoTracked: true },
   ];
 
   const filteredStores = activeCategory === 'all'
@@ -225,8 +225,16 @@ const CashStoreStores = () => {
             >
               <div className="flex items-center gap-4">
                 {/* Store Logo */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/20 flex items-center justify-center text-3xl flex-shrink-0">
-                  {store.logo}
+                <div className="w-16 h-16 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center overflow-hidden flex-shrink-0 p-2">
+                  <img
+                    src={store.logo}
+                    alt={store.name}
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                      e.target.parentElement.innerHTML = '<span class="text-2xl">🏪</span>';
+                    }}
+                  />
                 </div>
 
                 {/* Store Info */}

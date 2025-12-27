@@ -21,7 +21,7 @@ const CashStore = () => {
     {
       id: 1,
       name: 'Amazon',
-      logo: '📦',
+      logo: 'https://logo.clearbit.com/amazon.in',
       category: 'Shopping',
       cashback: 'Up to 12%',
       coupons: 145,
@@ -32,7 +32,7 @@ const CashStore = () => {
     {
       id: 2,
       name: 'Flipkart',
-      logo: '🛒',
+      logo: 'https://logo.clearbit.com/flipkart.com',
       category: 'Shopping',
       cashback: 'Up to 15%',
       coupons: 98,
@@ -43,7 +43,7 @@ const CashStore = () => {
     {
       id: 3,
       name: 'Myntra',
-      logo: '👗',
+      logo: 'https://logo.clearbit.com/myntra.com',
       category: 'Fashion',
       cashback: 'Up to 20%',
       coupons: 67,
@@ -53,7 +53,7 @@ const CashStore = () => {
     {
       id: 4,
       name: 'Swiggy',
-      logo: '🍔',
+      logo: 'https://logo.clearbit.com/swiggy.com',
       category: 'Food',
       cashback: 'Up to 10%',
       coupons: 52,
@@ -63,7 +63,7 @@ const CashStore = () => {
     {
       id: 5,
       name: 'Zomato',
-      logo: '🍕',
+      logo: 'https://logo.clearbit.com/zomato.com',
       category: 'Food',
       cashback: 'Up to 8%',
       coupons: 48,
@@ -73,7 +73,7 @@ const CashStore = () => {
     {
       id: 6,
       name: 'Nykaa',
-      logo: '💄',
+      logo: 'https://logo.clearbit.com/nykaa.com',
       category: 'Beauty',
       cashback: 'Up to 18%',
       coupons: 73,
@@ -83,7 +83,7 @@ const CashStore = () => {
     {
       id: 7,
       name: 'Ajio',
-      logo: '👔',
+      logo: 'https://logo.clearbit.com/ajio.com',
       category: 'Fashion',
       cashback: 'Up to 30%',
       coupons: 56,
@@ -94,7 +94,7 @@ const CashStore = () => {
     {
       id: 8,
       name: 'BookMyShow',
-      logo: '🎬',
+      logo: 'https://logo.clearbit.com/bookmyshow.com',
       category: 'Entertainment',
       cashback: 'Up to 5%',
       coupons: 24,
@@ -104,7 +104,7 @@ const CashStore = () => {
     {
       id: 9,
       name: 'MakeMyTrip',
-      logo: '✈️',
+      logo: 'https://logo.clearbit.com/makemytrip.com',
       category: 'Travel',
       cashback: 'Up to 25%',
       coupons: 89,
@@ -115,7 +115,7 @@ const CashStore = () => {
     {
       id: 10,
       name: 'Uber',
-      logo: '🚗',
+      logo: 'https://logo.clearbit.com/uber.com',
       category: 'Travel',
       cashback: 'Up to 12%',
       coupons: 42,
@@ -125,7 +125,7 @@ const CashStore = () => {
     {
       id: 11,
       name: 'FirstCry',
-      logo: '👶',
+      logo: 'https://logo.clearbit.com/firstcry.com',
       category: 'Shopping',
       cashback: 'Up to 25%',
       coupons: 63,
@@ -135,7 +135,7 @@ const CashStore = () => {
     {
       id: 12,
       name: 'UrbanClap',
-      logo: '🔧',
+      logo: 'https://logo.clearbit.com/urbancompany.com',
       category: 'Home',
       cashback: 'Up to 20%',
       coupons: 38,
@@ -461,8 +461,16 @@ const CashStore = () => {
                   </span>
                 )}
               </div>
-              <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${brand.color} flex items-center justify-center text-3xl mb-3 mx-auto`}>
-                {brand.logo}
+              <div className="w-16 h-16 rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center p-2 mb-3 mx-auto overflow-hidden">
+                <img
+                  src={brand.logo}
+                  alt={brand.name}
+                  className="w-full h-full object-contain"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<span class="text-2xl">🏪</span>';
+                  }}
+                />
               </div>
               <h3 className="font-semibold text-center text-rez-navy dark:text-white mb-1">
                 {brand.name}

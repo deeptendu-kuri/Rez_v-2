@@ -1812,12 +1812,12 @@ const Home = () => {
 
         <div className="grid grid-cols-3 gap-3">
           {[
-            { brand: 'Nike', logo: '👟', deal: 'Up to 50% off', color: 'from-orange-500/20 to-red-500/10' },
-            { brand: 'Apple', logo: '🍎', deal: '₹10k cashback', color: 'from-blue-500/20 to-purple-500/10' },
-            { brand: 'Starbucks', logo: '☕', deal: 'Buy 1 Get 1', color: 'from-green-500/20 to-emerald-500/10' },
-            { brand: 'Zara', logo: '👗', deal: 'Extra 20% off', color: 'from-pink-500/20 to-purple-500/10' },
-            { brand: 'Samsung', logo: '📱', deal: '₹15k off TVs', color: 'from-blue-500/20 to-cyan-500/10' },
-            { brand: 'Dominos', logo: '🍕', deal: '50% on 2nd', color: 'from-red-500/20 to-orange-500/10' }
+            { brand: 'Nike', logo: 'https://logo.clearbit.com/nike.com', deal: 'Up to 50% off', color: 'from-orange-500/20 to-red-500/10' },
+            { brand: 'Apple', logo: 'https://logo.clearbit.com/apple.com', deal: '₹10k cashback', color: 'from-blue-500/20 to-purple-500/10' },
+            { brand: 'Starbucks', logo: 'https://logo.clearbit.com/starbucks.in', deal: 'Buy 1 Get 1', color: 'from-green-500/20 to-emerald-500/10' },
+            { brand: 'Zara', logo: 'https://logo.clearbit.com/zara.com', deal: 'Extra 20% off', color: 'from-pink-500/20 to-purple-500/10' },
+            { brand: 'Samsung', logo: 'https://logo.clearbit.com/samsung.com', deal: '₹15k off TVs', color: 'from-blue-500/20 to-cyan-500/10' },
+            { brand: 'Dominos', logo: 'https://logo.clearbit.com/dominos.co.in', deal: '50% on 2nd', color: 'from-red-500/20 to-orange-500/10' }
           ].map((brand, idx) => (
             <Link
               key={idx}
@@ -1825,7 +1825,9 @@ const Home = () => {
               className={`p-4 rounded-2xl bg-gradient-to-br ${brand.color} border border-white/20 hover:border-white/40 transition-all active:scale-95`}
             >
               <div className="text-center">
-                <div className="text-4xl mb-2">{brand.logo}</div>
+                <div className="w-12 h-12 mx-auto mb-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-2 flex items-center justify-center overflow-hidden">
+                  <img src={brand.logo} alt={brand.brand} className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<span class="text-2xl">🏪</span>'; }} />
+                </div>
                 <h3 className="text-sm font-bold text-rez-navy dark:text-white mb-1">{brand.brand}</h3>
                 <p className="text-xs text-rez-gray-700 dark:text-gray-300 font-semibold">{brand.deal}</p>
               </div>

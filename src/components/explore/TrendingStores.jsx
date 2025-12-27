@@ -5,7 +5,7 @@ const trendingStoresData = [
   {
     id: 1,
     name: 'Paradise Biryani',
-    logo: '🍛',
+    logo: 'https://ui-avatars.com/api/?name=Paradise+Biryani&background=FF6B35&color=fff&size=128',
     offer: '20% Cashback',
     distance: '0.8 km',
     activity: '12 people earned here today',
@@ -15,7 +15,7 @@ const trendingStoresData = [
   {
     id: 2,
     name: 'Nike Store',
-    logo: '👟',
+    logo: 'https://logo.clearbit.com/nike.com',
     offer: '15% + Bonus Coins',
     distance: '1.2 km',
     activity: '8 people shopping now',
@@ -25,7 +25,7 @@ const trendingStoresData = [
   {
     id: 3,
     name: 'Wellness Spa',
-    logo: '💆',
+    logo: 'https://ui-avatars.com/api/?name=Wellness+Spa&background=10B981&color=fff&size=128',
     offer: '25% Cashback',
     distance: '2.1 km',
     activity: '5 people booked today',
@@ -35,7 +35,7 @@ const trendingStoresData = [
   {
     id: 4,
     name: 'Fresh Mart',
-    logo: '🛒',
+    logo: 'https://ui-avatars.com/api/?name=Fresh+Mart&background=059669&color=fff&size=128',
     offer: '10% on Groceries',
     distance: '0.5 km',
     activity: '15 people bought today',
@@ -45,7 +45,7 @@ const trendingStoresData = [
   {
     id: 5,
     name: 'Cafe Noir',
-    logo: '☕',
+    logo: 'https://logo.clearbit.com/starbucks.in',
     offer: 'Buy 1 Get 1',
     distance: '0.9 km',
     activity: '20 people visited today',
@@ -82,8 +82,8 @@ const TrendingStores = () => {
             {/* Header */}
             <div className="flex items-start gap-3 mb-3">
               {/* Logo */}
-              <div className="w-14 h-14 rounded-xl bg-rez-gray-100 dark:bg-white/10 flex items-center justify-center text-3xl">
-                {store.logo}
+              <div className="w-14 h-14 rounded-xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 flex items-center justify-center p-2 overflow-hidden">
+                <img src={store.logo} alt={store.name} className="w-full h-full object-contain" onError={(e) => { e.target.style.display = 'none'; e.target.parentElement.innerHTML = '<span class="text-2xl">🏪</span>'; }} />
               </div>
 
               {/* Info */}

@@ -55,7 +55,7 @@ const CashStoreCategory = () => {
         {
           id: 1,
           name: 'MakeMyTrip',
-          logo: '✈️',
+          logo: 'https://logo.clearbit.com/makemytrip.com',
           cashback: '8%',
           maxCashback: 2000,
           rating: 4.5,
@@ -67,7 +67,7 @@ const CashStoreCategory = () => {
         {
           id: 2,
           name: 'Goibibo',
-          logo: '🛫',
+          logo: 'https://logo.clearbit.com/goibibo.com',
           cashback: '7%',
           maxCashback: 1500,
           rating: 4.4,
@@ -102,7 +102,7 @@ const CashStoreCategory = () => {
         {
           id: 5,
           name: 'Cleartrip',
-          logo: '✈️',
+          logo: 'https://logo.clearbit.com/makemytrip.com',
           cashback: '6.5%',
           maxCashback: 1500,
           rating: 4.4,
@@ -113,7 +113,7 @@ const CashStoreCategory = () => {
         {
           id: 6,
           name: 'AirAsia',
-          logo: '🛫',
+          logo: 'https://logo.clearbit.com/goibibo.com',
           cashback: '4%',
           maxCashback: 800,
           rating: 4.1,
@@ -147,7 +147,7 @@ const CashStoreCategory = () => {
         {
           id: 2,
           name: 'Booking.com',
-          logo: '🛏️',
+          logo: 'https://logo.clearbit.com/booking.com',
           cashback: '10%',
           maxCashback: 2500,
           rating: 4.7,
@@ -215,7 +215,7 @@ const CashStoreCategory = () => {
         {
           id: 1,
           name: 'Uber',
-          logo: '🚗',
+          logo: 'https://logo.clearbit.com/uber.com',
           cashback: '5%',
           maxCashback: 200,
           rating: 4.5,
@@ -228,7 +228,7 @@ const CashStoreCategory = () => {
         {
           id: 2,
           name: 'Ola',
-          logo: '🚕',
+          logo: 'https://logo.clearbit.com/olacabs.com',
           cashback: '5%',
           maxCashback: 150,
           rating: 4.4,
